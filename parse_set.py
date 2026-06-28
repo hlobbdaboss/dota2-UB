@@ -53,7 +53,7 @@ def parse_mse_set():
         print("Error: 'set' data file not found.")
         return
 
-    print("Parsing hybrid schema and mapping Scryfall tokens...")
+    print("Parsing set data and asset maps...")
     card_list = []
     current_card = None
     in_text_block = False
@@ -139,7 +139,7 @@ def parse_mse_set():
 
     import shutil
     shutil.rmtree(EXTRACT_DIR)
-    print(f"Successfully configured Scryfall framework pipeline for {len(card_list)} cards!")
+    print(f"Successfully compiled Scryfall rendering engine for {len(card_list)} cards!")
 
 def generate_html(cards):
     os.makedirs(DOCS_DIR, exist_ok=True)
@@ -152,7 +152,6 @@ def generate_html(cards):
     <meta charset="utf-8">
     <title>Dota 2 Cube Studio Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Scryfall Mana Vector Styling Asset CDN -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mana-font/1.5.1/css/mana.min.css" rel="stylesheet" type="text/css" />
     <style>
         body { font-family: system-ui, -apple-system, sans-serif; background: #121212; color: #e0e0e0; padding: 25px; margin: 0; }
@@ -198,10 +197,10 @@ def generate_html(cards):
         .card-header { margin-bottom: 5px; display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
         .card-name { font-size: 1.15em; font-weight: bold; color: #fff; max-width: 65%; }
         
-        /* Scryfall Vector Mana Sizing Engine */
         .card-mana { text-align: right; font-size: 1.1em; white-space: nowrap; display: flex; gap: 2px; justify-content: flex-end; flex-wrap: wrap; max-width: 35%; }
-        .ms { margin-left: 1px; shadow: 0 1px 2px rgba(0,0,0,0.5); }
-        .card-text .ms { font-size: 0.9em; vertical-align: middle; display: inline-block; margin: 0 1px; }
+        .ms { text-shadow: 0 1px 2px rgba(0,0,0,0.8); }
+        .card-text .ms { font-size: 1em; vertical-align: middle; display: inline-block; margin: 0 2px; background-color: #fff; color: #000; border-radius: 50%; padding: 0.5px; width: 1.1em; height: 1.1em; text-align: center; line-height: 1.1; font-weight: bold; }
+        .card-text .ms-tap, .card-text .ms-untap { background-color: #7f8c8d; color: #fff; }
 
         .card-type { font-style: italic; font-size: 0.85em; color: #888; margin-bottom: 10px; border-bottom: 1px solid #2a2a2a; padding-bottom: 4px; }
         .card-text { font-size: 0.9em; white-space: pre-wrap; line-height: 1.4; color: #bbb; flex-grow: 1; margin-bottom: 10px; }
@@ -317,34 +316,27 @@ def generate_html(cards):
         const cardsData = __CARDS_JSON_PLACEHOLDER__;
         let chart1, chart2, chart3;
 
-        // Scryfall-style parsing translation matrix engine
+        // Fixed .trim() parsing engine maps vector files accurately
         function formatManaSymbols(manaStr) {
             if (!manaStr) return '';
-            let s = manaStr.strip ? manaStr.strip() : manaStr;
+            let s = manaStr.trim ? manaStr.trim() : manaStr;
             s = s.replace(/\\s+/g, '');
             
             let outputHtml = '';
             
-            // Check if there is a generic leading integer
             let genericMatch = s.match(/^(\\d+)/);
             if (genericMatch) {
                 outputHtml += `<i class="ms ms-${genericMatch[1]} ms-cost"></i>`;
                 s = s.replace(/^\\d+/, '');
             }
             
-            // Detect and unpack complex hybrid layouts like G/W/W or B/R slashes cleanly
             if (s.includes('/')) {
                 let segments = s.split('/').filter(x => x);
                 segments.forEach(seg => {
                     let cleanSeg = seg.toLowerCase();
-                    if (cleanSeg.length > 1) {
-                        outputHtml += `<i class="ms ms-${cleanSeg} ms-cost"></i>`;
-                    } else {
-                        outputHtml += `<i class="ms ms-${cleanSeg} ms-cost"></i>`;
-                    }
+                    outputHtml += `<i class="ms ms-${cleanSeg} ms-cost"></i>`;
                 });
             } else {
-                // Read standard string fragments
                 for (let i = 0; i < s.length; i++) {
                     let char = s[i].toLowerCase();
                     if (['w','u','b','r','g','c','x'].includes(char)) {
@@ -359,17 +351,21 @@ def generate_html(cards):
             if (!textStr) return '';
             let formatted = textStr;
             
-            // Replace brackets or raw letters like {T} with Scryfall icons
-            formatted = formatted.replace(/{T}/g, '<i class="ms ms-tap ms-cost"></i>');
-            formatted = formatted.replace(/{Q}/g, '<i class="ms ms-untap ms-cost"></i>');
-            formatted = formatted.replace(/{W}/g, '<i class="ms ms-w ms-cost"></i>');
-            formatted = formatted.replace(/{U}/g, '<i class="ms ms-u ms-cost"></i>');
-            formatted = formatted.replace(/{B}/g, '<i class="ms ms-b ms-cost"></i>');
-            formatted = formatted.replace(/{R}/g, '<i class="ms ms-r ms-cost"></i>');
-            formatted = formatted.replace(/{G}/g, '<i class="ms ms-g ms-cost"></i>');
+            // Map standard text abbreviations to Vector fonts
+            formatted = formatted.replace(/T,\\s+/g, '<i class="ms ms-tap"></i>, ');
+            formatted = formatted.replace(/T:/g, '<i class="ms ms-tap"></i>:');
+            formatted = formatted.replace(/\\bW\\b/g, '<i class="ms ms-w"></i>');
+            formatted = formatted.replace(/\\bU\\b/g, '<i class="ms ms-u"></i>');
+            formatted = formatted.replace(/\\bB\\b/g, '<i class="ms ms-b"></i>');
+            formatted = formatted.replace(/\\bR\\b/g, '<i class="ms ms-r"></i>');
+            formatted = formatted.replace(/\\bG\\b/g, '<i class="ms ms-g"></i>');
             
-            // Catch numerical steps
-            formatted = formatted.replace(/{(\\d+)}/g, (m, p1) => `<i class="ms ms-${p1} ms-cost"></i>`);
+            // Map standalone numeric generic costs in text boxes
+            formatted = formatted.replace(/\\b(\\d+)\\b/g, (m, p1) => {
+                // Ignore if it looks like power/toughness ratios or numbers inside words
+                if (formatted.indexOf('/') === formatted.indexOf(m) + 1) return p1;
+                return `<i class="ms ms-${p1}"></i>`;
+            });
             return formatted;
         }
 
