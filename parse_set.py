@@ -53,7 +53,7 @@ def parse_mse_set():
         print("Error: 'set' data file not found.")
         return
 
-    print("Mapping Scryfall vector assets...")
+    print("Parsing hybrid text mappings...")
     card_list = []
     current_card = None
     in_text_block = False
@@ -134,12 +134,11 @@ def parse_mse_set():
         else:
             card['color_group'] = card['colors'][0]
 
-    card_list.sort(key=lambda c: c['cmc'])
     generate_html(card_list)
 
     import shutil
     shutil.rmtree(EXTRACT_DIR)
-    print(f"Successfully deployed Scryfall SVG maps for {len(card_list)} cards!")
+    print(f"Successfully processed suite matrix for {len(card_list)} cards!")
 
 def generate_html(cards):
     os.makedirs(DOCS_DIR, exist_ok=True)
@@ -166,7 +165,7 @@ def generate_html(cards):
         .kpi-number { font-size: 4.5em; font-weight: 800; color: #ffca28; line-height: 1; margin-bottom: 10px; }
         .kpi-label { font-size: 0.9em; text-transform: uppercase; letter-spacing: 1.5px; color: #888; font-weight: bold; text-align: center; }
 
-        .controls { background: #1a1a1a; padding: 20px; border-radius: 8px; border: 1px solid #2a2a2a; margin-bottom: 25px; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; align-items: center; }
+        .controls { background: #1a1a1a; padding: 20px; border-radius: 8px; border: 1px solid #2a2a2a; margin-bottom: 25px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; align-items: center; }
         .control-group { display: flex; flex-direction: column; gap: 5px; }
         .control-group label { font-size: 0.85em; color: #888; font-weight: bold; text-transform: uppercase; }
         .search-box, .select-box { background: #2b2b2b; border: 1px solid #444; color: #fff; padding: 10px; border-radius: 6px; font-size: 0.95em; width: 100%; box-sizing: border-box; }
@@ -174,7 +173,6 @@ def generate_html(cards):
         .reset-btn:hover { background: #ff6b81; }
         
         .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 20px; align-items: start; }
-        
         .card-container-3d { perspective: 1000px; min-height: 200px; }
         .card-inner-3d { position: relative; width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; }
         .card-container-3d.flipped .card-inner-3d { transform: rotateY(180deg); }
@@ -196,10 +194,9 @@ def generate_html(cards):
         .card-header { margin-bottom: 5px; display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
         .card-name { font-size: 1.15em; font-weight: bold; color: #fff; max-width: 65%; }
         
-        /* Direct SVG Token Formatting Framework */
-        .card-mana { text-align: right; display: flex; gap: 3px; justify-content: flex-end; flex-wrap: wrap; max-width: 35%; }
-        .svg-symbol { width: 20px; height: 20px; border-radius: 50%; box-shadow: 0 1px 3px rgba(0,0,0,0.6); vertical-align: middle; display: inline-block; }
-        .card-text .svg-symbol { width: 16px; height: 16px; margin: 0 2px; }
+        .card-mana { text-align: right; display: flex; gap: 3px; justify-content: flex-end; flex-wrap: wrap; max-width: 35%; padding-top: 2px; }
+        .svg-symbol { width: 18px; height: 18px; border-radius: 50%; box-shadow: 0 1px 2px rgba(0,0,0,0.6); vertical-align: middle; display: inline-block; }
+        .card-text .svg-symbol { width: 15px; height: 15px; margin: 0 1px; }
 
         .card-type { font-style: italic; font-size: 0.85em; color: #888; margin-bottom: 10px; border-bottom: 1px solid #2a2a2a; padding-bottom: 4px; }
         .card-text { font-size: 0.9em; white-space: pre-wrap; line-height: 1.4; color: #bbb; flex-grow: 1; margin-bottom: 10px; }
@@ -305,6 +302,14 @@ def generate_html(cards):
             </select>
         </div>
         <div class="control-group">
+            <label>Sort Order</label>
+            <select id="sortFilter" class="select-box" onchange="applyFilters()">
+                <option value="cmc">Mana Value (Low-High)</option>
+                <option value="alpha">Alphabetical (A-Z)</option>
+                <option value="power">Power (High-Low)</option>
+            </select>
+        </div>
+        <div class="control-group">
             <button class="reset-btn" onclick="resetAllFilters()">Reset Filters</button>
         </div>
     </div>
@@ -312,17 +317,16 @@ def generate_html(cards):
     <div class="card-grid" id="grid"></div>
 
     <script>
-        const cardsData = __CARDS_JSON_PLACEHOLDER__;
+        let cardsData = __CARDS_JSON_PLACEHOLDER__;
         let chart1, chart2, chart3;
 
-        // Uses Scryfall official CDN vector assets directly
+        // Cleans up hybrid notations to fetch the proper multi-color combination file
         function formatManaSymbols(manaStr) {
             if (!manaStr) return '';
             let s = manaStr.trim ? manaStr.trim() : manaStr;
             s = s.replace(/\\s+/g, '').toUpperCase();
             
             let outputHtml = '';
-            
             let genericMatch = s.match(/^(\\d+)/);
             if (genericMatch) {
                 outputHtml += `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/${genericMatch[1]}.svg" />`;
@@ -330,7 +334,6 @@ def generate_html(cards):
             }
             
             if (s.includes('/')) {
-                // Recombine split layouts into Scryfall hybrid links (e.g. B/R -> BR.svg)
                 let cleanHybrid = s.replace(/\\//g, '');
                 outputHtml += `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/${cleanHybrid}.svg" />`;
             } else {
@@ -344,24 +347,26 @@ def generate_html(cards):
             return outputHtml;
         }
 
+        // Expanded token tracking engine cleanly formats compound hybrid strings
         function formatRulesText(textStr) {
             if (!textStr) return '';
             let formatted = textStr;
             
-            // Map common core rule book abbreviations directly to Scryfall assets
-            formatted = formatted.replace(/\\bT,\\s+/g, '<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/T.svg" /> ');
+            // Format tap symbols
+            formatted = formatted.replace(/\\bT\\s*,/g, '<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/T.svg" /> ,');
             formatted = formatted.replace(/\\bT:/g, '<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/T.svg" />:');
-            formatted = formatted.replace(/\\bW\\b/g, '<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/W.svg" />');
-            formatted = formatted.replace(/\\bU\\b/g, '<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/U.svg" />');
-            formatted = formatted.replace(/\\bB\\b/g, '<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/B.svg" />');
-            formatted = formatted.replace(/\\bR\\b/g, '<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/R.svg" />');
-            formatted = formatted.replace(/\\bG\\b/g, '<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/G.svg" />');
             
-            // Map compound shortcuts like hybrid rules reminders (e.g., R/G or B/R)
-            formatted = formatted.replace(/\\b([WUBRG])\\/([WUBRG])\\b/g, (m, p1, p2) => {
-                return `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/${p1}${p2}.svg" />`;
+            // Clean up multi-slash nested combinations (like WR/WR sequences)
+            formatted = formatted.replace(/([WUBRG])\\/([WUBRG])/g, '$1$2');
+
+            // Find unified blocks like W, U, B, R, G, or compound pairs like WR, BG, etc.
+            const mtgTokens = ['WU','WB','WR','WG','UB','UR','UG','BR','BG','RG','W','U','B','R','G'];
+            mtgTokens.forEach(token => {
+                let regex = new RegExp('\\\\b' + token + '\\\\b', 'g');
+                formatted = formatted.replace(regex, `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/${token}.svg" />`);
             });
 
+            // Map generic numbered costs cleanly
             formatted = formatted.replace(/\\b(\\d+)\\b/g, (m, p1) => {
                 if (formatted.indexOf('/') === formatted.indexOf(m) + 1) return p1;
                 return `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/${p1}.svg" />`;
@@ -463,8 +468,9 @@ def generate_html(cards):
             const cmcSel = document.getElementById('cmcFilter').value;
             const typeSel = document.getElementById('typeFilter').value;
             const legendSel = document.getElementById('legendFilter').value;
+            const sortSel = document.getElementById('sortFilter').value;
 
-            const filtered = cardsData.filter(card => {
+            let filtered = cardsData.filter(card => {
                 const textHaystack = (card.name + " " + card.text + " " + card.name_2 + " " + card.text_2).toLowerCase();
                 const matchesSearch = textHaystack.includes(searchText);
                 
@@ -496,6 +502,20 @@ def generate_html(cards):
 
                 return matchesSearch && matchesColor && matchesCmc && matchesType && matchesLegend;
             });
+
+            // Handle multi-tier sorting selections dynamically
+            if (sortSel === 'alpha') {
+                filtered.sort((a, b) => a.name.localeCompare(b.name));
+            } else if (sortSel === 'power') {
+                filtered.sort((a, b) => {
+                    let pA = parseInt(a.power) || 0;
+                    let pB = parseInt(b.power) || 0;
+                    return pB - pA;
+                });
+            } else {
+                filtered.sort((a, b) => a.cmc - b.cmc);
+            }
+
             renderGrid(filtered);
         }
 
@@ -505,6 +525,7 @@ def generate_html(cards):
             document.getElementById('cmcFilter').value = 'All';
             document.getElementById('typeFilter').value = 'All';
             document.getElementById('legendFilter').value = 'All';
+            document.getElementById('sortFilter').value = 'cmc';
             applyFilters();
         }
 
