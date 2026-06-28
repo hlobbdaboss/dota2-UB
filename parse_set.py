@@ -17,18 +17,11 @@ def parse_hybrid_and_cmc(mana_string):
     if not mana_string:
         return 0, []
     
-    # Standardize spaces and splits
     raw_symbols = mana_string.strip().replace(" ", "")
-    
-    # Find any standalone generic numbers
     generic_match = re.match(r'^(\d+)', raw_symbols)
     generic_amt = int(generic_match.group(1)) if generic_match else 0
-    
-    # Strip the leading generic number to look strictly at colored symbols
     symbol_part = re.sub(r'^\d+', '', raw_symbols)
     
-    # Split by slashes to handle hybrid formats like G/W or B/R correctly
-    # If no slashes, split individual letters
     if "/" in symbol_part:
         parts = [p for p in symbol_part.split("/") if p]
         symbol_count = len(parts)
@@ -39,7 +32,6 @@ def parse_hybrid_and_cmc(mana_string):
         
     cmc = generic_amt + symbol_count
     
-    # Extract unique colors present
     colors = []
     for c in ['W', 'U', 'B', 'R', 'G']:
         if c in flat_symbols:
@@ -61,11 +53,11 @@ def parse_mse_set():
         print("Error: 'set' data file not found.")
         return
 
-    print("Parsing hybrid schema and double-faced cards...")
+    print("Parsing hybrid schema and mapping Scryfall tokens...")
     card_list = []
     current_card = None
     in_text_block = False
-    text_target = "text" # Keeps track of which face rules text belongs to
+    text_target = "text"
     text_store = {"text": [], "text_2": []}
 
     with open(set_data_path, 'r', encoding='utf-8', errors='ignore') as f:
@@ -101,7 +93,6 @@ def parse_mse_set():
             key = key.strip()
             value = value.strip()
 
-            # Front Face Mapping
             if key == "name": current_card['name'] = clean_tags(value)
             elif key == "casting_cost": current_card['mana'] = clean_tags(value)
             elif key == "super_type": current_card['super_type'] = clean_tags(value)
@@ -113,8 +104,6 @@ def parse_mse_set():
                 in_text_block = True
                 text_target = "text"
                 if value: text_store["text"].append(clean_tags(value))
-                
-            # Back Face Mapping (Double-Faced Cards)
             elif key == "name_2": current_card['name_2'] = clean_tags(value)
             elif key == "super_type_2": current_card['super_type_2'] = clean_tags(value)
             elif key == "sub_type_2": current_card['sub_type_2'] = clean_tags(value)
@@ -130,25 +119,18 @@ def parse_mse_set():
             current_card['text_2'] = "\n".join(text_store["text_2"]).strip()
             card_list.append(current_card)
 
-    # Normalize properties and run hybrid math transformations
     for card in card_list:
-        # Build Type Lines
         card['type'] = f"{card['super_type']} — {card['sub_type']}" if card['super_type'] and card['sub_type'] else (card['super_type'] if card['super_type'] else "Unknown")
         card['is_dfc'] = bool(card['name_2'].strip())
-        
         if card['is_dfc']:
             card['type_2'] = f"{card['super_type_2']} — {card['sub_type_2']}" if card['super_type_2'] and card['sub_type_2'] else (card['super_type_2'] if card['super_type_2'] else "")
-        
         card['is_legendary'] = "Legendary" in card['type'] or "Legendary" in card.get('type_2', '')
-
-        # Calculate CMC and unique Colors using the robust hybrid parser
         card['cmc'], card['colors'] = parse_hybrid_and_cmc(card['mana'])
 
-        # Determine structural guild categories for analytical charting
         if not card['colors']:
             card['color_group'] = 'Land' if "Land" in card['type'] else 'Colorless'
         elif len(card['colors']) > 1:
-            card['color_group'] = "".join(card['colors']) # Guild combination code e.g. 'BR'
+            card['color_group'] = "".join(card['colors'])
         else:
             card['color_group'] = card['colors'][0]
 
@@ -157,7 +139,7 @@ def parse_mse_set():
 
     import shutil
     shutil.rmtree(EXTRACT_DIR)
-    print(f"Successfully configured active matrix for {len(card_list)} cards!")
+    print(f"Successfully configured Scryfall framework pipeline for {len(card_list)} cards!")
 
 def generate_html(cards):
     os.makedirs(DOCS_DIR, exist_ok=True)
@@ -170,15 +152,21 @@ def generate_html(cards):
     <meta charset="utf-8">
     <title>Dota 2 Cube Studio Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Scryfall Mana Vector Styling Asset CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mana-font/1.5.1/css/mana.min.css" rel="stylesheet" type="text/css" />
     <style>
         body { font-family: system-ui, -apple-system, sans-serif; background: #121212; color: #e0e0e0; padding: 25px; margin: 0; }
         .header-row { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #222; padding-bottom: 10px; margin-bottom: 20px; }
         h1 { margin: 0; font-size: 2.2em; color: #fff; }
         
-        .dashboard-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 30px; }
+        .dashboard-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-bottom: 30px; }
         .chart-card { background: #1e1e1e; border: 1px solid #2a2a2a; border-radius: 8px; padding: 15px; height: 280px; display: flex; flex-direction: column; align-items: center; cursor: pointer; }
         .chart-card h3 { margin: 0 0 10px 0; font-size: 1em; color: #aaa; text-align: left; width: 100%; }
         .chart-container { position: relative; width: 100%; height: 100%; }
+
+        .kpi-card { background: #1e1e1e; border: 1px solid #ffca28; border-radius: 8px; padding: 15px; height: 280px; display: flex; flex-direction: column; justify-content: center; align-items: center; box-sizing: border-box; }
+        .kpi-number { font-size: 4.5em; font-weight: 800; color: #ffca28; line-height: 1; margin-bottom: 10px; }
+        .kpi-label { font-size: 0.9em; text-transform: uppercase; letter-spacing: 1.5px; color: #888; font-weight: bold; text-align: center; }
 
         .controls { background: #1a1a1a; padding: 20px; border-radius: 8px; border: 1px solid #2a2a2a; margin-bottom: 25px; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; align-items: center; }
         .control-group { display: flex; flex-direction: column; gap: 5px; }
@@ -187,9 +175,17 @@ def generate_html(cards):
         .reset-btn { background: #ff4757; border: none; color: white; padding: 11px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.95em; width: 100%; transition: background 0.2s; margin-top: 18px; }
         .reset-btn:hover { background: #ff6b81; }
         
-        .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 20px; }
-        .card { background: #1e1e1e; border-left: 5px solid #444; border-top: 1px solid #2a2a2a; border-right: 1px solid #2a2a2a; border-bottom: 1px solid #2a2a2a; border-radius: 6px; padding: 15px; display: flex; flex-direction: column; justify-content: space-between; min-height: 180px; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 20px; align-items: start; }
         
+        .card-container-3d { perspective: 1000px; min-height: 200px; }
+        .card-inner-3d { position: relative; width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; }
+        .card-container-3d.flipped .card-inner-3d { transform: rotateY(180deg); }
+        
+        .card { background: #1e1e1e; border-left: 5px solid #444; border-top: 1px solid #2a2a2a; border-right: 1px solid #2a2a2a; border-bottom: 1px solid #2a2a2a; border-radius: 6px; padding: 15px; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box; }
+        
+        .dfc-front, .dfc-back { backface-visibility: hidden; width: 100%; -webkit-backface-visibility: hidden; }
+        .dfc-back { position: absolute; top: 0; left: 0; transform: rotateY(180deg); height: 100%; display: flex; flex-direction: column; justify-content: space-between; padding: 15px; background: #1e1e1e; border-left: 5px dashed #ffca28; border-top: 1px solid #2a2a2a; border-right: 1px solid #2a2a2a; border-bottom: 1px solid #2a2a2a; border-radius: 6px; box-sizing: border-box; }
+
         .card.color-Multicolor { border-left-color: #d4af37; }
         .card.color-Colorless { border-left-color: #7a7a7a; }
         .card.color-Land { border-left-color: #8b5a2b; }
@@ -199,17 +195,20 @@ def generate_html(cards):
         .card.monocolor-R { border-left-color: #ff3333; }
         .card.monocolor-G { border-left-color: #00aa44; }
 
-        .card-header { margin-bottom: 5px; display: flex; justify-content: space-between; align-items: flex-start; }
-        .card-name { font-size: 1.15em; font-weight: bold; color: #fff; max-width: 70%; }
-        .card-mana { color: #ffca28; font-weight: bold; word-break: break-all; text-align: right; font-size: 0.95em; }
+        .card-header { margin-bottom: 5px; display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+        .card-name { font-size: 1.15em; font-weight: bold; color: #fff; max-width: 65%; }
+        
+        /* Scryfall Vector Mana Sizing Engine */
+        .card-mana { text-align: right; font-size: 1.1em; white-space: nowrap; display: flex; gap: 2px; justify-content: flex-end; flex-wrap: wrap; max-width: 35%; }
+        .ms { margin-left: 1px; shadow: 0 1px 2px rgba(0,0,0,0.5); }
+        .card-text .ms { font-size: 0.9em; vertical-align: middle; display: inline-block; margin: 0 1px; }
+
         .card-type { font-style: italic; font-size: 0.85em; color: #888; margin-bottom: 10px; border-bottom: 1px solid #2a2a2a; padding-bottom: 4px; }
         .card-text { font-size: 0.9em; white-space: pre-wrap; line-height: 1.4; color: #bbb; flex-grow: 1; margin-bottom: 10px; }
-        
-        /* DFC Dividers */
-        .dfc-separator { border-top: 1px dashed #444; margin: 12px 0; padding-top: 8px; position: relative; }
-        .dfc-badge { position: absolute; top: -10px; right: 0; background: #333; color: #aaa; font-size: 0.7em; padding: 1px 4px; border-radius: 3px; font-weight: bold; text-transform: uppercase; }
+        .flip-btn { background: #333; border: 1px solid #555; color: #ffca28; font-size: 0.75em; padding: 3px 8px; border-radius: 4px; cursor: pointer; font-weight: bold; display: flex; align-items: center; gap: 4px; }
+        .flip-btn:hover { background: #444; }
 
-        .card-footer { display: flex; justify-content: space-between; align-items: center; font-size: 0.85em; color: #777; margin-top: auto; }
+        .card-footer { display: flex; justify-content: space-between; align-items: center; font-size: 0.85em; color: #777; margin-top: auto; width: 100%; box-sizing: border-box; }
         .rarity-tag { text-transform: uppercase; font-size: 0.8em; padding: 2px 6px; border-radius: 4px; font-weight: bold; }
         .rarity-common { background: #333; color: #bbb; }
         .rarity-uncommon { background: #4b6584; color: #fff; }
@@ -224,23 +223,25 @@ def generate_html(cards):
         <h1>Dota 2 Cube — Creative Suite</h1>
     </div>
 
-    <!-- PowerBI Interactive Charts Strip -->
     <div class="dashboard-row">
-        <div class="chart-card">
+        <div class="kpi-card">
+            <div class="kpi-number" id="kpiCounter">0</div>
+            <div class="kpi-label" id="kpiLabel">Cards Selected</div>
+        </div>
+        <div class="chart-card" style="grid-column: span 2;">
             <h3>Color / Guild Balance (Click bars to filter)</h3>
             <div class="chart-container"><canvas id="colorChart"></canvas></div>
         </div>
         <div class="chart-card">
-            <h3>Mana Curve (Click bars to filter)</h3>
+            <h3>Mana Curve</h3>
             <div class="chart-container"><canvas id="manaChart"></canvas></div>
         </div>
         <div class="chart-card">
-            <h3>Card Types (Click sections to filter)</h3>
+            <h3>Card Types</h3>
             <div class="chart-container"><canvas id="typeChart"></canvas></div>
         </div>
     </div>
 
-    <!-- Dashboard Filtering Controllers Matrix -->
     <div class="controls">
         <div class="control-group">
             <label>Search Content</label>
@@ -314,13 +315,74 @@ def generate_html(cards):
 
     <script>
         const cardsData = __CARDS_JSON_PLACEHOLDER__;
-        
-        // Global references for chart objects so we can query clicks
         let chart1, chart2, chart3;
+
+        // Scryfall-style parsing translation matrix engine
+        function formatManaSymbols(manaStr) {
+            if (!manaStr) return '';
+            let s = manaStr.strip ? manaStr.strip() : manaStr;
+            s = s.replace(/\\s+/g, '');
+            
+            let outputHtml = '';
+            
+            // Check if there is a generic leading integer
+            let genericMatch = s.match(/^(\\d+)/);
+            if (genericMatch) {
+                outputHtml += `<i class="ms ms-${genericMatch[1]} ms-cost"></i>`;
+                s = s.replace(/^\\d+/, '');
+            }
+            
+            // Detect and unpack complex hybrid layouts like G/W/W or B/R slashes cleanly
+            if (s.includes('/')) {
+                let segments = s.split('/').filter(x => x);
+                segments.forEach(seg => {
+                    let cleanSeg = seg.toLowerCase();
+                    if (cleanSeg.length > 1) {
+                        outputHtml += `<i class="ms ms-${cleanSeg} ms-cost"></i>`;
+                    } else {
+                        outputHtml += `<i class="ms ms-${cleanSeg} ms-cost"></i>`;
+                    }
+                });
+            } else {
+                // Read standard string fragments
+                for (let i = 0; i < s.length; i++) {
+                    let char = s[i].toLowerCase();
+                    if (['w','u','b','r','g','c','x'].includes(char)) {
+                        outputHtml += `<i class="ms ms-${char} ms-cost"></i>`;
+                    }
+                }
+            }
+            return outputHtml;
+        }
+
+        function formatRulesText(textStr) {
+            if (!textStr) return '';
+            let formatted = textStr;
+            
+            // Replace brackets or raw letters like {T} with Scryfall icons
+            formatted = formatted.replace(/{T}/g, '<i class="ms ms-tap ms-cost"></i>');
+            formatted = formatted.replace(/{Q}/g, '<i class="ms ms-untap ms-cost"></i>');
+            formatted = formatted.replace(/{W}/g, '<i class="ms ms-w ms-cost"></i>');
+            formatted = formatted.replace(/{U}/g, '<i class="ms ms-u ms-cost"></i>');
+            formatted = formatted.replace(/{B}/g, '<i class="ms ms-b ms-cost"></i>');
+            formatted = formatted.replace(/{R}/g, '<i class="ms ms-r ms-cost"></i>');
+            formatted = formatted.replace(/{G}/g, '<i class="ms ms-g ms-cost"></i>');
+            
+            // Catch numerical steps
+            formatted = formatted.replace(/{(\\d+)}/g, (m, p1) => `<i class="ms ms-${p1} ms-cost"></i>`);
+            return formatted;
+        }
+
+        function toggleFlip(btn) {
+            const container = btn.closest('.card-container-3d');
+            container.classList.toggle('flipped');
+        }
 
         function renderGrid(filteredCards) {
             const grid = document.getElementById('grid');
             grid.innerHTML = '';
+            
+            document.getElementById('kpiCounter').innerText = filteredCards.length;
             
             filteredCards.forEach(card => {
                 let ptDisplay = (card.power || card.toughness) ? `<div class="card-pt">${card.power}/${card.toughness}</div>` : '<div></div>';
@@ -332,42 +394,70 @@ def generate_html(cards):
                     borderClass = 'color-Multicolor';
                 }
 
-                // Handle Double-Faced Back Side HTML rendering expansion
                 let backFaceHtml = '';
                 if (card.is_dfc) {
-                    const backPt = (card.power_2 || card.toughness_2) ? `<div class="card-pt" style="margin-top:5px;">${card.power_2}/${card.toughness_2}</div>` : '';
+                    const backPt = (card.power_2 || card.toughness_2) ? `<div class="card-pt">${card.power_2}/${card.toughness_2}</div>` : '<div></div>';
                     backFaceHtml = `
-                        <div class="dfc-separator">
-                            <span class="dfc-badge">Back Face</span>
-                            <div class="card-header">
-                                <div class="card-name">${card.name_2}</div>
+                        <div class="dfc-back">
+                            <div>
+                                <div class="card-header">
+                                    <div class="card-name">${card.name_2}</div>
+                                    <span class="card-mana"><i class="ms ms-dfc ms-cost"></i></span>
+                                </div>
+                                <div class="card-type">${card.type_2}</div>
+                                <div class="card-text">${formatRulesText(card.text_2)}</div>
                             </div>
-                            <div class="card-type">${card.type_2}</div>
-                            <div class="card-text">${card.text_2}</div>
-                            ${backPt}
+                            <div class="card-footer" style="margin-top: 12px;">
+                                <button class="flip-btn" onclick="toggleFlip(this)">Transform 🔄</button>
+                                ${backPt}
+                            </div>
                         </div>
                     `;
                 }
 
-                const cardEl = document.createElement('div');
-                cardEl.className = `card ${borderClass}`;
-                
-                cardEl.innerHTML = `
-                    <div>
-                        <div class="card-header">
-                            <div class="card-name">${card.name}</div>
-                            <span class="card-mana">${card.mana ? card.mana : '0'}</span>
+                if (!card.is_dfc) {
+                    const cardEl = document.createElement('div');
+                    cardEl.className = `card ${borderClass}`;
+                    cardEl.innerHTML = `
+                        <div>
+                            <div class="card-header">
+                                <div class="card-name">${card.name}</div>
+                                <span class="card-mana">${formatManaSymbols(card.mana)}</span>
+                            </div>
+                            <div class="card-type">${card.type}</div>
+                            <div class="card-text">${formatRulesText(card.text)}</div>
                         </div>
-                        <div class="card-type">${card.type}</div>
-                        <div class="card-text">${card.text}</div>
-                        ${backFaceHtml}
-                    </div>
-                    <div class="card-footer" style="margin-top: 12px;">
-                        <span class="rarity-tag rarity-${card.rarity}">CMC ${card.cmc} — ${card.rarity}</span>
-                        ${card.is_dfc ? '<div></div>' : ptDisplay}
-                    </div>
-                `;
-                grid.appendChild(cardEl);
+                        <div class="card-footer" style="margin-top: 12px;">
+                            <span class="rarity-tag rarity-${card.rarity}">CMC ${card.cmc} — ${card.rarity}</span>
+                            ${ptDisplay}
+                        </div>
+                    `;
+                    grid.appendChild(cardEl);
+                } else {
+                    const containerEl = document.createElement('div');
+                    containerEl.className = 'card-container-3d';
+                    
+                    containerEl.innerHTML = `
+                        <div class="card-inner-3d">
+                            <div class="card dfc-front ${borderClass}">
+                                <div>
+                                    <div class="card-header">
+                                        <div class="card-name">${card.name}</div>
+                                        <span class="card-mana">${formatManaSymbols(card.mana)}</span>
+                                    </div>
+                                    <div class="card-type">${card.type}</div>
+                                    <div class="card-text">${formatRulesText(card.text)}</div>
+                                </div>
+                                <div class="card-footer" style="margin-top: 12px;">
+                                    <button class="flip-btn" onclick="toggleFlip(this)">Transform 🔄</button>
+                                    ${ptDisplay}
+                                </div>
+                            </div>
+                            ${backFaceHtml}
+                        </div>
+                    `;
+                    grid.appendChild(containerEl);
+                }
             });
         }
 
@@ -442,23 +532,15 @@ def generate_html(cards):
 
             const labelKeys = ['W', 'U', 'B', 'R', 'G', 'WU', 'WB', 'WR', 'WG', 'UB', 'UR', 'UG', 'BR', 'BG', 'RG', 'Colorless', 'Land'];
             const displayLabels = ['W', 'U', 'B', 'R', 'G', 'Azorius', 'Orzhov', 'Boros', 'Selesnya', 'Dimir', 'Izzet', 'Simic', 'Rakdos', 'Golgari', 'Gruul', 'Colorless', 'Land'];
-            
-            // Added high-contrast white/light borders for black bars and dark themes
             const chartColors = ['#f0f2c5', '#0077ff', '#242424', '#ff3333', '#00aa44', '#70a1ff', '#747d8c', '#ff6b81', '#2ed573', '#57606f', '#ff7f50', '#1e90ff', '#ff4757', '#a4b0be', '#ffa502', '#7a7a7a', '#8b5a2b'];
             const dynamicData = labelKeys.map(k => colorMap[k] || 0);
 
-            // 1. Color Profile Chart
             const ctx1 = document.getElementById('colorChart');
             chart1 = new Chart(ctx1, {
                 type: 'bar',
                 data: {
                     labels: displayLabels,
-                    datasets: [{
-                        data: dynamicData,
-                        backgroundColor: chartColors,
-                        borderColor: '#555',
-                        borderWidth: 1.5
-                    }]
+                    datasets: [{ data: dynamicData, backgroundColor: chartColors, borderColor: '#555', borderWidth: 1.5 }]
                 },
                 options: { 
                     responsive: true, 
@@ -474,7 +556,6 @@ def generate_html(cards):
                 }
             });
 
-            // 2. CMC Curve Chart
             const maxCmc = Math.max(...Object.keys(cmcCounts).map(Number), 0);
             const cmcLabels = Array.from({length: maxCmc + 1}, (_, i) => i);
             const cmcData = cmcLabels.map(l => cmcCounts[l] || 0);
@@ -501,19 +582,13 @@ def generate_html(cards):
                 }
             });
 
-            // 3. Type Pie Chart
             const ctx3 = document.getElementById('typeChart');
             const typeKeys = Object.keys(typeCounts);
             chart3 = new Chart(ctx3, {
                 type: 'doughnut',
                 data: {
                     labels: typeKeys,
-                    datasets: [{ 
-                        data: Object.values(typeCounts), 
-                        backgroundColor: ['#2ecc71','#3498db','#9b59b6','#e67e22','#f1c40f','#e74c3c','#95a5a6'],
-                        borderColor: '#222',
-                        borderWidth: 1.5
-                    }]
+                    datasets: [{ data: Object.values(typeCounts), backgroundColor: ['#2ecc71','#3498db','#9b59b6','#e67e22','#f1c40f','#e74c3c','#95a5a6'], borderColor: '#222', borderWidth: 1.5 }]
                 },
                 options: { 
                     responsive: true, 
