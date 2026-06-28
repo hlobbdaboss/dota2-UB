@@ -20,7 +20,6 @@ def parse_hybrid_and_cmc(mana_string):
     raw_symbols = mana_string.strip().replace(" ", "").upper()
     mana_symbols_list = []
     
-    # 1. Capture and isolate leading generic integers
     generic_match = re.match(r'^(\d+)', raw_symbols)
     generic_amt = int(generic_match.group(1)) if generic_match else 0
     if generic_match:
@@ -28,8 +27,6 @@ def parse_hybrid_and_cmc(mana_string):
         
     symbol_part = re.sub(r'^\d+', '', raw_symbols)
     
-    # 2. Extract explicit hybrid pairs matching MSE's underlying shorthand notation format
-    # Looks for matches like R/W, G/W, etc., and pulls individual trailing letters as fallbacks.
     pattern = re.compile(r'([WUBRGCX]\/[WUBRGCX]|[WUBRGCX])')
     parts = pattern.findall(symbol_part)
     
@@ -39,12 +36,10 @@ def parse_hybrid_and_cmc(mana_string):
         if len(clean_part) == 1:
             mana_symbols_list.append(clean_part)
         else:
-            # Alphabetize the combined hybrid string to perfectly match Scryfall (e.g. RW or WR -> RW)
             mana_symbols_list.append("".join(sorted(list(clean_part))))
             
     cmc = generic_amt + symbol_count
     
-    # Flatten everything to find colors for grouping stats
     flat_symbols = "".join(parts).replace("/", "")
     colors = []
     for c in ['W', 'U', 'B', 'R', 'G']:
@@ -158,6 +153,9 @@ def parse_mse_set():
             card['type_2'] = f"{card['super_type_2']} — {card['sub_type_2']}" if card['super_type_2'] and card['sub_type_2'] else (card['super_type_2'] if card['super_type_2'] else "")
         card['is_legendary'] = "Legendary" in card['type'] or "Legendary" in card.get('type_2', '')
         
+        # Uses .get() safely to shield single-faced cards from throwing KeyError exceptions
+        card['is_token'] = "TOKEN" in card['type'].upper() or ("TOKEN" in card.get('type_2', '').upper() if card.get('type_2') else False)
+        
         card['cmc'], card['colors'], card['mana_symbols'] = parse_hybrid_and_cmc(card['mana'])
 
         if not card['colors']:
@@ -172,7 +170,7 @@ def parse_mse_set():
 
     import shutil
     shutil.rmtree(EXTRACT_DIR)
-    print(f"Successfully processed suite matrix for {len(card_list)} cards!")
+    print(f"Successfully processed suite matrix with token isolation for {len(card_list)} cards!")
 
 def generate_html(cards):
     os.makedirs(DOCS_DIR, exist_ok=True)
@@ -206,6 +204,7 @@ def generate_html(cards):
         .reset-btn { background: #ff4757; border: none; color: white; padding: 11px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.95em; width: 100%; transition: background 0.2s; margin-top: 18px; }
         .reset-btn:hover { background: #ff6b81; }
         
+        .section-divider { font-size: 1.5em; font-weight: bold; color: #ffca28; margin: 40px 0 15px 0; border-bottom: 1px solid #333; padding-bottom: 5px; }
         .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 20px; align-items: start; }
         .card-container-3d { perspective: 1000px; min-height: 200px; }
         .card-inner-3d { position: relative; width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; }
@@ -255,7 +254,7 @@ def generate_html(cards):
     <div class="dashboard-row">
         <div class="kpi-card">
             <div class="kpi-number" id="kpiCounter">0</div>
-            <div class="kpi-label" id="kpiLabel">Cards Selected</div>
+            <div class="kpi-label" id="kpiLabel">Draft Cards</div>
         </div>
         <div class="chart-card" style="grid-column: span 2;">
             <h3>Color / Guild Balance (Click bars to filter)</h3>
@@ -348,7 +347,11 @@ def generate_html(cards):
         </div>
     </div>
 
+    <div class="section-divider">Cube Cards</div>
     <div class="card-grid" id="grid"></div>
+
+    <div class="section-divider">Token Manifest Bank</div>
+    <div class="card-grid" id="tokenGrid"></div>
 
     <script>
         let cardsData = __CARDS_JSON_PLACEHOLDER__;
@@ -368,47 +371,40 @@ def generate_html(cards):
             container.classList.toggle('flipped');
         }
 
-        function renderGrid(filteredCards) {
-            const grid = document.getElementById('grid');
-            grid.innerHTML = '';
+        function buildCardHtml(card) {
+            let ptDisplay = (card.power || card.toughness) ? `<div class="card-pt">${card.power}/${card.toughness}</div>` : '<div></div>';
             
-            document.getElementById('kpiCounter').innerText = filteredCards.length;
-            
-            filteredCards.forEach(card => {
-                let ptDisplay = (card.power || card.toughness) ? `<div class="card-pt">${card.power}/${card.toughness}</div>` : '<div></div>';
-                
-                let borderClass = `color-${card.color_group}`;
-                if (card.colors.length === 1) {
-                    borderClass = `monocolor-${card.colors[0]}`;
-                } else if (card.colors.length > 1) {
-                    borderClass = 'color-Multicolor';
-                }
+            let borderClass = `color-${card.color_group}`;
+            if (card.colors.length === 1) {
+                borderClass = `monocolor-${card.colors[0]}`;
+            } else if (card.colors.length > 1) {
+                borderClass = 'color-Multicolor';
+            }
 
-                let backFaceHtml = '';
-                if (card.is_dfc) {
-                    const backPt = (card.power_2 || card.toughness_2) ? `<div class="card-pt">${card.power_2}/${card.toughness_2}</div>` : '<div></div>';
-                    backFaceHtml = `
-                        <div class="dfc-back">
-                            <div>
-                                <div class="card-header">
-                                    <div class="card-name">${card.name_2}</div>
-                                    <span class="card-mana"><img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/CARD.svg" /></span>
-                                </div>
-                                <div class="card-type">${card.type_2}</div>
-                                <div class="card-text">${card.text_2}</div>
+            let backFaceHtml = '';
+            if (card.is_dfc) {
+                const backPt = (card.power_2 || card.toughness_2) ? `<div class="card-pt">${card.power_2}/${card.toughness_2}</div>` : '<div></div>';
+                backFaceHtml = `
+                    <div class="dfc-back">
+                        <div>
+                            <div class="card-header">
+                                <div class="card-name">${card.name_2}</div>
+                                <span class="card-mana"><img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/CARD.svg" /></span>
                             </div>
-                            <div class="card-footer" style="margin-top: 12px;">
-                                <button class="flip-btn" onclick="toggleFlip(this)">Transform 🔄</button>
-                                ${backPt}
-                            </div>
+                            <div class="card-type">${card.type_2}</div>
+                            <div class="card-text">${card.text_2}</div>
                         </div>
-                    `;
-                }
+                        <div class="card-footer" style="margin-top: 12px;">
+                            <button class="flip-btn" onclick="toggleFlip(this)">Transform 🔄</button>
+                            ${backPt}
+                        </div>
+                    </div>
+                `;
+            }
 
-                if (!card.is_dfc) {
-                    const cardEl = document.createElement('div');
-                    cardEl.className = `card ${borderClass}`;
-                    cardEl.innerHTML = `
+            if (!card.is_dfc) {
+                return `
+                    <div class="card ${borderClass}">
                         <div>
                             <div class="card-header">
                                 <div class="card-name">${card.name}</div>
@@ -421,13 +417,11 @@ def generate_html(cards):
                             <span class="rarity-tag rarity-${card.rarity}">CMC ${card.cmc} — ${card.rarity}</span>
                             ${ptDisplay}
                         </div>
-                    `;
-                    grid.appendChild(cardEl);
-                } else {
-                    const containerEl = document.createElement('div');
-                    containerEl.className = 'card-container-3d';
-                    
-                    containerEl.innerHTML = `
+                    </div>
+                `;
+            } else {
+                return `
+                    <div class="card-container-3d">
                         <div class="card-inner-3d">
                             <div class="card dfc-front ${borderClass}">
                                 <div>
@@ -445,10 +439,25 @@ def generate_html(cards):
                             </div>
                             ${backFaceHtml}
                         </div>
-                    `;
-                    grid.appendChild(containerEl);
-                }
-            });
+                    </div>
+                `;
+            }
+        }
+
+        function renderGrid(filteredCards) {
+            const grid = document.getElementById('grid');
+            const tokenGrid = document.getElementById('tokenGrid');
+            
+            grid.innerHTML = '';
+            tokenGrid.innerHTML = '';
+            
+            const draftCards = filteredCards.filter(c => !c.is_token);
+            const tokenCards = filteredCards.filter(c => c.is_token);
+            
+            document.getElementById('kpiCounter').innerText = draftCards.length;
+            
+            draftCards.forEach(card => { grid.innerHTML += buildCardHtml(card); });
+            tokenCards.forEach(card => { tokenGrid.innerHTML += buildCardHtml(card); });
         }
 
         function applyFilters() {
@@ -520,11 +529,13 @@ def generate_html(cards):
         document.getElementById('search').addEventListener('input', applyFilters);
 
         function buildCharts() {
+            const coreCards = cardsData.filter(c => !c.is_token);
+            
             const colorMap = {};
             const cmcCounts = {};
             const typeCounts = { Creature:0, Sorcery:0, Instant:0, Artifact:0, Enchantment:0, Planeswalker:0, Other:0 };
 
-            cardsData.forEach(c => {
+            coreCards.forEach(c => {
                 colorMap[c.color_group] = (colorMap[c.color_group] || 0) + 1;
                 cmcCounts[c.cmc] = (cmcCounts[c.cmc] || 0) + 1;
                 
