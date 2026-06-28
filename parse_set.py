@@ -20,6 +20,7 @@ def parse_hybrid_and_cmc(mana_string):
     raw_symbols = mana_string.strip().replace(" ", "").upper()
     mana_symbols_list = []
     
+    # 1. Capture and isolate leading generic integers
     generic_match = re.match(r'^(\d+)', raw_symbols)
     generic_amt = int(generic_match.group(1)) if generic_match else 0
     if generic_match:
@@ -27,6 +28,7 @@ def parse_hybrid_and_cmc(mana_string):
         
     symbol_part = re.sub(r'^\d+', '', raw_symbols)
     
+    # 2. Split strictly by slash delimiters to parse compound hybrid tokens
     if "/" in symbol_part:
         parts = [p for p in symbol_part.split("/") if p]
         symbol_count = len(parts)
@@ -34,6 +36,7 @@ def parse_hybrid_and_cmc(mana_string):
             if len(part) == 1:
                 mana_symbols_list.append(part)
             else:
+                # Alphabetize multi-character fragments (e.g., WG -> GW) to match Scryfall's exact file names
                 mana_symbols_list.append("".join(sorted(list(part))))
         flat_symbols = "".join(parts)
     else:
@@ -353,7 +356,6 @@ def generate_html(cards):
         let cardsData = __CARDS_JSON_PLACEHOLDER__;
         let chart1, chart2, chart3;
 
-        // Clean frontend loop reads the pre-computed array flawlessly
         function formatManaSymbols(manaSymbolsArray) {
             if (!manaSymbolsArray || manaSymbolsArray.length === 0) return '';
             let outputHtml = '';
