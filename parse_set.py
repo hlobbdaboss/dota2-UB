@@ -53,7 +53,7 @@ def parse_mse_set():
         print("Error: 'set' data file not found.")
         return
 
-    print("Parsing hybrid text mappings...")
+    print("Parsing hybrid schema assets...")
     card_list = []
     current_card = None
     in_text_block = False
@@ -138,7 +138,7 @@ def parse_mse_set():
 
     import shutil
     shutil.rmtree(EXTRACT_DIR)
-    print(f"Successfully processed suite matrix for {len(card_list)} cards!")
+    print(f"Successfully fixed loop parser schemas for {len(card_list)} cards!")
 
 def generate_html(cards):
     os.makedirs(DOCS_DIR, exist_ok=True)
@@ -196,7 +196,7 @@ def generate_html(cards):
         
         .card-mana { text-align: right; display: flex; gap: 3px; justify-content: flex-end; flex-wrap: wrap; max-width: 35%; padding-top: 2px; }
         .svg-symbol { width: 18px; height: 18px; border-radius: 50%; box-shadow: 0 1px 2px rgba(0,0,0,0.6); vertical-align: middle; display: inline-block; }
-        .card-text .svg-symbol { width: 15px; height: 15px; margin: 0 1px; }
+        .card-text .svg-symbol { width: 15px; height: 15px; margin: 0 1px; vertical-align: -2px; }
 
         .card-type { font-style: italic; font-size: 0.85em; color: #888; margin-bottom: 10px; border-bottom: 1px solid #2a2a2a; padding-bottom: 4px; }
         .card-text { font-size: 0.9em; white-space: pre-wrap; line-height: 1.4; color: #bbb; flex-grow: 1; margin-bottom: 10px; }
@@ -320,7 +320,6 @@ def generate_html(cards):
         let cardsData = __CARDS_JSON_PLACEHOLDER__;
         let chart1, chart2, chart3;
 
-        // Cleans up hybrid notations to fetch the proper multi-color combination file
         function formatManaSymbols(manaStr) {
             if (!manaStr) return '';
             let s = manaStr.trim ? manaStr.trim() : manaStr;
@@ -347,26 +346,30 @@ def generate_html(cards):
             return outputHtml;
         }
 
-        // Expanded token tracking engine cleanly formats compound hybrid strings
+        // Dedicated granular split engine parses hybrid activations with perfect isolation
         function formatRulesText(textStr) {
             if (!textStr) return '';
             let formatted = textStr;
             
-            // Format tap symbols
-            formatted = formatted.replace(/\\bT\\s*,/g, '<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/T.svg" /> ,');
-            formatted = formatted.replace(/\\bT:/g, '<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/T.svg" />:');
+            // Format tap activation notation tags explicitly
+            formatted = formatted.replace(/\\bT\\s*,/gi, '<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/T.svg" /> ,');
+            formatted = formatted.replace(/\\bT:/gi, '<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/T.svg" />:');
             
-            // Clean up multi-slash nested combinations (like WR/WR sequences)
-            formatted = formatted.replace(/([WUBRG])\\/([WUBRG])/g, '$1$2');
+            // Target isolated single-character hybrid components (e.g., R/W) step by step
+            // without condensing sequences like R/W R/W R/W into a single word blocks
+            formatted = formatted.replace(/([WUBRGCX])\\/([WUBRGCX])/gi, (match, p1, p2) => {
+                const combined = (p1 + p2).toUpperCase();
+                return `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/${combined}.svg" />`;
+            });
 
-            // Find unified blocks like W, U, B, R, G, or compound pairs like WR, BG, etc.
-            const mtgTokens = ['WU','WB','WR','WG','UB','UR','UG','BR','BG','RG','W','U','B','R','G'];
-            mtgTokens.forEach(token => {
+            // Parse remaining baseline monocolor letters
+            const monoTokens = ['W', 'U', 'B', 'R', 'G', 'C'];
+            monoTokens.forEach(token => {
                 let regex = new RegExp('\\\\b' + token + '\\\\b', 'g');
                 formatted = formatted.replace(regex, `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/${token}.svg" />`);
             });
 
-            // Map generic numbered costs cleanly
+            // Map standard text block integers
             formatted = formatted.replace(/\\b(\\d+)\\b/g, (m, p1) => {
                 if (formatted.indexOf('/') === formatted.indexOf(m) + 1) return p1;
                 return `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/${p1}.svg" />`;
@@ -503,7 +506,6 @@ def generate_html(cards):
                 return matchesSearch && matchesColor && matchesCmc && matchesType && matchesLegend;
             });
 
-            // Handle multi-tier sorting selections dynamically
             if (sortSel === 'alpha') {
                 filtered.sort((a, b) => a.name.localeCompare(b.name));
             } else if (sortSel === 'power') {
