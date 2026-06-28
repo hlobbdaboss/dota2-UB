@@ -18,9 +18,8 @@ def parse_hybrid_and_cmc(mana_string):
         return 0, [], []
     
     raw_symbols = mana_string.strip().replace(" ", "").upper()
-    
-    # Pre-compute explicit canonical symbol tags for Scryfall SVGs
     mana_symbols_list = []
+    
     generic_match = re.match(r'^(\d+)', raw_symbols)
     generic_amt = int(generic_match.group(1)) if generic_match else 0
     if generic_match:
@@ -35,7 +34,6 @@ def parse_hybrid_and_cmc(mana_string):
             if len(part) == 1:
                 mana_symbols_list.append(part)
             else:
-                # Canonical alphabetization ensures pairs like WG correctly map to GW.svg
                 mana_symbols_list.append("".join(sorted(list(part))))
         flat_symbols = "".join(parts)
     else:
@@ -159,7 +157,6 @@ def parse_mse_set():
             card['type_2'] = f"{card['super_type_2']} — {card['sub_type_2']}" if card['super_type_2'] and card['sub_type_2'] else (card['super_type_2'] if card['super_type_2'] else "")
         card['is_legendary'] = "Legendary" in card['type'] or "Legendary" in card.get('type_2', '')
         
-        # Pull pre-computed mana symbol keys directly from the parsing engine
         card['cmc'], card['colors'], card['mana_symbols'] = parse_hybrid_and_cmc(card['mana'])
 
         if not card['colors']:
@@ -174,7 +171,7 @@ def parse_mse_set():
 
     import shutil
     shutil.rmtree(EXTRACT_DIR)
-    print(f"Successfully configured active metrics dashboard for {len(card_list)} cards!")
+    print(f"Successfully processed suite matrix for {len(card_list)} cards!")
 
 def generate_html(cards):
     os.makedirs(DOCS_DIR, exist_ok=True)
