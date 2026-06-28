@@ -45,14 +45,14 @@ def substitute_mse_symbols(text):
             return '<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/Q.svg" />'
         return f'<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/{sym}.svg" />'
 
-    # Safely convert strict symbol framework tags directly to Scryfall assets
     text = re.sub(r'<sym(?:-auto)?>([^<]+)</sym(?:-auto)?>', replace_sym, text)
     return text
 
 def clean_tags(text):
     if not text:
         return ""
-    clean = re.sub(r'<[^>]+>', '', text)
+    # Strips all XML/HTML tags EXCEPT <img> elements
+    clean = re.sub(r'<(?!img\b)[^>]+>', '', text)
     return clean.strip()
 
 def parse_mse_set():
@@ -69,7 +69,7 @@ def parse_mse_set():
         print("Error: 'set' data file not found.")
         return
 
-    print("Parsing tag structures target boundaries...")
+    print("Parsing text layout constraints safely...")
     card_list = []
     current_card = None
     in_text_block = False
@@ -96,7 +96,6 @@ def parse_mse_set():
 
             if in_text_block:
                 if line.startswith("\t\t") or line.startswith("  "):
-                    # Process symbols BEFORE stripping structural HTML tags
                     processed_line = substitute_mse_symbols(line)
                     text_store[text_target].append(clean_tags(processed_line))
                     continue
@@ -157,7 +156,7 @@ def parse_mse_set():
 
     import shutil
     shutil.rmtree(EXTRACT_DIR)
-    print(f"Successfully processed tag isolation layout maps for {len(card_list)} cards!")
+    print(f"Successfully processed suite matrix for {len(card_list)} cards!")
 
 def generate_html(cards):
     os.makedirs(DOCS_DIR, exist_ok=True)
