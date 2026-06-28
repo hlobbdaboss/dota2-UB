@@ -7,21 +7,42 @@ MSE_FILE_PATH = "/Users/Harrison_1/Desktop/Full-Magic-Pack-main/Sets/Dota Set.ms
 EXTRACT_DIR = "./temp_mse"
 DOCS_DIR = "./docs"
 
+def clean_tags(text):
+    if not text:
+        return ""
+    clean = re.sub(r'<(?!img\b)[^>]+>', '', text)
+    return clean.strip()
+
 def parse_hybrid_and_cmc(mana_string):
     if not mana_string:
-        return 0, []
+        return 0, [], []
     
-    raw_symbols = mana_string.strip().replace(" ", "")
+    raw_symbols = mana_string.strip().replace(" ", "").upper()
+    
+    # Pre-compute explicit canonical symbol tags for Scryfall SVGs
+    mana_symbols_list = []
     generic_match = re.match(r'^(\d+)', raw_symbols)
     generic_amt = int(generic_match.group(1)) if generic_match else 0
+    if generic_match:
+        mana_symbols_list.append(generic_match.group(1))
+        
     symbol_part = re.sub(r'^\d+', '', raw_symbols)
     
     if "/" in symbol_part:
         parts = [p for p in symbol_part.split("/") if p]
         symbol_count = len(parts)
+        for part in parts:
+            if len(part) == 1:
+                mana_symbols_list.append(part)
+            else:
+                # Canonical alphabetization ensures pairs like WG correctly map to GW.svg
+                mana_symbols_list.append("".join(sorted(list(part))))
         flat_symbols = "".join(parts)
     else:
         symbol_count = len(symbol_part)
+        for char in symbol_part:
+            if char in ['W','U','B','R','G','C','X']:
+                mana_symbols_list.append(char)
         flat_symbols = symbol_part
         
     cmc = generic_amt + symbol_count
@@ -31,14 +52,16 @@ def parse_hybrid_and_cmc(mana_string):
         if c in flat_symbols:
             colors.append(c)
             
-    return cmc, colors
+    return cmc, colors, mana_symbols_list
 
 def substitute_mse_symbols(text):
     if not text:
         return ""
         
     def replace_sym(match):
-        sym = match.group(1).upper().replace(" ", "").replace("/", "")
+        sym = match.group(1).upper().replace(" ", "")
+        if "/" in sym:
+            sym = "".join(sorted(list(sym.replace("/", ""))))
         if sym == "T":
             return '<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/T.svg" />'
         if sym == "Q":
@@ -47,12 +70,6 @@ def substitute_mse_symbols(text):
 
     text = re.sub(r'<sym(?:-auto)?>([^<]+)</sym(?:-auto)?>', replace_sym, text)
     return text
-
-def clean_tags(text):
-    if not text:
-        return ""
-    clean = re.sub(r'<(?!img\b)[^>]+>', '', text)
-    return clean.strip()
 
 def parse_mse_set():
     if not os.path.exists(MSE_FILE_PATH):
@@ -110,7 +127,7 @@ def parse_mse_set():
             value = value.strip()
 
             if key == "name": current_card['name'] = clean_tags(value)
-            elif key == "casting_cost": current_card['mana'] = clean_tags(value)  # Retain internal formatting tags if any
+            elif key == "casting_cost": current_card['mana'] = clean_tags(value)
             elif key == "super_type": current_card['super_type'] = clean_tags(value)
             elif key == "sub_type": current_card['sub_type'] = clean_tags(value)
             elif key == "power": current_card['power'] = clean_tags(value)
@@ -141,7 +158,9 @@ def parse_mse_set():
         if card['is_dfc']:
             card['type_2'] = f"{card['super_type_2']} — {card['sub_type_2']}" if card['super_type_2'] and card['sub_type_2'] else (card['super_type_2'] if card['super_type_2'] else "")
         card['is_legendary'] = "Legendary" in card['type'] or "Legendary" in card.get('type_2', '')
-        card['cmc'], card['colors'] = parse_hybrid_and_cmc(card['mana'])
+        
+        # Pull pre-computed mana symbol keys directly from the parsing engine
+        card['cmc'], card['colors'], card['mana_symbols'] = parse_hybrid_and_cmc(card['mana'])
 
         if not card['colors']:
             card['color_group'] = 'Land' if "Land" in card['type'] else 'Colorless'
@@ -155,7 +174,7 @@ def parse_mse_set():
 
     import shutil
     shutil.rmtree(EXTRACT_DIR)
-    print(f"Successfully processed suite matrix for {len(card_list)} cards!")
+    print(f"Successfully configured active metrics dashboard for {len(card_list)} cards!")
 
 def generate_html(cards):
     os.makedirs(DOCS_DIR, exist_ok=True)
@@ -248,7 +267,6 @@ def generate_html(cards):
             <h3>Mana Curve</h3>
             <div class="chart-container"><canvas id="manaChart"></canvas></div>
         </div>
-        .chart-card { background: #1e1e1e; border: 1px solid #2a2a2a; border-radius: 8px; padding: 15px; height: 280px; display: flex; flex-direction: column; align-items: center; cursor: pointer; }
         <div class="chart-card">
             <h3>Card Types</h3>
             <div class="chart-container"><canvas id="typeChart"></canvas></div>
@@ -338,49 +356,13 @@ def generate_html(cards):
         let cardsData = __CARDS_JSON_PLACEHOLDER__;
         let chart1, chart2, chart3;
 
-        // Upgraded header parsing loop recursively segments slashes out of compound hybrid frames
-        function formatManaSymbols(manaStr) {
-            if (!manaStr) return '';
-            let s = manaStr.trim ? manaStr.trim() : manaStr;
-            s = s.replace(/\\s+/g, '').toUpperCase();
-            
+        // Clean frontend loop reads the pre-computed array flawlessly
+        function formatManaSymbols(manaSymbolsArray) {
+            if (!manaSymbolsArray || manaSymbolsArray.length === 0) return '';
             let outputHtml = '';
-            
-            // 1. Unpack standalone starting integers
-            let genericMatch = s.match(/^(\\d+)/);
-            if (genericMatch) {
-                outputHtml += `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/${genericMatch[1]}.svg" />`;
-                s = s.replace(/^\\d+/, '');
-            }
-            
-            // 2. Scan explicitly for compound slash blocks or individual color symbols sequentially
-            if (s.includes('/')) {
-                // Split components by slashes to find each single hybrid segment token cleanly (e.g. ['G', 'W', 'G', 'W'])
-                let parts = s.split('/').filter(x => x);
-                
-                // Formulate paired hybrid groups for Scryfall (loops every 2 letters if merged, or parses adjacent)
-                for (let i = 0; i < parts.length; i++) {
-                    let token = parts[i];
-                    if (token.length > 1) {
-                        outputHtml += `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/${token}.svg" />`;
-                    } else if (i + 1 < parts.length && ['W','U','B','R','G'].includes(parts[i+1])) {
-                        // Blend adjacent pairs to match Scryfall endpoints (e.g., GW.svg)
-                        let combo = parts[i] + parts[i+1];
-                        outputHtml += `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/${combo}.svg" />`;
-                        i++; // Shift forward across the consumed pair
-                    } else {
-                        outputHtml += `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/${token}.svg" />`;
-                    }
-                }
-            } else {
-                // Standard mapping fallback execution block
-                for (let i = 0; i < s.length; i++) {
-                    let char = s[i];
-                    if (['W','U','B','R','G','C','X'].includes(char)) {
-                        outputHtml += `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/${char}.svg" />`;
-                    }
-                }
-            }
+            manaSymbolsArray.forEach(sym => {
+                outputHtml += `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/${sym}.svg" />`;
+            });
             return outputHtml;
         }
 
@@ -433,7 +415,7 @@ def generate_html(cards):
                         <div>
                             <div class="card-header">
                                 <div class="card-name">${card.name}</div>
-                                <span class="card-mana">${formatManaSymbols(card.mana)}</span>
+                                <span class="card-mana">${formatManaSymbols(card.mana_symbols)}</span>
                             </div>
                             <div class="card-type">${card.type}</div>
                             <div class="card-text">${card.text}</div>
@@ -454,7 +436,7 @@ def generate_html(cards):
                                 <div>
                                     <div class="card-header">
                                         <div class="card-name">${card.name}</div>
-                                        <span class="card-mana">${formatManaSymbols(card.mana)}</span>
+                                        <span class="card-mana">${formatManaSymbols(card.mana_symbols)}</span>
                                     </div>
                                     <div class="card-type">${card.type}</div>
                                     <div class="card-text">${card.text}</div>
