@@ -3,6 +3,7 @@ import zipfile
 import re
 import json
 
+# Paths
 MSE_FILE_PATH = "/Users/Harrison_1/Desktop/Full-Magic-Pack-main/Sets/Dota Set.mse-set"
 EXTRACT_DIR = "./temp_mse"
 DOCS_DIR = "./docs"
@@ -27,7 +28,7 @@ def parse_mse_set():
         print("Error: 'set' data file not found.")
         return
 
-    print("Parsing card data for dashboard analytics...")
+    print("Parsing analytics engine matrix...")
     card_list = []
     current_card = None
     in_text_block = False
@@ -90,39 +91,47 @@ def parse_mse_set():
                 current_card['text'] = "\n".join(text_lines)
             card_list.append(current_card)
 
-    # Clean types, calculate CMC, and assign Color Identity
+    # Clean types, calculate CMC, and assign exact Guild color combos
     for card in card_list:
         if card['super_type'] and card['sub_type']:
             card['type'] = f"{card['super_type']} — {card['sub_type']}"
         else:
             card['type'] = card['super_type'] if card['super_type'] else "Unknown"
         
-        # Calculate CMC
+        card['is_legendary'] = "Legendary" in card['type']
+        
+        # Calculate precise CMC
         digits = re.findall(r'\d+', card['mana'])
         num_mana = int(digits[0]) if digits else 0
         symbols_count = len(re.sub(r'\d+', '', card['mana']))
         card['cmc'] = num_mana + symbols_count
 
-        colors = []
+        # Build strict alphabetical color string (e.g., 'WU', 'BR')
+        found_colors = []
         for sym in ['W', 'U', 'B', 'R', 'G']:
             if sym in card['mana']:
-                colors.append(sym)
+                found_colors.append(sym)
         
-        if not colors:
+        card['colors'] = found_colors
+        
+        if not found_colors:
             if "Land" in card['type']:
                 card['color_group'] = 'Land'
             else:
                 card['color_group'] = 'Colorless'
-        elif len(colors) > 1:
-            card['color_group'] = 'Multicolor'
+        elif len(found_colors) > 1:
+            card['color_group'] = "".join(found_colors) # Dynamic guild label like 'WU'
         else:
-            card['color_group'] = colors[0]
+            card['color_group'] = found_colors[0]
+
+    # Default sort the master card list array by CMC (low to high)
+    card_list.sort(key=lambda c: c['cmc'])
 
     generate_html(card_list)
 
     import shutil
     shutil.rmtree(EXTRACT_DIR)
-    print(f"Successfully compiled dashboard data for {len(card_list)} cards!")
+    print(f"Successfully compiled advanced studio workspace for {len(card_list)} cards!")
 
 def generate_html(cards):
     os.makedirs(DOCS_DIR, exist_ok=True)
@@ -130,35 +139,40 @@ def generate_html(cards):
     
     cards_json = json.dumps(cards)
 
-    # Plain string block prevents syntax issues with JavaScript's curly braces
     html_content = """<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Dota 2 Cube Analytics</title>
+    <title>Dota 2 Cube Studio Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body { font-family: system-ui, -apple-system, sans-serif; background: #121212; color: #e0e0e0; padding: 25px; margin: 0; }
         h1 { margin-top: 0; font-size: 2.2em; border-bottom: 2px solid #222; padding-bottom: 10px; color: #fff; }
+        
         .dashboard-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 30px; }
-        .chart-card { background: #1e1e1e; border: 1px solid #2a2a2a; border-radius: 8px; padding: 15px; height: 260px; display: flex; flex-direction: column; align-items: center; }
+        .chart-card { background: #1e1e1e; border: 1px solid #2a2a2a; border-radius: 8px; padding: 15px; height: 280px; display: flex; flex-direction: column; align-items: center; }
         .chart-card h3 { margin: 0 0 10px 0; font-size: 1em; color: #aaa; text-align: left; width: 100%; }
         .chart-container { position: relative; width: 100%; height: 100%; }
-        .controls { background: #1a1a1a; padding: 15px; border-radius: 8px; border: 1px solid #2a2a2a; margin-bottom: 25px; display: flex; flex-wrap: wrap; gap: 15px; align-items: center; }
-        .search-box { background: #2b2b2b; border: 1px solid #444; color: #fff; padding: 8px 12px; border-radius: 6px; font-size: 1em; min-width: 250px; }
-        .filter-btn { background: #2b2b2b; border: 1px solid #444; color: #ccc; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 0.9em; }
-        .filter-btn.active { background: #ffca28; color: #000; border-color: #ffca28; font-weight: bold; }
+
+        /* Filter controls layout grid */
+        .controls { background: #1a1a1a; padding: 20px; border-radius: 8px; border: 1px solid #2a2a2a; margin-bottom: 25px; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; align-items: center; }
+        .control-group { display: flex; flex-direction: column; gap: 5px; }
+        .control-group label { font-size: 0.85em; color: #888; font-weight: bold; text-transform: uppercase; }
+        .search-box, .select-box { background: #2b2b2b; border: 1px solid #444; color: #fff; padding: 10px; border-radius: 6px; font-size: 0.95em; width: 100%; box-sizing: border-box; }
+        
         .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-        .card { background: #1e1e1e; border-left: 5px solid #444; border-top: 1px solid #2a2a2a; border-right: 1px solid #2a2a2a; border-bottom: 1px solid #2a2a2a; border-radius: 6px; padding: 15px; display: flex; flex-direction: column; justify-content: space-between; min-height: 160px; transition: transform 0.2s; }
-        .card:hover { transform: translateY(-2px); }
-        .card.color-W { border-left-color: #f0f2c5; }
-        .card.color-U { border-left-color: #0077ff; }
-        .card.color-B { border-left-color: #242424; }
-        .card.color-R { border-left-color: #ff3333; }
-        .card.color-G { border-left-color: #00aa44; }
+        .card { background: #1e1e1e; border-left: 5px solid #444; border-top: 1px solid #2a2a2a; border-right: 1px solid #2a2a2a; border-bottom: 1px solid #2a2a2a; border-radius: 6px; padding: 15px; display: flex; flex-direction: column; justify-content: space-between; min-height: 160px; }
+        
+        /* Color themes framework */
+        .card.monocolor-W { border-left-color: #f0f2c5; }
+        .card.monocolor-U { border-left-color: #0077ff; }
+        .card.monocolor-B { border-left-color: #242424; }
+        .card.monocolor-R { border-left-color: #ff3333; }
+        .card.monocolor-G { border-left-color: #00aa44; }
         .card.color-Multicolor { border-left-color: #d4af37; }
         .card.color-Colorless { border-left-color: #7a7a7a; }
         .card.color-Land { border-left-color: #8b5a2b; }
+
         .card-header { margin-bottom: 5px; display: flex; justify-content: space-between; align-items: flex-start; }
         .card-name { font-size: 1.15em; font-weight: bold; color: #fff; max-width: 75%; }
         .card-mana { color: #ffca28; font-weight: bold; }
@@ -175,11 +189,11 @@ def generate_html(cards):
 </head>
 <body>
 
-    <h1>Dota 2 Cube — Set Dashboard</h1>
+    <h1>Dota 2 Cube — Studio Dashboard</h1>
 
     <div class="dashboard-row">
         <div class="chart-card">
-            <h3>Color Balance</h3>
+            <h3>Color / Guild Balance</h3>
             <div class="chart-container"><canvas id="colorChart"></canvas></div>
         </div>
         <div class="chart-card">
@@ -187,28 +201,82 @@ def generate_html(cards):
             <div class="chart-container"><canvas id="manaChart"></canvas></div>
         </div>
         <div class="chart-card">
-            <h3>Card Types</h3>
+            <h3>Card Types Breakdown</h3>
             <div class="chart-container"><canvas id="typeChart"></canvas></div>
         </div>
     </div>
 
+    <!-- Multi-tier analytics matrix selectors -->
     <div class="controls">
-        <input type="text" id="search" class="search-box" placeholder="Search cards by name or rules...">
-        <button class="filter-btn active" onclick="filterColor('All', this)">All</button>
-        <button class="filter-btn" onclick="filterColor('W', this)">White</button>
-        <button class="filter-btn" onclick="filterColor('U', this)">Blue</button>
-        <button class="filter-btn" onclick="filterColor('B', this)">Black</button>
-        <button class="filter-btn" onclick="filterColor('R', this)">Red</button>
-        <button class="filter-btn" onclick="filterColor('G', this)">Green</button>
-        <button class="filter-btn" onclick="filterColor('Multicolor', this)">Multicolor</button>
-        <button class="filter-btn" onclick="filterColor('Colorless', this)">Colorless</button>
+        <div class="control-group">
+            <label>Search Text</label>
+            <input type="text" id="search" class="search-box" placeholder="Name or rule details...">
+        </div>
+        <div class="control-group">
+            <label>Color Profile</label>
+            <select id="colorFilter" class="select-box" onchange="applyFilters()">
+                <option value="All">All Identities</option>
+                <option value="W">White</option>
+                <option value="U">Blue</option>
+                <option value="B">Black</option>
+                <option value="R">Red</option>
+                <option value="G">Green</option>
+                <option value="Multicolor">Any Multicolor</option>
+                <option value="WU">Azorius (WU)</option>
+                <option value="WB">Orzhov (WB)</option>
+                <option value="WR">Boros (WR)</option>
+                <option value="WG">Selesnya (WG)</option>
+                <option value="UB">Dimir (UB)</option>
+                <option value="UR">Izzet (UR)</option>
+                <option value="UG">Simic (UG)</option>
+                <option value="BR">Rakdos (BR)</option>
+                <option value="BG">Golgari (BG)</option>
+                <option value="RG">Gruul (RG)</option>
+                <option value="Colorless">Colorless</option>
+                <option value="Land">Lands</option>
+            </select>
+        </div>
+        <div class="control-group">
+            <label>Mana Value (CMC)</label>
+            <select id="cmcFilter" class="select-box" onchange="applyFilters()">
+                <option value="All">All Costs</option>
+                <option value="0">0 CMC</option>
+                <option value="1">1 CMC</option>
+                <option value="2">2 CMC</option>
+                <option value="3">3 CMC</option>
+                <option value="4">4 CMC</option>
+                <option value="5">5 CMC</option>
+                <option value="6">6 CMC</option>
+                <option value="7">7+ CMC</option>
+            </select>
+        </div>
+        <div class="control-group">
+            <label>Card Type</label>
+            <select id="typeFilter" class="select-box" onchange="applyFilters()">
+                <option value="All">All Types</option>
+                <option value="Creature">Creature</option>
+                <option value="Instant">Instant</option>
+                <option value="Sorcery">Sorcery</option>
+                <option value="Artifact">Artifact</option>
+                <option value="Enchantment">Enchantment</option>
+                <option value="Planeswalker">Planeswalker</option>
+                <option value="Land">Land</option>
+            </select>
+        </div>
+        <div class="control-group">
+            <label>Rarity / Frame</label>
+            <select id="legendFilter" class="select-box" onchange="applyFilters()">
+                <option value="All">All Cards</option>
+                <option value="Legendary">Legendary Only</option>
+                <option value="Non-Legendary">Non-Legendary</option>
+            </select>
+        </div>
     </div>
 
     <div class="card-grid" id="grid"></div>
 
     <script>
         const cardsData = __CARDS_JSON_PLACEHOLDER__;
-        let activeColorFilter = 'All';
 
         function renderGrid(filteredCards) {
             const grid = document.getElementById('grid');
@@ -216,20 +284,29 @@ def generate_html(cards):
             
             filteredCards.forEach(card => {
                 const ptDisplay = (card.power || card.toughness) ? `<div class="card-pt">${card.power}/${card.toughness}</div>` : '<div></div>';
+                
+                // Color highlight class assigning logic
+                let borderClass = `color-${card.color_group}`;
+                if (card.colors.length === 1) {
+                    borderClass = `monocolor-${card.colors[0]}`;
+                } else if (card.colors.length > 1) {
+                    borderClass = 'color-Multicolor';
+                }
+
                 const cardEl = document.createElement('div');
-                cardEl.className = `card color-${card.color_group}`;
+                cardEl.className = `card ${borderClass}`;
                 
                 cardEl.innerHTML = `
                     <div>
                         <div class="card-header">
                             <div class="card-name">${card.name}</div>
-                            <span class="card-mana">${card.mana}</span>
+                            <span class="card-mana">${card.mana ? card.mana : '0'}</span>
                         </div>
                         <div class="card-type">${card.type}</div>
                         <div class="card-text">${card.text}</div>
                     </div>
                     <div class="card-footer">
-                        <span class="rarity-tag rarity-${card.rarity}">${card.rarity}</span>
+                        <span class="rarity-tag rarity-${card.rarity}">CMC ${card.cmc} — ${card.rarity}</span>
                         ${ptDisplay}
                     </div>
                 `;
@@ -238,31 +315,55 @@ def generate_html(cards):
         }
 
         function applyFilters() {
-            const query = document.getElementById('search').value.toLowerCase();
+            const searchText = document.getElementById('search').value.toLowerCase();
+            const colorSel = document.getElementById('colorFilter').value;
+            const cmcSel = document.getElementById('cmcFilter').value;
+            const typeSel = document.getElementById('typeFilter').value;
+            const legendSel = document.getElementById('legendFilter').value;
+
             const filtered = cardsData.filter(card => {
-                const matchesSearch = card.name.toLowerCase().includes(query) || card.text.toLowerCase().includes(query);
-                const matchesColor = (activeColorFilter === 'All') || (card.color_group === activeColorFilter);
-                return matchesSearch && matchesColor;
+                const matchesSearch = card.name.toLowerCase().includes(searchText) || card.text.toLowerCase().includes(searchText);
+                
+                let matchesColor = true;
+                if (colorSel !== 'All') {
+                    if (colorSel === 'Multicolor') {
+                        matchesColor = card.colors.length > 1;
+                    } else if (colorSel === 'W' || colorSel === 'U' || colorSel === 'B' || colorSel === 'R' || colorSel === 'G') {
+                        matchesColor = card.colors.length === 1 && card.colors[0] === colorSel;
+                    } else {
+                        matchesColor = card.color_group === colorSel;
+                    }
+                }
+
+                let matchesCmc = true;
+                if (cmcSel !== 'All') {
+                    if (cmcSel === '7') {
+                        matchesCmc = card.cmc >= 7;
+                    } else {
+                        matchesCmc = card.cmc === parseInt(cmcSel);
+                    }
+                }
+
+                const matchesType = (typeSel === 'All') || card.type.includes(typeSel);
+                
+                let matchesLegend = true;
+                if (legendSel === 'Legendary') matchesLegend = card.is_legendary;
+                if (legendSel === 'Non-Legendary') matchesLegend = !card.is_legendary;
+
+                return matchesSearch && matchesColor && matchesCmc && matchesType && matchesLegend;
             });
             renderGrid(filtered);
-        }
-
-        function filterColor(color, btn) {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            activeColorFilter = color;
-            applyFilters();
         }
 
         document.getElementById('search').addEventListener('input', applyFilters);
 
         function buildCharts() {
-            const counts = { W:0, U:0, B:0, R:0, G:0, Multicolor:0, Colorless:0, Land:0 };
+            const colorMap = {};
             const cmcCounts = {};
             const typeCounts = { Creature:0, Sorcery:0, Instant:0, Artifact:0, Enchantment:0, Planeswalker:0, Other:0 };
 
             cardsData.forEach(c => {
-                counts[c.color_group] = (counts[c.color_group] || 0) + 1;
+                colorMap[c.color_group] = (colorMap[c.color_group] || 0) + 1;
                 cmcCounts[c.cmc] = (cmcCounts[c.cmc] || 0) + 1;
                 
                 let foundType = false;
@@ -272,13 +373,20 @@ def generate_html(cards):
                 if (!foundType) typeCounts.Other++;
             });
 
+            // Map standard groupings for dynamic chart keys
+            const labelKeys = ['W', 'U', 'B', 'R', 'G', 'WU', 'WB', 'WR', 'WG', 'UB', 'UR', 'UG', 'BR', 'BG', 'RG', 'Colorless', 'Land'];
+            const displayLabels = ['W', 'U', 'B', 'R', 'G', 'Azorius', 'Orzhov', 'Boros', 'Selesnya', 'Dimir', 'Izzet', 'Simic', 'Rakdos', 'Golgari', 'Gruul', 'Colorless', 'Land'];
+            const chartColors = ['#f0f2c5', '#0077ff', '#242424', '#ff3333', '#00aa44', '#70a1ff', '#747d8c', '#ff6b81', '#2ed573', '#57606f', '#ff7f50', '#1e90ff', '#ff4757', '#a4b0be', '#ffa502', '#7a7a7a', '#8b5a2b'];
+            
+            const dynamicData = labelKeys.map(k => colorMap[k] || 0);
+
             new Chart(document.getElementById('colorChart'), {
-                type: 'doughnut',
+                type: 'bar',
                 data: {
-                    labels: ['White', 'Blue', 'Black', 'Red', 'Green', 'Multicolor', 'Colorless', 'Land'],
+                    labels: displayLabels,
                     datasets: [{
-                        data: [counts.W, counts.U, counts.B, counts.R, counts.G, counts.Multicolor, counts.Colorless, counts.Land],
-                        backgroundColor: ['#f0f2c5', '#0077ff', '#242424', '#ff3333', '#00aa44', '#d4af37', '#7a7a7a', '#8b5a2b']
+                        data: dynamicData,
+                        backgroundColor: chartColors
                     }]
                 },
                 options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
@@ -298,12 +406,12 @@ def generate_html(cards):
             });
 
             new Chart(document.getElementById('typeChart'), {
-                type: 'polarArea',
+                type: 'doughnut',
                 data: {
                     labels: Object.keys(typeCounts),
                     datasets: [{ data: Object.values(typeCounts), backgroundColor: ['#2ecc71','#3498db','#9b59b6','#e67e22','#f1c40f','#e74c3c','#95a5a6'] }]
                 },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+                options: { responsive: true, maintainAspectRatio: false }
             });
         }
 
@@ -313,7 +421,6 @@ def generate_html(cards):
 </body>
 </html>
 """
-    # Safe injection via direct string replacement
     html_content = html_content.replace("__CARDS_JSON_PLACEHOLDER__", cards_json)
     
     with open(html_path, 'w', encoding='utf-8') as f:
