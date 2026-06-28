@@ -28,26 +28,24 @@ def parse_hybrid_and_cmc(mana_string):
         
     symbol_part = re.sub(r'^\d+', '', raw_symbols)
     
-    # 2. Split strictly by slash delimiters to parse compound hybrid tokens
-    if "/" in symbol_part:
-        parts = [p for p in symbol_part.split("/") if p]
-        symbol_count = len(parts)
-        for part in parts:
-            if len(part) == 1:
-                mana_symbols_list.append(part)
-            else:
-                # Alphabetize multi-character fragments (e.g., WG -> GW) to match Scryfall's exact file names
-                mana_symbols_list.append("".join(sorted(list(part))))
-        flat_symbols = "".join(parts)
-    else:
-        symbol_count = len(symbol_part)
-        for char in symbol_part:
-            if char in ['W','U','B','R','G','C','X']:
-                mana_symbols_list.append(char)
-        flat_symbols = symbol_part
-        
+    # 2. Extract explicit hybrid pairs matching MSE's underlying shorthand notation format
+    # Looks for matches like R/W, G/W, etc., and pulls individual trailing letters as fallbacks.
+    pattern = re.compile(r'([WUBRGCX]\/[WUBRGCX]|[WUBRGCX])')
+    parts = pattern.findall(symbol_part)
+    
+    symbol_count = len(parts)
+    for part in parts:
+        clean_part = part.replace("/", "")
+        if len(clean_part) == 1:
+            mana_symbols_list.append(clean_part)
+        else:
+            # Alphabetize the combined hybrid string to perfectly match Scryfall (e.g. RW or WR -> RW)
+            mana_symbols_list.append("".join(sorted(list(clean_part))))
+            
     cmc = generic_amt + symbol_count
     
+    # Flatten everything to find colors for grouping stats
+    flat_symbols = "".join(parts).replace("/", "")
     colors = []
     for c in ['W', 'U', 'B', 'R', 'G']:
         if c in flat_symbols:
