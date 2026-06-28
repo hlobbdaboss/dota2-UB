@@ -1,9 +1,18 @@
 import os
 import zipfile
+import re
 
 MSE_FILE_PATH = "/Users/Harrison_1/Desktop/Full-Magic-Pack-main/Sets/Dota Set.mse-set"
 EXTRACT_DIR = "./temp_mse"
 DOCS_DIR = "./docs"
+
+def clean_tags(text):
+    if not text:
+        return ""
+    # Strip out MSE styling XML tags like <kw-a>, <word-list-type-en>, etc.
+    clean = re.sub(r'<[^>]+>', '', text)
+    # Clean up empty optional tags or fragments left behind
+    return clean.strip()
 
 def parse_mse_set():
     if not os.path.exists(MSE_FILE_PATH):
@@ -16,10 +25,10 @@ def parse_mse_set():
 
     set_data_path = os.path.join(EXTRACT_DIR, "set")
     if not os.path.exists(set_data_path):
-        print("Error: 'set' data file not found inside the mse-set archive.")
+        print("Error: 'set' data file not found.")
         return
 
-    print("Parsing card data dynamically...")
+    print("Parsing modern card schema...")
     card_list = []
     current_card = None
     in_text_block = False
@@ -27,62 +36,72 @@ def parse_mse_set():
 
     with open(set_data_path, 'r', encoding='utf-8', errors='ignore') as f:
         for line in f:
-            # Detect a new card block
-            if line.startswith("card:"):
-                if current_card and 'name' in current_card:
+            # A new card block is indicated whenever we hit a line that is EXACTLY '\tcard:'
+            # or a line that starts with 'card:' globally
+            if line.strip() == "card:":
+                if current_card and current_card.get('name'):
                     if text_lines:
-                        current_card['text'] = "\n".join(text_lines).strip()
+                        current_card['text'] = "\n".join(text_lines)
                     card_list.append(current_card)
-                current_card = {'name': '', 'type': 'Unknown', 'mana': '', 'text': ''}
+                current_card = {'name': '', 'super_type': '', 'sub_type': '', 'mana': '', 'text': '', 'power': '', 'toughness': ''}
                 text_lines = []
                 in_text_block = False
                 continue
 
-            # If we haven't hit the first card yet, ignore global set properties
             if current_card is None:
                 continue
 
-            # Handle lines inside a multiline text block
+            # Handle multiline rule text collection
             if in_text_block:
                 if line.startswith("\t\t") or line.startswith("  "):
-                    text_lines.append(line.strip())
+                    text_lines.append(clean_tags(line))
                     continue
                 else:
                     in_text_block = False
                     if text_lines:
-                        current_card['text'] = "\n".join(text_lines).strip()
+                        current_card['text'] = "\n".join(text_lines)
                         text_lines = []
 
-            # Parse key-value pairs (handling both tabs and double-spaces)
+            # Parse structural lines
             stripped = line.strip()
-            if not stripped:
+            if not stripped or ":" not in stripped:
                 continue
 
-            if line.startswith("\t") or line.startswith("  "):
-                if ":" in stripped:
-                    key, value = stripped.split(":", 1)
-                    key = key.strip()
-                    value = value.strip()
+            key, value = stripped.split(":", 1)
+            key = key.strip()
+            value = value.strip()
 
-                    if key == "name":
-                        current_card['name'] = value
-                    elif key == "type":
-                        current_card['type'] = value
-                    elif key == "casting cost":
-                        current_card['mana'] = value
-                    elif key == "text":
-                        in_text_block = True
-                        if value:  # If text starts on the same line
-                            text_lines.append(value)
+            if key == "name":
+                current_card['name'] = clean_tags(value)
+            elif key == "casting_cost":
+                current_card['mana'] = clean_tags(value)
+            elif key == "super_type":
+                current_card['super_type'] = clean_tags(value)
+            elif key == "sub_type":
+                current_card['sub_type'] = clean_tags(value)
+            elif key == "power":
+                current_card['power'] = clean_tags(value)
+            elif key == "toughness":
+                current_card['toughness'] = clean_tags(value)
+            elif key == "rule_text":
+                in_text_block = True
+                if value:
+                    text_lines.append(clean_tags(value))
 
-        # Add the final card if left over
-        if current_card and 'name' in current_card:
+        # Capture last card
+        if current_card and current_card.get('name'):
             if text_lines:
-                current_card['text'] = "\n".join(text_lines).strip()
+                current_card['text'] = "\n".join(text_lines)
             card_list.append(current_card)
 
-    # Filter out empty entries or structural templates
-    card_list = [c for c in card_list if c['name'].strip()]
+    # Process types neatly
+    for card in card_list:
+        if card['super_type'] and card['sub_type']:
+            card['type'] = f"{card['super_type']} — {card['sub_type']}"
+        elif card['super_type']:
+            card['type'] = card['super_type']
+        else:
+            card['type'] = "Unknown"
 
     generate_html(card_list)
 
@@ -101,13 +120,14 @@ def generate_html(cards):
     <title>Dota 2 Cube</title>
     <style>
         body { font-family: sans-serif; background: #121212; color: #e0e0e0; padding: 20px; }
-        .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-        .card { background: #1e1e1e; border: 2px solid #333; border-radius: 8px; padding: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); display: flex; flex-direction: column; justify-content: space-between; min-height: 150px; }
-        .card-header { margin-bottom: 5px; }
-        .card-name { font-size: 1.2em; font-weight: bold; color: #fff; display: inline-block; max-width: 70%; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .card { background: #1e1e1e; border: 2px solid #333; border-radius: 8px; padding: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); display: flex; flex-direction: column; justify-content: space-between; min-height: 200px; }
+        .card-header { margin-bottom: 5px; position: relative; }
+        .card-name { font-size: 1.2em; font-weight: bold; color: #fff; display: inline-block; max-width: 75%; }
         .card-mana { float: right; color: #ffca28; font-weight: bold; font-size: 1.1em; }
         .card-type { font-style: italic; font-size: 0.9em; color: #aaa; margin-bottom: 10px; border-bottom: 1px solid #444; padding-bottom: 5px; }
-        .card-text { font-size: 0.95em; white-space: pre-wrap; line-height: 1.4; color: #ccc; flex-grow: 1; }
+        .card-text { font-size: 0.95em; white-space: pre-wrap; line-height: 1.4; color: #ccc; flex-grow: 1; margin-bottom: 10px; }
+        .card-pt { text-align: right; font-weight: bold; color: #fff; font-size: 1.1em; }
     </style>
 </head>
 <body>
@@ -116,6 +136,7 @@ def generate_html(cards):
 """
     
     for card in cards:
+        pt_display = f"<div class='card-pt'>{card['power']}/{card['toughness']}</div>" if card['power'] or card['toughness'] else ""
         html_content += f"""
         <div class="card">
             <div class="card-header">
@@ -124,6 +145,7 @@ def generate_html(cards):
             </div>
             <div class="card-type">{card['type']}</div>
             <div class="card-text">{card['text']}</div>
+            {pt_display}
         </div>"""
         
     html_content += """
