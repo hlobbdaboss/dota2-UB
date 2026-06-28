@@ -3,7 +3,6 @@ import zipfile
 import re
 import json
 
-# Paths
 MSE_FILE_PATH = "/Users/Harrison_1/Desktop/Full-Magic-Pack-main/Sets/Dota Set.mse-set"
 EXTRACT_DIR = "./temp_mse"
 DOCS_DIR = "./docs"
@@ -14,12 +13,46 @@ def clean_tags(text):
     clean = re.sub(r'<[^>]+>', '', text)
     return clean.strip()
 
+def parse_hybrid_and_cmc(mana_string):
+    if not mana_string:
+        return 0, []
+    
+    # Standardize spaces and splits
+    raw_symbols = mana_string.strip().replace(" ", "")
+    
+    # Find any standalone generic numbers
+    generic_match = re.match(r'^(\d+)', raw_symbols)
+    generic_amt = int(generic_match.group(1)) if generic_match else 0
+    
+    # Strip the leading generic number to look strictly at colored symbols
+    symbol_part = re.sub(r'^\d+', '', raw_symbols)
+    
+    # Split by slashes to handle hybrid formats like G/W or B/R correctly
+    # If no slashes, split individual letters
+    if "/" in symbol_part:
+        parts = [p for p in symbol_part.split("/") if p]
+        symbol_count = len(parts)
+        flat_symbols = "".join(parts)
+    else:
+        symbol_count = len(symbol_part)
+        flat_symbols = symbol_part
+        
+    cmc = generic_amt + symbol_count
+    
+    # Extract unique colors present
+    colors = []
+    for c in ['W', 'U', 'B', 'R', 'G']:
+        if c in flat_symbols:
+            colors.append(c)
+            
+    return cmc, colors
+
 def parse_mse_set():
     if not os.path.exists(MSE_FILE_PATH):
         print(f"Error: Could not find MSE file at {MSE_FILE_PATH}")
         return
 
-    print("Extracting MSE set file...")
+    print("Extracting archive engine...")
     with zipfile.ZipFile(MSE_FILE_PATH, 'r') as zip_ref:
         zip_ref.extractall(EXTRACT_DIR)
 
@@ -28,21 +61,25 @@ def parse_mse_set():
         print("Error: 'set' data file not found.")
         return
 
-    print("Parsing analytics engine matrix...")
+    print("Parsing hybrid schema and double-faced cards...")
     card_list = []
     current_card = None
     in_text_block = False
-    text_lines = []
+    text_target = "text" # Keeps track of which face rules text belongs to
+    text_store = {"text": [], "text_2": []}
 
     with open(set_data_path, 'r', encoding='utf-8', errors='ignore') as f:
         for line in f:
             if line.strip() == "card:":
                 if current_card and current_card.get('name'):
-                    if text_lines:
-                        current_card['text'] = "\n".join(text_lines)
+                    current_card['text'] = "\n".join(text_store["text"]).strip()
+                    current_card['text_2'] = "\n".join(text_store["text_2"]).strip()
                     card_list.append(current_card)
-                current_card = {'name': '', 'super_type': '', 'sub_type': '', 'mana': '', 'text': '', 'power': '', 'toughness': '', 'rarity': 'common'}
-                text_lines = []
+                current_card = {
+                    'name': '', 'super_type': '', 'sub_type': '', 'mana': '', 'text': '', 'power': '', 'toughness': '', 'rarity': 'common',
+                    'name_2': '', 'super_type_2': '', 'sub_type_2': '', 'text_2': '', 'power_2': '', 'toughness_2': ''
+                }
+                text_store = {"text": [], "text_2": []}
                 in_text_block = False
                 continue
 
@@ -51,13 +88,10 @@ def parse_mse_set():
 
             if in_text_block:
                 if line.startswith("\t\t") or line.startswith("  "):
-                    text_lines.append(clean_tags(line))
+                    text_store[text_target].append(clean_tags(line))
                     continue
                 else:
                     in_text_block = False
-                    if text_lines:
-                        current_card['text'] = "\n".join(text_lines)
-                        text_lines = []
 
             stripped = line.strip()
             if not stripped or ":" not in stripped:
@@ -67,76 +101,67 @@ def parse_mse_set():
             key = key.strip()
             value = value.strip()
 
-            if key == "name":
-                current_card['name'] = clean_tags(value)
-            elif key == "casting_cost":
-                current_card['mana'] = clean_tags(value)
-            elif key == "super_type":
-                current_card['super_type'] = clean_tags(value)
-            elif key == "sub_type":
-                current_card['sub_type'] = clean_tags(value)
-            elif key == "power":
-                current_card['power'] = clean_tags(value)
-            elif key == "toughness":
-                current_card['toughness'] = clean_tags(value)
-            elif key == "rarity":
-                current_card['rarity'] = clean_tags(value).lower()
+            # Front Face Mapping
+            if key == "name": current_card['name'] = clean_tags(value)
+            elif key == "casting_cost": current_card['mana'] = clean_tags(value)
+            elif key == "super_type": current_card['super_type'] = clean_tags(value)
+            elif key == "sub_type": current_card['sub_type'] = clean_tags(value)
+            elif key == "power": current_card['power'] = clean_tags(value)
+            elif key == "toughness": current_card['toughness'] = clean_tags(value)
+            elif key == "rarity": current_card['rarity'] = clean_tags(value).lower()
             elif key == "rule_text":
                 in_text_block = True
-                if value:
-                    text_lines.append(clean_tags(value))
+                text_target = "text"
+                if value: text_store["text"].append(clean_tags(value))
+                
+            # Back Face Mapping (Double-Faced Cards)
+            elif key == "name_2": current_card['name_2'] = clean_tags(value)
+            elif key == "super_type_2": current_card['super_type_2'] = clean_tags(value)
+            elif key == "sub_type_2": current_card['sub_type_2'] = clean_tags(value)
+            elif key == "power_2": current_card['power_2'] = clean_tags(value)
+            elif key == "toughness_2": current_card['toughness_2'] = clean_tags(value)
+            elif key == "rule_text_2":
+                in_text_block = True
+                text_target = "text_2"
+                if value: text_store["text_2"].append(clean_tags(value))
 
         if current_card and current_card.get('name'):
-            if text_lines:
-                current_card['text'] = "\n".join(text_lines)
+            current_card['text'] = "\n".join(text_store["text"]).strip()
+            current_card['text_2'] = "\n".join(text_store["text_2"]).strip()
             card_list.append(current_card)
 
-    # Clean types, calculate CMC, and assign exact Guild color combos
+    # Normalize properties and run hybrid math transformations
     for card in card_list:
-        if card['super_type'] and card['sub_type']:
-            card['type'] = f"{card['super_type']} — {card['sub_type']}"
-        else:
-            card['type'] = card['super_type'] if card['super_type'] else "Unknown"
+        # Build Type Lines
+        card['type'] = f"{card['super_type']} — {card['sub_type']}" if card['super_type'] and card['sub_type'] else (card['super_type'] if card['super_type'] else "Unknown")
+        card['is_dfc'] = bool(card['name_2'].strip())
         
-        card['is_legendary'] = "Legendary" in card['type']
+        if card['is_dfc']:
+            card['type_2'] = f"{card['super_type_2']} — {card['sub_type_2']}" if card['super_type_2'] and card['sub_type_2'] else (card['super_type_2'] if card['super_type_2'] else "")
         
-        # Calculate precise CMC
-        digits = re.findall(r'\d+', card['mana'])
-        num_mana = int(digits[0]) if digits else 0
-        symbols_count = len(re.sub(r'\d+', '', card['mana']))
-        card['cmc'] = num_mana + symbols_count
+        card['is_legendary'] = "Legendary" in card['type'] or "Legendary" in card.get('type_2', '')
 
-        # Build strict alphabetical color string (e.g., 'WU', 'BR')
-        found_colors = []
-        for sym in ['W', 'U', 'B', 'R', 'G']:
-            if sym in card['mana']:
-                found_colors.append(sym)
-        
-        card['colors'] = found_colors
-        
-        if not found_colors:
-            if "Land" in card['type']:
-                card['color_group'] = 'Land'
-            else:
-                card['color_group'] = 'Colorless'
-        elif len(found_colors) > 1:
-            card['color_group'] = "".join(found_colors) # Dynamic guild label like 'WU'
-        else:
-            card['color_group'] = found_colors[0]
+        # Calculate CMC and unique Colors using the robust hybrid parser
+        card['cmc'], card['colors'] = parse_hybrid_and_cmc(card['mana'])
 
-    # Default sort the master card list array by CMC (low to high)
+        # Determine structural guild categories for analytical charting
+        if not card['colors']:
+            card['color_group'] = 'Land' if "Land" in card['type'] else 'Colorless'
+        elif len(card['colors']) > 1:
+            card['color_group'] = "".join(card['colors']) # Guild combination code e.g. 'BR'
+        else:
+            card['color_group'] = card['colors'][0]
+
     card_list.sort(key=lambda c: c['cmc'])
-
     generate_html(card_list)
 
     import shutil
     shutil.rmtree(EXTRACT_DIR)
-    print(f"Successfully compiled advanced studio workspace for {len(card_list)} cards!")
+    print(f"Successfully configured active matrix for {len(card_list)} cards!")
 
 def generate_html(cards):
     os.makedirs(DOCS_DIR, exist_ok=True)
     html_path = os.path.join(DOCS_DIR, "index.html")
-    
     cards_json = json.dumps(cards)
 
     html_content = """<!DOCTYPE html>
@@ -147,38 +172,44 @@ def generate_html(cards):
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body { font-family: system-ui, -apple-system, sans-serif; background: #121212; color: #e0e0e0; padding: 25px; margin: 0; }
-        h1 { margin-top: 0; font-size: 2.2em; border-bottom: 2px solid #222; padding-bottom: 10px; color: #fff; }
+        .header-row { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #222; padding-bottom: 10px; margin-bottom: 20px; }
+        h1 { margin: 0; font-size: 2.2em; color: #fff; }
         
         .dashboard-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 30px; }
-        .chart-card { background: #1e1e1e; border: 1px solid #2a2a2a; border-radius: 8px; padding: 15px; height: 280px; display: flex; flex-direction: column; align-items: center; }
+        .chart-card { background: #1e1e1e; border: 1px solid #2a2a2a; border-radius: 8px; padding: 15px; height: 280px; display: flex; flex-direction: column; align-items: center; cursor: pointer; }
         .chart-card h3 { margin: 0 0 10px 0; font-size: 1em; color: #aaa; text-align: left; width: 100%; }
         .chart-container { position: relative; width: 100%; height: 100%; }
 
-        /* Filter controls layout grid */
-        .controls { background: #1a1a1a; padding: 20px; border-radius: 8px; border: 1px solid #2a2a2a; margin-bottom: 25px; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; align-items: center; }
+        .controls { background: #1a1a1a; padding: 20px; border-radius: 8px; border: 1px solid #2a2a2a; margin-bottom: 25px; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; align-items: center; }
         .control-group { display: flex; flex-direction: column; gap: 5px; }
         .control-group label { font-size: 0.85em; color: #888; font-weight: bold; text-transform: uppercase; }
         .search-box, .select-box { background: #2b2b2b; border: 1px solid #444; color: #fff; padding: 10px; border-radius: 6px; font-size: 0.95em; width: 100%; box-sizing: border-box; }
+        .reset-btn { background: #ff4757; border: none; color: white; padding: 11px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.95em; width: 100%; transition: background 0.2s; margin-top: 18px; }
+        .reset-btn:hover { background: #ff6b81; }
         
-        .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-        .card { background: #1e1e1e; border-left: 5px solid #444; border-top: 1px solid #2a2a2a; border-right: 1px solid #2a2a2a; border-bottom: 1px solid #2a2a2a; border-radius: 6px; padding: 15px; display: flex; flex-direction: column; justify-content: space-between; min-height: 160px; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 20px; }
+        .card { background: #1e1e1e; border-left: 5px solid #444; border-top: 1px solid #2a2a2a; border-right: 1px solid #2a2a2a; border-bottom: 1px solid #2a2a2a; border-radius: 6px; padding: 15px; display: flex; flex-direction: column; justify-content: space-between; min-height: 180px; }
         
-        /* Color themes framework */
-        .card.monocolor-W { border-left-color: #f0f2c5; }
-        .card.monocolor-U { border-left-color: #0077ff; }
-        .card.monocolor-B { border-left-color: #242424; }
-        .card.monocolor-R { border-left-color: #ff3333; }
-        .card.monocolor-G { border-left-color: #00aa44; }
         .card.color-Multicolor { border-left-color: #d4af37; }
         .card.color-Colorless { border-left-color: #7a7a7a; }
         .card.color-Land { border-left-color: #8b5a2b; }
+        .card.monocolor-W { border-left-color: #f0f2c5; }
+        .card.monocolor-U { border-left-color: #0077ff; }
+        .card.monocolor-B { border-left-color: #444444; }
+        .card.monocolor-R { border-left-color: #ff3333; }
+        .card.monocolor-G { border-left-color: #00aa44; }
 
         .card-header { margin-bottom: 5px; display: flex; justify-content: space-between; align-items: flex-start; }
-        .card-name { font-size: 1.15em; font-weight: bold; color: #fff; max-width: 75%; }
-        .card-mana { color: #ffca28; font-weight: bold; }
+        .card-name { font-size: 1.15em; font-weight: bold; color: #fff; max-width: 70%; }
+        .card-mana { color: #ffca28; font-weight: bold; word-break: break-all; text-align: right; font-size: 0.95em; }
         .card-type { font-style: italic; font-size: 0.85em; color: #888; margin-bottom: 10px; border-bottom: 1px solid #2a2a2a; padding-bottom: 4px; }
         .card-text { font-size: 0.9em; white-space: pre-wrap; line-height: 1.4; color: #bbb; flex-grow: 1; margin-bottom: 10px; }
-        .card-footer { display: flex; justify-content: space-between; align-items: center; font-size: 0.85em; color: #777; }
+        
+        /* DFC Dividers */
+        .dfc-separator { border-top: 1px dashed #444; margin: 12px 0; padding-top: 8px; position: relative; }
+        .dfc-badge { position: absolute; top: -10px; right: 0; background: #333; color: #aaa; font-size: 0.7em; padding: 1px 4px; border-radius: 3px; font-weight: bold; text-transform: uppercase; }
+
+        .card-footer { display: flex; justify-content: space-between; align-items: center; font-size: 0.85em; color: #777; margin-top: auto; }
         .rarity-tag { text-transform: uppercase; font-size: 0.8em; padding: 2px 6px; border-radius: 4px; font-weight: bold; }
         .rarity-common { background: #333; color: #bbb; }
         .rarity-uncommon { background: #4b6584; color: #fff; }
@@ -189,31 +220,34 @@ def generate_html(cards):
 </head>
 <body>
 
-    <h1>Dota 2 Cube — Studio Dashboard</h1>
+    <div class="header-row">
+        <h1>Dota 2 Cube — Creative Suite</h1>
+    </div>
 
+    <!-- PowerBI Interactive Charts Strip -->
     <div class="dashboard-row">
         <div class="chart-card">
-            <h3>Color / Guild Balance</h3>
+            <h3>Color / Guild Balance (Click bars to filter)</h3>
             <div class="chart-container"><canvas id="colorChart"></canvas></div>
         </div>
         <div class="chart-card">
-            <h3>Mana Curve (CMC)</h3>
+            <h3>Mana Curve (Click bars to filter)</h3>
             <div class="chart-container"><canvas id="manaChart"></canvas></div>
         </div>
         <div class="chart-card">
-            <h3>Card Types Breakdown</h3>
+            <h3>Card Types (Click sections to filter)</h3>
             <div class="chart-container"><canvas id="typeChart"></canvas></div>
         </div>
     </div>
 
-    <!-- Multi-tier analytics matrix selectors -->
+    <!-- Dashboard Filtering Controllers Matrix -->
     <div class="controls">
         <div class="control-group">
-            <label>Search Text</label>
-            <input type="text" id="search" class="search-box" placeholder="Name or rule details...">
+            <label>Search Content</label>
+            <input type="text" id="search" class="search-box" placeholder="Name or text details...">
         </div>
         <div class="control-group">
-            <label>Color Profile</label>
+            <label>Color Identity</label>
             <select id="colorFilter" class="select-box" onchange="applyFilters()">
                 <option value="All">All Identities</option>
                 <option value="W">White</option>
@@ -264,12 +298,15 @@ def generate_html(cards):
             </select>
         </div>
         <div class="control-group">
-            <label>Rarity / Frame</label>
+            <label>Frame Variant</label>
             <select id="legendFilter" class="select-box" onchange="applyFilters()">
-                <option value="All">All Cards</option>
+                <option value="All">All Frames</option>
                 <option value="Legendary">Legendary Only</option>
-                <option value="Non-Legendary">Non-Legendary</option>
+                <option value="DFC">Double-Faced (DFC)</option>
             </select>
+        </div>
+        <div class="control-group">
+            <button class="reset-btn" onclick="resetAllFilters()">Reset Filters</button>
         </div>
     </div>
 
@@ -277,20 +314,39 @@ def generate_html(cards):
 
     <script>
         const cardsData = __CARDS_JSON_PLACEHOLDER__;
+        
+        // Global references for chart objects so we can query clicks
+        let chart1, chart2, chart3;
 
         function renderGrid(filteredCards) {
             const grid = document.getElementById('grid');
             grid.innerHTML = '';
             
             filteredCards.forEach(card => {
-                const ptDisplay = (card.power || card.toughness) ? `<div class="card-pt">${card.power}/${card.toughness}</div>` : '<div></div>';
+                let ptDisplay = (card.power || card.toughness) ? `<div class="card-pt">${card.power}/${card.toughness}</div>` : '<div></div>';
                 
-                // Color highlight class assigning logic
                 let borderClass = `color-${card.color_group}`;
                 if (card.colors.length === 1) {
                     borderClass = `monocolor-${card.colors[0]}`;
                 } else if (card.colors.length > 1) {
                     borderClass = 'color-Multicolor';
+                }
+
+                // Handle Double-Faced Back Side HTML rendering expansion
+                let backFaceHtml = '';
+                if (card.is_dfc) {
+                    const backPt = (card.power_2 || card.toughness_2) ? `<div class="card-pt" style="margin-top:5px;">${card.power_2}/${card.toughness_2}</div>` : '';
+                    backFaceHtml = `
+                        <div class="dfc-separator">
+                            <span class="dfc-badge">Back Face</span>
+                            <div class="card-header">
+                                <div class="card-name">${card.name_2}</div>
+                            </div>
+                            <div class="card-type">${card.type_2}</div>
+                            <div class="card-text">${card.text_2}</div>
+                            ${backPt}
+                        </div>
+                    `;
                 }
 
                 const cardEl = document.createElement('div');
@@ -304,10 +360,11 @@ def generate_html(cards):
                         </div>
                         <div class="card-type">${card.type}</div>
                         <div class="card-text">${card.text}</div>
+                        ${backFaceHtml}
                     </div>
-                    <div class="card-footer">
+                    <div class="card-footer" style="margin-top: 12px;">
                         <span class="rarity-tag rarity-${card.rarity}">CMC ${card.cmc} — ${card.rarity}</span>
-                        ${ptDisplay}
+                        ${card.is_dfc ? '<div></div>' : ptDisplay}
                     </div>
                 `;
                 grid.appendChild(cardEl);
@@ -322,13 +379,14 @@ def generate_html(cards):
             const legendSel = document.getElementById('legendFilter').value;
 
             const filtered = cardsData.filter(card => {
-                const matchesSearch = card.name.toLowerCase().includes(searchText) || card.text.toLowerCase().includes(searchText);
+                const textHaystack = (card.name + " " + card.text + " " + card.name_2 + " " + card.text_2).toLowerCase();
+                const matchesSearch = textHaystack.includes(searchText);
                 
                 let matchesColor = true;
                 if (colorSel !== 'All') {
                     if (colorSel === 'Multicolor') {
                         matchesColor = card.colors.length > 1;
-                    } else if (colorSel === 'W' || colorSel === 'U' || colorSel === 'B' || colorSel === 'R' || colorSel === 'G') {
+                    } else if (['W','U','B','R','G'].includes(colorSel)) {
                         matchesColor = card.colors.length === 1 && card.colors[0] === colorSel;
                     } else {
                         matchesColor = card.color_group === colorSel;
@@ -344,15 +402,24 @@ def generate_html(cards):
                     }
                 }
 
-                const matchesType = (typeSel === 'All') || card.type.includes(typeSel);
+                const matchesType = (typeSel === 'All') || card.type.includes(typeSel) || (card.type_2 && card.type_2.includes(typeSel));
                 
                 let matchesLegend = true;
                 if (legendSel === 'Legendary') matchesLegend = card.is_legendary;
-                if (legendSel === 'Non-Legendary') matchesLegend = !card.is_legendary;
+                if (legendSel === 'DFC') matchesLegend = card.is_dfc;
 
                 return matchesSearch && matchesColor && matchesCmc && matchesType && matchesLegend;
             });
             renderGrid(filtered);
+        }
+
+        function resetAllFilters() {
+            document.getElementById('search').value = '';
+            document.getElementById('colorFilter').value = 'All';
+            document.getElementById('cmcFilter').value = 'All';
+            document.getElementById('typeFilter').value = 'All';
+            document.getElementById('legendFilter').value = 'All';
+            applyFilters();
         }
 
         document.getElementById('search').addEventListener('input', applyFilters);
@@ -373,45 +440,93 @@ def generate_html(cards):
                 if (!foundType) typeCounts.Other++;
             });
 
-            // Map standard groupings for dynamic chart keys
             const labelKeys = ['W', 'U', 'B', 'R', 'G', 'WU', 'WB', 'WR', 'WG', 'UB', 'UR', 'UG', 'BR', 'BG', 'RG', 'Colorless', 'Land'];
             const displayLabels = ['W', 'U', 'B', 'R', 'G', 'Azorius', 'Orzhov', 'Boros', 'Selesnya', 'Dimir', 'Izzet', 'Simic', 'Rakdos', 'Golgari', 'Gruul', 'Colorless', 'Land'];
-            const chartColors = ['#f0f2c5', '#0077ff', '#242424', '#ff3333', '#00aa44', '#70a1ff', '#747d8c', '#ff6b81', '#2ed573', '#57606f', '#ff7f50', '#1e90ff', '#ff4757', '#a4b0be', '#ffa502', '#7a7a7a', '#8b5a2b'];
             
+            // Added high-contrast white/light borders for black bars and dark themes
+            const chartColors = ['#f0f2c5', '#0077ff', '#242424', '#ff3333', '#00aa44', '#70a1ff', '#747d8c', '#ff6b81', '#2ed573', '#57606f', '#ff7f50', '#1e90ff', '#ff4757', '#a4b0be', '#ffa502', '#7a7a7a', '#8b5a2b'];
             const dynamicData = labelKeys.map(k => colorMap[k] || 0);
 
-            new Chart(document.getElementById('colorChart'), {
+            // 1. Color Profile Chart
+            const ctx1 = document.getElementById('colorChart');
+            chart1 = new Chart(ctx1, {
                 type: 'bar',
                 data: {
                     labels: displayLabels,
                     datasets: [{
                         data: dynamicData,
-                        backgroundColor: chartColors
+                        backgroundColor: chartColors,
+                        borderColor: '#555',
+                        borderWidth: 1.5
                     }]
                 },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+                options: { 
+                    responsive: true, 
+                    maintainAspectRatio: false, 
+                    plugins: { legend: { display: false } },
+                    onClick: (e, elements) => {
+                        if (elements.length > 0) {
+                            const index = elements[0].index;
+                            document.getElementById('colorFilter').value = labelKeys[index];
+                            applyFilters();
+                        }
+                    }
+                }
             });
 
+            // 2. CMC Curve Chart
             const maxCmc = Math.max(...Object.keys(cmcCounts).map(Number), 0);
             const cmcLabels = Array.from({length: maxCmc + 1}, (_, i) => i);
             const cmcData = cmcLabels.map(l => cmcCounts[l] || 0);
 
-            new Chart(document.getElementById('manaChart'), {
+            const ctx2 = document.getElementById('manaChart');
+            chart2 = new Chart(ctx2, {
                 type: 'bar',
                 data: {
                     labels: cmcLabels,
-                    datasets: [{ data: cmcData, backgroundColor: '#ffca28' }]
+                    datasets: [{ data: cmcData, backgroundColor: '#ffca28', borderColor: '#444', borderWidth: 1 }]
                 },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+                options: { 
+                    responsive: true, 
+                    maintainAspectRatio: false, 
+                    plugins: { legend: { display: false } },
+                    onClick: (e, elements) => {
+                        if (elements.length > 0) {
+                            const index = elements[0].index;
+                            const selectedCmc = cmcLabels[index];
+                            document.getElementById('cmcFilter').value = selectedCmc >= 7 ? '7' : selectedCmc.toString();
+                            applyFilters();
+                        }
+                    }
+                }
             });
 
-            new Chart(document.getElementById('typeChart'), {
+            // 3. Type Pie Chart
+            const ctx3 = document.getElementById('typeChart');
+            const typeKeys = Object.keys(typeCounts);
+            chart3 = new Chart(ctx3, {
                 type: 'doughnut',
                 data: {
-                    labels: Object.keys(typeCounts),
-                    datasets: [{ data: Object.values(typeCounts), backgroundColor: ['#2ecc71','#3498db','#9b59b6','#e67e22','#f1c40f','#e74c3c','#95a5a6'] }]
+                    labels: typeKeys,
+                    datasets: [{ 
+                        data: Object.values(typeCounts), 
+                        backgroundColor: ['#2ecc71','#3498db','#9b59b6','#e67e22','#f1c40f','#e74c3c','#95a5a6'],
+                        borderColor: '#222',
+                        borderWidth: 1.5
+                    }]
                 },
-                options: { responsive: true, maintainAspectRatio: false }
+                options: { 
+                    responsive: true, 
+                    maintainAspectRatio: false,
+                    onClick: (e, elements) => {
+                        if (elements.length > 0) {
+                            const index = elements[0].index;
+                            const typeClicked = typeKeys[index];
+                            document.getElementById('typeFilter').value = typeClicked === 'Other' ? 'All' : typeClicked;
+                            applyFilters();
+                        }
+                    }
+                }
             });
         }
 
@@ -422,7 +537,6 @@ def generate_html(cards):
 </html>
 """
     html_content = html_content.replace("__CARDS_JSON_PLACEHOLDER__", cards_json)
-    
     with open(html_path, 'w', encoding='utf-8') as f:
         f.write(html_content)
 
