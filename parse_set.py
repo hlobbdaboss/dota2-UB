@@ -51,7 +51,6 @@ def substitute_mse_symbols(text):
 def clean_tags(text):
     if not text:
         return ""
-    # Strips all XML/HTML tags EXCEPT <img> elements
     clean = re.sub(r'<(?!img\b)[^>]+>', '', text)
     return clean.strip()
 
@@ -69,7 +68,7 @@ def parse_mse_set():
         print("Error: 'set' data file not found.")
         return
 
-    print("Parsing text layout constraints safely...")
+    print("Parsing full set card array...")
     card_list = []
     current_card = None
     in_text_block = False
@@ -111,7 +110,7 @@ def parse_mse_set():
             value = value.strip()
 
             if key == "name": current_card['name'] = clean_tags(value)
-            elif key == "casting_cost": current_card['mana'] = clean_tags(value)
+            elif key == "casting_cost": current_card['mana'] = clean_tags(value)  # Retain internal formatting tags if any
             elif key == "super_type": current_card['super_type'] = clean_tags(value)
             elif key == "sub_type": current_card['sub_type'] = clean_tags(value)
             elif key == "power": current_card['power'] = clean_tags(value)
@@ -212,7 +211,7 @@ def generate_html(cards):
         .card-header { margin-bottom: 5px; display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
         .card-name { font-size: 1.15em; font-weight: bold; color: #fff; max-width: 65%; }
         
-        .card-mana { text-align: right; display: flex; gap: 3px; justify-content: flex-end; flex-wrap: wrap; max-width: 35%; padding-top: 2px; }
+        .card-mana { text-align: right; display: flex; gap: 3px; justify-content: flex-end; flex-wrap: wrap; max-width: 45%; padding-top: 2px; }
         .svg-symbol { width: 18px; height: 18px; border-radius: 50%; box-shadow: 0 1px 2px rgba(0,0,0,0.6); vertical-align: middle; display: inline-block; }
         .card-text .svg-symbol { width: 15px; height: 15px; margin: 0 1px; vertical-align: -2px; }
 
@@ -249,6 +248,7 @@ def generate_html(cards):
             <h3>Mana Curve</h3>
             <div class="chart-container"><canvas id="manaChart"></canvas></div>
         </div>
+        .chart-card { background: #1e1e1e; border: 1px solid #2a2a2a; border-radius: 8px; padding: 15px; height: 280px; display: flex; flex-direction: column; align-items: center; cursor: pointer; }
         <div class="chart-card">
             <h3>Card Types</h3>
             <div class="chart-container"><canvas id="typeChart"></canvas></div>
@@ -338,22 +338,42 @@ def generate_html(cards):
         let cardsData = __CARDS_JSON_PLACEHOLDER__;
         let chart1, chart2, chart3;
 
+        // Upgraded header parsing loop recursively segments slashes out of compound hybrid frames
         function formatManaSymbols(manaStr) {
             if (!manaStr) return '';
             let s = manaStr.trim ? manaStr.trim() : manaStr;
             s = s.replace(/\\s+/g, '').toUpperCase();
             
             let outputHtml = '';
+            
+            // 1. Unpack standalone starting integers
             let genericMatch = s.match(/^(\\d+)/);
             if (genericMatch) {
                 outputHtml += `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/${genericMatch[1]}.svg" />`;
                 s = s.replace(/^\\d+/, '');
             }
             
+            // 2. Scan explicitly for compound slash blocks or individual color symbols sequentially
             if (s.includes('/')) {
-                let cleanHybrid = s.replace(/\\//g, '');
-                outputHtml += `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/${cleanHybrid}.svg" />`;
+                // Split components by slashes to find each single hybrid segment token cleanly (e.g. ['G', 'W', 'G', 'W'])
+                let parts = s.split('/').filter(x => x);
+                
+                // Formulate paired hybrid groups for Scryfall (loops every 2 letters if merged, or parses adjacent)
+                for (let i = 0; i < parts.length; i++) {
+                    let token = parts[i];
+                    if (token.length > 1) {
+                        outputHtml += `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/${token}.svg" />`;
+                    } else if (i + 1 < parts.length && ['W','U','B','R','G'].includes(parts[i+1])) {
+                        // Blend adjacent pairs to match Scryfall endpoints (e.g., GW.svg)
+                        let combo = parts[i] + parts[i+1];
+                        outputHtml += `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/${combo}.svg" />`;
+                        i++; // Shift forward across the consumed pair
+                    } else {
+                        outputHtml += `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/${token}.svg" />`;
+                    }
+                }
             } else {
+                // Standard mapping fallback execution block
                 for (let i = 0; i < s.length; i++) {
                     let char = s[i];
                     if (['W','U','B','R','G','C','X'].includes(char)) {
