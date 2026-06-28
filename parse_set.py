@@ -7,12 +7,6 @@ MSE_FILE_PATH = "/Users/Harrison_1/Desktop/Full-Magic-Pack-main/Sets/Dota Set.ms
 EXTRACT_DIR = "./temp_mse"
 DOCS_DIR = "./docs"
 
-def clean_tags(text):
-    if not text:
-        return ""
-    clean = re.sub(r'<[^>]+>', '', text)
-    return clean.strip()
-
 def parse_hybrid_and_cmc(mana_string):
     if not mana_string:
         return 0, []
@@ -39,6 +33,28 @@ def parse_hybrid_and_cmc(mana_string):
             
     return cmc, colors
 
+def substitute_mse_symbols(text):
+    if not text:
+        return ""
+        
+    def replace_sym(match):
+        sym = match.group(1).upper().replace(" ", "").replace("/", "")
+        if sym == "T":
+            return '<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/T.svg" />'
+        if sym == "Q":
+            return '<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/Q.svg" />'
+        return f'<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/{sym}.svg" />'
+
+    # Safely convert strict symbol framework tags directly to Scryfall assets
+    text = re.sub(r'<sym(?:-auto)?>([^<]+)</sym(?:-auto)?>', replace_sym, text)
+    return text
+
+def clean_tags(text):
+    if not text:
+        return ""
+    clean = re.sub(r'<[^>]+>', '', text)
+    return clean.strip()
+
 def parse_mse_set():
     if not os.path.exists(MSE_FILE_PATH):
         print(f"Error: Could not find MSE file at {MSE_FILE_PATH}")
@@ -53,7 +69,7 @@ def parse_mse_set():
         print("Error: 'set' data file not found.")
         return
 
-    print("Parsing full set card array...")
+    print("Parsing tag structures target boundaries...")
     card_list = []
     current_card = None
     in_text_block = False
@@ -80,7 +96,9 @@ def parse_mse_set():
 
             if in_text_block:
                 if line.startswith("\t\t") or line.startswith("  "):
-                    text_store[text_target].append(clean_tags(line))
+                    # Process symbols BEFORE stripping structural HTML tags
+                    processed_line = substitute_mse_symbols(line)
+                    text_store[text_target].append(clean_tags(processed_line))
                     continue
                 else:
                     in_text_block = False
@@ -103,7 +121,7 @@ def parse_mse_set():
             elif key == "rule_text":
                 in_text_block = True
                 text_target = "text"
-                if value: text_store["text"].append(clean_tags(value))
+                if value: text_store["text"].append(clean_tags(substitute_mse_symbols(value)))
             elif key == "name_2": current_card['name_2'] = clean_tags(value)
             elif key == "super_type_2": current_card['super_type_2'] = clean_tags(value)
             elif key == "sub_type_2": current_card['sub_type_2'] = clean_tags(value)
@@ -112,7 +130,7 @@ def parse_mse_set():
             elif key == "rule_text_2":
                 in_text_block = True
                 text_target = "text_2"
-                if value: text_store["text_2"].append(clean_tags(value))
+                if value: text_store["text_2"].append(clean_tags(substitute_mse_symbols(value)))
 
         if current_card and current_card.get('name'):
             current_card['text'] = "\n".join(text_store["text"]).strip()
@@ -139,7 +157,7 @@ def parse_mse_set():
 
     import shutil
     shutil.rmtree(EXTRACT_DIR)
-    print(f"Successfully compiled frontend framework for {len(card_list)} cards!")
+    print(f"Successfully processed tag isolation layout maps for {len(card_list)} cards!")
 
 def generate_html(cards):
     os.makedirs(DOCS_DIR, exist_ok=True)
@@ -347,31 +365,6 @@ def generate_html(cards):
             return outputHtml;
         }
 
-        function formatRulesText(textStr) {
-            if (!textStr) return '';
-            let formatted = textStr;
-
-            formatted = formatted.replace(/(Equip[^\\d]*|pay\\s+|costs?\\s+|mana\\s+)(\\d+)\\b/gi, (match, prefix, num) => {
-                return `${prefix}<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/${num}.svg" />`;
-            });
-
-            formatted = formatted.replace(/\\bT\\s*:/gi, '<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/T.svg" />:');
-            formatted = formatted.replace(/\\bT\\s*,/gi, '<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/T.svg" /> ,');
-
-            formatted = formatted.replace(/^([^:]+):/gm, (match, costPart) => {
-                let cleanPart = costPart.replace(/([WUBRGCX])\\/([WUBRGCX])/gi, (m, p1, p2) => {
-                    return `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/${(p1+p2).toUpperCase()}.svg" />`;
-                });
-                ['W','U','B','R','G','C'].forEach(c => {
-                    let r = new RegExp('\\\\b' + c + '\\\\b', 'g');
-                    cleanPart = cleanPart.replace(r, `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/${c}.svg" />`);
-                });
-                return cleanPart + ':';
-            });
-
-            return formatted;
-        }
-
         function toggleFlip(btn) {
             const container = btn.closest('.card-container-3d');
             container.classList.toggle('flipped');
@@ -404,7 +397,7 @@ def generate_html(cards):
                                     <span class="card-mana"><img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/CARD.svg" /></span>
                                 </div>
                                 <div class="card-type">${card.type_2}</div>
-                                <div class="card-text">${formatRulesText(card.text_2)}</div>
+                                <div class="card-text">${card.text_2}</div>
                             </div>
                             <div class="card-footer" style="margin-top: 12px;">
                                 <button class="flip-btn" onclick="toggleFlip(this)">Transform 🔄</button>
@@ -424,7 +417,7 @@ def generate_html(cards):
                                 <span class="card-mana">${formatManaSymbols(card.mana)}</span>
                             </div>
                             <div class="card-type">${card.type}</div>
-                            <div class="card-text">${formatRulesText(card.text)}</div>
+                            <div class="card-text">${card.text}</div>
                         </div>
                         <div class="card-footer" style="margin-top: 12px;">
                             <span class="rarity-tag rarity-${card.rarity}">CMC ${card.cmc} — ${card.rarity}</span>
@@ -445,7 +438,7 @@ def generate_html(cards):
                                         <span class="card-mana">${formatManaSymbols(card.mana)}</span>
                                     </div>
                                     <div class="card-type">${card.type}</div>
-                                    <div class="card-text">${formatRulesText(card.text)}</div>
+                                    <div class="card-text">${card.text}</div>
                                 </div>
                                 <div class="card-footer" style="margin-top: 12px;">
                                     <button class="flip-btn" onclick="toggleFlip(this)">Transform 🔄</button>
