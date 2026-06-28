@@ -53,7 +53,7 @@ def parse_mse_set():
         print("Error: 'set' data file not found.")
         return
 
-    print("Parsing set data and asset maps...")
+    print("Mapping Scryfall vector assets...")
     card_list = []
     current_card = None
     in_text_block = False
@@ -139,7 +139,7 @@ def parse_mse_set():
 
     import shutil
     shutil.rmtree(EXTRACT_DIR)
-    print(f"Successfully compiled Scryfall rendering engine for {len(card_list)} cards!")
+    print(f"Successfully deployed Scryfall SVG maps for {len(card_list)} cards!")
 
 def generate_html(cards):
     os.makedirs(DOCS_DIR, exist_ok=True)
@@ -152,7 +152,6 @@ def generate_html(cards):
     <meta charset="utf-8">
     <title>Dota 2 Cube Studio Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mana-font/1.5.1/css/mana.min.css" rel="stylesheet" type="text/css" />
     <style>
         body { font-family: system-ui, -apple-system, sans-serif; background: #121212; color: #e0e0e0; padding: 25px; margin: 0; }
         .header-row { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #222; padding-bottom: 10px; margin-bottom: 20px; }
@@ -197,10 +196,10 @@ def generate_html(cards):
         .card-header { margin-bottom: 5px; display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
         .card-name { font-size: 1.15em; font-weight: bold; color: #fff; max-width: 65%; }
         
-        .card-mana { text-align: right; font-size: 1.1em; white-space: nowrap; display: flex; gap: 2px; justify-content: flex-end; flex-wrap: wrap; max-width: 35%; }
-        .ms { text-shadow: 0 1px 2px rgba(0,0,0,0.8); }
-        .card-text .ms { font-size: 1em; vertical-align: middle; display: inline-block; margin: 0 2px; background-color: #fff; color: #000; border-radius: 50%; padding: 0.5px; width: 1.1em; height: 1.1em; text-align: center; line-height: 1.1; font-weight: bold; }
-        .card-text .ms-tap, .card-text .ms-untap { background-color: #7f8c8d; color: #fff; }
+        /* Direct SVG Token Formatting Framework */
+        .card-mana { text-align: right; display: flex; gap: 3px; justify-content: flex-end; flex-wrap: wrap; max-width: 35%; }
+        .svg-symbol { width: 20px; height: 20px; border-radius: 50%; box-shadow: 0 1px 3px rgba(0,0,0,0.6); vertical-align: middle; display: inline-block; }
+        .card-text .svg-symbol { width: 16px; height: 16px; margin: 0 2px; }
 
         .card-type { font-style: italic; font-size: 0.85em; color: #888; margin-bottom: 10px; border-bottom: 1px solid #2a2a2a; padding-bottom: 4px; }
         .card-text { font-size: 0.9em; white-space: pre-wrap; line-height: 1.4; color: #bbb; flex-grow: 1; margin-bottom: 10px; }
@@ -316,31 +315,29 @@ def generate_html(cards):
         const cardsData = __CARDS_JSON_PLACEHOLDER__;
         let chart1, chart2, chart3;
 
-        // Fixed .trim() parsing engine maps vector files accurately
+        // Uses Scryfall official CDN vector assets directly
         function formatManaSymbols(manaStr) {
             if (!manaStr) return '';
             let s = manaStr.trim ? manaStr.trim() : manaStr;
-            s = s.replace(/\\s+/g, '');
+            s = s.replace(/\\s+/g, '').toUpperCase();
             
             let outputHtml = '';
             
             let genericMatch = s.match(/^(\\d+)/);
             if (genericMatch) {
-                outputHtml += `<i class="ms ms-${genericMatch[1]} ms-cost"></i>`;
+                outputHtml += `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/${genericMatch[1]}.svg" />`;
                 s = s.replace(/^\\d+/, '');
             }
             
             if (s.includes('/')) {
-                let segments = s.split('/').filter(x => x);
-                segments.forEach(seg => {
-                    let cleanSeg = seg.toLowerCase();
-                    outputHtml += `<i class="ms ms-${cleanSeg} ms-cost"></i>`;
-                });
+                // Recombine split layouts into Scryfall hybrid links (e.g. B/R -> BR.svg)
+                let cleanHybrid = s.replace(/\\//g, '');
+                outputHtml += `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/${cleanHybrid}.svg" />`;
             } else {
                 for (let i = 0; i < s.length; i++) {
-                    let char = s[i].toLowerCase();
-                    if (['w','u','b','r','g','c','x'].includes(char)) {
-                        outputHtml += `<i class="ms ms-${char} ms-cost"></i>`;
+                    let char = s[i];
+                    if (['W','U','B','R','G','C','X'].includes(char)) {
+                        outputHtml += `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/${char}.svg" />`;
                     }
                 }
             }
@@ -351,20 +348,23 @@ def generate_html(cards):
             if (!textStr) return '';
             let formatted = textStr;
             
-            // Map standard text abbreviations to Vector fonts
-            formatted = formatted.replace(/T,\\s+/g, '<i class="ms ms-tap"></i>, ');
-            formatted = formatted.replace(/T:/g, '<i class="ms ms-tap"></i>:');
-            formatted = formatted.replace(/\\bW\\b/g, '<i class="ms ms-w"></i>');
-            formatted = formatted.replace(/\\bU\\b/g, '<i class="ms ms-u"></i>');
-            formatted = formatted.replace(/\\bB\\b/g, '<i class="ms ms-b"></i>');
-            formatted = formatted.replace(/\\bR\\b/g, '<i class="ms ms-r"></i>');
-            formatted = formatted.replace(/\\bG\\b/g, '<i class="ms ms-g"></i>');
+            // Map common core rule book abbreviations directly to Scryfall assets
+            formatted = formatted.replace(/\\bT,\\s+/g, '<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/T.svg" /> ');
+            formatted = formatted.replace(/\\bT:/g, '<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/T.svg" />:');
+            formatted = formatted.replace(/\\bW\\b/g, '<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/W.svg" />');
+            formatted = formatted.replace(/\\bU\\b/g, '<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/U.svg" />');
+            formatted = formatted.replace(/\\bB\\b/g, '<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/B.svg" />');
+            formatted = formatted.replace(/\\bR\\b/g, '<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/R.svg" />');
+            formatted = formatted.replace(/\\bG\\b/g, '<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/G.svg" />');
             
-            // Map standalone numeric generic costs in text boxes
+            // Map compound shortcuts like hybrid rules reminders (e.g., R/G or B/R)
+            formatted = formatted.replace(/\\b([WUBRG])\\/([WUBRG])\\b/g, (m, p1, p2) => {
+                return `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/${p1}${p2}.svg" />`;
+            });
+
             formatted = formatted.replace(/\\b(\\d+)\\b/g, (m, p1) => {
-                // Ignore if it looks like power/toughness ratios or numbers inside words
                 if (formatted.indexOf('/') === formatted.indexOf(m) + 1) return p1;
-                return `<i class="ms ms-${p1}"></i>`;
+                return `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/${p1}.svg" />`;
             });
             return formatted;
         }
@@ -398,7 +398,7 @@ def generate_html(cards):
                             <div>
                                 <div class="card-header">
                                     <div class="card-name">${card.name_2}</div>
-                                    <span class="card-mana"><i class="ms ms-dfc ms-cost"></i></span>
+                                    <span class="card-mana"><img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/CARD.svg" /></span>
                                 </div>
                                 <div class="card-type">${card.type_2}</div>
                                 <div class="card-text">${formatRulesText(card.text_2)}</div>
