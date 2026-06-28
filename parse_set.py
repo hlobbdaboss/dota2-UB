@@ -153,7 +153,6 @@ def parse_mse_set():
             card['type_2'] = f"{card['super_type_2']} — {card['sub_type_2']}" if card['super_type_2'] and card['sub_type_2'] else (card['super_type_2'] if card['super_type_2'] else "")
         card['is_legendary'] = "Legendary" in card['type'] or "Legendary" in card.get('type_2', '')
         
-        # Uses .get() safely to shield single-faced cards from throwing KeyError exceptions
         card['is_token'] = "TOKEN" in card['type'].upper() or ("TOKEN" in card.get('type_2', '').upper() if card.get('type_2') else False)
         
         card['cmc'], card['colors'], card['mana_symbols'] = parse_hybrid_and_cmc(card['mana'])
@@ -170,7 +169,7 @@ def parse_mse_set():
 
     import shutil
     shutil.rmtree(EXTRACT_DIR)
-    print(f"Successfully processed suite matrix with token isolation for {len(card_list)} cards!")
+    print(f"Successfully processed suite matrix for {len(card_list)} cards!")
 
 def generate_html(cards):
     os.makedirs(DOCS_DIR, exist_ok=True)
@@ -204,7 +203,6 @@ def generate_html(cards):
         .reset-btn { background: #ff4757; border: none; color: white; padding: 11px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.95em; width: 100%; transition: background 0.2s; margin-top: 18px; }
         .reset-btn:hover { background: #ff6b81; }
         
-        .section-divider { font-size: 1.5em; font-weight: bold; color: #ffca28; margin: 40px 0 15px 0; border-bottom: 1px solid #333; padding-bottom: 5px; }
         .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 20px; align-items: start; }
         .card-container-3d { perspective: 1000px; min-height: 200px; }
         .card-inner-3d { position: relative; width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; }
@@ -254,10 +252,10 @@ def generate_html(cards):
     <div class="dashboard-row">
         <div class="kpi-card">
             <div class="kpi-number" id="kpiCounter">0</div>
-            <div class="kpi-label" id="kpiLabel">Draft Cards</div>
+            <div class="kpi-label" id="kpiLabel">Cards Loaded</div>
         </div>
         <div class="chart-card" style="grid-column: span 2;">
-            <h3>Color / Guild Balance (Click bars to filter)</h3>
+            <h3>Color Identity Distribution</h3>
             <div class="chart-container"><canvas id="colorChart"></canvas></div>
         </div>
         <div class="chart-card">
@@ -327,11 +325,12 @@ def generate_html(cards):
             </select>
         </div>
         <div class="control-group">
-            <label>Frame Variant</label>
+            <label>Frame Variant / Manifest</label>
             <select id="legendFilter" class="select-box" onchange="applyFilters()">
-                <option value="All">All Frames</option>
+                <option value="All">All Cube Cards</option>
                 <option value="Legendary">Legendary Only</option>
                 <option value="DFC">Double-Faced (DFC)</option>
+                <option value="Token">Tokens & Emblems Only</option>
             </select>
         </div>
         <div class="control-group">
@@ -347,11 +346,7 @@ def generate_html(cards):
         </div>
     </div>
 
-    <div class="section-divider">Cube Cards</div>
     <div class="card-grid" id="grid"></div>
-
-    <div class="section-divider">Token Manifest Bank</div>
-    <div class="card-grid" id="tokenGrid"></div>
 
     <script>
         let cardsData = __CARDS_JSON_PLACEHOLDER__;
@@ -373,7 +368,6 @@ def generate_html(cards):
 
         function buildCardHtml(card) {
             let ptDisplay = (card.power || card.toughness) ? `<div class="card-pt">${card.power}/${card.toughness}</div>` : '<div></div>';
-            
             let borderClass = `color-${card.color_group}`;
             if (card.colors.length === 1) {
                 borderClass = `monocolor-${card.colors[0]}`;
@@ -403,61 +397,41 @@ def generate_html(cards):
             }
 
             if (!card.is_dfc) {
-                return `
-                    <div class="card ${borderClass}">
-                        <div>
-                            <div class="card-header">
-                                <div class="card-name">${card.name}</div>
-                                <span class="card-mana">${formatManaSymbols(card.mana_symbols)}</span>
-                            </div>
-                            <div class="card-type">${card.type}</div>
-                            <div class="card-text">${card.text}</div>
+                return `<div class="card ${borderClass}">
+                    <div>
+                        <div class="card-header">
+                            <div class="card-name">${card.name}</div>
+                            <span class="card-mana">${formatManaSymbols(card.mana_symbols)}</span>
                         </div>
-                        <div class="card-footer" style="margin-top: 12px;">
-                            <span class="rarity-tag rarity-${card.rarity}">CMC ${card.cmc} — ${card.rarity}</span>
-                            ${ptDisplay}
-                        </div>
+                        <div class="card-type">${card.type}</div>
+                        <div class="card-text">${card.text}</div>
                     </div>
-                `;
+                    <div class="card-footer" style="margin-top: 12px;">
+                        <span class="rarity-tag rarity-${card.rarity}">CMC ${card.cmc} — ${card.rarity}</span>
+                        ${ptDisplay}
+                    </div>
+                </div>`;
             } else {
-                return `
-                    <div class="card-container-3d">
-                        <div class="card-inner-3d">
-                            <div class="card dfc-front ${borderClass}">
-                                <div>
-                                    <div class="card-header">
-                                        <div class="card-name">${card.name}</div>
-                                        <span class="card-mana">${formatManaSymbols(card.mana_symbols)}</span>
-                                    </div>
-                                    <div class="card-type">${card.type}</div>
-                                    <div class="card-text">${card.text}</div>
+                return `<div class="card-container-3d">
+                    <div class="card-inner-3d">
+                        <div class="card dfc-front ${borderClass}">
+                            <div>
+                                <div class="card-header">
+                                    <div class="card-name">${card.name}</div>
+                                    <span class="card-mana">${formatManaSymbols(card.mana_symbols)}</span>
                                 </div>
-                                <div class="card-footer" style="margin-top: 12px;">
-                                    <button class="flip-btn" onclick="toggleFlip(this)">Transform 🔄</button>
-                                    ${ptDisplay}
-                                </div>
+                                <div class="card-type">${card.type}</div>
+                                <div class="card-text">${card.text}</div>
                             </div>
-                            ${backFaceHtml}
+                            <div class="card-footer" style="margin-top: 12px;">
+                                <button class="flip-btn" onclick="toggleFlip(this)">Transform 🔄</button>
+                                ${ptDisplay}
+                            </div>
                         </div>
+                        ${backFaceHtml}
                     </div>
-                `;
+                </div>`;
             }
-        }
-
-        function renderGrid(filteredCards) {
-            const grid = document.getElementById('grid');
-            const tokenGrid = document.getElementById('tokenGrid');
-            
-            grid.innerHTML = '';
-            tokenGrid.innerHTML = '';
-            
-            const draftCards = filteredCards.filter(c => !c.is_token);
-            const tokenCards = filteredCards.filter(c => c.is_token);
-            
-            document.getElementById('kpiCounter').innerText = draftCards.length;
-            
-            draftCards.forEach(card => { grid.innerHTML += buildCardHtml(card); });
-            tokenCards.forEach(card => { tokenGrid.innerHTML += buildCardHtml(card); });
         }
 
         function applyFilters() {
@@ -494,9 +468,17 @@ def generate_html(cards):
 
                 const matchesType = (typeSel === 'All') || card.type.includes(typeSel) || (card.type_2 && card.type_2.includes(typeSel));
                 
+                // Adaptive target partitioning handles the token manifest view contextually
                 let matchesLegend = true;
-                if (legendSel === 'Legendary') matchesLegend = card.is_legendary;
-                if (legendSel === 'DFC') matchesLegend = card.is_dfc;
+                if (legendSel === 'All') {
+                    matchesLegend = !card.is_token; // Default view isolates playables from tokens
+                } else if (legendSel === 'Legendary') {
+                    matchesLegend = card.is_legendary && !card.is_token;
+                } else if (legendSel === 'DFC') {
+                    matchesLegend = card.is_dfc && !card.is_token;
+                } else if (legendSel === 'Token') {
+                    matchesLegend = card.is_token;
+                }
 
                 return matchesSearch && matchesColor && matchesCmc && matchesType && matchesLegend;
             });
@@ -513,7 +495,14 @@ def generate_html(cards):
                 filtered.sort((a, b) => a.cmc - b.cmc);
             }
 
-            renderGrid(filtered);
+            // Repopulate DOM grid matrix
+            const grid = document.getElementById('grid');
+            grid.innerHTML = '';
+            document.getElementById('kpiCounter').innerText = filtered.length;
+            document.getElementById('kpiLabel').innerText = legendSel === 'Token' ? 'Tokens Loaded' : 'Draft Cards';
+            filtered.forEach(card => { grid.innerHTML += buildCardHtml(card); });
+
+            updateCharts(filtered);
         }
 
         function resetAllFilters() {
@@ -528,14 +517,12 @@ def generate_html(cards):
 
         document.getElementById('search').addEventListener('input', applyFilters);
 
-        function buildCharts() {
-            const coreCards = cardsData.filter(c => !c.is_token);
-            
+        function updateCharts(activeCards) {
             const colorMap = {};
             const cmcCounts = {};
             const typeCounts = { Creature:0, Sorcery:0, Instant:0, Artifact:0, Enchantment:0, Planeswalker:0, Other:0 };
 
-            coreCards.forEach(c => {
+            activeCards.forEach(c => {
                 colorMap[c.color_group] = (colorMap[c.color_group] || 0) + 1;
                 cmcCounts[c.cmc] = (cmcCounts[c.cmc] || 0) + 1;
                 
@@ -547,82 +534,67 @@ def generate_html(cards):
             });
 
             const labelKeys = ['W', 'U', 'B', 'R', 'G', 'WU', 'WB', 'WR', 'WG', 'UB', 'UR', 'UG', 'BR', 'BG', 'RG', 'Colorless', 'Land'];
-            const displayLabels = ['W', 'U', 'B', 'R', 'G', 'Azorius', 'Orzhov', 'Boros', 'Selesnya', 'Dimir', 'Izzet', 'Simic', 'Rakdos', 'Golgari', 'Gruul', 'Colorless', 'Land'];
-            const chartColors = ['#f0f2c5', '#0077ff', '#242424', '#ff3333', '#00aa44', '#70a1ff', '#747d8c', '#ff6b81', '#2ed573', '#57606f', '#ff7f50', '#1e90ff', '#ff4757', '#a4b0be', '#ffa502', '#7a7a7a', '#8b5a2b'];
             const dynamicData = labelKeys.map(k => colorMap[k] || 0);
+            chart1.data.datasets[0].data = dynamicData;
+            chart1.update();
 
-            const ctx1 = document.getElementById('colorChart');
-            chart1 = new Chart(ctx1, {
-                type: 'bar',
-                data: {
-                    labels: displayLabels,
-                    datasets: [{ data: dynamicData, backgroundColor: chartColors, borderColor: '#555', borderWidth: 1.5 }]
-                },
-                options: { 
-                    responsive: true, 
-                    maintainAspectRatio: false, 
-                    plugins: { legend: { display: false } },
-                    onClick: (e, elements) => {
-                        if (elements.length > 0) {
-                            const index = elements[0].index;
-                            document.getElementById('colorFilter').value = labelKeys[index];
-                            applyFilters();
-                        }
-                    }
-                }
-            });
-
-            const maxCmc = Math.max(...Object.keys(cmcCounts).map(Number), 0);
+            const maxCmc = Math.max(...Object.keys(cmcCounts).map(Number), 5);
             const cmcLabels = Array.from({length: maxCmc + 1}, (_, i) => i);
             const cmcData = cmcLabels.map(l => cmcCounts[l] || 0);
+            chart2.data.labels = cmcLabels;
+            chart2.data.datasets[0].data = cmcData;
+            chart2.update();
 
-            const ctx2 = document.getElementById('manaChart');
-            chart2 = new Chart(ctx2, {
-                type: 'bar',
-                data: {
-                    labels: cmcLabels,
-                    datasets: [{ data: cmcData, backgroundColor: '#ffca28', borderColor: '#444', borderWidth: 1 }]
-                },
-                options: { 
-                    responsive: true, 
-                    maintainAspectRatio: false, 
-                    plugins: { legend: { display: false } },
-                    onClick: (e, elements) => {
-                        if (elements.length > 0) {
-                            const index = elements[0].index;
-                            const selectedCmc = cmcLabels[index];
-                            document.getElementById('cmcFilter').value = selectedCmc >= 7 ? '7' : selectedCmc.toString();
-                            applyFilters();
-                        }
-                    }
-                }
-            });
-
-            const ctx3 = document.getElementById('typeChart');
-            const typeKeys = Object.keys(typeCounts);
-            chart3 = new Chart(ctx3, {
-                type: 'doughnut',
-                data: {
-                    labels: typeKeys,
-                    datasets: [{ data: Object.values(typeCounts), backgroundColor: ['#2ecc71','#3498db','#9b59b6','#e67e22','#f1c40f','#e74c3c','#95a5a6'], borderColor: '#222', borderWidth: 1.5 }]
-                },
-                options: { 
-                    responsive: true, 
-                    maintainAspectRatio: false,
-                    onClick: (e, elements) => {
-                        if (elements.length > 0) {
-                            const index = elements[0].index;
-                            const typeClicked = typeKeys[index];
-                            document.getElementById('typeFilter').value = typeClicked === 'Other' ? 'All' : typeClicked;
-                            applyFilters();
-                        }
-                    }
-                }
-            });
+            chart3.data.datasets[0].data = Object.values(typeCounts);
+            chart3.update();
         }
 
-        renderGrid(cardsData);
-        buildCharts();
+        function initCharts() {
+            const coreCards = cardsData.filter(c => !c.is_token);
+            const colorMap = {};
+            const cmcCounts = {};
+            const typeCounts = { Creature:0, Sorcery:0, Instant:0, Artifact:0, Enchantment:0, Planeswalker:0, Other:0 };
+
+            coreCards.forEach(c => {
+                colorMap[c.color_group] = (colorMap[c.color_group] || 0) + 1;
+                cmcCounts[c.cmc] = (cmcCounts[c.cmc] || 0) + 1;
+                let foundType = false;
+                ['Creature', 'Sorcery', 'Instant', 'Artifact', 'Enchantment', 'Planeswalker'].forEach(t => {
+                    if (c.type.includes(t)) { typeCounts[t]++; foundType = true; }
+                });
+                if (!foundType) typeCounts.Other++;
+            });
+
+            const labelKeys = ['W', 'U', 'B', 'R', 'G', 'WU', 'WB', 'WR', 'WG', 'UB', 'UR', 'UG', 'BR', 'BG', 'RG', 'Colorless', 'Land'];
+            const displayLabels = ['W', 'U', 'B', 'R', 'G', 'Azorius', 'Orzhov', 'Boros', 'Selesnya', 'Dimir', 'Izzet', 'Simic', 'Rakdos', 'Golgari', 'Gruul', 'Colorless', 'Land'];
+            const chartColors = ['#f0f2c5', '#0077ff', '#242424', '#ff3333', '#00aa44', '#70a1ff', '#747d8c', '#ff6b81', '#2ed573', '#57606f', '#ff7f50', '#1e90ff', '#ff4757', '#a4b0be', '#ffa502', '#7a7a7a', '#8b5a2b'];
+
+            chart1 = new Chart(document.getElementById('colorChart'), {
+                type: 'bar',
+                data: { labels: displayLabels, datasets: [{ data: labelKeys.map(k => colorMap[k] || 0), backgroundColor: chartColors, borderColor: '#555', borderWidth: 1.5 }] },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+            });
+
+            const maxCmc = Math.max(...Object.keys(cmcCounts).map(Number), 5);
+            const cmcLabels = Array.from({length: maxCmc + 1}, (_, i) => i);
+            chart2 = new Chart(document.getElementById('manaChart'), {
+                type: 'bar',
+                data: { labels: cmcLabels, datasets: [{ data: cmcLabels.map(l => cmcCounts[l] || 0), backgroundColor: '#ffca28', borderColor: '#444', borderWidth: 1 }] },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+            });
+
+            chart3 = new Chart(document.getElementById('typeChart'), {
+                type: 'doughnut',
+                data: { labels: Object.keys(typeCounts), datasets: [{ data: Object.values(typeCounts), backgroundColor: ['#2ecc71','#3498db','#9b59b6','#e67e22','#f1c40f','#e74c3c','#95a5a6'], borderColor: '#222', borderWidth: 1.5 }] },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+
+            // Set up starting view layout parameters
+            document.getElementById('kpiCounter').innerText = coreCards.length;
+            applyFilters();
+        }
+
+        window.onload = initCharts;
     </script>
 </body>
 </html>
