@@ -202,15 +202,37 @@ function renderGrid(cards) {
   }).join("");
 }
 
+function renderRulesSymbols(text) {
+  if (!text) return "";
+  // Replace hybrid mana in rules text: R/W, W/B, G/W etc
+  const WUBRG = "WUBRG";
+  text = text.replace(/([WUBRGC2])\\/([WUBRGCP])/gi, (m, a, b) => {
+    a = a.toUpperCase(); b = b.toUpperCase();
+    let sym;
+    if (a === "2" || a === "P") { sym = a + b; }
+    else {
+      const ai = WUBRG.indexOf(a), bi = WUBRG.indexOf(b);
+      sym = (ai <= bi || bi < 0) ? a + b : b + a;
+    }
+    return `<img src="${SCRYFALL}${sym}.svg" style="width:15px;height:15px;border-radius:50%;vertical-align:-2px;display:inline-block;">`;
+  });
+  // Replace single mana symbols: W, U, B, R, G, C, X, T
+  text = text.replace(/\b([WUBRGCXT])\b(?![\/<])/g, (m, sym) => {
+    return `<img src="${SCRYFALL}${sym}.svg" style="width:15px;height:15px;border-radius:50%;vertical-align:-2px;display:inline-block;">`;
+  });
+  return text;
+}
+
 function showModal(localIdx) {
   const c = visibleCards[localIdx];
   if (!c) return;
+  const rules = renderRulesSymbols((c.rules||"").replace(/\n/g,"<br>"));
   document.getElementById("modal-body").innerHTML =
-    (c.image ? `<img src="cards/${c.image}" alt="${c.name}">` : "") +
+    (c.image ? `<img src="cards/${c.image}">` : "") +
     `<div class="modal-name">${c.name}</div>` +
     `<div class="modal-cost">${formatCost(c.mana_symbols)}</div>` +
     `<div class="modal-type">${c.type||""}</div>` +
-    `<div class="modal-rules">${(c.rules||"").replace(/\n/g,"<br>")}</div>` +
+    `<div class="modal-rules">${rules}</div>` +
     (c.flavor ? `<div class="modal-flavor">${c.flavor}</div>` : "") +
     (c.pt ? `<div class="modal-pt">${c.pt}</div>` : "") +
     `<div class="modal-meta">` +
