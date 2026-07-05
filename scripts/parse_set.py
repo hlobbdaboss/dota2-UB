@@ -196,11 +196,11 @@ def parse_mse(filepath):
 def compute_analytics(cards):
     playable = [c for c in cards if not c.get('is_token', False) and c.get('name')]
 
-    color_counts = {'W': 0, 'U': 0, 'B': 0, 'R': 0, 'G': 0,
+    color_counts = {'White': 0, 'Blue': 0, 'Black': 0, 'Red': 0, 'Green': 0,
                     'Azorius': 0, 'Orzhov': 0, 'Boros': 0, 'Selesnya': 0,
                     'Dimir': 0, 'Izzet': 0, 'Simic': 0,
                     'Rakdos': 0, 'Golgari': 0, 'Gruul': 0,
-                    'Colorless': 0, 'Multicolor': 0, 'Land': 0}
+                    'Colorless': 0, 'Land': 0}
 
     cmc_counts = {i: 0 for i in range(10)}
     type_counts = {'Creature': 0, 'Instant': 0, 'Sorcery': 0,
@@ -209,18 +209,11 @@ def compute_analytics(cards):
     for c in playable:
         t = c.get('type', '')
         label = c.get('color_label', 'Colorless')
-        colors = c.get('colors', [])
 
         if 'Land' in t:
             color_counts['Land'] = color_counts.get('Land', 0) + 1
-        elif len(colors) == 0:
-            color_counts['Colorless'] += 1
-        elif len(colors) == 1:
-            color_counts[colors[0]] = color_counts.get(colors[0], 0) + 1
-        elif len(colors) == 2:
-            color_counts[label] = color_counts.get(label, 0) + 1
         else:
-            color_counts['Multicolor'] = color_counts.get('Multicolor', 0) + 1
+            color_counts[label] = color_counts.get(label, 0) + 1
 
         cmc = min(c.get('cmc', 0), 9)
         cmc_counts[cmc] = cmc_counts.get(cmc, 0) + 1
@@ -248,13 +241,11 @@ def compute_analytics(cards):
     }
 
 
-# ─── HTML builder ─────────────────────────────────────────────────────────────
-
-def build_html(cards, analytics):
+def build_html_raw(cards, analytics):
     cards_json = json.dumps(cards)
     analytics_json = json.dumps(analytics)
 
-    html = f"""<!DOCTYPE html>
+    part1 = """<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -262,44 +253,44 @@ def build_html(cards, analytics):
     <title>Dota 2 Cube — Universes Beyond</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
-        *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        body {{
+        body {
             background: #0d0f1a;
             color: #e8e0d0;
             font-family: 'Georgia', serif;
             min-height: 100vh;
-        }}
+        }
 
-        .header {{
+        .header {
             background: linear-gradient(180deg, #1a1228 0%, #0d0f1a 100%);
             border-bottom: 1px solid #c89b3c44;
             padding: 28px 24px 20px;
             text-align: center;
-        }}
-        .header h1 {{
+        }
+        .header h1 {
             font-size: 2.8em;
             color: #c89b3c;
             letter-spacing: 0.04em;
             text-shadow: 0 0 40px #c89b3c66;
             margin-bottom: 4px;
-        }}
-        .header .tagline {{
+        }
+        .header .tagline {
             color: #7a7060;
             font-size: 0.95em;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-        }}
+        }
 
-        .dashboard {{
+        .dashboard {
             display: grid;
             grid-template-columns: 140px 1fr 1fr 1fr;
             gap: 12px;
             padding: 16px 20px;
             background: #111420;
             border-bottom: 1px solid #c89b3c22;
-        }}
-        .stat-box {{
+        }
+        .stat-box {
             background: #1a1e30;
             border: 1px solid #c89b3c33;
             border-radius: 8px;
@@ -308,36 +299,36 @@ def build_html(cards, analytics):
             flex-direction: column;
             align-items: center;
             justify-content: center;
-        }}
-        .stat-number {{
+        }
+        .stat-number {
             font-size: 3em;
             font-weight: bold;
             color: #c89b3c;
             line-height: 1;
-        }}
-        .stat-label {{
+        }
+        .stat-label {
             font-size: 0.7em;
             color: #7a7060;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             margin-top: 6px;
-        }}
-        .chart-box {{
+        }
+        .chart-box {
             background: #1a1e30;
             border: 1px solid #c89b3c33;
             border-radius: 8px;
             padding: 12px;
-        }}
-        .chart-title {{
+        }
+        .chart-title {
             font-size: 0.72em;
             color: #7a7060;
             text-transform: uppercase;
             letter-spacing: 0.08em;
             margin-bottom: 8px;
-        }}
-        .chart-box canvas {{ max-height: 120px; }}
+        }
+        .chart-box canvas { max-height: 120px; }
 
-        .filters {{
+        .filters {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
@@ -345,8 +336,8 @@ def build_html(cards, analytics):
             background: #0d0f1a;
             border-bottom: 1px solid #c89b3c22;
             align-items: center;
-        }}
-        .filters input, .filters select {{
+        }
+        .filters input, .filters select {
             background: #1a1e30;
             border: 1px solid #c89b3c44;
             color: #e8e0d0;
@@ -354,14 +345,14 @@ def build_html(cards, analytics):
             border-radius: 6px;
             font-size: 0.85em;
             font-family: Georgia, serif;
-        }}
-        .filters input {{ width: 220px; }}
-        .filters select {{ cursor: pointer; }}
-        .filters input:focus, .filters select:focus {{
+        }
+        .filters input { width: 220px; }
+        .filters select { cursor: pointer; }
+        .filters input:focus, .filters select:focus {
             outline: none;
             border-color: #c89b3c;
-        }}
-        .reset-btn {{
+        }
+        .reset-btn {
             background: #c89b3c;
             color: #0d0f1a;
             border: none;
@@ -372,22 +363,22 @@ def build_html(cards, analytics):
             cursor: pointer;
             font-family: Georgia, serif;
             margin-left: auto;
-        }}
-        .reset-btn:hover {{ background: #e0b44e; }}
-        .result-count {{
+        }
+        .reset-btn:hover { background: #e0b44e; }
+        .result-count {
             font-size: 0.8em;
             color: #7a7060;
             white-space: nowrap;
-        }}
+        }
 
-        .grid {{
+        .grid {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
             padding: 16px 20px;
             justify-content: flex-start;
-        }}
-        .card {{
+        }
+        .card {
             width: 160px;
             cursor: pointer;
             transition: transform 0.15s, box-shadow 0.15s;
@@ -395,19 +386,19 @@ def build_html(cards, analytics):
             overflow: hidden;
             background: #1a1e30;
             border: 1px solid #c89b3c22;
-        }}
-        .card:hover {{
+        }
+        .card:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 24px rgba(200,155,60,0.25);
             border-color: #c89b3c88;
-        }}
-        .card img {{
+        }
+        .card img {
             width: 100%;
             display: block;
             aspect-ratio: 5/7;
             object-fit: cover;
-        }}
-        .card .no-img {{
+        }
+        .card .no-img {
             width: 100%;
             aspect-ratio: 5/7;
             display: flex;
@@ -416,15 +407,15 @@ def build_html(cards, analytics):
             background: #12151f;
             color: #3a3520;
             font-size: 2em;
-        }}
-        .card-footer {{
+        }
+        .card-footer {
             padding: 6px 8px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 4px;
-        }}
-        .card-name {{
+        }
+        .card-name {
             font-size: 0.68em;
             color: #c89b3c;
             font-weight: bold;
@@ -432,19 +423,19 @@ def build_html(cards, analytics):
             overflow: hidden;
             text-overflow: ellipsis;
             flex: 1;
-        }}
-        .rarity-dot {{
+        }
+        .rarity-dot {
             width: 8px;
             height: 8px;
             border-radius: 50%;
             flex-shrink: 0;
-        }}
-        .r-common {{ background: #999; }}
-        .r-uncommon {{ background: #6aadff; }}
-        .r-rare {{ background: #ffaa44; }}
-        .r-mythic {{ background: #ff66aa; }}
+        }
+        .r-common { background: #999; }
+        .r-uncommon { background: #6aadff; }
+        .r-rare { background: #ffaa44; }
+        .r-mythic { background: #ff66aa; }
 
-        .modal {{
+        .modal {
             display: none;
             position: fixed;
             inset: 0;
@@ -453,9 +444,9 @@ def build_html(cards, analytics):
             justify-content: center;
             align-items: center;
             padding: 20px;
-        }}
-        .modal.active {{ display: flex; }}
-        .modal-inner {{
+        }
+        .modal.active { display: flex; }
+        .modal-inner {
             background: #1a1e30;
             border: 1px solid #c89b3c66;
             border-radius: 12px;
@@ -465,8 +456,8 @@ def build_html(cards, analytics):
             overflow-y: auto;
             position: relative;
             padding: 20px;
-        }}
-        .modal-close {{
+        }
+        .modal-close {
             position: absolute;
             top: 12px; right: 16px;
             font-size: 1.4em;
@@ -475,69 +466,69 @@ def build_html(cards, analytics):
             background: none;
             border: none;
             line-height: 1;
-        }}
-        .modal-close:hover {{ color: #e8e0d0; }}
-        .modal img {{
+        }
+        .modal-close:hover { color: #e8e0d0; }
+        .modal img {
             width: 100%;
             border-radius: 8px;
             margin-bottom: 14px;
-        }}
-        .modal-name {{
+        }
+        .modal-name {
             font-size: 1.3em;
             color: #c89b3c;
             margin-bottom: 4px;
-        }}
-        .modal-cost {{
+        }
+        .modal-cost {
             display: flex;
             align-items: center;
             gap: 4px;
             margin-bottom: 6px;
             flex-wrap: wrap;
-        }}
-        .svg-symbol {{
+        }
+        .svg-symbol {
             width: 18px;
             height: 18px;
             border-radius: 50%;
             box-shadow: 0 1px 2px rgba(0,0,0,0.6);
             vertical-align: middle;
             display: inline-block;
-        }}
-        .modal-type {{
+        }
+        .modal-type {
             font-size: 0.85em;
             color: #7a7060;
             font-style: italic;
             margin-bottom: 10px;
             padding-bottom: 10px;
             border-bottom: 1px solid #c89b3c22;
-        }}
-        .modal-rules {{
+        }
+        .modal-rules {
             font-size: 0.88em;
             line-height: 1.65;
             margin-bottom: 10px;
             white-space: pre-line;
-        }}
-        .modal-flavor {{
+        }
+        .modal-flavor {
             font-size: 0.8em;
             color: #7a7060;
             font-style: italic;
             border-top: 1px solid #c89b3c22;
             padding-top: 10px;
             line-height: 1.5;
-        }}
-        .modal-pt {{
+        }
+        .modal-pt {
             text-align: right;
             font-size: 1.1em;
             font-weight: bold;
             color: #c89b3c;
             margin-top: 8px;
-        }}
-        .modal-meta {{
+        }
+        .modal-meta {
             display: flex;
             gap: 8px;
             margin-top: 10px;
             flex-wrap: wrap;
-        }}
-        .badge {{
+        }
+        .badge {
             font-size: 0.7em;
             padding: 2px 8px;
             border-radius: 20px;
@@ -546,7 +537,7 @@ def build_html(cards, analytics):
             color: #c89b3c;
             text-transform: uppercase;
             letter-spacing: 0.06em;
-        }}
+        }
     </style>
 </head>
 <body>
@@ -647,39 +638,42 @@ def build_html(cards, analytics):
 </div>
 
 <script>
-// Corrected double brace formatting protects structural JSON definitions from f-string compilation
-const ALL_CARDS = {cards_json};
-const ANALYTICS = {analytics_json};
+const ALL_CARDS = """
+
+    part2 = """;
+const ANALYTICS = """
+
+    part3 = """;
 let chart1, chart2, chart3;
 
-function formatManaSymbols(manaSymbolsArray) {{
+function formatManaSymbols(manaSymbolsArray) {
     if (!manaSymbolsArray || manaSymbolsArray.length === 0) return '';
     return manaSymbolsArray.map(sym => 
-        `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/\${{sym}}.svg" />`
+        `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/` + sym + `.svg" />`
     ).join('');
-}}
+}
 
-function rarityClass(r) {{
+function rarityClass(r) {
     if (!r) return 'r-common';
     const rl = r.toLowerCase();
     if (rl.includes('mythic')) return 'r-mythic';
     if (rl === 'rare') return 'r-rare';
     if (rl === 'uncommon') return 'r-uncommon';
     return 'r-common';
-}}
+}
 
-function rarityOrder(r) {{
+function rarityOrder(r) {
     if (!r) return 0;
     const rl = r.toLowerCase();
     if (rl.includes('mythic')) return 3;
     if (rl === 'rare') return 2;
     if (rl === 'uncommon') return 1;
     return 0;
-}}
+}
 
 let visibleCards = [...ALL_CARDS];
 
-function applyFilters() {{
+function applyFilters() {
     const q = document.getElementById('search').value.toLowerCase();
     const col = document.getElementById('color-filter').value;
     const typ = document.getElementById('type-filter').value;
@@ -688,7 +682,7 @@ function applyFilters() {{
     const variant = document.getElementById('variant-filter').value;
     const srt = document.getElementById('sort-filter').value;
 
-    let filtered = ALL_CARDS.filter(c => {{
+    let filtered = ALL_CARDS.filter(c => {
         const nameMatch = !q || (c.name||'').toLowerCase().includes(q) || (c.rules||'').toLowerCase().includes(q);
         const colMatch = !col || c.color_label === col;
         const typMatch = !typ || (c.type||'').includes(typ);
@@ -700,27 +694,27 @@ function applyFilters() {{
         if (variant === 'Token') tokenMatch = c.is_token;
         
         return nameMatch && colMatch && typMatch && rarMatch && cmcMatch && tokenMatch;
-    }});
+    });
 
-    filtered.sort((a, b) => {{
+    filtered.sort((a, b) => {
         if (srt === 'name') return (a.name||'').localeCompare(b.name||'');
         if (srt === 'cmc') return (a.cmc||0) - (b.cmc||0) || (a.name||'').localeCompare(b.name||'');
         if (srt === 'color') return (a.color_label||'').localeCompare(b.color_label||'') || (a.name||'').localeCompare(b.name||'');
         if (srt === 'rarity') return rarityOrder(b.rarity) - rarityOrder(a.rarity) || (a.name||'').localeCompare(b.name||'');
         if (srt === 'type') return (a.type||'').localeCompare(b.type||'') || (a.name||'').localeCompare(b.name||'');
         return 0;
-    }});
+    });
 
     visibleCards = filtered;
     renderGrid(filtered);
-    document.getElementById('result-count').textContent = `\${{filtered.length}} of \${{ALL_CARDS.length}} cards`;
+    document.getElementById('result-count').textContent = filtered.length + " of " + ALL_CARDS.length + " cards";
     document.getElementById('displayed-count').textContent = filtered.length;
     document.getElementById('kpiLabel').textContent = variant === 'Token' ? 'Tokens' : 'Draft Cards';
     
     updateCharts(filtered);
-}}
+}
 
-function resetFilters() {{
+function resetFilters() {
     document.getElementById('search').value = '';
     document.getElementById('color-filter').value = '';
     document.getElementById('type-filter').value = '';
@@ -729,75 +723,76 @@ function resetFilters() {{
     document.getElementById('variant-filter').value = 'All';
     document.getElementById('sort-filter').value = 'name';
     applyFilters();
-}}
+}
 
-function renderGrid(cards) {{
+function renderGrid(cards) {
     const grid = document.getElementById('grid');
-    grid.innerHTML = cards.map((c, i) => {{
+    grid.innerHTML = cards.map((c, i) => {
         const img = c.image
-            ? `<img src="cards/\${{c.image}}" alt="\${{c.name}}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'no-img\\'>🎴</div>'">`
+            ? `<img src="cards/` + c.image + `" alt="` + c.name + `" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'no-img\\'>🎴</div>'">`
             : `<div class="no-img">🎴</div>`;
-        return `<div class="card" onclick="showModal(\${{ALL_CARDS.indexOf(c)}})">
-            \${{img}}
+        return `<div class="card" onclick="showModal(` + i + `)">
+            ` + img + `
             <div class="card-footer">
-                <span class="card-name">\${{c.name}}</span>
-                <span class="rarity-dot \${{rarityClass(c.rarity)}}"></span>
+                <span class="card-name">` + c.name + `</span>
+                <span class="rarity-dot ` + rarityClass(c.rarity) + `"></span>
             </div>
         </div>`;
-    }}).join('');
-}}
+    }).join('');
+}
 
-function showModal(idx) {{
-    const c = ALL_CARDS[idx];
+function showModal(localIdx) {
+    const c = visibleCards[localIdx];
+    if (!c) return;
     const body = document.getElementById('modal-body');
     body.innerHTML = `
-        \${{c.image ? `<img src="cards/\${{c.image}}" alt="\${{c.name}}">` : ''}}
-        <div class="modal-name">\${{c.name}}</div>
-        <div class="modal-cost">\${{formatManaSymbols(c.mana_symbols)}}</div>
-        <div class="modal-type">\${{c.type||''}}</div>
-        <div class="modal-rules">\${{(c.rules||'').replace(/\\n/g,'<br>')}}</div>
-        \${{c.flavor ? `<div class="modal-flavor">\${{c.flavor}}</div>` : ''}}
-        \${{c.pt ? `<div class="modal-pt">\${{c.pt}}</div>` : ''}}
+        ` + (c.image ? `<img src="cards/` + c.image + `" alt="` + c.name + `">` : '') + `
+        <div class="modal-name">` + c.name + `</div>
+        <div class="modal-cost">` + formatManaSymbols(c.mana_symbols) + `</div>
+        <div class="modal-type">` + (c.type||'') + `</div>
+        <div class="modal-rules">` + ((c.rules||'').replace(/\\n/g,'<br>')) + `</div>
+        ` + (c.flavor ? `<div class="modal-flavor">` + c.flavor + `</div>` : '') + `
+        ` + (c.pt ? `<div class="modal-pt">` + c.pt + `</div>` : '') + `
         <div class="modal-meta">
-            \${{c.rarity ? `<span class="badge">\${{c.rarity}}</span>` : ''}}
-            \${{c.color_label ? `<span class="badge">\${{c.color_label}}</span>` : ''}}
-            \${{c.cmc !== undefined ? `<span class="badge">CMC \${{c.cmc}}</span>` : ''}}
+            ` + (c.rarity ? `<span class="badge">` + c.rarity + `</span>` : '') + `
+            ` + (c.color_label ? `<span class="badge">` + c.color_label + `</span>` : '') + `
+            ` + (c.cmc !== undefined ? `<span class="badge">CMC ` + c.cmc + `</span>` : '') + `
         </div>
     `;
     document.getElementById('modal').classList.add('active');
-}}
+}
 
-function closeModal() {{
+function closeModal() {
     document.getElementById('modal').classList.remove('active');
-}}
+}
 
-function modalBgClick(e) {{
+function modalBgClick(e) {
     if (e.target === document.getElementById('modal')) closeModal();
-}}
+}
 
-const CHART_DEFAULTS = {{
-    plugins: {{ legend: {{ labels: {{ color: '#7a7060', font: {{ size: 10 }} }} }} }},
-    scales: {{
-        x: {{ ticks: {{ color: '#7a7060', font: {{ size: 9 }} }}, grid: {{ color: '#ffffff0a' }} }},
-        y: {{ ticks: {{ color: '#7a7060', font: {{ size: 9 }} }}, grid: {{ color: '#ffffff0a' }} }}
-    }}
-}};
+const CHART_DEFAULTS = {
+    plugins: { legend: { labels: { color: '#7a7060', font: { size: 10 } } } },
+    scales: {
+        x: { ticks: { color: '#7a7060', font: { size: 9 } }, grid: { color: '#ffffff0a' } },
+        y: { ticks: { color: '#7a7060', font: { size: 9 } }, grid: { color: '#ffffff0a' } }
+    }
+};
 
-function updateCharts(activeCards) {{
-    const colorMap = {{}};
-    const cmcCounts = {{}};
-    const typeCounts = {{ Creature:0, Instant:0, Sorcery:0, Enchantment:0, Artifact:0, Land:0, Other:0 }};
+function updateCharts(activeCards) {
+    const colorMap = {};
+    const cmcCounts = {};
+    const typeCounts = { Creature:0, Instant:0, Sorcery:0, Enchantment:0, Artifact:0, Land:0, Other:0 };
 
-    activeCards.forEach(c => {{
+    activeCards.forEach(c => {
         colorMap[c.color_label] = (colorMap[c.color_label] || 0) + 1;
         cmcCounts[c.cmc] = (cmcCounts[c.cmc] || 0) + 1;
         
-        let found = false;
-        ['Creature', 'Instant', 'Sorcery', 'Enchantment', 'Artifact', 'Land'].forEach(t => {{
-            if ((c.type||'').includes(t)) {{ typeCounts[t]++; found = true; }}
-        }});
-        if (!found) typeCounts.Other++;
-    }});
+        let foundType = false;
+        ['Creature', 'Sorcery', 'Instant', 'Artifact', 'Enchantment', 'Land'].forEach(t => {
+            if ((c.type||'').includes(t)) { typeCounts[t]++; foundType = true; }
+        });
+        if (!foundType) typeCounts.Other++;
+    });
 
     const labelKeys = ['White', 'Blue', 'Black', 'Red', 'Green', 'Azorius', 'Orzhov', 'Boros', 'Selesnya', 'Dimir', 'Izzet', 'Simic', 'Rakdos', 'Golgari', 'Gruul', 'Colorless', 'Land'];
     chart1.data.labels = labelKeys.filter(k => colorMap[k] > 0);
@@ -805,64 +800,65 @@ function updateCharts(activeCards) {{
     chart1.update();
 
     const maxCmc = Math.max(...Object.keys(cmcCounts).map(Number), 5);
-    const cmcLabels = Array.from({{length: maxCmc + 1}}, (_, i) => i);
+    const cmcLabels = Array.from({length: maxCmc + 1}, (_, i) => i);
     chart2.data.labels = cmcLabels.map(k => k >= 6 ? '6+' : k);
     chart2.data.datasets[0].data = cmcLabels.map(l => cmcCounts[l] || 0);
     chart2.update();
 
     chart3.data.datasets[0].data = Object.values(typeCounts);
     chart3.update();
-}}
+}
 
-function initCharts() {{
+function initCharts() {
     const coreCards = ALL_CARDS.filter(c => !c.is_token);
-    const colorMap = {{}};
-    const cmcCounts = {{}};
-    const typeCounts = {{ Creature:0, Instant:0, Sorcery:0, Enchantment:0, Artifact:0, Land:0, Other:0 }};
+    const colorMap = {};
+    const cmcCounts = {};
+    const typeCounts = { Creature:0, Sorcery:0, Instant:0, Artifact:0, Enchantment:0, Land:0, Other:0 };
 
-    coreCards.forEach(c => {{
+    coreCards.forEach(c => {
         colorMap[c.color_label] = (colorMap[c.color_label] || 0) + 1;
         cmcCounts[c.cmc] = (cmcCounts[c.cmc] || 0) + 1;
-        let found = false;
-        ['Creature', 'Instant', 'Sorcery', 'Enchantment', 'Artifact', 'Land'].forEach(t => {{
-            if ((c.type||'').includes(t)) {{ typeCounts[t]++; found = true; }}
-        }});
-        if (!found) typeCounts.Other++;
-    }});
+        let foundType = false;
+        ['Creature', 'Sorcery', 'Instant', 'Artifact', 'Enchantment', 'Land'].forEach(t => {
+            if ((c.type||'').includes(t)) { typeCounts[t]++; foundType = true; }
+        });
+        if (!foundType) typeCounts.Other++;
+    });
 
     const labelKeys = ['White', 'Blue', 'Black', 'Red', 'Green', 'Azorius', 'Orzhov', 'Boros', 'Selesnya', 'Dimir', 'Izzet', 'Simic', 'Rakdos', 'Golgari', 'Gruul', 'Colorless', 'Land'];
 
-    chart1 = new Chart(document.getElementById('colorChart'), {{
+    chart1 = new Chart(document.getElementById('colorChart'), {
         type: 'bar',
-        data: {{ labels: labelKeys.filter(k => colorMap[k] > 0), datasets: [{{ data: labelKeys.filter(k => colorMap[k] > 0).map(k => colorMap[k] || 0), backgroundColor: '#c89b3c88', borderColor: '#c89b3c', borderWidth: 1 }}] }},
-        options: {{ ...CHART_DEFAULTS, plugins: {{ legend: {{ display: false }} }}, responsive: true, maintainAspectRatio: false }}
-    }});
+        data: { labels: labelKeys.filter(k => colorMap[k] > 0), datasets: [{ data: labelKeys.filter(k => colorMap[k] > 0).map(k => colorMap[k] || 0), backgroundColor: '#c89b3c88', borderColor: '#c89b3c', borderWidth: 1 }] },
+        options: { ...CHART_DEFAULTS, plugins: { legend: { display: false } }, responsive: true, maintainAspectRatio: false }
+    });
 
     const maxCmc = Math.max(...Object.keys(cmcCounts).map(Number), 5);
-    const cmcLabels = Array.from({{length: maxCmc + 1}}, (_, i) => i);
-    chart2 = new Chart(document.getElementById('cmcChart'), {{
+    const cmcLabels = Array.from({length: maxCmc + 1}, (_, i) => i);
+    chart2 = new Chart(document.getElementById('cmcChart'), {
         type: 'bar',
-        data: {{ labels: cmcLabels.map(k => k >= 6 ? '6+' : k), datasets: [{{ data: cmcLabels.map(l => cmcCounts[l] || 0), backgroundColor: '#c89b3c88', borderColor: '#c89b3c', borderWidth: 1 }}] }},
-        options: {{ ...CHART_DEFAULTS, plugins: {{ legend: {{ display: false }} }}, responsive: true, maintainAspectRatio: false }}
-    }});
+        data: { labels: cmcLabels.map(k => k >= 6 ? '6+' : k), datasets: [{ data: cmcLabels.map(l => cmcCounts[l] || 0), backgroundColor: '#c89b3c88', borderColor: '#c89b3c', borderWidth: 1 }] },
+        options: { ...CHART_DEFAULTS, plugins: { legend: { display: false } }, responsive: true, maintainAspectRatio: false }
+    });
 
-    chart3 = new Chart(document.getElementById('typeChart'), {{
+    chart3 = new Chart(document.getElementById('typeChart'), {
         type: 'doughnut',
-        data: {{ labels: Object.keys(typeCounts), datasets: [{{ data: Object.values(typeCounts), backgroundColor: ['#4a9e6b','#6aadff','#aa88ff','#ffaa44','#ff6688','#c89b3c','#7a7a7a'], borderColor: '#1a1e30', borderWidth: 2 }}] }},
-        options: {{ responsive: true, maintainAspectRatio: false, plugins: {{ legend: {{ position: 'right', labels: {{ color: '#7a7060', font: {{ size: 9 }}, boxWidth: 12 }} }} }} }}
-    }});
+        data: { labels: Object.keys(typeCounts), datasets: [{ data: Object.values(typeCounts), backgroundColor: ['#4a9e6b','#6aadff','#aa88ff','#ffaa44','#ff6688','#c89b3c','#7a7a7a'], borderColor: '#1a1e30', borderWidth: 2 }] },
+        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'right', labels: { color: '#7a7060', font: { size: 9 }, boxWidth: 12 } } } }
+    });
 
     applyFilters();
-}}
+}
 
 window.onload = initCharts;
 </script>
 </body>
 </html>"""
-    return html
+
+    return part1 + cards_json + part2 + analytics_json + part3
 
 
-# ── Main ───────────────────────────────────────────────────────────────────────
+# ─── Main ───────────────────────────────────────────────────────────────────────
 
 def main():
     print("Parsing MSE file...")
@@ -873,7 +869,7 @@ def main():
     analytics = compute_analytics(cards)
 
     print("Building gallery...")
-    html = build_html(cards, analytics)
+    html = build_html_raw(cards, analytics)
     with open(os.path.join(REPO_DIR, "docs", "index.html"), "w", encoding="utf-8") as f:
         f.write(html)
 
@@ -884,9 +880,9 @@ def main():
     print("Pushing to GitHub...")
     os.chdir(REPO_DIR)
     subprocess.run(["git", "add", "."])
-    subprocess.run(["git", "commit", "-m", f"Update set — {datetime.now().strftime('%Y-%m-%d %H:%M')}"])
+    subprocess.run(["git", "commit", "-m", "Fix sorting sync index and repair modal grid interactions"])
     subprocess.run(["git", "push"])
-    print("Done! Visit: https://hlobbdaboss.github.io/dota2-UB/")
+    print("Done! Visit: https://hlobbdaboss.github.io/dota2-set/")
 
 
 if __name__ == "__main__":

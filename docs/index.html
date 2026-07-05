@@ -480,7 +480,7 @@ function renderGrid(cards) {
         const img = c.image
             ? `<img src="cards/` + c.image + `" alt="` + c.name + `" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'no-img\'>🎴</div>'">`
             : `<div class="no-img">🎴</div>`;
-        return `<div class="card" onclick="showModal(" + ALL_CARDS.indexOf(c) + ")">
+        return `<div class="card" onclick="showModal(` + i + `)">
             ` + img + `
             <div class="card-footer">
                 <span class="card-name">` + c.name + `</span>
@@ -490,8 +490,9 @@ function renderGrid(cards) {
     }).join('');
 }
 
-function showModal(idx) {
-    const c = ALL_CARDS[idx];
+function showModal(localIdx) {
+    const c = visibleCards[localIdx];
+    if (!c) return;
     const body = document.getElementById('modal-body');
     body.innerHTML = `
         ` + (c.image ? `<img src="cards/` + c.image + `" alt="` + c.name + `">` : '') + `
