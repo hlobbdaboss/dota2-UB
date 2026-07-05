@@ -7,13 +7,21 @@ import re
 import hashlib
 import zipfile
 
-# Paths
-MSE_FILE = "/Users/Harrison_1/Desktop/dota2-UB/mse/Dota 2 Universes Beyond.mse-set"
-REPO_DIR = "/Users/Harrison_1/Desktop/dota2-UB"
-OUTPUT_JSON = os.path.join(REPO_DIR, "docs", "cards.json")
-IMAGES_DIR = os.path.join(REPO_DIR, "docs", "cards")
+# Paths -- computed relative to this script's own location, so the same
+# file works unmodified on any machine as long as it stays in <repo>/scripts/
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+REPO_DIR = os.path.dirname(SCRIPT_DIR)
 
-# --- Mana parsing -----------------------------------------------------------
+# Auto-detect the .mse-set file inside REPO_DIR/mse/ instead of hardcoding
+# a filename -- avoids breaking if the set file ever gets renamed.
+import glob
+_mse_candidates = glob.glob(os.path.join(REPO_DIR, "mse", "*.mse-set"))
+if not _mse_candidates:
+    raise FileNotFoundError(f"No .mse-set file found in {os.path.join(REPO_DIR, 'mse')}")
+MSE_FILE = _mse_candidates[0]
+
+OUTPUT_JSON = os.path.join(REPO_DIR, "docs", "cards.json")
+IMAGES_DIR = os.path.join(REPO_DIR, "docs", "cards")# --- Mana parsing -----------------------------------------------------------
 
 def parse_mana_cost(cost_str):
     """Parse MSE casting_cost string into list of pip tokens."""
