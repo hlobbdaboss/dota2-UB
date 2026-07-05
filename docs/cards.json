@@ -208,7 +208,7 @@
     "type": "Creature — Elemental",
     "cmc": 1,
     "mana_symbols": [
-      "WG"
+      "GW"
     ],
     "colors": [
       "W",
@@ -229,7 +229,7 @@
     "type": "Creature — Elemental",
     "cmc": 1,
     "mana_symbols": [
-      "WG"
+      "GW"
     ],
     "colors": [
       "W",
@@ -248,9 +248,10 @@
     "rules": "Evolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)\nOther creatures you control get +1/+1.",
     "flavor": "",
     "type": "Creature — Elemental",
-    "cmc": 1,
+    "cmc": 3,
     "mana_symbols": [
-      "W2G"
+      "2",
+      "GW"
     ],
     "colors": [
       "W",
@@ -269,9 +270,10 @@
     "rules": "Vigilance\nEvolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)",
     "flavor": "",
     "type": "Creature — Elemental",
-    "cmc": 1,
+    "cmc": 4,
     "mana_symbols": [
-      "W3G"
+      "3",
+      "GW"
     ],
     "colors": [
       "W",
@@ -354,9 +356,10 @@
     "rules": "Evolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)\nOther creatures you control get +1/+1.",
     "flavor": "",
     "type": "Creature — Elemental",
-    "cmc": 1,
+    "cmc": 3,
     "mana_symbols": [
-      "R2B"
+      "2",
+      "BR"
     ],
     "colors": [
       "B",
@@ -375,9 +378,10 @@
     "rules": "Menace\nEvolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)",
     "flavor": "",
     "type": "Creature — Elemental",
-    "cmc": 1,
+    "cmc": 4,
     "mana_symbols": [
-      "R3B"
+      "3",
+      "BR"
     ],
     "colors": [
       "B",
@@ -396,9 +400,10 @@
     "rules": "Menace, reach\nEvolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)",
     "flavor": "",
     "type": "Creature — Elemental",
-    "cmc": 1,
+    "cmc": 4,
     "mana_symbols": [
-      "R3B"
+      "3",
+      "BR"
     ],
     "colors": [
       "B",
@@ -931,9 +936,10 @@
     "rules": "When Ish’Kafel enters, choose an opponent. For each creature they control, create a token that’s a copy of that creature.",
     "flavor": "“Your life, much like your head, lacked a point.”",
     "type": "Legendary Creature — Elder Elemental",
-    "cmc": 2,
+    "cmc": 7,
     "mana_symbols": [
-      "B5U",
+      "5",
+      "UB",
       "UB"
     ],
     "colors": [
@@ -1174,7 +1180,7 @@
     "type": "Legendary Creature — Human",
     "cmc": 1,
     "mana_symbols": [
-      "WR"
+      "RW"
     ],
     "colors": [
       "W",
@@ -1438,10 +1444,11 @@
     "rules": "Nonbasic landwalk (This creature can’t be blocked as long as defending player controls a nonbasic land.)\nWhenever Hoodwink attacks, you may search your library for a basic land card, reveal it, put it into your hand, then shuffle.",
     "flavor": "“You ever hear the one about the tortoise and the hare and the squirrel that shot ‘em both?”",
     "type": "Legendary Creature — Squirrel Ranger",
-    "cmc": 2,
+    "cmc": 3,
     "mana_symbols": [
-      "W1G",
-      "WG"
+      "1",
+      "GW",
+      "GW"
     ],
     "colors": [
       "W",
@@ -2596,10 +2603,11 @@
     "rules": "Whenever Slithice deals combat damage to a player for the first time each turn, that player skips their next combat phase.\nT: Target creature an opponent controls attacks during its controller’s next turn if able.",
     "flavor": "“From this sleep you will not wake.”",
     "type": "Legendary Creature — Naga",
-    "cmc": 2,
+    "cmc": 3,
     "mana_symbols": [
-      "U1G",
-      "UG"
+      "1",
+      "GU",
+      "GU"
     ],
     "colors": [
       "U",
@@ -2789,9 +2797,10 @@
     "rules": "Trample\nWhenever Aggron attacks, exile an instant or sorcery card from your graveyard at random. You may cast that card without paying its mana cost. If you do, roll a d4. Copy that spell X times, where X is the result. You may choose new targets for the copies.",
     "flavor": "“Running’s not as fun as hitting. Not one bit fun!”",
     "type": "Legendary Creature — Ogre Wizard",
-    "cmc": 2,
+    "cmc": 7,
     "mana_symbols": [
-      "R5U",
+      "5",
+      "UR",
       "UR"
     ],
     "colors": [
@@ -3095,9 +3104,10 @@
     "rules": "Flying, haste\nWhenever Razor attacks, exchange its power with target creature’s power until end of turn.",
     "flavor": "“I bring my lightning whip not to punish souls, but only to hasten them toward the inevitable exit.”",
     "type": "Legendary Creature — Elemental Warrior",
-    "cmc": 2,
+    "cmc": 3,
     "mana_symbols": [
-      "R1U",
+      "1",
+      "UR",
       "UR"
     ],
     "colors": [
@@ -3692,9 +3702,10 @@
     "rules": "Flash (You may cast this spell any time you could cast an instant.)\nWhen Ymir, the Tusk enters, exile up to one other target creature you control. Return that card to the battlefield under its owner’s control at the beginning of the next end step.",
     "flavor": "“I say we should trade blows!”",
     "type": "Legendary Creature — Beast Warrior",
-    "cmc": 1,
+    "cmc": 4,
     "mana_symbols": [
-      "U3W"
+      "3",
+      "WU"
     ],
     "colors": [
       "W",
@@ -5403,10 +5414,11 @@
     "rules": "Defender (This creature can’t attack.)\nEvolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)\nT, Sacrifice this creature: Destroy target artifact.",
     "flavor": "A Radiant Siege Engine has been known to singlehandedly topple an unguarded Dire Tower.",
     "type": "Artifact Creature — Construct",
-    "cmc": 2,
+    "cmc": 3,
     "mana_symbols": [
-      "W1G",
-      "WG"
+      "1",
+      "GW",
+      "GW"
     ],
     "colors": [
       "W",
@@ -5425,9 +5437,10 @@
     "rules": "Defender (This creature can’t attack.)\nEvolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)\nT, Sacrifice this creature: Destroy target artifact.",
     "flavor": "A lone Dire siege engine has been known to single-handedly topple an unguarded Radiant Tower.",
     "type": "Artifact Creature — Construct",
-    "cmc": 2,
+    "cmc": 3,
     "mana_symbols": [
-      "R1B",
+      "1",
+      "BR",
       "BR"
     ],
     "colors": [
@@ -6506,9 +6519,10 @@
     "rules": "(You may cast a legendary sorcery only if you control a legendary permanent.)\nTarget creature you control deals damage equal to its power to target creature. Primal Roar deals 2 damage to each other creature that creature’s controller controls.",
     "flavor": "The Beastmaster has learned to channel his primal instincts into an animalistic roar, causing devastation in the ranks of enemies.",
     "type": "Legendary Sorcery",
-    "cmc": 1,
+    "cmc": 5,
     "mana_symbols": [
-      "G4R"
+      "4",
+      "RG"
     ],
     "colors": [
       "R",
