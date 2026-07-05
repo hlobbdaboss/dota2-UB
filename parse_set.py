@@ -213,23 +213,18 @@ def parse_mse(filepath):
             card['is_token'] = 'Token' in card.get('type', '') or 'token' in card.get('name', '').lower()
             cards.append(card)
 
-    # Flag cards whose art is actually identical, not just same filename.
-    # MSE assigns each card's own image filename even when you duplicate a
-    # card — the two files just end up byte-for-byte identical if the art on
-    # the copy was never replaced. A filename match alone misses that case,
-    # so hash file contents instead.
-    for img_hash, names in _group_cards_by_image_hash(cards).items():
-        if len(set(names)) > 1:
-            print(f"WARNING: {sorted(set(names))} share identical artwork (hash {img_hash[:8]}) — "
-                  f"reassign art for these in MSE, the parser can't fix this from data alone.")
-
-    return cards
-
-
-def _group_cards_by_image_hash(cards):
-    """Group card names by the MD5 of their extracted image file's bytes."""
-    hash_to_names = {}
+    # Hash every referenced image file's actual bytes. Two things ride on this:
+    # 1) Flag cards whose art is genuinely identical (not just same filename) —
+    #    MSE gives duplicated cards their own filename even if the art on the
+    #    copy was never replaced, so a filename check alone misses this.
+    # 2) Stamp each card with a content hash to use as a cache-busting query
+    #    param on the image URL. Filenames don't change between exports, so a
+    #    browser that already cached "cards/12.png" under old (wrong) bytes
+    #    will keep showing that old art after a normal reload — this is
+    #    almost certainly why "old art keeps sticking around" persisted even
+    #    after the server-side files were fixed.
     hash_cache = {}
+    hash_to_names = {}
     for c in cards:
         img = c.get('image')
         if not img:
@@ -240,10 +235,18 @@ def _group_cards_by_image_hash(cards):
                 with open(path, 'rb') as f:
                     hash_cache[path] = hashlib.md5(f.read()).hexdigest()
             except OSError:
-                continue
+                hash_cache[path] = None
         h = hash_cache[path]
-        hash_to_names.setdefault(h, []).append(c['name'])
-    return hash_to_names
+        if h:
+            c['img_ver'] = h[:10]
+            hash_to_names.setdefault(h, []).append(c['name'])
+
+    for img_hash, names in hash_to_names.items():
+        if len(set(names)) > 1:
+            print(f"WARNING: {sorted(set(names))} share identical artwork (hash {img_hash[:8]}) — "
+                  f"reassign art for these in MSE, the parser can't fix this from data alone.")
+
+    return cards
 
 
 # ─── Analytics ────────────────────────────────────────────────────────────────
@@ -479,10 +482,16 @@ def build_html(cards, analytics):
         '  applyFilters();\n'
         '}\n'
         '\n'
+        'function cardImgSrc(c) {\n'
+        '  // Cache-bust with the art\'s content hash so a browser that already\n'
+        '  // cached this filename under old/wrong bytes is forced to refetch.\n'
+        '  return "cards/" + c.image + (c.img_ver ? ("?v=" + c.img_ver) : "");\n'
+        '}\n'
+        '\n'
         'function renderGrid(cards) {\n'
         '  document.getElementById("grid").innerHTML = cards.map((c,i) => {\n'
         '    const img = c.image\n'
-        '      ? "<img src=\\"cards/" + c.image + "\\" alt=\\"" + c.name + "\\" loading=\\"lazy\\" onerror=\\"this.style.display=\'none\'\\">"\n'
+        '      ? "<img src=\\"" + cardImgSrc(c) + "\\" alt=\\"" + c.name + "\\" loading=\\"lazy\\" onerror=\\"this.style.display=\'none\'\\">"\n'
         '      : "<div class=\\"no-img\\">&#127820;</div>";\n'
         '    return "<div class=\\"card\\" onclick=\\"showModal(" + i + ")\\">" + img + "<div class=\\"card-footer\\"><span class=\\"card-name\\">" + c.name + "</span><span class=\\"rarity-dot " + rarityClass(c.rarity) + "\\"></span></div></div>";\n'
         '  }).join("");\n'
@@ -516,7 +525,7 @@ def build_html(cards, analytics):
         '  if (!c) return;\n'
         '  const rules = renderRulesSymbols((c.rules||"").replace(/\\n/g,"<br>"));\n'
         '  document.getElementById("modal-body").innerHTML =\n'
-        '    (c.image ? `<img src="cards/${c.image}">` : "") +\n'
+        '    (c.image ? `<img src="${cardImgSrc(c)}">` : "") +\n'
         '    `<div class="modal-name">${c.name}</div>` +\n'
         '    `<div class="modal-cost">${formatCost(c.mana_symbols)}</div>` +\n'
         '    `<div class="modal-type">${c.type||""}</div>` +\n'

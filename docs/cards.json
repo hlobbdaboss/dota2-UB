@@ -18,7 +18,8 @@
       "W"
     ],
     "color_label": "White",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "fb26869c84"
   },
   {
     "name": "Abaddon, the Lord of Avernus",
@@ -62,7 +63,8 @@
       "R"
     ],
     "color_label": "Izzet",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "4e235de79f"
   },
   {
     "name": "Kaldr, the Ancient Apparition",
@@ -105,7 +107,8 @@
       "U"
     ],
     "color_label": "Blue",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "6541f68fff"
   },
   {
     "name": "Roshan the Immortal",
@@ -129,7 +132,8 @@
       "G"
     ],
     "color_label": "3-color",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "796d997af4"
   },
   {
     "name": "Mogul Khan, the Axe",
@@ -151,7 +155,8 @@
       "R"
     ],
     "color_label": "Red",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "4fcd0700d6"
   },
   {
     "name": "Atropos, the Bane",
@@ -174,7 +179,8 @@
       "B"
     ],
     "color_label": "Dimir",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "5b061b9a78"
   },
   {
     "name": "Jin'zakk, the Batrider",
@@ -258,7 +264,8 @@
       "G"
     ],
     "color_label": "Selesnya",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "1226ac2b59"
   },
   {
     "name": "Radiant Super Melee Creep",
@@ -304,7 +311,8 @@
       "B"
     ],
     "color_label": "Black",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "be6bd8d97f"
   },
   {
     "name": "Dire Melee Creep",
@@ -324,7 +332,8 @@
       "R"
     ],
     "color_label": "Rakdos",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "b5efa8e23f"
   },
   {
     "name": "Dire Ranged Creep",
@@ -473,7 +482,8 @@
       "B"
     ],
     "color_label": "Black",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "41c88f3661"
   },
   {
     "name": "Roshan’s Pit",
@@ -489,7 +499,8 @@
     "mana_symbols": [],
     "colors": [],
     "color_label": "Colorless",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "b2629d2a5b"
   },
   {
     "name": "Kobold Thief",
@@ -589,7 +600,8 @@
       "U"
     ],
     "color_label": "Blue",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "fe72af8096"
   },
   {
     "name": "Sentry Ward",
@@ -631,7 +643,8 @@
       "G"
     ],
     "color_label": "3-color",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "3b4c084bda"
   },
   {
     "name": "Strygwyr, the Bloodseeker",
@@ -653,7 +666,8 @@
       "R"
     ],
     "color_label": "Red",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "b4b38aea31"
   },
   {
     "name": "Gondar, the Bounty Hunter",
@@ -676,7 +690,8 @@
       "G"
     ],
     "color_label": "Golgari",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "b20ec146a8"
   },
   {
     "name": "Mangix, the Brewmaster",
@@ -699,7 +714,8 @@
       "G"
     ],
     "color_label": "Simic",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "4efc7450f0"
   },
   {
     "name": "Nether Ward",
@@ -721,7 +737,8 @@
       "B"
     ],
     "color_label": "Black",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "bbddcadc29"
   },
   {
     "name": "Rigwarl, the Bristleback",
@@ -742,7 +759,8 @@
       "R"
     ],
     "color_label": "Red",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "6526548939"
   },
   {
     "name": "Black Arachnia, the Broodmother",
@@ -764,7 +782,8 @@
       "B"
     ],
     "color_label": "Black",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "d98a2b92dc"
   },
   {
     "name": "Bradwarden, the Centaur Warrunner",
@@ -789,7 +808,8 @@
       "G"
     ],
     "color_label": "3-color",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "4f6bb524fa"
   },
   {
     "name": "Chaos Knight",
@@ -812,7 +832,8 @@
       "R"
     ],
     "color_label": "Rakdos",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "9da5ae85e6"
   },
   {
     "name": "Chen, the Holy Knight",
@@ -835,7 +856,8 @@
       "G"
     ],
     "color_label": "Selesnya",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "9f0ce8e08f"
   },
   {
     "name": "Magebane’s Mirror",
@@ -879,7 +901,8 @@
       "R"
     ],
     "color_label": "3-color",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "86e0ef76c5"
   },
   {
     "name": "Rattletrap, the Clockwerk",
@@ -902,7 +925,8 @@
       "R"
     ],
     "color_label": "Boros",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "8cdfad6140"
   },
   {
     "name": "Rylai, the Crystal Maiden",
@@ -924,7 +948,8 @@
       "U"
     ],
     "color_label": "Azorius",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "5dffd97b2d"
   },
   {
     "name": "Ish'Kafel, the Dark Seer",
@@ -947,7 +972,8 @@
       "B"
     ],
     "color_label": "Dimir",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "20136545a2"
   },
   {
     "name": "Mireska, the Dark Willow",
@@ -990,7 +1016,8 @@
       "W"
     ],
     "color_label": "White",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "10635c80cb"
   },
   {
     "name": "Aghanim’s Sceptre",
@@ -1076,7 +1103,8 @@
       "R"
     ],
     "color_label": "Red",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "4f6bb524fa"
   },
   {
     "name": "Krobelus, the Death Prophet",
@@ -1099,7 +1127,8 @@
       "B"
     ],
     "color_label": "Orzhov",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "468bf3b723"
   },
   {
     "name": "Disruptor, the Stormcrafter",
@@ -1122,7 +1151,8 @@
       "R"
     ],
     "color_label": "Izzet",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "ab21b12359"
   },
   {
     "name": "Lucifer, the Doom",
@@ -1166,7 +1196,8 @@
       "B"
     ],
     "color_label": "Black",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "5d51273c22"
   },
   {
     "name": "Davion, the Dragon Knight",
@@ -1209,7 +1240,8 @@
       "G"
     ],
     "color_label": "Green",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "066514e573"
   },
   {
     "name": "Echo Slam",
@@ -1255,7 +1287,8 @@
       "G"
     ],
     "color_label": "Gruul",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "f5ef17e71a"
   },
   {
     "name": "Elder Titan, the Worldsmith",
@@ -1277,7 +1310,8 @@
       "G"
     ],
     "color_label": "Green",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "02f499866a"
   },
   {
     "name": "Astral Spirit",
@@ -1364,7 +1398,8 @@
       "B"
     ],
     "color_label": "Black",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "b2629d2a5b"
   },
   {
     "name": "Darkterror, the Faceless Void",
@@ -1386,7 +1421,8 @@
       "B"
     ],
     "color_label": "Dimir",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "9b0de7cf8a"
   },
   {
     "name": "Chronosphere",
@@ -1409,7 +1445,8 @@
       "B"
     ],
     "color_label": "Dimir",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "08d017a442"
   },
   {
     "name": "Aurel, the Gyrocopter",
@@ -1432,7 +1469,8 @@
       "R"
     ],
     "color_label": "Boros",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "227ef97e23"
   },
   {
     "name": "Hoodwink",
@@ -1455,7 +1493,8 @@
       "G"
     ],
     "color_label": "Selesnya",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "20136545a2"
   },
   {
     "name": "Chilling Touch",
@@ -1500,7 +1539,8 @@
       "R"
     ],
     "color_label": "Red",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "85471ac8fb"
   },
   {
     "name": "Carl, the Invoker",
@@ -1564,7 +1604,8 @@
       "R"
     ],
     "color_label": "Red",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "936e51776d"
   },
   {
     "name": "Kraken Shell",
@@ -1645,7 +1686,8 @@
       "W"
     ],
     "color_label": "White",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "79f72b6ad1"
   },
   {
     "name": "Arena of Blood",
@@ -1667,7 +1709,8 @@
       "R"
     ],
     "color_label": "Red",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "e03abce512"
   },
   {
     "name": "Shackleshot",
@@ -1690,7 +1733,8 @@
       "G"
     ],
     "color_label": "Selesnya",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "a1e9dabf2f"
   },
   {
     "name": "Rot",
@@ -1731,7 +1775,8 @@
       "B"
     ],
     "color_label": "Black",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "a9ce79a339"
   },
   {
     "name": "Naix, the Lifestealer",
@@ -1791,7 +1836,8 @@
       "G"
     ],
     "color_label": "Green",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "1301ac3757"
   },
   {
     "name": "Enchanted Mango",
@@ -1813,7 +1859,8 @@
       "G"
     ],
     "color_label": "Simic",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "98c38a8191"
   },
   {
     "name": "Town Portal Scroll",
@@ -1895,7 +1942,8 @@
       "R"
     ],
     "color_label": "Red",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "d98a2b92dc"
   },
   {
     "name": "Gem of True Sight",
@@ -1935,7 +1983,8 @@
       "B"
     ],
     "color_label": "Black",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "5c5ed31c2d"
   },
   {
     "name": "Soul Ring",
@@ -2038,7 +2087,8 @@
       "R"
     ],
     "color_label": "Rakdos",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "a9ce79a339"
   },
   {
     "name": "Mekansm",
@@ -2104,7 +2154,8 @@
       "G"
     ],
     "color_label": "Simic",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "41c88f3661"
   },
   {
     "name": "Jakiro, the Twin Head Dragon",
@@ -2235,7 +2286,8 @@
       "R"
     ],
     "color_label": "Red",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "8cdfad6140"
   },
   {
     "name": "Leshrac, the Tormented Soul",
@@ -2389,7 +2441,8 @@
       "B"
     ],
     "color_label": "Black",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "a5e585ed3f"
   },
   {
     "name": "Puck, the Faerie Dragon",
@@ -2524,7 +2577,8 @@
       "B"
     ],
     "color_label": "Dimir",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "ab8378f847"
   },
   {
     "name": "Wukong, the Monkey King",
@@ -2701,7 +2755,8 @@
       "G"
     ],
     "color_label": "3-color",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "468bf3b723"
   },
   {
     "name": "Reaper’s Scythe",
@@ -2721,7 +2776,8 @@
       "B"
     ],
     "color_label": "Black",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "a5e585ed3f"
   },
   {
     "name": "Balanar, the Night Stalker",
@@ -2762,7 +2818,8 @@
       "B"
     ],
     "color_label": "Black",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "ffb283a459"
   },
   {
     "name": "Nyx Assassin",
@@ -2808,7 +2865,8 @@
       "R"
     ],
     "color_label": "Izzet",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "a1e9dabf2f"
   },
   {
     "name": "Purist Thunderwrath, the Omniknight",
@@ -2958,7 +3016,8 @@
       "B"
     ],
     "color_label": "Orzhov",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "86e0ef76c5"
   },
   {
     "name": "Azwraith, the Phantom Lancer",
@@ -3186,7 +3245,8 @@
       "G"
     ],
     "color_label": "3-color",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "e453f88123"
   },
   {
     "name": "Shadow Demon",
@@ -3409,7 +3469,8 @@
       "B"
     ],
     "color_label": "Black",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "1840004925"
   },
   {
     "name": "Barathrum, the Spirit Breaker",
@@ -3476,7 +3537,8 @@
       "R"
     ],
     "color_label": "Red",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "1226ac2b59"
   },
   {
     "name": "Inai, the Void Spirit",
@@ -3583,7 +3645,8 @@
       "U"
     ],
     "color_label": "Blue",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "f93a3e76aa"
   },
   {
     "name": "Rizzrack, the Timbersaw",
@@ -3606,7 +3669,8 @@
       "G"
     ],
     "color_label": "Gruul",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "9da5ae85e6"
   },
   {
     "name": "Boush, the Tinker",
@@ -3626,7 +3690,8 @@
       "U"
     ],
     "color_label": "Blue",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "e3da10a322"
   },
   {
     "name": "Tiny, the Stone Giant",
@@ -3647,7 +3712,8 @@
       "G"
     ],
     "color_label": "Green",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "394937496b"
   },
   {
     "name": "Rooftrellen, Treant Protector",
@@ -3800,7 +3866,8 @@
       "B"
     ],
     "color_label": "Orzhov",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "f40aadcb27"
   },
   {
     "name": "Lesale Deathbringer, the Venomancer",
@@ -4094,7 +4161,8 @@
       "G"
     ],
     "color_label": "Gruul",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "04e8da98e9"
   },
   {
     "name": "Satyr Mindstealer",
@@ -4117,7 +4185,8 @@
       "B"
     ],
     "color_label": "Dimir",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "171a7d3d60"
   },
   {
     "name": "Satyr Banisher",
@@ -4136,7 +4205,8 @@
       "U"
     ],
     "color_label": "Blue",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "19f0a72740"
   },
   {
     "name": "Pollywog",
@@ -4264,7 +4334,8 @@
       "G"
     ],
     "color_label": "Green",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "cd2bd0d471"
   },
   {
     "name": "Satyr Cutthroat",
@@ -4286,7 +4357,8 @@
       "B"
     ],
     "color_label": "Black",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "4e235de79f"
   },
   {
     "name": "Harpy Spellweaver",
@@ -4307,7 +4379,8 @@
       "U"
     ],
     "color_label": "Blue",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "80d7408f90"
   },
   {
     "name": "Wildwing Ripper",
@@ -4330,7 +4403,8 @@
       "R"
     ],
     "color_label": "Boros",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "4efc7450f0"
   },
   {
     "name": "Dark Troll Summoner",
@@ -4441,7 +4515,8 @@
       "R"
     ],
     "color_label": "Red",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "6526548939"
   },
   {
     "name": "Ancient Ice Shaman",
@@ -4529,7 +4604,8 @@
       "W"
     ],
     "color_label": "White",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "cd63af6299"
   },
   {
     "name": "Power Treads",
@@ -4569,7 +4645,8 @@
       "G"
     ],
     "color_label": "Simic",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "fb6d0d74b1"
   },
   {
     "name": "Refresher Orb",
@@ -4651,7 +4728,8 @@
       "W"
     ],
     "color_label": "White",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "f41d43a993"
   },
   {
     "name": "Holy Locket",
@@ -4879,7 +4957,8 @@
       "W"
     ],
     "color_label": "White",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "1784258efa"
   },
   {
     "name": "Butterfly",
@@ -5054,7 +5133,8 @@
       "G"
     ],
     "color_label": "Golgari",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "9bb21f0639"
   },
   {
     "name": "Unleash",
@@ -5164,7 +5244,8 @@
       "U"
     ],
     "color_label": "Blue",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "efe23bb17f"
   },
   {
     "name": "Chaos Meteor",
@@ -5246,7 +5327,8 @@
     "mana_symbols": [],
     "colors": [],
     "color_label": "Colorless",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "73d78f2d56"
   },
   {
     "name": "Radiant Fountain",
@@ -5306,7 +5388,8 @@
     "mana_symbols": [],
     "colors": [],
     "color_label": "Colorless",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "c33e5ae2b5"
   },
   {
     "name": "Icewrack",
@@ -5351,7 +5434,8 @@
     "mana_symbols": [],
     "colors": [],
     "color_label": "Colorless",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "9bb21f0639"
   },
   {
     "name": "Mount Joerlack",
@@ -5381,7 +5465,8 @@
     "mana_symbols": [],
     "colors": [],
     "color_label": "Colorless",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "1301ac3757"
   },
   {
     "name": "Wildwing",
@@ -5448,7 +5533,8 @@
       "R"
     ],
     "color_label": "Rakdos",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "16f8d0afd8"
   },
   {
     "name": "Smoke Screen",
@@ -5506,7 +5592,8 @@
     "mana_symbols": [],
     "colors": [],
     "color_label": "Colorless",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "1a0c2bc765"
   },
   {
     "name": "Inner Colonnade",
@@ -5521,7 +5608,8 @@
     "mana_symbols": [],
     "colors": [],
     "color_label": "Colorless",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "bbddcadc29"
   },
   {
     "name": "Last Word",
@@ -5543,7 +5631,8 @@
       "W"
     ],
     "color_label": "White",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "5b061b9a78"
   },
   {
     "name": "Admiral’s Call",
@@ -5565,7 +5654,8 @@
       "U"
     ],
     "color_label": "Blue",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "04e8da98e9"
   },
   {
     "name": "Ignis Fatuus",
@@ -5609,7 +5699,8 @@
       "G"
     ],
     "color_label": "Green",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "e03abce512"
   },
   {
     "name": "Guardian Angel",
@@ -5631,7 +5722,8 @@
       "W"
     ],
     "color_label": "White",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "2f37db2502"
   },
   {
     "name": "Omexe, the Grand Arena",
@@ -5646,7 +5738,8 @@
     "mana_symbols": [],
     "colors": [],
     "color_label": "Colorless",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "a6eeb00dc6"
   },
   {
     "name": "Maledict",
@@ -5667,7 +5760,8 @@
       "B"
     ],
     "color_label": "Black",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "3b4c084bda"
   },
   {
     "name": "Mirror Image",
@@ -5690,7 +5784,8 @@
       "G"
     ],
     "color_label": "Simic",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "e2df950c08"
   },
   {
     "name": "Wukong’s Command",
@@ -5783,7 +5878,8 @@
     "mana_symbols": [],
     "colors": [],
     "color_label": "Colorless",
-    "is_token": true
+    "is_token": true,
+    "img_ver": "6541f68fff"
   },
   {
     "name": "Ape",
@@ -5850,7 +5946,8 @@
     "mana_symbols": [],
     "colors": [],
     "color_label": "Colorless",
-    "is_token": true
+    "is_token": true,
+    "img_ver": "1840004925"
   },
   {
     "name": "Hawk",
@@ -5972,7 +6069,8 @@
     "mana_symbols": [],
     "colors": [],
     "color_label": "Colorless",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "abdcce1ce5"
   },
   {
     "name": "Cathedral of Rumusque",
@@ -5987,7 +6085,8 @@
     "mana_symbols": [],
     "colors": [],
     "color_label": "Colorless",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "8f7e1257a7"
   },
   {
     "name": "Tyler Estate",
@@ -6002,7 +6101,8 @@
     "mana_symbols": [],
     "colors": [],
     "color_label": "Colorless",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "f5ef17e71a"
   },
   {
     "name": "Oroyo Expanse",
@@ -6032,7 +6132,8 @@
     "mana_symbols": [],
     "colors": [],
     "color_label": "Colorless",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "98c38a8191"
   },
   {
     "name": "Frostbite",
@@ -6089,7 +6190,8 @@
       "W"
     ],
     "color_label": "White",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "1784258efa"
   },
   {
     "name": "Sunder",
@@ -6112,7 +6214,8 @@
       "B"
     ],
     "color_label": "Black",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "5dffd97b2d"
   },
   {
     "name": "Exorcism",
@@ -6135,7 +6238,8 @@
       "B"
     ],
     "color_label": "Orzhov",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "04e4b05f11"
   },
   {
     "name": "Ancient Croaker",
@@ -6291,7 +6395,8 @@
       "B"
     ],
     "color_label": "Black",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "5375ada3bf"
   },
   {
     "name": "Remote Mine",
@@ -6364,7 +6469,8 @@
       "G"
     ],
     "color_label": "Gruul",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "10635c80cb"
   },
   {
     "name": "Sinister Gaze",
@@ -6574,7 +6680,8 @@
       "W"
     ],
     "color_label": "White",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "abdcce1ce5"
   },
   {
     "name": "Penitence",
@@ -6677,7 +6784,8 @@
       "G"
     ],
     "color_label": "Green",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "ab8378f847"
   },
   {
     "name": "Dark Pact",
@@ -6719,7 +6827,8 @@
       "B"
     ],
     "color_label": "Black",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "93e40c0987"
   },
   {
     "name": "The Monarch",
@@ -6747,7 +6856,8 @@
     "mana_symbols": [],
     "colors": [],
     "color_label": "Colorless",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "a99f5daf90"
   },
   {
     "name": "Phantasm Illusion",
@@ -6783,7 +6893,8 @@
       "B"
     ],
     "color_label": "Orzhov",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "cd63af6299"
   },
   {
     "name": "Ogre Bruiser",
@@ -6825,7 +6936,8 @@
       "B"
     ],
     "color_label": "Orzhov",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "cd2bd0d471"
   },
   {
     "name": "Spark Wraith",
@@ -6845,7 +6957,8 @@
       "U"
     ],
     "color_label": "Blue",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "80d7408f90"
   },
   {
     "name": "Whirling Axes",
@@ -7141,7 +7254,8 @@
     ],
     "colors": [],
     "color_label": "Colorless",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "4a0a21568e"
   },
   {
     "name": "Arc Lightning",
@@ -7432,7 +7546,8 @@
       "G"
     ],
     "color_label": "Green",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "936e51776d"
   },
   {
     "name": "Refraction",
@@ -7454,7 +7569,8 @@
       "W"
     ],
     "color_label": "White",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "8f7e1257a7"
   },
   {
     "name": "Largo",
@@ -7479,7 +7595,8 @@
       "G"
     ],
     "color_label": "3-color",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "394937496b"
   },
   {
     "name": "Starfall",
@@ -7501,7 +7618,8 @@
       "B"
     ],
     "color_label": "Dimir",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "e3da10a322"
   },
   {
     "name": "Vale of Augury",
@@ -7516,7 +7634,8 @@
     "mana_symbols": [],
     "colors": [],
     "color_label": "Colorless",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "be6bd8d97f"
   },
   {
     "name": "Omexe Ambush",
@@ -7536,7 +7655,8 @@
       "G"
     ],
     "color_label": "Green",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "ab21b12359"
   },
   {
     "name": "Sprout Treant",
@@ -7556,7 +7676,8 @@
       "G"
     ],
     "color_label": "Green",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "f41d43a993"
   },
   {
     "name": "Gust",
@@ -7576,7 +7697,8 @@
       "W"
     ],
     "color_label": "White",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "847165c6ca"
   },
   {
     "name": "Conscript",
@@ -7599,7 +7721,8 @@
       "G"
     ],
     "color_label": "Selesnya",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "066514e573"
   },
   {
     "name": "Roam the Jungle",
@@ -7619,7 +7742,8 @@
       "G"
     ],
     "color_label": "Green",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "ffb283a459"
   },
   {
     "name": "Stern Rebuttal",
@@ -7641,7 +7765,8 @@
       "W"
     ],
     "color_label": "White",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "02f499866a"
   },
   {
     "name": "Slack Off",
@@ -7662,7 +7787,8 @@
       "W"
     ],
     "color_label": "White",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "08d017a442"
   },
   {
     "name": "Helping Hand",
@@ -7685,7 +7811,8 @@
       "G"
     ],
     "color_label": "Selesnya",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "65d99c3998"
   },
   {
     "name": "Ball of Creeps",
@@ -7708,7 +7835,8 @@
       "G"
     ],
     "color_label": "Selesnya",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "227ef97e23"
   },
   {
     "name": "Protect the Young",
@@ -7730,7 +7858,8 @@
       "G"
     ],
     "color_label": "Selesnya",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "2142a114bb"
   },
   {
     "name": "Bronze Hoplite",
@@ -7749,7 +7878,8 @@
       "W"
     ],
     "color_label": "White",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "9b2e5ed6ad"
   },
   {
     "name": "Covet",
@@ -7771,7 +7901,8 @@
       "U"
     ],
     "color_label": "Blue",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "85471ac8fb"
   },
   {
     "name": "Coup de Grace",
@@ -7791,7 +7922,8 @@
       "B"
     ],
     "color_label": "Black",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "1a0c2bc765"
   },
   {
     "name": "Doppleganger",
@@ -7812,7 +7944,8 @@
       "U"
     ],
     "color_label": "Blue",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "fb6d0d74b1"
   },
   {
     "name": "Ravage",
@@ -7834,7 +7967,8 @@
       "U"
     ],
     "color_label": "Blue",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "5d51273c22"
   },
   {
     "name": "Dragon Slave",
@@ -7855,7 +7989,8 @@
       "R"
     ],
     "color_label": "Red",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "5375ada3bf"
   },
   {
     "name": "Black Grimoire",
@@ -7876,7 +8011,8 @@
       "B"
     ],
     "color_label": "Black",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "a99f5daf90"
   },
   {
     "name": "Solar Guardian",
@@ -7898,7 +8034,8 @@
       "W"
     ],
     "color_label": "White",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "68d08ddf2f"
   },
   {
     "name": "Overgrowth",
@@ -7918,7 +8055,8 @@
       "G"
     ],
     "color_label": "Green",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "fe72af8096"
   },
   {
     "name": "Bind to Earth",
@@ -7938,7 +8076,8 @@
       "G"
     ],
     "color_label": "Green",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "fefca6b31f"
   },
   {
     "name": "Corner",
@@ -7959,7 +8098,8 @@
       "G"
     ],
     "color_label": "Green",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "4a0a21568e"
   },
   {
     "name": "Unyielding Spirit",
@@ -7980,7 +8120,8 @@
       "G"
     ],
     "color_label": "Green",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "ae04bfc24b"
   },
   {
     "name": "Finesse",
@@ -8000,6 +8141,7 @@
       "G"
     ],
     "color_label": "Green",
-    "is_token": false
+    "is_token": false,
+    "img_ver": "0699ab880d"
   }
 ]
