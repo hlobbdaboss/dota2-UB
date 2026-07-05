@@ -232,19 +232,11 @@
             margin-bottom: 4px;
         }
         .modal-cost {
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 4px;
-            margin-bottom: 6px;
+            gap: 2px;
+            margin-bottom: 8px;
             flex-wrap: wrap;
-        }
-        .svg-symbol {
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.6);
-            vertical-align: middle;
-            display: inline-block;
         }
         .modal-type {
             font-size: 0.85em;
@@ -259,6 +251,13 @@
             line-height: 1.65;
             margin-bottom: 10px;
             white-space: pre-line;
+        }
+        .modal-rules .svg-symbol {
+            width: 15px !important;
+            height: 15px !important;
+            margin: 0 1px;
+            vertical-align: -2px;
+            display: inline-block;
         }
         .modal-flavor {
             font-size: 0.8em;
@@ -290,6 +289,14 @@
             color: #c89b3c;
             text-transform: uppercase;
             letter-spacing: 0.06em;
+        }
+        .svg-symbol {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.6);
+            vertical-align: middle;
+            display: inline-block;
         }
     </style>
 </head>
@@ -608,7 +615,7 @@ function initCharts() {
             onClick: (e, elements) => {
                 if (elements.length > 0) {
                     const idx = elements[0].index;
-                    const label = chart2.data.labels[idx].toString().replace('+', '');
+                    let label = chart2.data.labels[idx].toString().replace('+', '');
                     document.getElementById('cmc-filter').value = label;
                     applyFilters();
                 }

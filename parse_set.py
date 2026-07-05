@@ -65,13 +65,11 @@ def cmc_from_cost(cost_str):
 def substitute_text_symbols(text):
     if not text:
         return ""
-    # Convert text patterns like R/W or W/U into asset pips
     def replace_hybrid(match):
         sym = match.group(0).upper().replace("/", "")
         clean_sym = "".join(sorted(list(sym)))
         return f'<img class="svg-symbol" style="width:15px; height:15px; margin:0 1px; vertical-align:-2px;" src="https://svgs.scryfall.io/card-symbols/{clean_sym}.svg" />'
     
-    # Target pure color combinations like R/W, W/U, B/G, etc.
     text = re.sub(r'\b[WUBRGCX]/[WUBRGCX](/[WUBRGCX])?\b', replace_hybrid, text)
     return text
 
@@ -199,7 +197,6 @@ def parse_mse(filepath):
             card['colors'] = get_color_identity(card.get('cost', ''), card.get('rules', ''))
             card['color_label'] = color_identity_label(card['colors'])
             
-            # Substitute hybrid abbreviations directly inside rules texts
             if 'rules' in card:
                 card['rules'] = substitute_text_symbols(card['rules'])
                 
@@ -496,19 +493,11 @@ def build_html_raw(cards, analytics):
             margin-bottom: 4px;
         }
         .modal-cost {
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 4px;
-            margin-bottom: 6px;
+            gap: 2px;
+            margin-bottom: 8px;
             flex-wrap: wrap;
-        }
-        .svg-symbol {
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.6);
-            vertical-align: middle;
-            display: inline-block;
         }
         .modal-type {
             font-size: 0.85em;
@@ -523,6 +512,13 @@ def build_html_raw(cards, analytics):
             line-height: 1.65;
             margin-bottom: 10px;
             white-space: pre-line;
+        }
+        .modal-rules .svg-symbol {
+            width: 15px !important;
+            height: 15px !important;
+            margin: 0 1px;
+            vertical-align: -2px;
+            display: inline-block;
         }
         .modal-flavor {
             font-size: 0.8em;
@@ -554,6 +550,14 @@ def build_html_raw(cards, analytics):
             color: #c89b3c;
             text-transform: uppercase;
             letter-spacing: 0.06em;
+        }
+        .svg-symbol {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.6);
+            vertical-align: middle;
+            display: inline-block;
         }
     </style>
 </head>
@@ -876,7 +880,7 @@ function initCharts() {
             onClick: (e, elements) => {
                 if (elements.length > 0) {
                     const idx = elements[0].index;
-                    const label = chart2.data.labels[idx].toString().replace('+', '');
+                    let label = chart2.data.labels[idx].toString().replace('+', '');
                     document.getElementById('cmc-filter').value = label;
                     applyFilters();
                 }
@@ -937,7 +941,7 @@ def main():
     print("Pushing to GitHub...")
     os.chdir(REPO_DIR)
     subprocess.run(["git", "add", "."])
-    subprocess.run(["git", "commit", "-m", "Integrate regex text symbol engine and chart click filtration layers"])
+    subprocess.run(["git", "commit", "-m", "Integrate inline cost layout engine and click charts"])
     subprocess.run(["git", "push"])
     print("Done! Visit: https://hlobbdaboss.github.io/dota2-set/")
 
