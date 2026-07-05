@@ -647,10 +647,11 @@ def build_html(cards, analytics):
 </div>
 
 <script>
+// Corrected double brace formatting protects structural JSON definitions from f-string compilation
 const ALL_CARDS = {cards_json};
+const ANALYTICS = {analytics_json};
 let chart1, chart2, chart3;
 
-// Properly escape single literal curly braces by doubling them for the Python f-string scope
 function formatManaSymbols(manaSymbolsArray) {{
     if (!manaSymbolsArray || manaSymbolsArray.length === 0) return '';
     return manaSymbolsArray.map(sym => 
