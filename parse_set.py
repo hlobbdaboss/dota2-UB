@@ -129,6 +129,19 @@ def clean_mse_text(text):
     return text.strip()
 
 
+def fix_hanging_ability_costs(text):
+    """
+    MSE writes activated-ability costs on their own line, then a line break,
+    then an indent (spaces/tabs/nbsp) before the colon — e.g. "{R/W}\\n    :
+    Effect text". That's for MSE's own narrow card frame; in our wide gallery
+    modal it shows up as a stray icon-only line followed by an oddly indented
+    line. Collapse it back onto one line: "{R/W}: Effect text".
+    """
+    if not text:
+        return text
+    return re.sub(r'\n[ \t\xa0]*:', ':', text)
+
+
 # ─── MSE parser ───────────────────────────────────────────────────────────────
 
 def parse_mse(filepath):
@@ -203,6 +216,8 @@ def parse_mse(filepath):
             card[current_field] = '\n'.join(current_value).strip()
 
         if 'name' in card and card['name']:
+            if 'rules' in card:
+                card['rules'] = fix_hanging_ability_costs(card['rules'])
             super_type = card.get('super_type', '')
             sub_type = card.get('sub_type', '')
             card['type'] = f"{super_type} — {sub_type}" if sub_type else super_type
