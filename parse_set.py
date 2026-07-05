@@ -240,11 +240,12 @@ def compute_analytics(cards):
     }
 
 
-def build_html(cards, analytics):
+def build_html_raw(cards, analytics):
     cards_json = json.dumps(cards)
     analytics_json = json.dumps(analytics)
 
-    html = """<!DOCTYPE html>
+    # Completely separate strings concatenated with simple addition completely avoids python string substitution errors
+    part1 = """<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -637,14 +638,18 @@ def build_html(cards, analytics):
 </div>
 
 <script>
-const ALL_CARDS = __CARDS_DATA_PLACEHOLDER__;
-const ANALYTICS = __ANALYTICS_DATA_PLACEHOLDER__;
+const ALL_CARDS = """
+
+    part2 = """;
+const ANALYTICS = """
+
+    part3 = """;
 let chart1, chart2, chart3;
 
 function formatManaSymbols(manaSymbolsArray) {
     if (!manaSymbolsArray || manaSymbolsArray.length === 0) return '';
     return manaSymbolsArray.map(sym => 
-        `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/${sym}.svg" />`
+        `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/` + sym + `.svg" />`
     ).join('');
 }
 
@@ -702,7 +707,7 @@ function applyFilters() {
 
     visibleCards = filtered;
     renderGrid(filtered);
-    document.getElementById('result-count').textContent = `${filtered.length} of ${ALL_CARDS.length} cards`;
+    document.getElementById('result-count').textContent = filtered.length + " of " + ALL_CARDS.length + " cards";
     document.getElementById('displayed-count').textContent = filtered.length;
     document.getElementById('kpiLabel').textContent = variant === 'Token' ? 'Tokens' : 'Draft Cards';
     
@@ -724,13 +729,13 @@ function renderGrid(cards) {
     const grid = document.getElementById('grid');
     grid.innerHTML = cards.map((c, i) => {
         const img = c.image
-            ? `<img src="cards/${c.image}" alt="${c.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'no-img\\'>🎴</div>'">`
+            ? `<img src="cards/` + c.image + `" alt="` + c.name + `" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'no-img\\'>🎴</div>'">`
             : `<div class="no-img">🎴</div>`;
-        return `<div class="card" onclick="showModal(${ALL_CARDS.indexOf(c)})">
-            ${img}
+        return `<div class="card" onclick="showModal(" + ALL_CARDS.indexOf(c) + ")">
+            ` + img + `
             <div class="card-footer">
-                <span class="card-name">${c.name}</span>
-                <span class="rarity-dot ${rarityClass(c.rarity)}"></span>
+                <span class="card-name">` + c.name + `</span>
+                <span class="rarity-dot ` + rarityClass(c.rarity) + `"></span>
             </div>
         </div>`;
     }).join('');
@@ -740,17 +745,17 @@ function showModal(idx) {
     const c = ALL_CARDS[idx];
     const body = document.getElementById('modal-body');
     body.innerHTML = `
-        ${c.image ? `<img src="cards/${c.image}" alt="${c.name}">` : ''}
-        <div class="modal-name">${c.name}</div>
-        <div class="modal-cost">${formatManaSymbols(c.mana_symbols)}</div>
-        <div class="modal-type">${c.type||''}</div>
-        <div class="modal-rules">${(c.rules||'').replace(/\n/g,'<br>')}</div>
-        ${c.flavor ? `<div class="modal-flavor">${c.flavor}</div>` : ''}
-        ${c.pt ? `<div class="modal-pt">${c.pt}</div>` : ''}
+        ` + (c.image ? `<img src="cards/` + c.image + `" alt="` + c.name + `">` : '') + `
+        <div class="modal-name">` + c.name + `</div>
+        <div class="modal-cost">` + formatManaSymbols(c.mana_symbols) + `</div>
+        <div class="modal-type">` + (c.type||'') + `</div>
+        <div class="modal-rules">` + ((c.rules||'').replace(/\\n/g,'<br>')) + `</div>
+        ` + (c.flavor ? `<div class="modal-flavor">` + c.flavor + `</div>` : '') + `
+        ` + (c.pt ? `<div class="modal-pt">` + c.pt + `</div>` : '') + `
         <div class="modal-meta">
-            ${c.rarity ? `<span class="badge">${c.rarity}</span>` : ''}
-            ${c.color_label ? `<span class="badge">${c.color_label}</span>` : ''}
-            ${c.cmc !== undefined ? `<span class="badge">CMC ${c.cmc}</span>` : ''}
+            ` + (c.rarity ? `<span class="badge">` + c.rarity + `</span>` : '') + `
+            ` + (c.color_label ? `<span class="badge">` + c.color_label + `</span>` : '') + `
+            ` + (c.cmc !== undefined ? `<span class="badge">CMC ` + c.cmc + `</span>` : '') + `
         </div>
     `;
     document.getElementById('modal').classList.add('active');
@@ -849,9 +854,7 @@ window.onload = initCharts;
 </body>
 </html>"""
 
-    html = html.replace("__CARDS_DATA_PLACEHOLDER__", cards_json)
-    html = html.replace("__ANALYTICS_DATA_PLACEHOLDER__", analytics_json)
-    return html
+    return part1 + cards_json + part2 + analytics_json + part3
 
 
 # ─── Main ───────────────────────────────────────────────────────────────────────
@@ -865,7 +868,7 @@ def main():
     analytics = compute_analytics(cards)
 
     print("Building gallery...")
-    html = build_html(cards, analytics)
+    html = build_html_raw(cards, analytics)
     with open(os.path.join(REPO_DIR, "docs", "index.html"), "w", encoding="utf-8") as f:
         f.write(html)
 
@@ -876,7 +879,7 @@ def main():
     print("Pushing to GitHub...")
     os.chdir(REPO_DIR)
     subprocess.run(["git", "add", "."])
-    subprocess.run(["git", "commit", "-m", "Synchronize chart loop property structures"])
+    subprocess.run(["git", "commit", "-m", "Restore clean concatenation architecture to index pipeline"])
     subprocess.run(["git", "push"])
     print("Done! Visit: https://hlobbdaboss.github.io/dota2-set/")
 
