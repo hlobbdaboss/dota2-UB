@@ -4,6 +4,7 @@ import os
 import subprocess
 from datetime import datetime
 import re
+import hashlib
 
 # Paths
 MSE_FILE = "/Users/Harrison_1/Desktop/Full-Magic-Pack-main/Sets/Dota Set.mse-set"
@@ -212,20 +213,37 @@ def parse_mse(filepath):
             card['is_token'] = 'Token' in card.get('type', '') or 'token' in card.get('name', '').lower()
             cards.append(card)
 
-    # Flag any two different cards pointing at the same image file. MSE can
-    # leave two card entries sharing one image reference (e.g. after a
-    # copy/duplicate in the editor that never got a new art assignment) — this
-    # is the usual cause of "card X shows card Y's art".
-    by_image = {}
-    for c in cards:
-        img = c.get('image')
-        if img:
-            by_image.setdefault(img, []).append(c['name'])
-    for img, names in by_image.items():
+    # Flag cards whose art is actually identical, not just same filename.
+    # MSE assigns each card's own image filename even when you duplicate a
+    # card — the two files just end up byte-for-byte identical if the art on
+    # the copy was never replaced. A filename match alone misses that case,
+    # so hash file contents instead.
+    for img_hash, names in _group_cards_by_image_hash(cards).items():
         if len(set(names)) > 1:
-            print(f"WARNING: {names} all reference image '{img}' — check these in MSE, one likely needs its art reassigned.")
+            print(f"WARNING: {sorted(set(names))} share identical artwork (hash {img_hash[:8]}) — "
+                  f"reassign art for these in MSE, the parser can't fix this from data alone.")
 
     return cards
+
+
+def _group_cards_by_image_hash(cards):
+    """Group card names by the MD5 of their extracted image file's bytes."""
+    hash_to_names = {}
+    hash_cache = {}
+    for c in cards:
+        img = c.get('image')
+        if not img:
+            continue
+        path = os.path.join(IMAGES_DIR, img)
+        if path not in hash_cache:
+            try:
+                with open(path, 'rb') as f:
+                    hash_cache[path] = hashlib.md5(f.read()).hexdigest()
+            except OSError:
+                continue
+        h = hash_cache[path]
+        hash_to_names.setdefault(h, []).append(c['name'])
+    return hash_to_names
 
 
 # ─── Analytics ────────────────────────────────────────────────────────────────
