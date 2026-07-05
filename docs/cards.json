@@ -8,7 +8,7 @@
     "rarity": "uncommon",
     "rules": "Hexproof (This creature can’t be the target of spells of abilities your opponents control.)\nWhenever an opponent loses unspent mana, that player loses that much life.\nWhenever Anti-Mage attacks, each opponent activates a mana ability of each land they control if able.",
     "flavor": "“Magic shall not prevail!”",
-    "type": "Legendary Creature — Human Monk",
+    "type": "Legendary Creature -- Human Monk",
     "cmc": 3,
     "mana_symbols": [
       "2",
@@ -30,7 +30,7 @@
     "rarity": "uncommon",
     "rules": "Undying (When this creature dies, if it had no +1/+1 counters on it, return it to the battlefield under its owner’s control with a +1/+1 counter on it.)\nWhen Abaddon enters, put a shield counter on target creature you control. (If it would be dealt damage or destroyed, remove a shield counter from it instead (If it would be dealt damage or destroyed, remove a shield counter from it instead.)",
     "flavor": "“You have called death upon yourself.”",
-    "type": "Legendary Creature — Spirit Knight",
+    "type": "Legendary Creature -- Spirit Knight",
     "cmc": 2,
     "mana_symbols": [
       "WB",
@@ -52,7 +52,7 @@
     "rarity": "uncommon",
     "rules": "Whenever Alchemist enters, create a Treasure token.\nWhen Razzil becomes monstrous, it gains double strike until end of turn.",
     "flavor": "“Easy now, this stuff is explosive!”",
-    "type": "Legendary Creature — Gnome Ogre Warlock",
+    "type": "Legendary Creature -- Gnome Ogre Warlock",
     "cmc": 2,
     "mana_symbols": [
       "U",
@@ -75,7 +75,7 @@
     "rarity": "uncommon",
     "rules": "Flying\nAt the beginning of each opponent’s end step, you may put a stun counter on up to one target tapped creature they control.",
     "flavor": "“One day, ice will cover these lands, and it will be as if this war never happened.”",
-    "type": "Legendary Creature — Elder Elemental",
+    "type": "Legendary Creature -- Elder Elemental",
     "cmc": 2,
     "mana_symbols": [
       "W",
@@ -97,7 +97,7 @@
     "rarity": "uncommon",
     "rules": "When Zet enters, create a 2/2 blue Illusion creature token named Tempest Double.\nAt the beginning of your end step, if you don’t control an Illusion, create a 2/2 blue Illusion creature token named Tempest Double.",
     "flavor": "“Matter has been split from its intended form. These must be made to unite.”",
-    "type": "Legendary Creature — Avatar Soldier",
+    "type": "Legendary Creature -- Avatar Soldier",
     "cmc": 4,
     "mana_symbols": [
       "3",
@@ -119,7 +119,7 @@
     "rarity": "mythic rare",
     "rules": "When Roshan enters, any number of target creatures you control each deal damage equal to their power to target creature you don’t control.\nEnchant creature\nWhen enchanted creature dies or is put into exile, return that card to the battlefield under its owner’s control.",
     "flavor": "Roshan’s punishment for killing a shopkeeper is to be slain and reborn for an eternity by the Radiant and Dire alike.",
-    "type": "Battle — Raid",
+    "type": "Battle -- Raid",
     "cmc": 3,
     "mana_symbols": [
       "B",
@@ -144,7 +144,7 @@
     "rarity": "uncommon",
     "rules": "Mogul Khan can block any number of creatures.\nAs long as Mogul Khan is untapped, each creature your opponents control must attack you if able.",
     "flavor": "“You fought badly—died worse.”",
-    "type": "Legendary Creature — Ogre Berserker",
+    "type": "Legendary Creature -- Ogre Berserker",
     "cmc": 5,
     "mana_symbols": [
       "3",
@@ -167,7 +167,7 @@
     "rarity": "uncommon",
     "rules": "Flying\nWhen Atropos enters, tap all creatures your opponents control. They don’t untap during their controller’s next untap step.",
     "flavor": "“The rebirth of my dream means the end of a myriad others.”",
-    "type": "Legendary Creature — Nightmare",
+    "type": "Legendary Creature -- Nightmare",
     "cmc": 4,
     "mana_symbols": [
       "2",
@@ -191,7 +191,7 @@
     "rarity": "uncommon",
     "rules": "Flying, haste\nWhenever Jin’zakk deals damage, put a charge counter on it.\nT: Jin’zakk deals X damage to any target, where X is the number of charge counters on it.",
     "flavor": "“Roasted, toasted and burned to a crisp.”",
-    "type": "Legendary Creature — Troll Scout",
+    "type": "Legendary Creature -- Troll Scout",
     "cmc": 4,
     "mana_symbols": [
       "3",
@@ -211,7 +211,7 @@
     "sub_type": "Elemental",
     "rules": "Evolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)",
     "flavor": "",
-    "type": "Creature — Elemental",
+    "type": "Creature -- Elemental",
     "cmc": 1,
     "mana_symbols": [
       "GW"
@@ -232,7 +232,7 @@
     "rarity": "common",
     "rules": "Evolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)",
     "flavor": "",
-    "type": "Creature — Elemental",
+    "type": "Creature -- Elemental",
     "cmc": 1,
     "mana_symbols": [
       "GW"
@@ -253,7 +253,7 @@
     "rarity": "uncommon",
     "rules": "Evolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)\nOther creatures you control get +1/+1.",
     "flavor": "",
-    "type": "Creature — Elemental",
+    "type": "Creature -- Elemental",
     "cmc": 3,
     "mana_symbols": [
       "2",
@@ -276,7 +276,7 @@
     "rarity": "uncommon",
     "rules": "Vigilance\nEvolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)",
     "flavor": "",
-    "type": "Creature — Elemental",
+    "type": "Creature -- Elemental",
     "cmc": 4,
     "mana_symbols": [
       "3",
@@ -322,7 +322,7 @@
     "sub_type": "Elemental",
     "rules": "Evolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)",
     "flavor": "",
-    "type": "Creature — Elemental",
+    "type": "Creature -- Elemental",
     "cmc": 1,
     "mana_symbols": [
       "BR"
@@ -343,7 +343,7 @@
     "sub_type": "Elemental",
     "rules": "Evolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)",
     "flavor": "",
-    "type": "Creature — Elemental",
+    "type": "Creature -- Elemental",
     "cmc": 1,
     "mana_symbols": [
       "BR"
@@ -364,7 +364,7 @@
     "rarity": "uncommon",
     "rules": "Evolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)\nOther creatures you control get +1/+1.",
     "flavor": "",
-    "type": "Creature — Elemental",
+    "type": "Creature -- Elemental",
     "cmc": 3,
     "mana_symbols": [
       "2",
@@ -386,7 +386,7 @@
     "rarity": "uncommon",
     "rules": "Menace\nEvolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)",
     "flavor": "",
-    "type": "Creature — Elemental",
+    "type": "Creature -- Elemental",
     "cmc": 4,
     "mana_symbols": [
       "3",
@@ -408,7 +408,7 @@
     "rarity": "common",
     "rules": "Menace, reach\nEvolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)",
     "flavor": "",
-    "type": "Creature — Elemental",
+    "type": "Creature -- Elemental",
     "cmc": 4,
     "mana_symbols": [
       "3",
@@ -430,7 +430,7 @@
     "rarity": "uncommon",
     "rules": "Equipped creature has haste.\nEquip 0",
     "flavor": "Fleet footwear, increasing movement.",
-    "type": "Artifact — Equipment",
+    "type": "Artifact -- Equipment",
     "cmc": 1,
     "mana_symbols": [
       "1"
@@ -472,7 +472,7 @@
     "rarity": "uncommon",
     "rules": "Enchant creature\nEnchanted creature gets -1/-1.\nAt the beginning of the upkeep of enchanted creature’s controller, that player loses 2 life.",
     "flavor": "“Where falls my shadow, fells my blade.”  — Mortred, the Phantom Assassin",
-    "type": "Enchantment — Aura",
+    "type": "Enchantment -- Aura",
     "cmc": 2,
     "mana_symbols": [
       "1",
@@ -510,7 +510,7 @@
     "sub_type": "Kobold Rogue",
     "rules": "When this creature dies, create a Treasure token.",
     "flavor": "",
-    "type": "Creature — Kobold Rogue",
+    "type": "Creature -- Kobold Rogue",
     "cmc": 1,
     "mana_symbols": [
       "R"
@@ -590,7 +590,7 @@
     "rarity": "uncommon",
     "rules": "Flash\nWhen Blink Dagger enters, exile target creature you control. Return that card to the battlefield under your control, then attach this equipment to it.\nEquipped creature can’t be blocked.\nEquip legendary creature 1",
     "flavor": "The fabled dagger used by the fastest assassin ever to walk the lands.",
-    "type": "Legendary Artifact — Equipment",
+    "type": "Legendary Artifact -- Equipment",
     "cmc": 3,
     "mana_symbols": [
       "2",
@@ -630,7 +630,7 @@
     "rarity": "rare",
     "rules": "When Karroch enters, create a 2/2 green Boar creature token and a 1/1 white Hawk creature token with flying.\nCreature tokens you control have double strike.",
     "flavor": "“Welcome to the food chain.”",
-    "type": "Legendary Creature — Human Warrior",
+    "type": "Legendary Creature -- Human Warrior",
     "cmc": 3,
     "mana_symbols": [
       "R",
@@ -655,7 +655,7 @@
     "rarity": "uncommon",
     "rules": "Bloodthirst 1 (If an opponent was dealt damage this turn, this creature enters with a +1/+1 counter on it.)\nAs long as an opponent has less than half their starting life total, Strygwyr has double strike.",
     "flavor": "“For the Flayed Twins, I seek blood.”",
-    "type": "Legendary Creature — Beast Berserker",
+    "type": "Legendary Creature -- Beast Berserker",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -678,7 +678,7 @@
     "rarity": "uncommon",
     "rules": "Menace (This creature can’t be blocked except by two or more creatures.)\nAt the beginning of your upkeep, put a bounty counter on target creature you don’t control.\nWhenever a creature with a counter on it dies, create a treasure token.",
     "flavor": "“It was just business before. Now it’s personal.”",
-    "type": "Legendary Creature — Beast Scout",
+    "type": "Legendary Creature -- Beast Scout",
     "cmc": 4,
     "mana_symbols": [
       "2",
@@ -702,7 +702,7 @@
     "rarity": "rare",
     "rules": "Trample\nWhenever a player casts their second spell in a turn, transform this creature.\nTrample, hexproof\nWhen Mangix transforms, draw a card.\nAt the beginning of your end step, transform Mangix.",
     "flavor": "“Drink and be bleary, for tomorrow we die!”",
-    "type": "Legendary Creature — Bear Monk",
+    "type": "Legendary Creature -- Bear Monk",
     "cmc": 4,
     "mana_symbols": [
       "2",
@@ -749,7 +749,7 @@
     "rarity": "uncommon",
     "rules": "T: Rigwarl deals 1 damage to target creature you control.\nEnrage — Whenever Rigwarl is dealt damage, it gets +1/+1 until end of turn and deals 1 damage to each creature your opponents control.",
     "flavor": "“More where that came from, sunshine.”",
-    "type": "Legendary Creature — Beast Berserker",
+    "type": "Legendary Creature -- Beast Berserker",
     "cmc": 4,
     "mana_symbols": [
       "3",
@@ -771,7 +771,7 @@
     "rarity": "uncommon",
     "rules": "Deathtouch\nIf a creature an opponent controls would die, instead exile it and create a 1/1 black Spider creature token with deathtouch.\n4BB: Spiders you control get +X/+X and gain lifelink until end of turn, where X is the number of Spiders you control.",
     "flavor": "“You’re not afraid of spiders, are you?”",
-    "type": "Legendary Creature — Spider",
+    "type": "Legendary Creature -- Spider",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -794,7 +794,7 @@
     "rarity": "rare",
     "rules": "Vigilance, haste\nWhenever Bradwarden is dealt damage, it deals that much damage to any target.\nWhenever you attack with three or more creatures, creatures you control gain trample until end of turn, then put a +1/+1 counter on each creature you control.",
     "flavor": "“These proving grounds shall be littered with the dead.”",
-    "type": "Legendary Creature — Centaur Warrior",
+    "type": "Legendary Creature -- Centaur Warrior",
     "cmc": 5,
     "mana_symbols": [
       "2",
@@ -820,7 +820,7 @@
     "rarity": "rare",
     "rules": "First strike\nWhen Chaos Knight enters, roll a d6. Create X 6/6 black and red Illusion Knight creature tokens with first strike named Phantasm Illusion, where X is the result.\nWhenever Chaos Knight attacks, roll a d6. Knights you control get +X/+0 until end of turn, where X is the result.",
     "flavor": "“Fall to your knees and lament.”",
-    "type": "Legendary Creature — Avatar Knight",
+    "type": "Legendary Creature -- Avatar Knight",
     "cmc": 8,
     "mana_symbols": [
       "6",
@@ -844,7 +844,7 @@
     "rarity": "rare",
     "rules": "Vigilance\nWhen Chen enters, return target nonlegendary creature from your graveyard to your hand.",
     "flavor": "“I have left the dark desert of my past to walk now in the light of Obelis.”",
-    "type": "Legendary Creature — Human Knight",
+    "type": "Legendary Creature -- Human Knight",
     "cmc": 4,
     "mana_symbols": [
       "2",
@@ -888,7 +888,7 @@
     "rarity": "rare",
     "rules": "Reach, haste\nWhen Clinkz enters or attacks, amass Skeletons 1. (Put three +1/+1 counters on an Army you control. It’s also a Skeleton. If you don’t control an Army, create a 0/0 black Skeleton Army creature token first.)",
     "flavor": "“Fire grows hungrier the more it’s fed.”",
-    "type": "Legendary Creature — Skeleton Archer",
+    "type": "Legendary Creature -- Skeleton Archer",
     "cmc": 3,
     "mana_symbols": [
       "R",
@@ -913,7 +913,7 @@
     "rarity": "uncommon",
     "rules": "Vigilance\nIf a source you control would deal noncombat damage to an opponent or a permanent an opponent controls, it deals that much damage plus 2 instead.",
     "flavor": "“I’ve a mind like a steel trap, and the physique to go with it!”",
-    "type": "Legendary Creature — Gnome Artificer",
+    "type": "Legendary Creature -- Gnome Artificer",
     "cmc": 4,
     "mana_symbols": [
       "2",
@@ -937,7 +937,7 @@
     "rarity": "uncommon",
     "rules": "When Rylai enters, tap up to one target creature an opponent controls. You may put a stun counter on it.  (If a permanent with a stun counter would become untapped, remove one from it instead.)\nInstant and sorcery spells you cast cost 1 less to cast.",
     "flavor": "“Guess you didn’t know a little game of freeze tag could turn lethal.”",
-    "type": "Legendary Creature — Human Wizard",
+    "type": "Legendary Creature -- Human Wizard",
     "cmc": 2,
     "mana_symbols": [
       "WU",
@@ -960,7 +960,7 @@
     "rarity": "uncommon",
     "rules": "When Ish’Kafel enters, choose an opponent. For each creature they control, create a token that’s a copy of that creature.",
     "flavor": "“Your life, much like your head, lacked a point.”",
-    "type": "Legendary Creature — Elder Elemental",
+    "type": "Legendary Creature -- Elder Elemental",
     "cmc": 7,
     "mana_symbols": [
       "5",
@@ -984,7 +984,7 @@
     "rarity": "uncommon",
     "rules": "Flying\nWhen Mireska enters, target opponent becomes the monarch.\nWhenever an opponent draws a card except the first one they draw in each of their draw steps, they lose 1 life.",
     "flavor": "“A little mischief never killed anyone... well, you I guess.”",
-    "type": "Legendary Creature — Faerie Rogue",
+    "type": "Legendary Creature -- Faerie Rogue",
     "cmc": 1,
     "mana_symbols": [
       "B"
@@ -1004,7 +1004,7 @@
     "rarity": "rare",
     "rules": "Flash (You may cast this spell any time you could cast an instant.)\nConvoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for 1 or one mana of that creature’s color.)\nLifelink\nWhen Valora enters, prevent all damage that would be dealt to you and creatures you control this turn.",
     "flavor": "“My powers, like my life, were given to me. The will to wield them justly I found on my own.”",
-    "type": "Legendary Creature — Elemental Warrior",
+    "type": "Legendary Creature -- Elemental Warrior",
     "cmc": 7,
     "mana_symbols": [
       "4",
@@ -1046,7 +1046,7 @@
     "rarity": "uncommon",
     "rules": "T: Target creature you control gains undying until end of turn. (When this creature dies, if it had no +1/+1 counters on it, return it to the battlefield under its owner’s control with a +1/+1 counter on it.)\nB, T: Put a -1/-1 counter on target creature.",
     "flavor": "“Where my shadow falls, there falls my foe.”",
-    "type": "Legendary Creature — Troll Cleric",
+    "type": "Legendary Creature -- Troll Cleric",
     "cmc": 3,
     "mana_symbols": [
       "2",
@@ -1092,7 +1092,7 @@
     "rarity": "uncommon",
     "rules": "Flying\nAt the beginning of combat on your turn, create a token copy of target creature an opponent controls. It has haste and double strike. Exile it at the beginning of the next end step.",
     "flavor": "“The battlefield is merely a canvas, waiting for my brush.”",
-    "type": "Legendary Creature — Demon Spirit",
+    "type": "Legendary Creature -- Demon Spirit",
     "cmc": 6,
     "mana_symbols": [
       "4",
@@ -1115,7 +1115,7 @@
     "rarity": "rare",
     "rules": "Flying\nWhenever a creature you control dies, create a 1/1 white Spirit creature token with flying.\nWhenever a Spirit you control deals combat damage to an opponent, you gain 1 life.",
     "flavor": "“What I’ve seen goes far beyond death.”",
-    "type": "Legendary Creature — Spirit Cleric",
+    "type": "Legendary Creature -- Spirit Cleric",
     "cmc": 5,
     "mana_symbols": [
       "3",
@@ -1139,7 +1139,7 @@
     "rarity": "uncommon",
     "rules": "When Disruptor enters, put target creature an opponent controls on top of its owner’s library.\nT, 1: Copy target instant or sorcery spell you control. You may choose new targets for the copy.",
     "flavor": "“Feeling under the weather?”",
-    "type": "Legendary Creature — Ogre Wizard",
+    "type": "Legendary Creature -- Ogre Wizard",
     "cmc": 6,
     "mana_symbols": [
       "4",
@@ -1163,7 +1163,7 @@
     "rarity": "uncommon",
     "rules": "Devour 1 (As this enters, you may sacrifice any number of creatures. This creature enters with that many +1/+1 counters on it.)\nIf a nonlegendary creature would die, exile it with a void counter on it instead.\nLucifer has all abilities of creatures exiled with void counters on them.",
     "flavor": "“I am the midnight of your soul.”",
-    "type": "Legendary Creature — Avatar Demon",
+    "type": "Legendary Creature -- Avatar Demon",
     "cmc": 6,
     "mana_symbols": [
       "4",
@@ -1208,7 +1208,7 @@
     "rarity": "rare",
     "rules": "R/W: Davion becomes a Human Knight with base power and toughness 2/2.\nR/WR/WR/W: If Davion is a Knight, it becomes a Human Dragon Knight with base power and toughness 4/4 and first strike.\nR/WR/WR/WR/WR/WR/W: If Davion is a Dragon, it becomes an Elder Dragon Knight with base power and toughness 8/8, flying, and first strike.",
     "flavor": "“The dragon Slyrak sleeps within this armor, and the knight within the Dragon waits. Beware you do not wake them both.”",
-    "type": "Legendary Creature — Human",
+    "type": "Legendary Creature -- Human",
     "cmc": 1,
     "mana_symbols": [
       "RW"
@@ -1229,7 +1229,7 @@
     "rarity": "rare",
     "rules": "When Kaolin enters, create three artifact tokens called Stone Remnant (They have no abilities).\nKaolin has indestructible as long as you control a Stone Remnant.\nG, Sacrifice a Stone Remnant: Put a +1/+1 counter on Kaolin. It gains trample until end of turn.\nG, Sacrifice a Stone Remnant: Kaolin deals 2 damage to each creature with flying.",
     "flavor": "“Through conflict, one’s nature is revealed.”",
-    "type": "Legendary Creature — Spirit Warrior",
+    "type": "Legendary Creature -- Spirit Warrior",
     "cmc": 6,
     "mana_symbols": [
       "4",
@@ -1275,7 +1275,7 @@
     "rarity": "rare",
     "rules": "Trample\nWhenever Earthshaker attacks, it gets +X/+0 until end of turn, where X is its power.\nIf a creature you control would deal excess combat damage to a player or planeswalker, it deals twice that much damage instead.",
     "flavor": "“There may be many earths, but there’s only one Earthshaker.”",
-    "type": "Legendary Creature — Beast Warrior",
+    "type": "Legendary Creature -- Beast Warrior",
     "cmc": 5,
     "mana_symbols": [
       "3",
@@ -1299,7 +1299,7 @@
     "rarity": "rare",
     "rules": "Ward cost— Sacrifice a land or discard a land card.\nReach, trample\nAt the beginning of your upkeep, you may return target land card from your graveyard to the battlefield.\nEach land card in your hand has “Basic landcycling 1”.",
     "flavor": "“What long ago I shattered must be rendered whole.",
-    "type": "Legendary Creature — Elder Giant",
+    "type": "Legendary Creature -- Elder Giant",
     "cmc": 4,
     "mana_symbols": [
       "2",
@@ -1344,7 +1344,7 @@
     "rarity": "uncommon",
     "rules": "First strike\nPrevent all noncombat damage that would be dealt to Xin.",
     "flavor": "“Balance in all things.”",
-    "type": "Legendary Creature — Spirit Warrior",
+    "type": "Legendary Creature -- Spirit Warrior",
     "cmc": 3,
     "mana_symbols": [
       "2",
@@ -1365,7 +1365,7 @@
     "rarity": "uncommon",
     "rules": "Vigilance\nWhen Aiushtha enters, gain control of target non-legendary creature for as long as you control Aiushtha.",
     "flavor": "“It’s a hop, skip and a jump!”",
-    "type": "Legendary Creature — Satyr",
+    "type": "Legendary Creature -- Satyr",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -1387,7 +1387,7 @@
     "rarity": "rare",
     "rules": "Flying\nWhen Enigma enters, and at the beginning of each upkeep, sacrifice a nontoken creature. When you do, create three 1/1 black Eidolon creature tokens with “Whenever this creature deals combat damage to a player, create a token that’s a copy of this creature.”",
     "flavor": "“That which is fundamental cannot be destroyed.”",
-    "type": "Legendary Creature — Avatar",
+    "type": "Legendary Creature -- Avatar",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -1410,7 +1410,7 @@
     "rarity": "rare",
     "rules": "U/B: Exile Darkterror with a time counter on it. If it doesn’t have suspend, it gains suspend.\nWhenever Darkterror attacks, draw a card. Then, exile a nonland card from your hand with X time counters on it, where X is that card’s mana value. If that card doesn’t have suspend, it gains suspend.",
     "flavor": "“Time is a river with many eddies. I have seen its head waters, and I have seen its currents reach the sea.”",
-    "type": "Legendary Creature — Avatar Warrior",
+    "type": "Legendary Creature -- Avatar Warrior",
     "cmc": 2,
     "mana_symbols": [
       "UB",
@@ -1457,7 +1457,7 @@
     "rarity": "uncommon",
     "rules": "Flying, haste\nWhenever Aurel blocks or becomes blocked, he deals 1 damage to each other creature that creature’s controller controls.",
     "flavor": "“You remind me of my old boss. Rot in Hell!”",
-    "type": "Legendary Creature — Gnome Pilot",
+    "type": "Legendary Creature -- Gnome Pilot",
     "cmc": 5,
     "mana_symbols": [
       "3",
@@ -1481,7 +1481,7 @@
     "rarity": "uncommon",
     "rules": "Nonbasic landwalk (This creature can’t be blocked as long as defending player controls a nonbasic land.)\nWhenever Hoodwink attacks, you may search your library for a basic land card, reveal it, put it into your hand, then shuffle.",
     "flavor": "“You ever hear the one about the tortoise and the hare and the squirrel that shot ‘em both?”",
-    "type": "Legendary Creature — Squirrel Ranger",
+    "type": "Legendary Creature -- Squirrel Ranger",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -1527,7 +1527,7 @@
     "rarity": "uncommon",
     "rules": "Haste\nT: Huskar deals damage to each player equal to half their life total, rounded down.",
     "flavor": "“Great honors await you in the Nothl Realm.”",
-    "type": "Legendary Creature — Troll Warrior",
+    "type": "Legendary Creature -- Troll Warrior",
     "cmc": 6,
     "mana_symbols": [
       "3",
@@ -1551,7 +1551,7 @@
     "rarity": "rare",
     "rules": "Prowess\nWhenever you cast an instant or sorcery spell, if it had blue in its cost, draw a card. If it had red in its cost, Carl deals 2 damage to any target. If it had black in its cost, each opponent discards a card.",
     "flavor": "“Did I hear a squeak?”",
-    "type": "Legendary Creature — Human Wizard",
+    "type": "Legendary Creature -- Human Wizard",
     "cmc": 3,
     "mana_symbols": [
       "U",
@@ -1616,7 +1616,7 @@
     "rarity": "uncommon",
     "rules": "Enchant creature\nEnchanted creature has hexproof. (This creature can’t be the target of spells of abilities your opponents control.)\nPrevent all combat damage that would be dealt to enchanted creature.",
     "flavor": "Claddish navymen tell tales of a mighty sea-faring beast that suffered spear and sword but continued to lay waste to the fleet.",
-    "type": "Enchantment — Aura",
+    "type": "Enchantment -- Aura",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -1656,7 +1656,7 @@
     "rarity": "uncommon",
     "rules": "Flying\nSoulbond (You may pair this creature with another unpaired creature when either enters. They remain paired for as long as you control both of them.)\nAs long as Io is paired with another creature, each of those creatures have “2W: Exile this creature, then return it to the battlefield under your control.”",
     "flavor": "The benevolent touch of Io brings strength from between the planes.",
-    "type": "Legendary Creature — Spirit",
+    "type": "Legendary Creature -- Spirit",
     "cmc": 1,
     "mana_symbols": [
       "W"
@@ -1721,7 +1721,7 @@
     "rarity": "uncommon",
     "rules": "Flash (You may cast this spell any time you could cast an instant.)\nEnchant land\nWhen this enchantment enters, exile target creature an opponent controls until enchanted land leaves.",
     "flavor": "“I now pronounce you man and tree.” — Lyralei, the Windranger",
-    "type": "Enchantment — Aura",
+    "type": "Enchantment -- Aura",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -1745,7 +1745,7 @@
     "rarity": "uncommon",
     "rules": "Enchant creature\nEnchanted creature gets +0/-1 and has deathtouch.\nWhen Rot is put into a graveyard from the battlefield, return Rot to its owner’s hand.",
     "flavor": "“Fill your lungs up.” — Pudge, the Butcher",
-    "type": "Enchantment — Aura",
+    "type": "Enchantment -- Aura",
     "cmc": 1,
     "mana_symbols": [
       "B"
@@ -1787,7 +1787,7 @@
     "rarity": "uncommon",
     "rules": "Lifelink (Damage dealt by this creature also causes you to gain that much life.)\nWhen Naix enters, destroy target creature.\n1B: Naix gains indestructible until end of turn.",
     "flavor": "“Your life, stolen right out from under you.”",
-    "type": "Legendary Creature — Zombie Minion",
+    "type": "Legendary Creature -- Zombie Minion",
     "cmc": 6,
     "mana_symbols": [
       "4",
@@ -1910,7 +1910,7 @@
     "rarity": "rare",
     "rules": "First strike\nWhen Ostarion enters, you become the monarch.\nWhenever you attack, if you aren’t the monarch, create three 1/1 black Skeleton creature tokens that are tapped and attacking.",
     "flavor": "“Was that some sort of misguided tribute?”",
-    "type": "Legendary Creature — Skeleton Noble",
+    "type": "Legendary Creature -- Skeleton Noble",
     "cmc": 5,
     "mana_symbols": [
       "3",
@@ -1932,7 +1932,7 @@
     "rarity": "uncommon",
     "rules": "Equipped creature gets +1/+0 as long as its attacking.\nIf equipped creature would deal combat damage to a legendary creature, it deals double that much damage instead.\nEquip creature 2",
     "flavor": "A sword that can cut through armor, it’s a commonly chosen first weapon for budding swordsmen.",
-    "type": "Artifact — Equipment",
+    "type": "Artifact -- Equipment",
     "cmc": 2,
     "mana_symbols": [
       "1",
@@ -2035,7 +2035,7 @@
     "rarity": "uncommon",
     "rules": "When Moon Shard enters, it becomes night.\nAt the beginning of combat on your turn, if it is night, equipped creature gets +2/+2 until end of turn.\nEquip legendary creature 1",
     "flavor": "Said to be a tear from the lunar goddess Selemene.",
-    "type": "Legendary Artifact — Equipment",
+    "type": "Legendary Artifact -- Equipment",
     "cmc": 3,
     "mana_symbols": [
       "3"
@@ -2075,7 +2075,7 @@
     "rarity": "uncommon",
     "rules": "When Desolator enters, each player sacrifices a creature.\nWhenever a creature dies, put a charge counter on this artifact.\nEquipped creature gets +X/+0, where X is the number of charge counters on this artifact.\nEquip legendary creature 1",
     "flavor": "A wicked weapon, used in torturing political criminals.",
-    "type": "Legendary Artifact — Equipment",
+    "type": "Legendary Artifact -- Equipment",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -2142,7 +2142,7 @@
     "rarity": "uncommon",
     "rules": "When Meepo enters, if it isn’t a token, create three tokens that are copies of it.\nAs long as Meepo is a token, it is not legendary.\n1: Meepo phases out. (While it’s phased out, it’s treated as though it doesn’t exist. It phases in before its controller untaps during their next untap step.)\nWhen Meepo leaves the battlefield, exile all other cards named Meepo, the Geomancer.",
     "flavor": "“I guess size ain’t everything, eh?”",
-    "type": "Legendary Creature — Kobold Scout",
+    "type": "Legendary Creature -- Kobold Scout",
     "cmc": 6,
     "mana_symbols": [
       "4",
@@ -2166,7 +2166,7 @@
     "rarity": "rare",
     "rules": "Flying, haste\nWhenever Jakiro attacks, it deals 2 damage divided as you choose among up to two targets.\nWhenever Jakiro attacks, tap up to one target permanent.",
     "flavor": "“Tis an honor to die by dragons.”",
-    "type": "Legendary Creature — Dragon",
+    "type": "Legendary Creature -- Dragon",
     "cmc": 5,
     "mana_symbols": [
       "3",
@@ -2189,7 +2189,7 @@
     "rarity": "uncommon",
     "rules": "Hexproof (This creature can’t be the target of spells or abilities your opponents control.)\nBushido 2 (Whenever this creature blocks or becomes blocked, it gets +2/+2 until end of turn.)",
     "flavor": "“There’s a fine line between bravery and stupidity.”",
-    "type": "Legendary Creature — Human Warrior",
+    "type": "Legendary Creature -- Human Warrior",
     "cmc": 2,
     "mana_symbols": [
       "1",
@@ -2210,7 +2210,7 @@
     "rarity": "uncommon",
     "rules": "Vigilance\nWhenever you cast a spell during an opponent’s turn, tap target creature an opponent controls.",
     "flavor": "“I’ll forego green girdles and questing beasts, for all such knightly trifles pale before the light.”",
-    "type": "Legendary Creature — Human Wizard",
+    "type": "Legendary Creature -- Human Wizard",
     "cmc": 2,
     "mana_symbols": [
       "1",
@@ -2231,7 +2231,7 @@
     "rarity": "uncommon",
     "rules": "Vigilance\nWhen Kunkka deals combat damage to a player, create a map token. (It’s an artifact with “1, T, Sacrifice this token: Target creature you control explores. Activate only as a sorcery.”)",
     "flavor": "“This’ll trim your sails!”",
-    "type": "Legendary Creature — Spirit Pirate",
+    "type": "Legendary Creature -- Spirit Pirate",
     "cmc": 6,
     "mana_symbols": [
       "4",
@@ -2253,7 +2253,7 @@
     "rarity": "uncommon",
     "rules": "Enchant creature\nEnchanted creature loses all abilities and can’t attack or block.\nAt the beginning of the upkeep of enchanted creature’s controller, that player mills X cards, where X is that creature’s mana value.",
     "flavor": "Victims of Atropos are frequently torn apart by vivid conjurations of their own nightmares.",
-    "type": "Enchantment — Aura",
+    "type": "Enchantment -- Aura",
     "cmc": 4,
     "mana_symbols": [
       "2",
@@ -2276,7 +2276,7 @@
     "rarity": "uncommon",
     "rules": "Haste\nWhenever Tresdin attacks, you may have it fight up to one target creature an opponent controls.\nWhenever a creature an opponent controls dealt damage by Tresdin this turn dies, put a +1/+1 counter on Tresdin.",
     "flavor": "“I’ve come to put an end to hope.”",
-    "type": "Legendary Creature — Human Soldier",
+    "type": "Legendary Creature -- Human Soldier",
     "cmc": 3,
     "mana_symbols": [
       "2",
@@ -2298,7 +2298,7 @@
     "rarity": "uncommon",
     "rules": "Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\nAt the beginning of the end step, Leshrac deals 1 damage to each creature your opponents control.",
     "flavor": "“Your desolation and the world’s are one.”",
-    "type": "Legendary Creature — Satyr",
+    "type": "Legendary Creature -- Satyr",
     "cmc": 5,
     "mana_symbols": [
       "3",
@@ -2320,7 +2320,7 @@
     "rarity": "uncommon",
     "rules": "Flying\nWhen Ethreain enters, tap target creature an opponent controls.\nWhenever a creature an opponent controls becomes tapped, put a stun counter on it.",
     "flavor": "“I number you among the dead.”",
-    "type": "Legendary Creature — Zombie Wizard",
+    "type": "Legendary Creature -- Zombie Wizard",
     "cmc": 7,
     "mana_symbols": [
       "5",
@@ -2343,7 +2343,7 @@
     "rarity": "uncommon",
     "rules": "Flying, prowess, prowess (Each instance of prowess triggers separately)",
     "flavor": "“Burn, baby, burn.”",
-    "type": "Legendary Creature — Human Wizard",
+    "type": "Legendary Creature -- Human Wizard",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -2365,7 +2365,7 @@
     "rarity": "uncommon",
     "rules": "T: Add R or B. Spend this mana only to cast an instant or sorcery spell.\nWhen Lion dies, add BR.",
     "flavor": "“I’ve been to Hell and back, and back to Hell…and back.”",
-    "type": "Legendary Creature — Demon Wizard",
+    "type": "Legendary Creature -- Demon Wizard",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -2388,7 +2388,7 @@
     "rarity": "rare",
     "rules": "When Sylla enters, create Alfredo, a legendary 6/6 green bear creature token with trample.\nWhen Sylla dies, exile Alfredo.\n3GG: Transform Sylla.\nTrample\nWhen Sylla transforms, Bear creatures you control gain lifelink until end of turn.\nWhen Sylla dies, exile Alfredo.",
     "flavor": "‘Nature chose her guardian well.”",
-    "type": "Legendary Creature — Human Druid",
+    "type": "Legendary Creature -- Human Druid",
     "cmc": 4,
     "mana_symbols": [
       "3",
@@ -2409,7 +2409,7 @@
     "rarity": "uncommon",
     "rules": "Daybound (If a player casts no spells during their own turn, it becomes night next turn. As it becomes night, transform this permanent.)\nWhen Luna transforms, you gain 3 life.\nNightbound (If a player cast at least two spells during their own turn, it becomes day next turn.)\nWhen Luna enters or transforms, target creature your opponent controls gets -X/-X until end of turn, where X is Luna’s power.",
     "flavor": "“By Nightsilver!”",
-    "type": "Legendary Creature — Human Cleric",
+    "type": "Legendary Creature -- Human Cleric",
     "cmc": 4,
     "mana_symbols": [
       "3",
@@ -2430,7 +2430,7 @@
     "rarity": "rare",
     "rules": "Daybound (If a player casts no spells during their own turn, it becomes night next turn. As it becomes night, transform this permanent.)\nAs long as its night, Banehollow costs 4 less to cast.\nWhen Banehollow transforms, create two 2/2 black Wolf creature token.\nNightbound (If a player cast at least two spells during their own turn, it becomes day next turn.)\nWolves and Werewolves you control get +2/+2 and have menace.\nWhenever Banehollow, Shapeshifted enters or transforms, create two 2/2 black Wolf creature tokens.\nNightbound",
     "flavor": "“I am the alpha wolf.”",
-    "type": "Legendary Creature — Human Werewolf",
+    "type": "Legendary Creature -- Human Werewolf",
     "cmc": 6,
     "mana_symbols": [
       "4",
@@ -2453,7 +2453,7 @@
     "rarity": "uncommon",
     "rules": "Flying\n0: Puck phases out. (While it’s phased out, it’s treated as though it doesn’t exist. It phases in before its controller untaps during their next untap step.)",
     "flavor": "“Stay and amuse me!”",
-    "type": "Legendary Creature — Faerie Dragon",
+    "type": "Legendary Creature -- Faerie Dragon",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -2476,7 +2476,7 @@
     "rarity": "uncommon",
     "rules": "Trample\nWhenever a creature you control deals excess combat damage, draw a card.",
     "flavor": "“You must have mistaken my purpose…to flatten you!”",
-    "type": "Legendary Creature — Rhino",
+    "type": "Legendary Creature -- Rhino",
     "cmc": 4,
     "mana_symbols": [
       "2",
@@ -2498,7 +2498,7 @@
     "rarity": "uncommon",
     "rules": "Soulbond (You may pair this creature with another unpaired creature when either enters. They remain paired for as long as you control both of them.)\nAs long as Marci is paired with another creature, both creatures get +1/+0 and have lifelink.",
     "flavor": "Marci learned at a young age that the best asset in a scrap is a steady companion.",
-    "type": "Legendary Creature — Human",
+    "type": "Legendary Creature -- Human",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -2521,7 +2521,7 @@
     "rarity": "rare",
     "rules": "Menace, haste\nCreatures your opponents control can’t be the target of spells or abilities that opponent controls.",
     "flavor": "“Let the name Mars ring across the battlefield, and bear witness to my enemy’s flight.”",
-    "type": "Legendary Creature — Demigod Warrior",
+    "type": "Legendary Creature -- Demigod Warrior",
     "cmc": 6,
     "mana_symbols": [
       "4",
@@ -2543,7 +2543,7 @@
     "rarity": "uncommon",
     "rules": "Vigilance, reach\nWhenever a creature deals combat damage to Medusa, put a defender counter on it.",
     "flavor": "“Never come between a Gorgon and her sisters”",
-    "type": "Legendary Creature — Gorgon",
+    "type": "Legendary Creature -- Gorgon",
     "cmc": 6,
     "mana_symbols": [
       "4",
@@ -2566,7 +2566,7 @@
     "rarity": "uncommon",
     "rules": "Daybound (If a player casts no spells during their own turn, it becomes night next turn. As it becomes night, transform this permanent.)\nWhen Mirana transforms, draw a card, then discard a card.\nNightbound (If a player cast at least two spells during their own turn, it becomes day next turn.)\nWhen Mirana enters or transforms, creatures you control gain hexproof and can’t be blocked until the end of turn your next turn. (This creature can’t be the target of spells of abilities your opponents control.)",
     "flavor": "“The stars are in alignment, and our victory is certain.”",
-    "type": "Legendary Creature — Human Ranger",
+    "type": "Legendary Creature -- Human Ranger",
     "cmc": 2,
     "mana_symbols": [
       "U",
@@ -2589,7 +2589,7 @@
     "rarity": "rare",
     "rules": "Vigilance, haste\nWhenever Wukong attacks, put a +1/+1 counter on it.\nAt the begining of your end step, if Wukong’s power is 5 or greater, create a 3/3 green Ape creature token with vigilance.",
     "flavor": "“My next great challenge will be your last.”",
-    "type": "Legendary Creature — Ape Warrior",
+    "type": "Legendary Creature -- Ape Warrior",
     "cmc": 3,
     "mana_symbols": [
       "G",
@@ -2613,7 +2613,7 @@
     "rarity": "uncommon",
     "rules": "Flash (You may cast this spell any time you could cast an instant.)",
     "flavor": "“You’re washed up!”",
-    "type": "Legendary Creature — Shapeshifter",
+    "type": "Legendary Creature -- Shapeshifter",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -2635,7 +2635,7 @@
     "rarity": "uncommon",
     "rules": "Whenever Muerta deals combat damage to a player, put target creature from a graveyard on to the battlefield under your control with a finality counter on it.\n4BB: Muerta gets +X/+X and gains flying until end of turn, where X is the number of creature cards in all graveyards.",
     "flavor": "“I promise you a quick death. The eternity of torment waiting for you in the afterlife might take a bit longer.”",
-    "type": "Legendary Creature — Spirit Assassin",
+    "type": "Legendary Creature -- Spirit Assassin",
     "cmc": 5,
     "mana_symbols": [
       "4",
@@ -2656,7 +2656,7 @@
     "rarity": "uncommon",
     "rules": "Whenever Slithice deals combat damage to a player for the first time each turn, that player skips their next combat phase.\nT: Target creature an opponent controls attacks during its controller’s next turn if able.",
     "flavor": "“From this sleep you will not wake.”",
-    "type": "Legendary Creature — Naga",
+    "type": "Legendary Creature -- Naga",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -2679,7 +2679,7 @@
     "rarity": "uncommon",
     "rules": "When Tormentor enters, it deals 4 damage divided randomly among creatures you control.\nLegendary spells you control cost 1 less to cast.\nWhenever you cast a legendary spell, draw a card then discard a card.",
     "flavor": "Innocuous as first, the Divine Sentinel lashes out at anyone who dares draw near.",
-    "type": "Battle — Raid",
+    "type": "Battle -- Raid",
     "cmc": 1,
     "mana_symbols": [
       "1"
@@ -2718,7 +2718,7 @@
     "rarity": "mythic rare",
     "rules": "Vigilance, reach\nWhenever you tap a land for mana, add an additional G.\nWhenever Nature’s Prophet attacks, untap all lands you control.",
     "flavor": "“Ah, the sun in my leaves.”",
-    "type": "Legendary Creature — Satyr Druid",
+    "type": "Legendary Creature -- Satyr Druid",
     "cmc": 4,
     "mana_symbols": [
       "1",
@@ -2741,7 +2741,7 @@
     "rarity": "rare",
     "rules": "Opponents can’t gain life.\nWhenever another creature dies, each opponent loses 1 life and you gain 1 life.\nAt the beginning of your end step, put a -1/-1 counter on each creature you don’t control.",
     "flavor": "“You become feast for the flesh flies.”",
-    "type": "Legendary Creature — Zombie Warlock",
+    "type": "Legendary Creature -- Zombie Warlock",
     "cmc": 6,
     "mana_symbols": [
       "3",
@@ -2788,7 +2788,7 @@
     "rarity": "uncommon",
     "rules": "Daybound (If a player casts no spells during their own turn, it becomes night next turn. As it becomes night, transform this permanent.)\nWhen Balanar deals combat damage to a player, that player discards a card.\nNightbound (If a player cast at least two spells during their own turn, it becomes day next turn.)\nDouble strike, flying\nWhen Balanar deals combat damage to a player, that player discards a card.",
     "flavor": "“I’m the beast of bedtime tales.”",
-    "type": "Legendary Creature — Horror",
+    "type": "Legendary Creature -- Horror",
     "cmc": 3,
     "mana_symbols": [
       "2",
@@ -2830,7 +2830,7 @@
     "rarity": "uncommon",
     "rules": "Ward 4 (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays 4.)\nSkulk (This creature can’t be blocked by creatures with greater power.)\nWhenever Nyx Assassin deals damage to a player, they lose life equal to the number of cards in their hand.",
     "flavor": "“Your thoughts betray you.”",
-    "type": "Legendary Creature — Insect Assassin",
+    "type": "Legendary Creature -- Insect Assassin",
     "cmc": 4,
     "mana_symbols": [
       "2",
@@ -2853,7 +2853,7 @@
     "rarity": "rare",
     "rules": "Trample\nWhenever Aggron attacks, exile an instant or sorcery card from your graveyard at random. You may cast that card without paying its mana cost. If you do, roll a d4. Copy that spell X times, where X is the result. You may choose new targets for the copies.",
     "flavor": "“Running’s not as fun as hitting. Not one bit fun!”",
-    "type": "Legendary Creature — Ogre Wizard",
+    "type": "Legendary Creature -- Ogre Wizard",
     "cmc": 7,
     "mana_symbols": [
       "5",
@@ -2877,7 +2877,7 @@
     "rarity": "mythic rare",
     "rules": "Vigilance\nWhen Purist Thunderwrath enters, choose a color.\nYou and creatures you control have protection from the chosen colour.",
     "flavor": "“Let this be the last crusade. Let me find peace.”",
-    "type": "Legendary Creature — Human Knight",
+    "type": "Legendary Creature -- Human Knight",
     "cmc": 6,
     "mana_symbols": [
       "3",
@@ -2900,7 +2900,7 @@
     "rarity": "uncommon",
     "rules": "Flying\nT: Scry 2. (To scry 2, look at the top two cards of your library, then put any number of them on the bottom of your library and the rest on the top in any order.)",
     "flavor": "“Like a promise, you were made to be broken.”",
-    "type": "Legendary Creature — Vedalken Cleric",
+    "type": "Legendary Creature -- Vedalken Cleric",
     "cmc": 2,
     "mana_symbols": [
       "U",
@@ -2940,7 +2940,7 @@
     "rarity": "uncommon",
     "rules": "Delve (Each card you exile from your graveyard while casting this spell pays for 1.)\nFlying\nWhenever this creature attacks, you may return a noncreature, nonland card you own from exile to your hand.",
     "flavor": "“My wings beat with the rhythms of eternity.”",
-    "type": "Legendary Creature — Archon",
+    "type": "Legendary Creature -- Archon",
     "cmc": 7,
     "mana_symbols": [
       "5",
@@ -2963,7 +2963,7 @@
     "rarity": "uncommon",
     "rules": "Flash (You may cast this spell any time you could cast an instant.)\nEnchant creature\n0: Exile enchanted creature. Return it to the battlefield under its owner’s control at the beginning of the next end step.",
     "flavor": "“Their sanity I’ll shatter, their dreams of conquest I’ll destroy.” — Harbinger, the Outworld Destroyer",
-    "type": "Enchantment — Aura",
+    "type": "Enchantment -- Aura",
     "cmc": 1,
     "mana_symbols": [
       "U"
@@ -2983,7 +2983,7 @@
     "rarity": "uncommon",
     "rules": "First strike\nWhen Donté Panlin deals combat damage to a player, exile the top card of your library. You may play that card until your next end step.",
     "flavor": "“Where the finest warriors alive have gathered for battle, of course you can expect to find me.”",
-    "type": "Legendary Creature — Pangolin",
+    "type": "Legendary Creature -- Pangolin",
     "cmc": 2,
     "mana_symbols": [
       "1",
@@ -3004,7 +3004,7 @@
     "rarity": "uncommon",
     "rules": "Double strike, hexproof, menace",
     "flavor": "“Even in death, you’ll not see beyond the Phantom Veil.”",
-    "type": "Legendary Creature — Spirit Assassin",
+    "type": "Legendary Creature -- Spirit Assassin",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -3028,7 +3028,7 @@
     "rarity": "uncommon",
     "rules": "Vigilance\nWhenever Azwraith attacks, create four 1/1 white and blue Illusion creature tokens with vigilance.",
     "flavor": "“We outnumbered you. We outnumber them all!”",
-    "type": "Legendary Creature — Cat Warrior",
+    "type": "Legendary Creature -- Cat Warrior",
     "cmc": 6,
     "mana_symbols": [
       "4",
@@ -3051,7 +3051,7 @@
     "rarity": "uncommon",
     "rules": "Flying\nWhenever a creature attacks you, Phoenix deals 2 damage to it.\nWhen Phoenix dies, create a 0/1 red Elemental creature token named Phoenix Egg. It has “At the beginning of your upkeep, sacrifice this creature and return target card named Phoenix from your graveyard to the battlefield.”",
     "flavor": "The ever-collapsing core of Phoenix often emits short-lived bursts of conscious light.",
-    "type": "Legendary Creature — Phoenix",
+    "type": "Legendary Creature -- Phoenix",
     "cmc": 7,
     "mana_symbols": [
       "4",
@@ -3074,7 +3074,7 @@
     "rarity": "uncommon",
     "rules": "Trample, haste\nPrimal Beast enters with X +1/+1 counters on it.\nWhenever Primal Beast attacks, it fights up to one target creature.",
     "flavor": "The Beast’s single-minded focus on chosen prey leaves all other considerations scattered in his ruinous wake.",
-    "type": "Legendary Creature — Dinosaur Beast",
+    "type": "Legendary Creature -- Dinosaur Beast",
     "cmc": 2,
     "mana_symbols": [
       "X",
@@ -3097,7 +3097,7 @@
     "rarity": "uncommon",
     "rules": "Trample\nIf a creature an opponent controls would die, exile it instead. Then, put a +1/+1 counters on Pudge.",
     "flavor": "“Have I got juice on me chins?”",
-    "type": "Legendary Creature — Zombie",
+    "type": "Legendary Creature -- Zombie",
     "cmc": 5,
     "mana_symbols": [
       "3",
@@ -3119,7 +3119,7 @@
     "rarity": "uncommon",
     "rules": "Lifelink\nPrevent all combat damage that would be dealt to and by Pugna.\nXB: Spend only black mana on X. Pugna deals X damage to target creature or player.",
     "flavor": "“I’ll take that life if you’re not using it, he he he.”",
-    "type": "Legendary Creature — Skeleton Wizard",
+    "type": "Legendary Creature -- Skeleton Wizard",
     "cmc": 2,
     "mana_symbols": [
       "1",
@@ -3140,7 +3140,7 @@
     "rarity": "uncommon",
     "rules": "Flying, haste\nWhenever you cast an instant or sorcery spell, Akasha deals 1 damage to each creature your opponents control.",
     "flavor": "“Long live your Queen!”",
-    "type": "Legendary Creature — Demon Sorcerer",
+    "type": "Legendary Creature -- Demon Sorcerer",
     "cmc": 4,
     "mana_symbols": [
       "2",
@@ -3162,7 +3162,7 @@
     "rarity": "uncommon",
     "rules": "Flying, haste\nWhenever Razor attacks, exchange its power with target creature’s power until end of turn.",
     "flavor": "“I bring my lightning whip not to punish souls, but only to hasten them toward the inevitable exit.”",
-    "type": "Legendary Creature — Elemental Warrior",
+    "type": "Legendary Creature -- Elemental Warrior",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -3185,7 +3185,7 @@
     "rarity": "uncommon",
     "rules": "Hexproof (This creature can’t be the target of spells of abilities your opponents control.)\nWhenever Riki deals combat damage to a player, they may lose 2 life. If they don’t, you draw a card.",
     "flavor": "“I speak softly, but carry a sharp knife.”",
-    "type": "Legendary Creature — Satyr Rogue",
+    "type": "Legendary Creature -- Satyr Rogue",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -3208,7 +3208,7 @@
     "rarity": "mythic rare",
     "rules": "The first time you cast an instant or sorcery spell each turn, copy that spell. You may choose new targets for the copy.\nYou may cast sorcery spells as though they had flash. (You may cast this spell any time you could cast an instant.)",
     "flavor": "“Such fascinating energies!”",
-    "type": "Legendary Creature — Vedalken Wizard",
+    "type": "Legendary Creature -- Vedalken Wizard",
     "cmc": 4,
     "mana_symbols": [
       "1",
@@ -3231,7 +3231,7 @@
     "rarity": "rare",
     "rules": "Deathtouch\nWhen Crixalis enters, each player sacrifices a land, an artifact, a creature, and an enchantment from among permanents they control.",
     "flavor": "“Oh Desert Djinn who forged my living carapace, eternally the sand will praise your name!”",
-    "type": "Legendary Creature — Scorpion Noble",
+    "type": "Legendary Creature -- Scorpion Noble",
     "cmc": 4,
     "mana_symbols": [
       "1",
@@ -3257,7 +3257,7 @@
     "rarity": "uncommon",
     "rules": "4RR, T: Exile target creature until end of turn. Create two token copies of the exiled creature, except they’re not legendary if that creature is legendary. They gain haste. Sacrifice them at the beginning of the next end step.",
     "flavor": "“Your soul will make a fine minion!”",
-    "type": "Legendary Creature — Demon Wizard",
+    "type": "Legendary Creature -- Demon Wizard",
     "cmc": 4,
     "mana_symbols": [
       "3",
@@ -3278,7 +3278,7 @@
     "rarity": "uncommon",
     "rules": "Whenever a creature dies, put a +1/+1 counter on Nevermore.\nWhen Nevermore dies, it deals damage equal to its power to each opponent.",
     "flavor": "“I’ll leave you a couple pennies for your eyes.”",
-    "type": "Legendary Creature — Demon Archon",
+    "type": "Legendary Creature -- Demon Archon",
     "cmc": 2,
     "mana_symbols": [
       "BR",
@@ -3300,7 +3300,7 @@
     "rarity": "uncommon",
     "rules": "When Rhasta enters, target creature loses all abilities and becomes a 0/1 white Chicken creature for as long as you control Rhasta.",
     "flavor": "“A fine form for you!”",
-    "type": "Legendary Creature — Troll Shaman",
+    "type": "Legendary Creature -- Troll Shaman",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -3323,7 +3323,7 @@
     "rarity": "uncommon",
     "rules": "Vigilance\nYour opponents can’t cast spells during your turn.\nWhenever an opponent casts their first noncreature spell each turn, that player loses 2 life and you gain 2 life.",
     "flavor": "“Shhh!”",
-    "type": "Legendary Creature — Human Advisor",
+    "type": "Legendary Creature -- Human Advisor",
     "cmc": 5,
     "mana_symbols": [
       "3",
@@ -3346,7 +3346,7 @@
     "rarity": "uncommon",
     "rules": "Flash (You may cast this spell any time you could cast an instant.)\nFlying\nWhenever you cast a spell with flash, draw a card and gain 1 life.",
     "flavor": "“I am a tool of the greater good. What does that make you?”",
-    "type": "Legendary Creature — Angel Wizard",
+    "type": "Legendary Creature -- Angel Wizard",
     "cmc": 2,
     "mana_symbols": [
       "W",
@@ -3368,7 +3368,7 @@
     "rarity": "uncommon",
     "rules": "Vigilance (Attacking doesn’t cause this creature to tap.)\nCreatures your opponents control lose hexproof and shroud and can’t have hexproof and shroud. Ward abilities of those creatures don’t trigger.",
     "flavor": "“Can’t fathom why you thought you’d survive.”",
-    "type": "Legendary Creature — Naga Warrior",
+    "type": "Legendary Creature -- Naga Warrior",
     "cmc": 4,
     "mana_symbols": [
       "2",
@@ -3390,7 +3390,7 @@
     "rarity": "rare",
     "rules": "Deathtouch, wither (This deals damage to creatures in the form of -1/-1 counters.)\nWhenever Slark deals combat damage, put that many +1/+1 counters on it.\nG: Regenerate Slark. (The next time it would be destroyed, instead tap it, remove it from combat, and heal all damage on it)",
     "flavor": "“If I’d known I’d end up here, I’d have stayed in Dark Reef Prison.”",
-    "type": "Legendary Creature — Naga Rogue",
+    "type": "Legendary Creature -- Naga Rogue",
     "cmc": 3,
     "mana_symbols": [
       "B",
@@ -3414,7 +3414,7 @@
     "rarity": "uncommon",
     "rules": "At the beginning of combat on your turn, Beatrix and Mortimer gets +2/+0 and has double strike until end of turn.",
     "flavor": "“I’m Beadie. N’ this here’s Mortimer. Nothing fancy. Just here to kill some time and if we can manage, some people.”",
-    "type": "Legendary Creature — Lizard Gnome",
+    "type": "Legendary Creature -- Lizard Gnome",
     "cmc": 2,
     "mana_symbols": [
       "R",
@@ -3436,7 +3436,7 @@
     "rarity": "uncommon",
     "rules": "First strike",
     "flavor": "“As long as there are two heroes left on the battlefield, someone is gonna want someone dead.”",
-    "type": "Legendary Creature — Gnome Scout",
+    "type": "Legendary Creature -- Gnome Scout",
     "cmc": 2,
     "mana_symbols": [
       "R",
@@ -3458,7 +3458,7 @@
     "rarity": "uncommon",
     "rules": "Whenever a source deals damage to Mercurial, that source’s controller loses 1 life.\nMercurial gets +1/+0 and has menace as long as an opponent controls one or fewer creatures.",
     "flavor": "“Who cannot endure, is entombed.”",
-    "type": "Legendary Creature — Spirit",
+    "type": "Legendary Creature -- Spirit",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -3481,7 +3481,7 @@
     "rarity": "uncommon",
     "rules": "This spell can’t be countered.\nSpells you cast can’t be countered.\nAs long as Barathrum has attacked this turn, spells you cast from your hand this turn with mana value 4 or greater gain cascade. (When you cast this spell, exile cards from the top of your library until you exile a nonland card that costs less. You may cast it without paying its mana cost if the resulting spell’s mana value is less than this spell’s mana value. Put the exiled cards on the bottom in a random order.)",
     "flavor": "“Mine is the anvil on which your spirit broke.”",
-    "type": "Legendary Creature — Beast Warrior",
+    "type": "Legendary Creature -- Beast Warrior",
     "cmc": 5,
     "mana_symbols": [
       "3",
@@ -3504,7 +3504,7 @@
     "rarity": "rare",
     "rules": "Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\nWhen Raijin enters, create a 2/2 blue Elemental Spirit creature token with prowess named Static Remnant for each spell you’ve cast this turn.",
     "flavor": "“Told you a storm was coming!”",
-    "type": "Legendary Creature — Spirit Wizard",
+    "type": "Legendary Creature -- Spirit Wizard",
     "cmc": 5,
     "mana_symbols": [
       "4",
@@ -3525,7 +3525,7 @@
     "rarity": "uncommon",
     "rules": "First strike\nWhenever Sven deals combat damage to a creature, Sven deals that much damage to all other creatures that creature’s controller controls.",
     "flavor": "“Rogue Knight claims another.”",
-    "type": "Legendary Creature — Rogue Knight",
+    "type": "Legendary Creature -- Rogue Knight",
     "cmc": 4,
     "mana_symbols": [
       "1",
@@ -3549,7 +3549,7 @@
     "rarity": "uncommon",
     "rules": "Whenever Inai, attacks, any number of target players each mill three cards.\nDash 3B (You may cast this spell for its dash cost. If you do, it gains haste, and it’s returned from the battlefield to its owner’s hand at the beginning of the next end step.)",
     "flavor": "“I abhor the blindness of the mortal plane.”",
-    "type": "Legendary Creature — Spirit",
+    "type": "Legendary Creature -- Spirit",
     "cmc": 5,
     "mana_symbols": [
       "3",
@@ -3571,7 +3571,7 @@
     "rarity": "uncommon",
     "rules": "At the beginning of your upkeep, create a colorless artifact token named Remote Mine with “T, Sacrifice this artifact: It deals 2 damage to target attacking creature.”",
     "flavor": "“Techies Demolitions! We put the tech in tech-nically we meant to do that.”",
-    "type": "Legendary Creature — Goblin",
+    "type": "Legendary Creature -- Goblin",
     "cmc": 3,
     "mana_symbols": [
       "2",
@@ -3592,7 +3592,7 @@
     "rarity": "uncommon",
     "rules": "Whenever Lanaya attacks or is targeted by a spell an opponent controls, put a shield counter on it. (If it would be dealt damage or destroyed, remove a shield counter from it instead.\nWhenever a shield counter is removed from a creature, put a +1/+1 counter on it.",
     "flavor": "“Your death was a secret I can no longer hide.”",
-    "type": "Legendary Creature — Human Assassin",
+    "type": "Legendary Creature -- Human Assassin",
     "cmc": 4,
     "mana_symbols": [
       "3",
@@ -3613,7 +3613,7 @@
     "rarity": "mythic rare",
     "rules": "At the beginning of your postcombat main phase, add B for each 1 life your opponents have lost this turn. Then, you lose that amount of life.\n4BBB: Transform Terrorblade.\nLifelink\nMetamorphosis — When this creature transforms, create two 4/4 black Demon Illusion creature tokens with lifelink named Conjured Image.",
     "flavor": "“The self-righteous shall choke on their sanctimony.”",
-    "type": "Legendary Creature — Demon Warrior",
+    "type": "Legendary Creature -- Demon Warrior",
     "cmc": 1,
     "mana_symbols": [
       "B"
@@ -3633,7 +3633,7 @@
     "rarity": "rare",
     "rules": "Hexproof, trample\nWhenever Leviathan attacks, Islands you control produce an additional U when tapped for mana this turn.\nCreatures your opponents control get -X/-0, where X is the number of Islands you control.",
     "flavor": "“I’m hungry enough to eat a manta ray.”",
-    "type": "Legendary Creature — Leviathan",
+    "type": "Legendary Creature -- Leviathan",
     "cmc": 6,
     "mana_symbols": [
       "3",
@@ -3657,7 +3657,7 @@
     "rarity": "uncommon",
     "rules": "T, Sacrifice a Forest: Search your library for up to two basic land cards and put them onto the battlefield tapped. Then shuffle.",
     "flavor": "“I cut you, and I split you, and I killed you! Ha ha ha ha ha ha!”",
-    "type": "Legendary Creature — Gnome Pilot",
+    "type": "Legendary Creature -- Gnome Pilot",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -3681,7 +3681,7 @@
     "rarity": "uncommon",
     "rules": "1: Return Boush to its owner’s hand.\nT: Create a 1/1 colorless Robot artifact creature token.",
     "flavor": "“You can keep your magic, I have laser beams!”",
-    "type": "Legendary Creature — Gnome Artificer",
+    "type": "Legendary Creature -- Gnome Artificer",
     "cmc": 1,
     "mana_symbols": [
       "U"
@@ -3702,7 +3702,7 @@
     "rarity": "mythic rare",
     "rules": "Trample\nWhenever a permanent is put into the graveyard from the battlefield, put a +1/+1 counter on Tiny. If that permanent was a land, put two +1/+1 counters on Tiny instead.\nWhenever a creature deals damage to Tiny, put a stun counter on it.",
     "flavor": "“Sticks and stones will break their bones!”",
-    "type": "Legendary Creature — Elemental",
+    "type": "Legendary Creature -- Elemental",
     "cmc": 2,
     "mana_symbols": [
       "1",
@@ -3724,7 +3724,7 @@
     "rarity": "uncommon",
     "rules": "Forestwalk (This creature can’t be blocked as long as defending player controls a Forest.)\nT: Add G.",
     "flavor": "“Where the path branched, you chose unwisely.”",
-    "type": "Legendary Creature — Treefolk",
+    "type": "Legendary Creature -- Treefolk",
     "cmc": 2,
     "mana_symbols": [
       "1",
@@ -3745,7 +3745,7 @@
     "rarity": "rare",
     "rules": "Trample, haste\nWhenever Jah’rakal attacks, put a +1/+1 counter on it. Then if Jah’rakal has power 5 or greater, transform it\nTrample, indestructible\nWhen Jah’rakal transforms, remove all +1/+1 counters from it. For each counter removed this way, add one mana of any combination of R and/or G. Until end of turn, you don’t lose this mana as steps and phases end.\nAt the beginning of your end step, transform Jah’rakal.",
     "flavor": "“All hail the Lord of Trolls.”",
-    "type": "Legendary Creature — Troll Warrior",
+    "type": "Legendary Creature -- Troll Warrior",
     "cmc": 2,
     "mana_symbols": [
       "RG",
@@ -3767,7 +3767,7 @@
     "rarity": "uncommon",
     "rules": "Flash (You may cast this spell any time you could cast an instant.)\nWhen Ymir, the Tusk enters, exile up to one other target creature you control. Return that card to the battlefield under its owner’s control at the beginning of the next end step.",
     "flavor": "“I say we should trade blows!”",
-    "type": "Legendary Creature — Beast Warrior",
+    "type": "Legendary Creature -- Beast Warrior",
     "cmc": 4,
     "mana_symbols": [
       "3",
@@ -3789,7 +3789,7 @@
     "rarity": "uncommon",
     "rules": "Each creature your opponents control get -2/-0 until end of turn for each creature that died this turn.",
     "flavor": "“I will scorch this land and its people will come to fear a new master!”",
-    "type": "Legendary Creature — Demon Warrior",
+    "type": "Legendary Creature -- Demon Warrior",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -3811,7 +3811,7 @@
     "rarity": "rare",
     "rules": "Undying (When this creature dies, if it had no +1/+1 counters on it, return it to the battlefield under its owner’s control with a +1/+1 counter on it.)\nAt the beginning of each player’s upkeep, that player discards a card.\nWhenever a creature card is put into a graveyard from anywhere other than the battlefield, create a 2/2 black Zombie creature token.",
     "flavor": "“I bring the song of death.”",
-    "type": "Legendary Creature — Zombie",
+    "type": "Legendary Creature -- Zombie",
     "cmc": 5,
     "mana_symbols": [
       "3",
@@ -3834,7 +3834,7 @@
     "rarity": "uncommon",
     "rules": "Trample\nG: Regenerate Ulfsaar. (The next time it would be destroyed, instead tap it, remove it from combat, and heal all damage on it)\nEnrage — Whenever Ulfsaar is dealt damage, put a +1/+1 counter on it.",
     "flavor": "“Come not near the darkwoods where my kindred sleep.”",
-    "type": "Legendary Creature — Bear Warrior",
+    "type": "Legendary Creature -- Bear Warrior",
     "cmc": 2,
     "mana_symbols": [
       "1",
@@ -3855,7 +3855,7 @@
     "rarity": "uncommon",
     "rules": "When Shendelzare dies, return it to the battlefield tapped with no abilities.",
     "flavor": "“By the bloody pinions of Avilliva!”",
-    "type": "Legendary Creature — Angel Spirit",
+    "type": "Legendary Creature -- Angel Spirit",
     "cmc": 2,
     "mana_symbols": [
       "W",
@@ -3878,7 +3878,7 @@
     "rarity": "uncommon",
     "rules": "Infect (This creature deals damage to creatures in the form of -1/-1 counters and to players in the form of poison counters.)\nWhenever a creature an opponent controls dies, if its toughness was less than 1, create a 1/1 green and black Plague Ward creature token with Infect.",
     "flavor": "“Have I tainted the well of our discourse?”",
-    "type": "Legendary Creature — Snake",
+    "type": "Legendary Creature -- Snake",
     "cmc": 2,
     "mana_symbols": [
       "BG",
@@ -3900,7 +3900,7 @@
     "rarity": "uncommon",
     "rules": "Flying\nInfect (This creature deals damage to creatures in the form of -1/-1 counters and to players in the form of poison counters.)\nWhenever Viper deals combat damage to a player, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
     "flavor": "“Burns…doesn’t it?”",
-    "type": "Legendary Creature — Dragon",
+    "type": "Legendary Creature -- Dragon",
     "cmc": 4,
     "mana_symbols": [
       "2",
@@ -3923,7 +3923,7 @@
     "rarity": "rare",
     "rules": "Flying, vigilance\nVisage enters with six +1/+1 counters on it.\nIf damage would be dealt to Visage while it has a +1/+1 counter on it, prevent that damage and remove a +1/+1 counter from it.\nWhenever one or more +1/+1 counters are removed from Visage, create that many 1/1 white Spirit creature tokens with flying.",
     "flavor": "“I perceive beyond this realm.”",
-    "type": "Legendary Creature — Spirit Gargoyle",
+    "type": "Legendary Creature -- Spirit Gargoyle",
     "cmc": 5,
     "mana_symbols": [
       "2",
@@ -3948,7 +3948,7 @@
     "rarity": "uncommon",
     "rules": "When Demnok enters, create an X/X red and black Demon Golem creature token with trample and haste.",
     "flavor": "“You’re but a blot in the Black Grimoire.”",
-    "type": "Legendary Creature — Human Warlock",
+    "type": "Legendary Creature -- Human Warlock",
     "cmc": 2,
     "mana_symbols": [
       "X",
@@ -3971,7 +3971,7 @@
     "rarity": "rare",
     "rules": "Skulk (This creature can’t be blocked by creatures with greater power.)\nWhenever Skitskurr deals combat damage to a player, take an extra turn after this one.",
     "flavor": "“To the loom with you, to be rewoven.”",
-    "type": "Legendary Creature — Insect",
+    "type": "Legendary Creature -- Insect",
     "cmc": 5,
     "mana_symbols": [
       "3",
@@ -3994,7 +3994,7 @@
     "rarity": "rare",
     "rules": "Vigilance\nWhenever Lyralei attacks, nonlegendary creatures you control gain flying until end of turn.",
     "flavor": "“If you weren’t so damned dead, I’d shoot you again.”",
-    "type": "Legendary Creature — Human Ranger",
+    "type": "Legendary Creature -- Human Ranger",
     "cmc": 4,
     "mana_symbols": [
       "1",
@@ -4019,7 +4019,7 @@
     "rarity": "uncommon",
     "rules": "Flash (You may cast this spell any time you could cast an instant.)\nFlying\nWhen Auroth enters, target creature you control gains defender and protection from a color of your choice until end of turn.",
     "flavor": "“Let them all fall still beneath my shadow!”",
-    "type": "Legendary Creature — Dragon Wizard",
+    "type": "Legendary Creature -- Dragon Wizard",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -4065,7 +4065,7 @@
     "rarity": "uncommon",
     "rules": "At the beginning of your upkeep, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)\nT, Remove any number of counters from target permanent or player: You draw that many cards.",
     "flavor": "“Malpractice makes perfect.”",
-    "type": "Legendary Creature — Troll Cleric",
+    "type": "Legendary Creature -- Troll Cleric",
     "cmc": 2,
     "mana_symbols": [
       "B",
@@ -4087,7 +4087,7 @@
     "rarity": "rare",
     "rules": "Prowess\nT: Zeus deals 1 damage to any target.\nWhenever you cast an instant or sorcery spell, add R.",
     "flavor": "“For this I gave up immortality?”",
-    "type": "Legendary Creature — God Wizard",
+    "type": "Legendary Creature -- God Wizard",
     "cmc": 5,
     "mana_symbols": [
       "3",
@@ -4109,7 +4109,7 @@
     "rarity": "uncommon",
     "rules": "Flying, haste\nT: Draw a card, then discard a card.",
     "flavor": "",
-    "type": "Creature — Harpy",
+    "type": "Creature -- Harpy",
     "cmc": 2,
     "mana_symbols": [
       "U",
@@ -4130,7 +4130,7 @@
     "sub_type": "Human Rogue",
     "rules": "When this creature enters, each player discards a card.\n1B: This creature gains deathtouch until end of turn.",
     "flavor": "",
-    "type": "Creature — Human Rogue",
+    "type": "Creature -- Human Rogue",
     "cmc": 1,
     "mana_symbols": [
       "B"
@@ -4150,7 +4150,7 @@
     "rarity": "uncommon",
     "rules": "Haste\nOther creatures you control get +1/+0 and have haste.",
     "flavor": "",
-    "type": "Creature — Wolf",
+    "type": "Creature -- Wolf",
     "cmc": 2,
     "mana_symbols": [
       "R",
@@ -4173,7 +4173,7 @@
     "rarity": "uncommon",
     "rules": "T: Add U or B to your mana pool. Spend this mana only to cast noncreature spells.\n2UB, T: Target player discards a card. Activate only as a sorcery.",
     "flavor": "",
-    "type": "Creature — Satyr Wizard",
+    "type": "Creature -- Satyr Wizard",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -4196,7 +4196,7 @@
     "sub_type": "Satyr Wizard",
     "rules": "Flash (You may cast this spell any time you could cast an instant.)\nWhen this creature enters, target creature phases out.",
     "flavor": "",
-    "type": "Creature — Satyr Wizard",
+    "type": "Creature -- Satyr Wizard",
     "cmc": 1,
     "mana_symbols": [
       "U"
@@ -4217,7 +4217,7 @@
     "rarity": "common",
     "rules": "Flash (You may cast this spell any time you could cast an instant.)\nWhen this creature enters, return target creature you control from the battlefield to its owner’s hand.",
     "flavor": "",
-    "type": "Creature — Frog",
+    "type": "Creature -- Frog",
     "cmc": 2,
     "mana_symbols": [
       "1",
@@ -4238,7 +4238,7 @@
     "rarity": "uncommon",
     "rules": "Lifelink\nWhen this creature enters, you gain 3 life.",
     "flavor": "",
-    "type": "Creature — Troll Cleric",
+    "type": "Creature -- Troll Cleric",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -4261,7 +4261,7 @@
     "rarity": "uncommon",
     "rules": "Whenever you sacrifice a nonland permanent, add one mana of any color to your mana pool.",
     "flavor": "",
-    "type": "Creature — Kobold",
+    "type": "Creature -- Kobold",
     "cmc": 2,
     "mana_symbols": [
       "1",
@@ -4282,7 +4282,7 @@
     "rarity": "common",
     "rules": "Flying\nWhenever another creature enters under your control, you gain 1 life.\nWhen another creature you controls dies, each opponent loses 1 life.",
     "flavor": "",
-    "type": "Creature — Spirit",
+    "type": "Creature -- Spirit",
     "cmc": 2,
     "mana_symbols": [
       "W",
@@ -4304,7 +4304,7 @@
     "rarity": "common",
     "rules": "When this creature dies, create two 1/1 white Golem creature tokens.",
     "flavor": "",
-    "type": "Creature — Golem",
+    "type": "Creature -- Golem",
     "cmc": 3,
     "mana_symbols": [
       "2",
@@ -4325,7 +4325,7 @@
     "rarity": "common",
     "rules": "Creatures you control have ward 1.",
     "flavor": "",
-    "type": "Creature — Centaur",
+    "type": "Creature -- Centaur",
     "cmc": 1,
     "mana_symbols": [
       "G"
@@ -4346,7 +4346,7 @@
     "rarity": "uncommon",
     "rules": "Deathtouch\nWhen this creature enters, it deals 1 damage to target creature an opponent controls.",
     "flavor": "",
-    "type": "Creature — Satyr Rogue",
+    "type": "Creature -- Satyr Rogue",
     "cmc": 5,
     "mana_symbols": [
       "3",
@@ -4369,7 +4369,7 @@
     "rarity": "uncommon",
     "rules": "Flying\nWhen this creature enters, you may put target instant or sorcery card in your graveyard on top of your library.",
     "flavor": "",
-    "type": "Creature — Harpy Wizard",
+    "type": "Creature -- Harpy Wizard",
     "cmc": 3,
     "mana_symbols": [
       "2",
@@ -4391,7 +4391,7 @@
     "rarity": "uncommon",
     "rules": "Flying, haste\nWhen this creature enters, another target creature you control gets +1/+0 and gains flying until end of turn.",
     "flavor": "",
-    "type": "Creature — Bird",
+    "type": "Creature -- Bird",
     "cmc": 4,
     "mana_symbols": [
       "2",
@@ -4415,7 +4415,7 @@
     "rarity": "uncommon",
     "rules": "Whenever a nontoken creature you control dies, create a 2/2 black Zombie creature token.",
     "flavor": "",
-    "type": "Creature — Troll Shaman",
+    "type": "Creature -- Troll Shaman",
     "cmc": 4,
     "mana_symbols": [
       "2",
@@ -4438,7 +4438,7 @@
     "rarity": "common",
     "rules": "When this creature enters, search your library for a Forest card, put that card onto the battlefield tapped, then shuffle.",
     "flavor": "",
-    "type": "Creature — Elemental",
+    "type": "Creature -- Elemental",
     "cmc": 2,
     "mana_symbols": [
       "G",
@@ -4460,7 +4460,7 @@
     "rarity": "uncommon",
     "rules": "Flying\nWhen this creature dies, each opponent loses 3 life.",
     "flavor": "",
-    "type": "Creature — Dragon",
+    "type": "Creature -- Dragon",
     "cmc": 5,
     "mana_symbols": [
       "3",
@@ -4482,7 +4482,7 @@
     "rarity": "uncommon",
     "rules": "Vigilance\nT: Add GG. If you control a creature with trample, add GGG instead.",
     "flavor": "",
-    "type": "Creature — Golem",
+    "type": "Creature -- Golem",
     "cmc": 5,
     "mana_symbols": [
       "3",
@@ -4504,7 +4504,7 @@
     "rarity": "uncommon",
     "rules": "Ward cost— Pay 3 life.\nWhenever this creature is dealt damage, it deals 3 damage to any target.",
     "flavor": "",
-    "type": "Creature — Dinosaur",
+    "type": "Creature -- Dinosaur",
     "cmc": 5,
     "mana_symbols": [
       "3",
@@ -4527,7 +4527,7 @@
     "rarity": "uncommon",
     "rules": "Ward cost— Tap an untapped creature you control and put a stun counter on it. (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player taps an untapped creature they control and puts a stun counter on it.)\nAt the beginning of combat on each opponent’s turn, tap target creature that player controls.",
     "flavor": "",
-    "type": "Creature — Golem Shaman",
+    "type": "Creature -- Golem Shaman",
     "cmc": 5,
     "mana_symbols": [
       "3",
@@ -4549,7 +4549,7 @@
     "rarity": "uncommon",
     "rules": "When this creature enters, tap target creature an opponent controls. You may put a stun counter on it.",
     "flavor": "",
-    "type": "Creature — Golem",
+    "type": "Creature -- Golem",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -4572,7 +4572,7 @@
     "rarity": "uncommon",
     "rules": "Equipped creature gets +1/+0 and has haste.\n0: Equipped creature phases out. (While it’s phased out, it’s treated as though it doesn’t exist. It phases in before its controller untaps during their next untap step.)\nEquip 1",
     "flavor": "Boots that allow the wearer to travel between the ether.",
-    "type": "Artifact — Equipment",
+    "type": "Artifact -- Equipment",
     "cmc": 2,
     "mana_symbols": [
       "W",
@@ -4594,7 +4594,7 @@
     "rarity": "uncommon",
     "rules": "At the beginning of your upkeep, if you weren’t attacked last turn, you gain 2 life.\nEquipped creature gets +0/+2 and has vigilance.\nEquip legendary creature 1",
     "flavor": "While they increase the longevity of the wearer, this boot is not particularly reliable.",
-    "type": "Legendary Artifact — Equipment",
+    "type": "Legendary Artifact -- Equipment",
     "cmc": 2,
     "mana_symbols": [
       "1",
@@ -4616,7 +4616,7 @@
     "rarity": "uncommon",
     "rules": "As this equipment enters, choose a color.\nEquipped creature has haste and protection from the chosen color.\nEquip legendary creature 1",
     "flavor": "A pair of tough-skinned boots that change to meet the demands of the wearer.",
-    "type": "Artifact — Equipment",
+    "type": "Artifact -- Equipment",
     "cmc": 2,
     "mana_symbols": [
       "2"
@@ -4634,7 +4634,7 @@
     "rarity": "uncommon",
     "rules": "Equipped creature has “Whenever this creature becomes the target of a spell or ability an opponent controls for the first time each turn, counter that spell or ability.”\nEquip legendary creature 1",
     "flavor": "This magical sphere once protected one of the most famous heroes in history.",
-    "type": "Legendary Artifact — Equipment",
+    "type": "Legendary Artifact -- Equipment",
     "cmc": 2,
     "mana_symbols": [
       "G",
@@ -4680,7 +4680,7 @@
     "rarity": "uncommon",
     "rules": "Equipped creature gets +2/+2 and has myriad. The “legend rule” doesn’t apply to creature tokens that are copies of equipped creature. (Whenever it attacks, for each opponent other than defending player, you may create a token that’s a copy of it that’s tapped and attacking that player or a planeswalker they control. Exile the tokens at end of combat.)\nEquip legendary creature 1",
     "flavor": "An axe made of reflective materials that causes confusion amongst enemy ranks.",
-    "type": "Legendary Artifact — Equipment",
+    "type": "Legendary Artifact -- Equipment",
     "cmc": 3,
     "mana_symbols": [
       "2",
@@ -4701,7 +4701,7 @@
     "rarity": "uncommon",
     "rules": "Whenever equipped creature is dealt damage by a source an opponent controls, this artifact deals that much damage to that source.\nEquip legendary creature 1",
     "flavor": "A razor-sharp coat of mail, it is the choice of selfless martyrs in combat.",
-    "type": "Legendary Artifact — Equipment",
+    "type": "Legendary Artifact -- Equipment",
     "cmc": 3,
     "mana_symbols": [
       "3"
@@ -4719,7 +4719,7 @@
     "rarity": "uncommon",
     "rules": "Flash (You may cast this spell any time you could cast an instant.)\nWhen Aeon Disk enters, attach it to target legendary creature you control.\nIf damage would be dealt to equipped creature, prevent that damage and sacrifice this artifact.",
     "flavor": "A powerful artifact long ago smuggled out of the Ivory Incubarium. Or so many believe.",
-    "type": "Legendary Artifact — Equipment",
+    "type": "Legendary Artifact -- Equipment",
     "cmc": 1,
     "mana_symbols": [
       "W"
@@ -4819,7 +4819,7 @@
     "rarity": "uncommon",
     "rules": "Equipped creature has “0: Untap enchanted creature.”\nEquip legendary creature 1",
     "flavor": "Polished with the incantation of his final breath, the gift of a dying mage to his sickly son.",
-    "type": "Artifact — Equipment",
+    "type": "Artifact -- Equipment",
     "cmc": 2,
     "mana_symbols": [
       "1",
@@ -4862,7 +4862,7 @@
     "rarity": "uncommon",
     "rules": "Equipped creature has “T: Exile target creature. Return it to the battlefield at the beginning of the next end step.”\nEquip legendary creature 1",
     "flavor": "Proof enough to some that unseen forces manipulate the happenings of the material plane.",
-    "type": "Legendary Artifact — Equipment",
+    "type": "Legendary Artifact -- Equipment",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -4884,7 +4884,7 @@
     "rarity": "uncommon",
     "rules": "Equipped creature has hexproof. (This creature can’t be the target of spells of abilities your opponents control.)\nEquip legendary creature 1",
     "flavor": "The stolen cape of a master illusionist.",
-    "type": "Legendary Artifact — Equipment",
+    "type": "Legendary Artifact -- Equipment",
     "cmc": 2,
     "mana_symbols": [
       "U",
@@ -4947,7 +4947,7 @@
     "rarity": "uncommon",
     "rules": "When this equipment enters, destroy up to one target artifact or enchantment.\nEquipped creature gets +1/+0 and has lifelink.\nEquip legendary creature 1",
     "flavor": "An enchanted hammer forged of metals discovered in the ruins of a village destroyed by a great star storm.",
-    "type": "Legendary Artifact — Equipment",
+    "type": "Legendary Artifact -- Equipment",
     "cmc": 3,
     "mana_symbols": [
       "2",
@@ -4969,7 +4969,7 @@
     "rarity": "rare",
     "rules": "Equipped creature gets +1/+1 and has protection from creatures.\nEquip legendary creature 1",
     "flavor": "Only the mightiest and most experienced of warriors can wield the Butterfly, but it provides incredible dexterity in combat.",
-    "type": "Legendary Artifact — Equipment",
+    "type": "Legendary Artifact -- Equipment",
     "cmc": 3,
     "mana_symbols": [
       "G",
@@ -4992,7 +4992,7 @@
     "rarity": "mythic rare",
     "rules": "Indestructible\nEquipped creature gets +10/+10 and has annihilator X, where X is its power.\nWhenever an opponent deals combat damage to you, that player gains control of Divine Rapier.\nEquip legendary creature0",
     "flavor": "So powerful, it cannot have a single owner.",
-    "type": "Legendary Artifact — Equipment",
+    "type": "Legendary Artifact -- Equipment",
     "cmc": 9,
     "mana_symbols": [
       "9"
@@ -5034,7 +5034,7 @@
     "rarity": "uncommon",
     "rules": "Whenever equipped creature deals combat to a player, you may cast a legendary instant or sorcery card from your hand without paying its mana cost.\nEquip legendary creature 1",
     "flavor": "A blade sharp enough to slice through magic itself.",
-    "type": "Artifact — Equipment",
+    "type": "Artifact -- Equipment",
     "cmc": 3,
     "mana_symbols": [
       "2",
@@ -5055,7 +5055,7 @@
     "rarity": "uncommon",
     "rules": "2, T, Sacrifice Cheese: You gain 3 life.\nWhen Cheese is put into a graveyard from the battlefield, you may pay 3. If you do, your life total becomes equal to your starting life total.",
     "flavor": "Made from the milk of a long lost Furbolg vendor, it restores the vitality of those who taste it.",
-    "type": "Legendary Artifact — Food",
+    "type": "Legendary Artifact -- Food",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -5099,7 +5099,7 @@
     "rarity": "uncommon",
     "rules": "Equipped creature has protection from noncreature spells and abilities your opponents control.\nEquip legendary creature 1",
     "flavor": "A powerful staff imbued with the strength of giants.",
-    "type": "Legendary Artifact — Equipment",
+    "type": "Legendary Artifact -- Equipment",
     "cmc": 2,
     "mana_symbols": [
       "W",
@@ -5169,7 +5169,7 @@
     "rarity": "uncommon",
     "rules": "Flying\nThe first Equipment spell you cast each turn costs 0 to cast.",
     "flavor": "“Whaddya mean we should kill ‘im, lookit how cute he is! OH GOD HE’S GOT A DAGON!” — Aggron, the Ogre Magi",
-    "type": "Creature — Beast",
+    "type": "Creature -- Beast",
     "cmc": 1,
     "mana_symbols": [
       "W"
@@ -5189,7 +5189,7 @@
     "rarity": "uncommon",
     "rules": "Defender (This creature can’t attack.)\nCreatures can’t attack you unless their controller pays 2 for each creature they control that’s attacking you.\nWhenever a creature attacks you, you gain 1 life.",
     "flavor": "The light emitting from the Radiant Tower draws its creeps ever forward.",
-    "type": "Artifact Creature — Wall",
+    "type": "Artifact Creature -- Wall",
     "cmc": 5,
     "mana_symbols": [
       "3",
@@ -5211,7 +5211,7 @@
     "rarity": "uncommon",
     "rules": "Defender (This creature can’t attack.)\nCreatures can’t attack you unless their controller pays 2 for each creature they control that’s attacking you.\nWhenever a creature attacks you, its controller loses 1 life.",
     "flavor": "If the mere appearance of the Dire Tower isn’t dissuading enough on its own, there are always the cannons.",
-    "type": "Artifact Creature — Wall",
+    "type": "Artifact Creature -- Wall",
     "cmc": 5,
     "mana_symbols": [
       "3",
@@ -5477,7 +5477,7 @@
     "rarity": "common",
     "rules": "Flying\nWhenever this creature deals combat damage to an opponent, destroy up to one target artifact that player controls.",
     "flavor": "",
-    "type": "Creature — Bird",
+    "type": "Creature -- Bird",
     "cmc": 3,
     "mana_symbols": [
       "2",
@@ -5498,7 +5498,7 @@
     "rarity": "uncommon",
     "rules": "Defender (This creature can’t attack.)\nEvolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)\nT, Sacrifice this creature: Destroy target artifact.",
     "flavor": "A Radiant Siege Engine has been known to singlehandedly topple an unguarded Dire Tower.",
-    "type": "Artifact Creature — Construct",
+    "type": "Artifact Creature -- Construct",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -5521,7 +5521,7 @@
     "rarity": "common",
     "rules": "Defender (This creature can’t attack.)\nEvolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)\nT, Sacrifice this creature: Destroy target artifact.",
     "flavor": "A lone Dire siege engine has been known to single-handedly topple an unguarded Radiant Tower.",
-    "type": "Artifact Creature — Construct",
+    "type": "Artifact Creature -- Construct",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -5587,7 +5587,7 @@
     "rarity": "uncommon",
     "rules": "(T: Add G, W, or U).\nThis land enters tapped.\n4, T, Sacrifice this land: Draw a card.",
     "flavor": "“Excellent choice. I’ll just wrap it up, shall I?” — The Shopkeeper",
-    "type": "Land — Forest Plains Island",
+    "type": "Land -- Forest Plains Island",
     "cmc": 0,
     "mana_symbols": [],
     "colors": [],
@@ -5603,7 +5603,7 @@
     "rarity": "uncommon",
     "rules": "(T: Add U, R, or W).\nThis land enters tapped.\n4, T, Sacrifice this land: Draw a card.",
     "flavor": "Within it’s walls, the Vigil Knights of the Flameguard stand watch over the Holy Flame.",
-    "type": "Land — Island Mountain Plains",
+    "type": "Land -- Island Mountain Plains",
     "cmc": 0,
     "mana_symbols": [],
     "colors": [],
@@ -5711,7 +5711,7 @@
     "rarity": "mythic rare",
     "rules": "Flash (You may cast this spell any time you could cast an instant.)\nEnchant creature\nEnchanted creature has flying, indestructible, and is an Angel in addition to its other types.",
     "flavor": "“The wings of omniscience enwrap us.” — Purist Thunderwrath, the Omniknight",
-    "type": "Legendary Enchantment — Aura",
+    "type": "Legendary Enchantment -- Aura",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -5733,7 +5733,7 @@
     "rarity": "uncommon",
     "rules": "(T: Add R, W, or B).\nThis land enters tapped.\n4, T, Sacrifice this land: Draw a card.",
     "flavor": "“The Omexe Arena is where I made a name for myself. I was its champion, and no one was my equal.” — Bradwarden, the Centaur Warrunner",
-    "type": "Land — Mountain Plains Swamp",
+    "type": "Land -- Mountain Plains Swamp",
     "cmc": 0,
     "mana_symbols": [],
     "colors": [],
@@ -5750,7 +5750,7 @@
     "rarity": "uncommon",
     "rules": "Enchant creature\nAt the beginning of each upkeep, put a -1/-1 counter on enchanted creature.\nWhenever a creature with a -1/-1 counter on it dies, enchanted creature’s controller loses X life, where X was the number of -1/-1 counters on that creature.",
     "flavor": "“He’s about to pop!” — Zharvakko, the Witch Doctor",
-    "type": "Enchantment — Aura",
+    "type": "Enchantment -- Aura",
     "cmc": 2,
     "mana_symbols": [
       "1",
@@ -5820,7 +5820,7 @@
     "rarity": "basic land",
     "rules": "Trample",
     "flavor": "",
-    "type": "Token Legendary Creature — Bear",
+    "type": "Token Legendary Creature -- Bear",
     "cmc": 0,
     "mana_symbols": [],
     "colors": [],
@@ -5834,7 +5834,7 @@
     "sub_type": "Treasure",
     "rules": "T, Sacrifice this artifact: Add one mana of any color to your mana pool.",
     "flavor": "",
-    "type": "Token Artifact — Treasure",
+    "type": "Token Artifact -- Treasure",
     "cmc": 0,
     "mana_symbols": [],
     "colors": [],
@@ -5846,7 +5846,7 @@
     "image": "image400.png",
     "super_type": "Token Creature",
     "sub_type": "Golem",
-    "type": "Token Creature — Golem",
+    "type": "Token Creature -- Golem",
     "cmc": 0,
     "mana_symbols": [],
     "colors": [],
@@ -5858,7 +5858,7 @@
     "image": "image397.png",
     "super_type": "Token Creature",
     "sub_type": "Skeleton",
-    "type": "Token Creature — Skeleton",
+    "type": "Token Creature -- Skeleton",
     "cmc": 0,
     "mana_symbols": [],
     "colors": [],
@@ -5873,7 +5873,7 @@
     "rarity": "common",
     "rules": "Whenever this creature deals combat damage to a player, create a token that’s a copy of this creature.",
     "flavor": "",
-    "type": "Token Creature — Eidolon",
+    "type": "Token Creature -- Eidolon",
     "cmc": 0,
     "mana_symbols": [],
     "colors": [],
@@ -5888,7 +5888,7 @@
     "sub_type": "Ape",
     "rules": "Vigilance",
     "flavor": "",
-    "type": "Token Creature — Ape",
+    "type": "Token Creature -- Ape",
     "cmc": 0,
     "mana_symbols": [],
     "colors": [],
@@ -5900,7 +5900,7 @@
     "image": "image398.png",
     "super_type": "Token Creature",
     "sub_type": "Illusion",
-    "type": "Token Creature — Illusion",
+    "type": "Token Creature -- Illusion",
     "cmc": 0,
     "mana_symbols": [],
     "colors": [],
@@ -5914,7 +5914,7 @@
     "sub_type": "Illusion",
     "rules": "",
     "flavor": "",
-    "type": "Token Creature — Illusion",
+    "type": "Token Creature -- Illusion",
     "cmc": 0,
     "mana_symbols": [],
     "colors": [],
@@ -5927,7 +5927,7 @@
     "super_type": "Token Creature",
     "sub_type": "Boar",
     "rarity": "common",
-    "type": "Token Creature — Boar",
+    "type": "Token Creature -- Boar",
     "cmc": 0,
     "mana_symbols": [],
     "colors": [],
@@ -5941,7 +5941,7 @@
     "sub_type": "Map",
     "rules": "1, T, Sacrifice this artifact: Target creature you control explores. Activate only as a sorcery.",
     "flavor": "",
-    "type": "Token Artifact — Map",
+    "type": "Token Artifact -- Map",
     "cmc": 0,
     "mana_symbols": [],
     "colors": [],
@@ -5956,7 +5956,7 @@
     "sub_type": "Bird",
     "rules": "Flying",
     "flavor": "",
-    "type": "Token Creature — Bird",
+    "type": "Token Creature -- Bird",
     "cmc": 0,
     "mana_symbols": [],
     "colors": [],
@@ -5970,7 +5970,7 @@
     "sub_type": "Wolf",
     "rules": "",
     "flavor": "",
-    "type": "Token Creature — Wolf",
+    "type": "Token Creature -- Wolf",
     "cmc": 0,
     "mana_symbols": [],
     "colors": [],
@@ -5998,7 +5998,7 @@
     "sub_type": "Spider",
     "rules": "Deathtouch",
     "flavor": "",
-    "type": "Token Creature — Spider",
+    "type": "Token Creature -- Spider",
     "cmc": 0,
     "mana_symbols": [],
     "colors": [],
@@ -6022,7 +6022,7 @@
     "image": "image384.png",
     "super_type": "Token Artifact Creature",
     "sub_type": "Snake",
-    "type": "Token Artifact Creature — Snake",
+    "type": "Token Artifact Creature -- Snake",
     "cmc": 0,
     "mana_symbols": [],
     "colors": [],
@@ -6034,7 +6034,7 @@
     "image": "image393.png",
     "super_type": "Token Creature",
     "sub_type": "Zombie",
-    "type": "Token Creature — Zombie",
+    "type": "Token Creature -- Zombie",
     "cmc": 0,
     "mana_symbols": [],
     "colors": [],
@@ -6049,7 +6049,7 @@
     "rarity": "uncommon",
     "rules": "(T: Add W, B, or G).\nThis land enters tapped.\n4, T, Sacrifice this land: Draw a card.",
     "flavor": "“From the Ghastly Eyrie I can see to the ends of the world, and from this vantage point I declare with utter certainty that this one is in the bag!” — Dragonus, the Skywrath Mage",
-    "type": "Land — Plains Swamp Forest",
+    "type": "Land -- Plains Swamp Forest",
     "cmc": 0,
     "mana_symbols": [],
     "colors": [],
@@ -6064,7 +6064,7 @@
     "rarity": "uncommon",
     "rules": "(T: Add B, R, or G).\nThis land enters tapped.\n4, T, Sacrifice this land: Draw a card.",
     "flavor": "The Red Mist army relies on a system of cruelty and torture to supply their forces against the demonic warlord.",
-    "type": "Land — Swamp Mountain Forest",
+    "type": "Land -- Swamp Mountain Forest",
     "cmc": 0,
     "mana_symbols": [],
     "colors": [],
@@ -6080,7 +6080,7 @@
     "rarity": "uncommon",
     "rules": "(T: Add W, U, or B).\nThis land enters tapped.\n4, T, Sacrifice this land: Draw a card.",
     "flavor": "Within its marble, the grand priestess Crella forged the Chains of Abscession to bind the servants of the Dead God.",
-    "type": "Land — Plains Island Swamp",
+    "type": "Land -- Plains Island Swamp",
     "cmc": 0,
     "mana_symbols": [],
     "colors": [],
@@ -6096,7 +6096,7 @@
     "rarity": "uncommon",
     "rules": "(T: Add U, B, or R).\nThis land enters tapped.\n4, T, Sacrifice this land: Draw a card.",
     "flavor": "Inmates are experimented on at the Estate, with items such as the Witchbane being developed as a result.",
-    "type": "Land — Island Swamp Mountain",
+    "type": "Land -- Island Swamp Mountain",
     "cmc": 0,
     "mana_symbols": [],
     "colors": [],
@@ -6112,7 +6112,7 @@
     "rarity": "uncommon",
     "rules": "(T: Add G, U, or R).\nThis land enters tapped.\n4, T, Sacrifice this land: Draw a card.",
     "flavor": "The home of Mangix is rich in culture—and even richer in alcohol.",
-    "type": "Land — Forest Island Mountain",
+    "type": "Land -- Forest Island Mountain",
     "cmc": 0,
     "mana_symbols": [],
     "colors": [],
@@ -6127,7 +6127,7 @@
     "rarity": "uncommon",
     "rules": "(T: Add B, G, or U).\nThis land enters tapped.\n4, T, Sacrifice this land: Draw a card.",
     "flavor": "Only but one is known to have bypassed the Prison’s defenses.",
-    "type": "Land — Swamp Forest Island",
+    "type": "Land -- Swamp Forest Island",
     "cmc": 0,
     "mana_symbols": [],
     "colors": [],
@@ -6250,7 +6250,7 @@
     "rarity": "uncommon",
     "rules": "Flash (You may cast this spell any time you could cast an instant.)\nWhen this creature enters, counter target spell.",
     "flavor": "",
-    "type": "Creature — Frog",
+    "type": "Creature -- Frog",
     "cmc": 5,
     "mana_symbols": [
       "3",
@@ -6272,7 +6272,7 @@
     "rarity": "uncommon",
     "rules": "Flash (You may cast this spell any time you could cast an instant.)\nWhen this creature enters, return target creature to its owner’s hand. Then each player mills three cards.",
     "flavor": "",
-    "type": "Creature — Frog",
+    "type": "Creature -- Frog",
     "cmc": 4,
     "mana_symbols": [
       "3",
@@ -6292,7 +6292,7 @@
     "sub_type": "Harpy Scout",
     "rules": "Flying\nWhenever this creature attacks, look at the top card of your library. If it’s an instant or sorcery card, you may reveal it, then put it into your hand.",
     "flavor": "",
-    "type": "Creature — Harpy Scout",
+    "type": "Creature -- Harpy Scout",
     "cmc": 2,
     "mana_symbols": [
       "1",
@@ -6313,7 +6313,7 @@
     "rarity": "uncommon",
     "rules": "When Cogliostro enters, tap or untap target permanent.\n2UU: Exile target creature you control. Return it to the battlefield under your control at the beginning of the next end step.",
     "flavor": "“I am a showman. The rest of you are the circus.”",
-    "type": "Legendary Artifact Creature — Wizard",
+    "type": "Legendary Artifact Creature -- Wizard",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -6335,7 +6335,7 @@
     "rarity": "uncommon",
     "rules": "First strike\nAs long as Kez is attacking, it has bushido X, where X is its power.  (When this blocks or becomes blocked, it gets +X/+X until end of turn.)",
     "flavor": "“My sword, my beak, and myself! Three sharpest things in this forest.”",
-    "type": "Legendary Creature — Bird Samurai",
+    "type": "Legendary Creature -- Bird Samurai",
     "cmc": 3,
     "mana_symbols": [
       "2",
@@ -6354,7 +6354,7 @@
     "sub_type": "Demon Illusion",
     "rules": "Lifelink",
     "flavor": "",
-    "type": "Token Creature — Demon Illusion",
+    "type": "Token Creature -- Demon Illusion",
     "cmc": 0,
     "mana_symbols": [],
     "colors": [],
@@ -6368,7 +6368,7 @@
     "sub_type": "Demon Golem",
     "rules": "Trample, haste",
     "flavor": "",
-    "type": "Token Creature — Demon Golem",
+    "type": "Token Creature -- Demon Golem",
     "cmc": 0,
     "mana_symbols": [],
     "colors": [],
@@ -6419,7 +6419,7 @@
     "sub_type": "Skeleton Army",
     "rules": "",
     "flavor": "",
-    "type": "Token Creature — Skeleton Army",
+    "type": "Token Creature -- Skeleton Army",
     "cmc": 0,
     "mana_symbols": [],
     "colors": [],
@@ -6502,7 +6502,7 @@
     "rarity": "uncommon",
     "rules": "Equipped creature has indestructible.\nEquip legendary creature 1",
     "flavor": "Preserved heart of an extinct monster, it bolsters the bearer’s fortitude.",
-    "type": "Legendary Artifact — Equipment",
+    "type": "Legendary Artifact -- Equipment",
     "cmc": 4,
     "mana_symbols": [
       "3",
@@ -6543,7 +6543,7 @@
     "sub_type": "Robot",
     "rules": "",
     "flavor": "",
-    "type": "Token Artifact Creature — Robot",
+    "type": "Token Artifact Creature -- Robot",
     "cmc": 0,
     "mana_symbols": [],
     "colors": [],
@@ -6559,7 +6559,7 @@
     "rarity": "uncommon",
     "rules": "Enchant creature\nAt the beginning of your upkeep, you gain 3 life.\nEnchanted creature gets +0/+3.",
     "flavor": "Whimsical spirits of the woods possess a healing power that is quite subtle, but gains strength in numbers.",
-    "type": "Enchantment — Aura",
+    "type": "Enchantment -- Aura",
     "cmc": 2,
     "mana_symbols": [
       "1",
@@ -6580,7 +6580,7 @@
     "rarity": "common",
     "rules": "Enchant creature\nWhen this aura enters, tap enchanted creature.\nEnchanted creature can’t be untapped.",
     "flavor": "Jakiro’s cunning right head calls upon its frozen heritage, glazing the earth with blistering cold.",
-    "type": "Enchantment — Aura",
+    "type": "Enchantment -- Aura",
     "cmc": 2,
     "mana_symbols": [
       "1",
@@ -6646,7 +6646,7 @@
     "rarity": "uncommon",
     "rules": "2, T, Sacrifice this artifact: You gain 3 life.\nWhenever a creature with power 4 or greater enters attacks, sacrifice this artifact. You may put X +1/+1 counters on that creature, where X is its power.",
     "flavor": "With the help of a secret mixture that pairs Beadie’s baking skills with her passion for black powder, these battle biscuits pack a punch.",
-    "type": "Artifact — Food",
+    "type": "Artifact -- Food",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -6713,7 +6713,7 @@
     "rarity": "uncommon",
     "rules": "Enchant creature\nEnchanted creature has soulbond. (You may pair this creature with another unpaired creature when either enters. They remain paired for as long as you control both of them.)\nAs long as enchanted creature is paired with another creature, each creature gets +X/+X and has lifelink, where X is the other paired creature’s power.",
     "flavor": "Sylla is emboldened by the presence of his companion, his vitality replenished with each swipe of the Spirit Bear’s claws.",
-    "type": "Enchantment — Aura",
+    "type": "Enchantment -- Aura",
     "cmc": 2,
     "mana_symbols": [
       "1",
@@ -6734,7 +6734,7 @@
     "rarity": "uncommon",
     "rules": "Flash (You may cast this spell any time you could cast an instant.)\nEnchant creature\nEnchanted creature has defender and indestructible and is an artifact in addition to its other types",
     "flavor": "Kaolin uses the elemental power of the Earth to temporarily petrify living beings, so that they might be conscripted into his stone funerary army.",
-    "type": "Enchantment — Aura",
+    "type": "Enchantment -- Aura",
     "cmc": 2,
     "mana_symbols": [
       "1",
@@ -6774,7 +6774,7 @@
     "rarity": "uncommon",
     "rules": "Enchant creature\nEnchanted creature gets +0+3 and has ward 4.\nWhenever a enchanted creature is dealt damage by a source an opponent controls, that player gets a poison counter.",
     "flavor": "“You twitch like a snake-bitten mouse”. — Viper, the Nether Drake",
-    "type": "Enchantment — Aura",
+    "type": "Enchantment -- Aura",
     "cmc": 3,
     "mana_symbols": [
       "2",
@@ -6866,7 +6866,7 @@
     "sub_type": "Illusion Knight",
     "rules": "First strike",
     "flavor": "",
-    "type": "Token Creature — Illusion Knight",
+    "type": "Token Creature -- Illusion Knight",
     "cmc": 0,
     "mana_symbols": [],
     "colors": [],
@@ -6882,7 +6882,7 @@
     "rarity": "uncommon",
     "rules": "Vigilance\nWither (This source deals damage to creatures in the form of -1/-1 counters.)",
     "flavor": "“I’ll cut a notch with your name on it!”",
-    "type": "Legendary Creature — Elf Ranger",
+    "type": "Legendary Creature -- Elf Ranger",
     "cmc": 2,
     "mana_symbols": [
       "W",
@@ -6904,7 +6904,7 @@
     "sub_type": "Ogre Warrior",
     "rules": "Trample\nAt the beginning of your upkeep, put a +1/+1 counter on Ogre Bruiser",
     "flavor": "",
-    "type": "Creature — Ogre Warrior",
+    "type": "Creature -- Ogre Warrior",
     "cmc": 4,
     "mana_symbols": [
       "3",
@@ -6925,7 +6925,7 @@
     "rarity": "uncommon",
     "rules": "Flash (You may cast this spell any time you could cast an instant.)\nEnchant creature\nEnchanted creature gets +0/+4.\nWhen enchanted creature is dealt 4 or more damage, sacrifice this Aura. When you do, each opponent loses 3 life.",
     "flavor": "The powers of the black mist rise to absorb attacks like the black mist absorbs light.",
-    "type": "Enchantment — Aura",
+    "type": "Enchantment -- Aura",
     "cmc": 2,
     "mana_symbols": [
       "W",
@@ -6948,7 +6948,7 @@
     "rarity": "common",
     "rules": "Flying, hexproof\nAt the beginning of your end step, if this creature attacked this turn, sacrifice it.",
     "flavor": "“Let no foe come near” — Zet, the Arc Warden",
-    "type": "Creature — Elemental",
+    "type": "Creature -- Elemental",
     "cmc": 1,
     "mana_symbols": [
       "U"
@@ -7118,7 +7118,7 @@
     "rarity": "uncommon",
     "rules": "You control equipped creature and it gets +2/+2.\n4: Attach this equipment to target nonlegendary creature you don’t control. Activate only as a sorcery.",
     "flavor": "The powerful headpiece of a dead necromancer.",
-    "type": "Legendary Artifact — Equipment",
+    "type": "Legendary Artifact -- Equipment",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -7141,7 +7141,7 @@
     "rarity": "uncommon",
     "rules": "Enchant creature\nEnchanted creature gets +X/+X, where X is the number of cards in your hand.\nWhen this Aura enters the battlefield, draw a card.",
     "flavor": "“If your enemy is equal, prepare for him. If greater, elude him. If weaker, crush him.” — Ish’Kafel, the Dark Seer",
-    "type": "Enchantment — Aura",
+    "type": "Enchantment -- Aura",
     "cmc": 3,
     "mana_symbols": [
       "2",
@@ -7306,7 +7306,7 @@
     "rarity": "uncommon",
     "rules": "Enchant player\nWhenever enchanted player takes damage, put a charge counter on this enchantment.\nIf enchanted player would take damage, instead enchanted player takes that much damage plus the number of charge counters on this enchantment.",
     "flavor": "",
-    "type": "Enchantment — Curse",
+    "type": "Enchantment -- Curse",
     "cmc": 1,
     "mana_symbols": [
       "R"
@@ -7326,7 +7326,7 @@
     "rarity": "uncommon",
     "rules": "Enchant creature\nEnchanted creature gets +1/+1 for each land you control.",
     "flavor": "“Come into my shade.” — Rooftrellen, the Treant Protector",
-    "type": "Enchantment — Aura",
+    "type": "Enchantment -- Aura",
     "cmc": 3,
     "mana_symbols": [
       "2",
@@ -7476,7 +7476,7 @@
     "sub_type": "Elemental Spirit",
     "rules": "",
     "flavor": "",
-    "type": "Token Creature — Elemental Spirit",
+    "type": "Token Creature -- Elemental Spirit",
     "cmc": 0,
     "mana_symbols": [],
     "colors": [],
@@ -7492,7 +7492,7 @@
     "rarity": "uncommon",
     "rules": "Enchant nonlegendary creature\nYou control enchanted creature.",
     "flavor": "“Charmed, I’m sure!” —  Aiushtha, the Enchantress",
-    "type": "Enchantment — Aura",
+    "type": "Enchantment -- Aura",
     "cmc": 2,
     "mana_symbols": [
       "G",
@@ -7514,7 +7514,7 @@
     "rarity": "uncommon",
     "rules": "Equipped creature has deathtouch.\nEquip legendary creature 1.",
     "flavor": "“I stoke the furnace with your corpse.” — Lucifer, the Doom",
-    "type": "Legendary Artifact — Equipment",
+    "type": "Legendary Artifact -- Equipment",
     "cmc": 2,
     "mana_symbols": [
       "B",
@@ -7581,7 +7581,7 @@
     "rarity": "rare",
     "rules": "Play with the top card of your library revealed.\nAs long as the revealed card is blue or an Island, creatures you control have hexproof and flying.\nAs long as the revealed card is red or a Mountain, creatures you control have first strike and haste.\nAs long as the revealed card is green or a Forest, creatures you control get +2/+2 and have trample.",
     "flavor": "“Hoo easy, mate. I’m gonna write a killer song about this.”",
-    "type": "Legendary Creature — Frog Bard",
+    "type": "Legendary Creature -- Frog Bard",
     "cmc": 5,
     "mana_symbols": [
       "2",
@@ -7629,7 +7629,7 @@
     "rarity": "uncommon",
     "rules": "(T: Add W, R, or G).\nThis land enters tapped.\n4, T, Sacrifice this land: Draw a card.",
     "flavor": "Rootfallen and the Ent live in the mountains beyond the Vale, where the eldritch soil keeps them nourished.",
-    "type": "Land — Plains Mountain Forest",
+    "type": "Land -- Plains Mountain Forest",
     "cmc": 0,
     "mana_symbols": [],
     "colors": [],
@@ -7777,7 +7777,7 @@
     "rarity": "uncommon",
     "rules": "Enchant creature\nEnchanted creature loses all abilities, isn’t legendary, and can’t attack or block.",
     "flavor": "Oftentimes, thought Krang, the siege wagons seemed to load themselves.",
-    "type": "Enchantment — Aura",
+    "type": "Enchantment -- Aura",
     "cmc": 3,
     "mana_symbols": [
       "2",
@@ -7823,7 +7823,7 @@
     "rarity": "rare",
     "rules": "Trample\nConvoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for 1 or one mana of that creature’s color.)\nWhen Ball of Creeps enters the battlefield, exile each nonlegendary creature you control until Ball of Creeps leaves the battlefield.\nBall of Creeps gets +2/+2 for each creature exiled with it.",
     "flavor": "Some say you can hear the sound of gold dropping as it rolls.",
-    "type": "Legendary Creature — Horror",
+    "type": "Legendary Creature -- Horror",
     "cmc": 6,
     "mana_symbols": [
       "4",
@@ -7869,7 +7869,7 @@
     "sub_type": "Soldier",
     "rules": "First strike",
     "flavor": "",
-    "type": "Creature — Soldier",
+    "type": "Creature -- Soldier",
     "cmc": 1,
     "mana_symbols": [
       "W"
@@ -8001,7 +8001,7 @@
     "rarity": "uncommon",
     "rules": "Whenever a creature an opponent controls dies, put a charge counter on Black Grimoire.\nT, Sacrifice this artifact: You gain 1 life and draw a card for each charge counter on this artifact.",
     "flavor": "",
-    "type": "Artifact — Book",
+    "type": "Artifact -- Book",
     "cmc": 2,
     "mana_symbols": [
       "1",
@@ -8045,7 +8045,7 @@
     "sub_type": "Aura",
     "rules": "Enchant land\nWhenever enchanted land is tapped for mana, its controller adds an additional GG.",
     "flavor": "“Thoughts cross my mind as the sun crosses the sky.” — Rooftrellen, the Treant Protector",
-    "type": "Enchantment — Aura",
+    "type": "Enchantment -- Aura",
     "cmc": 3,
     "mana_symbols": [
       "2",
@@ -8066,7 +8066,7 @@
     "sub_type": "Aura",
     "rules": "Enchant creature\nEnchanted creature loses flying. Prevent all combat damage enchanted creature deals.",
     "flavor": "",
-    "type": "Enchantment — Aura",
+    "type": "Enchantment -- Aura",
     "cmc": 2,
     "mana_symbols": [
       "1",
@@ -8088,7 +8088,7 @@
     "rarity": "uncommon",
     "rules": "Enchant creature\nWhen this Aura enters, tap enchanted creature.\nEnchanted creature doesn’t untap as long as its power is 4 or less.",
     "flavor": "“It appears I’ve gotten myself into a pickle” — Kardel Sharpeye, the Sniper",
-    "type": "Enchantment — Aura",
+    "type": "Enchantment -- Aura",
     "cmc": 2,
     "mana_symbols": [
       "1",

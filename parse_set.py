@@ -12,7 +12,7 @@ REPO_DIR = "/Users/Harrison_1/dota2-set"
 OUTPUT_JSON = os.path.join(REPO_DIR, "docs", "cards.json")
 IMAGES_DIR = os.path.join(REPO_DIR, "docs", "cards")
 
-# ─── Mana parsing ─────────────────────────────────────────────────────────────
+# --- Mana parsing -----------------------------------------------------------
 
 def parse_mana_cost(cost_str):
     """Parse MSE casting_cost string into list of pip tokens."""
@@ -27,7 +27,7 @@ def parse_mana_cost(cost_str):
         # Only merge into a 4-char token ("10/W") when the leading two chars
         # are actually a two-digit number. Without this check, a plain pip
         # sitting right before a hybrid pair (e.g. "RG/W" = R + {G/W}) got
-        # incorrectly swallowed into one bogus token — this was the main
+        # incorrectly swallowed into one bogus token -- this was the main
         # cause of broken/garbled hybrid mana costs.
         elif i + 3 < len(s) and s[i].isdigit() and s[i+1].isdigit() and s[i+2] == '/':
             tokens.append(s[i:i+4]); i += 4
@@ -46,7 +46,7 @@ def parse_mana_cost(cost_str):
 
 # Scryfall's hybrid symbol files use a fixed color-wheel order, NOT alphabetical
 # WUBRG order. Allied pairs (adjacent) and enemy pairs (across) each have one
-# canonical two-letter code — the reverse spelling doesn't exist as a file.
+# canonical two-letter code -- the reverse spelling doesn't exist as a file.
 _HYBRID_PAIR_ORDER = {
     frozenset('WU'): 'WU', frozenset('UB'): 'UB', frozenset('BR'): 'BR',
     frozenset('RG'): 'RG', frozenset('GW'): 'GW',   # allied
@@ -58,10 +58,10 @@ _HYBRID_PAIR_ORDER = {
 def pip_to_scryfall(pip):
     """
     Convert a pip token to a Scryfall SVG symbol key.
-    - Color/color hybrid (W/B, G/W, R/W, G/U, ...) → canonical color-wheel code.
-    - Generic hybrid (2/W) → "2W" (digit first).
-    - Phyrexian (W/P) → "WP" (color first).
-    - Plain pips (W, U, 2, X, ...) → unchanged.
+    - Color/color hybrid (W/B, G/W, R/W, G/U, ...) -> canonical color-wheel code.
+    - Generic hybrid (2/W) -> "2W" (digit first).
+    - Phyrexian (W/P) -> "WP" (color first).
+    - Plain pips (W, U, 2, X, ...) -> unchanged.
     """
     pip = pip.upper()
     if '/' in pip:
@@ -94,7 +94,7 @@ def cmc_from_cost(cost_str):
     return total
 
 
-# ─── Color identity ───────────────────────────────────────────────────────────
+# --- Color identity ----------------------------------------------------------
 
 def get_color_identity(cost_str, rules_text=''):
     pips = parse_mana_cost(cost_str)
@@ -121,7 +121,7 @@ def color_identity_label(colors):
     return labels.get(key, f'{len(colors)}-color' if colors else 'Colorless')
 
 
-# ─── Text cleanup ─────────────────────────────────────────────────────────────
+# --- Text cleanup --------------------------------------------------------------
 
 def clean_mse_text(text):
     text = re.sub(r'<[^>]+>', '', text)
@@ -131,25 +131,33 @@ def clean_mse_text(text):
 
 def fix_hanging_ability_costs(text):
     """
-    MSE writes activated-ability costs on their own line, then a line break,
-    then an indent (spaces/tabs/nbsp) before the colon — e.g. "{R/W}\\n    :
-    Effect text". That's for MSE's own narrow card frame; in our wide gallery
-    modal it shows up as a stray icon-only line followed by an oddly indented
-    line. Collapse it back onto one line: "{R/W}: Effect text".
+    MSE writes activated-ability costs followed by some run of whitespace
+    (this may be a real newline, or just a wide run of spaces/nbsp used for
+    hanging-indent alignment in MSE's own narrow card frame -- either way it
+    reads as "{R/W}" then a gap then ": Effect text"). In our wide gallery
+    modal that gap either forces a hard line break or just enough wrap to
+    look broken. Collapse ANY run of whitespace right before a colon so the
+    cost and colon sit on one line: "{R/W}: Effect text".
     """
     if not text:
         return text
-    return re.sub(r'\n[ \t\xa0]*:', ':', text)
+    # Broad whitespace class: normal space/tab/CR/LF, nbsp (\xa0), and the
+    # general unicode "space separator" block, in case MSE's text engine
+    # used one of those for its own layout hints.
+    return re.sub(
+        '[ \t\r\n\xa0 -     　]+:',
+        ':', text
+    )
 
 
-# ─── MSE parser ───────────────────────────────────────────────────────────────
+# --- MSE parser ----------------------------------------------------------------
 
 def parse_mse(filepath):
     with zipfile.ZipFile(filepath, 'r') as z:
         print("Extracting card images...")
         # Wipe the images dir first. Without this, a PNG left over from a
         # previous export (under a filename MSE has since reassigned to a
-        # different card) sticks around and gets served as if it were current —
+        # different card) sticks around and gets served as if it were current --
         # this is how a card can end up showing another card's art.
         if os.path.isdir(IMAGES_DIR):
             for fn in os.listdir(IMAGES_DIR):
@@ -185,7 +193,7 @@ def parse_mse(filepath):
                 card['cost'] = field_val('casting_cost:'); current_field = None
             elif s.startswith('image:') and 'image_2' not in s and 'image_3' not in s:
                 val = field_val('image:')
-                # MSE stores filename with or without .png — normalise
+                # MSE stores filename with or without .png -- normalise
                 if val:
                     card['image'] = val if val.endswith('.png') else val + '.png'
                 current_field = None
@@ -217,10 +225,18 @@ def parse_mse(filepath):
 
         if 'name' in card and card['name']:
             if 'rules' in card:
+                # TEMP DEBUG: print the raw bytes for Davion so we can see
+                # exactly what whitespace/characters sit between the cost
+                # symbols and the colon. Safe to remove once the hybrid
+                # line-break issue is confirmed fixed.
+                if 'Davion' in card['name']:
+                    print("DEBUG raw rules for Davion:", repr(card['rules']))
                 card['rules'] = fix_hanging_ability_costs(card['rules'])
+                if 'Davion' in card['name']:
+                    print("DEBUG fixed rules for Davion:", repr(card['rules']))
             super_type = card.get('super_type', '')
             sub_type = card.get('sub_type', '')
-            card['type'] = f"{super_type} — {sub_type}" if sub_type else super_type
+            card['type'] = f"{super_type} -- {sub_type}" if sub_type else super_type
             card['cmc'] = cmc_from_cost(card.get('cost', ''))
             card['mana_symbols'] = mana_symbols_list(card.get('cost', ''))
             card['colors'] = get_color_identity(card.get('cost', ''), card.get('rules', ''))
@@ -229,13 +245,13 @@ def parse_mse(filepath):
             cards.append(card)
 
     # Hash every referenced image file's actual bytes. Two things ride on this:
-    # 1) Flag cards whose art is genuinely identical (not just same filename) —
+    # 1) Flag cards whose art is genuinely identical (not just same filename) --
     #    MSE gives duplicated cards their own filename even if the art on the
     #    copy was never replaced, so a filename check alone misses this.
     # 2) Stamp each card with a content hash to use as a cache-busting query
     #    param on the image URL. Filenames don't change between exports, so a
     #    browser that already cached "cards/12.png" under old (wrong) bytes
-    #    will keep showing that old art after a normal reload — this is
+    #    will keep showing that old art after a normal reload -- this is
     #    almost certainly why "old art keeps sticking around" persisted even
     #    after the server-side files were fixed.
     hash_cache = {}
@@ -258,13 +274,13 @@ def parse_mse(filepath):
 
     for img_hash, names in hash_to_names.items():
         if len(set(names)) > 1:
-            print(f"WARNING: {sorted(set(names))} share identical artwork (hash {img_hash[:8]}) — "
+            print(f"WARNING: {sorted(set(names))} share identical artwork (hash {img_hash[:8]}) -- "
                   f"reassign art for these in MSE, the parser can't fix this from data alone.")
 
     return cards
 
 
-# ─── Analytics ────────────────────────────────────────────────────────────────
+# --- Analytics -----------------------------------------------------------------
 
 def compute_analytics(cards):
     playable = [c for c in cards if not c.get('is_token') and c.get('name')]
@@ -294,7 +310,7 @@ def compute_analytics(cards):
             'cmc_counts': cmc_counts, 'type_counts': type_counts}
 
 
-# ─── HTML builder ─────────────────────────────────────────────────────────────
+# --- HTML builder ----------------------------------------------------------------
 
 def build_html(cards, analytics):
     cards_json = json.dumps(cards, ensure_ascii=False)
@@ -515,7 +531,7 @@ def build_html(cards, analytics):
         'function renderRulesSymbols(text) {\n'
         '  if (!text) return "";\n'
         '  // Replace hybrid mana in rules text: R/W, W/B, G/W etc\n'
-        '  // Scryfall hybrid files use a fixed color-wheel order, not alphabetical —\n'
+        '  // Scryfall hybrid files use a fixed color-wheel order, not alphabetical --\n'
         '  // the reverse spelling (e.g. "WG") does not exist as a file.\n'
         '  const HYBRID_PAIRS = {WU:"WU",UW:"WU",UB:"UB",BU:"UB",BR:"BR",RB:"BR",\n'
         '    RG:"RG",GR:"RG",GW:"GW",WG:"GW",WB:"WB",BW:"WB",UR:"UR",RU:"UR",\n'
@@ -631,7 +647,7 @@ def build_html(cards, analytics):
     return html
 
 
-# ─── Main ─────────────────────────────────────────────────────────────────────
+# --- Main -------------------------------------------------------------------------
 
 def main():
     print("Parsing MSE file...")
@@ -653,7 +669,7 @@ def main():
     print("Pushing to GitHub...")
     os.chdir(REPO_DIR)
     subprocess.run(["git", "add", "."])
-    subprocess.run(["git", "commit", "-m", f"Update set — {datetime.now().strftime('%Y-%m-%d %H:%M')}"])
+    subprocess.run(["git", "commit", "-m", f"Update set -- {datetime.now().strftime('%Y-%m-%d %H:%M')}"])
     subprocess.run(["git", "push"])
     print("Done! Visit: https://hlobbdaboss.github.io/dota2-UB/")
 
