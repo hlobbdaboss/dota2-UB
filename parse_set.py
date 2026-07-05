@@ -195,11 +195,11 @@ def parse_mse(filepath):
 def compute_analytics(cards):
     playable = [c for c in cards if not c.get('is_token', False) and c.get('name')]
 
-    color_counts = {'W': 0, 'U': 0, 'B': 0, 'R': 0, 'G': 0,
+    color_counts = {'White': 0, 'Blue': 0, 'Black': 0, 'Red': 0, 'Green': 0,
                     'Azorius': 0, 'Orzhov': 0, 'Boros': 0, 'Selesnya': 0,
                     'Dimir': 0, 'Izzet': 0, 'Simic': 0,
                     'Rakdos': 0, 'Golgari': 0, 'Gruul': 0,
-                    'Colorless': 0, 'Multicolor': 0, 'Land': 0}
+                    'Colorless': 0, 'Land': 0}
 
     cmc_counts = {i: 0 for i in range(10)}
     type_counts = {'Creature': 0, 'Instant': 0, 'Sorcery': 0,
@@ -208,18 +208,11 @@ def compute_analytics(cards):
     for c in playable:
         t = c.get('type', '')
         label = c.get('color_label', 'Colorless')
-        colors = c.get('colors', [])
 
         if 'Land' in t:
             color_counts['Land'] = color_counts.get('Land', 0) + 1
-        elif len(colors) == 0:
-            color_counts['Colorless'] += 1
-        elif len(colors) == 1:
-            color_counts[colors[0]] = color_counts.get(colors[0], 0) + 1
-        elif len(colors) == 2:
-            color_counts[label] = color_counts.get(label, 0) + 1
         else:
-            color_counts['Multicolor'] = color_counts.get('Multicolor', 0) + 1
+            color_counts[label] = color_counts.get(label, 0) + 1
 
         cmc = min(c.get('cmc', 0), 9)
         cmc_counts[cmc] = cmc_counts.get(cmc, 0) + 1
@@ -251,7 +244,6 @@ def build_html(cards, analytics):
     cards_json = json.dumps(cards)
     analytics_json = json.dumps(analytics)
 
-    # Standard python string literal - clean JavaScript curly braces require zero escaping
     html = """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -274,7 +266,7 @@ def build_html(cards, analytics):
             border-bottom: 1px solid #c89b3c44;
             padding: 28px 24px 20px;
             text-align: center;
-        }}
+        }
         .header h1 {
             font-size: 2.8em;
             color: #c89b3c;
@@ -528,7 +520,7 @@ def build_html(cards, analytics):
             font-weight: bold;
             color: #c89b3c;
             margin-top: 8px;
-        }}
+        }
         .modal-meta {
             display: flex;
             gap: 8px;
@@ -818,7 +810,7 @@ function initCharts() {
     const typeCounts = { Creature:0, Sorcery:0, Instant:0, Artifact:0, Enchantment:0, Land:0, Other:0 };
 
     coreCards.forEach(c => {
-        colorMap[c.color_group] = (colorMap[c.color_group] || 0) + 1;
+        colorMap[c.color_label] = (colorMap[c.color_label] || 0) + 1;
         cmcCounts[c.cmc] = (cmcCounts[c.cmc] || 0) + 1;
         let foundType = false;
         ['Creature', 'Sorcery', 'Instant', 'Artifact', 'Enchantment', 'Land'].forEach(t => {
@@ -827,28 +819,26 @@ function initCharts() {
         if (!foundType) typeCounts.Other++;
     });
 
-    const labelKeys = ['W', 'U', 'B', 'R', 'G', 'WU', 'WB', 'WR', 'WG', 'UB', 'UR', 'UG', 'BR', 'BG', 'RG', 'Colorless', 'Land'];
-    const displayLabels = ['W', 'U', 'B', 'R', 'G', 'Azorius', 'Orzhov', 'Boros', 'Selesnya', 'Dimir', 'Izzet', 'Simic', 'Rakdos', 'Golgari', 'Gruul', 'Colorless', 'Land'];
-    const chartColors = ['#f0f2c5', '#0077ff', '#242424', '#ff3333', '#00aa44', '#70a1ff', '#747d8c', '#ff6b81', '#2ed573', '#57606f', '#ff7f50', '#1e90ff', '#ff4757', '#a4b0be', '#ffa502', '#7a7a7a', '#8b5a2b'];
+    const labelKeys = ['White', 'Blue', 'Black', 'Red', 'Green', 'Azorius', 'Orzhov', 'Boros', 'Selesnya', 'Dimir', 'Izzet', 'Simic', 'Rakdos', 'Golgari', 'Gruul', 'Colorless', 'Land'];
 
     chart1 = new Chart(document.getElementById('colorChart'), {
         type: 'bar',
-        data: { labels: displayLabels, datasets: [{ data: labelKeys.map(k => colorMap[k] || 0), backgroundColor: chartColors, borderColor: '#555', borderWidth: 1.5 }] },
-        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+        data: { labels: labelKeys.filter(k => colorMap[k] > 0), datasets: [{ data: labelKeys.filter(k => colorMap[k] > 0).map(k => colorMap[k] || 0), backgroundColor: '#c89b3c88', borderColor: '#c89b3c', borderWidth: 1 }] },
+        options: { ...CHART_DEFAULTS, plugins: { legend: { display: false } }, responsive: true, maintainAspectRatio: false }
     });
 
     const maxCmc = Math.max(...Object.keys(cmcCounts).map(Number), 5);
     const cmcLabels = Array.from({length: maxCmc + 1}, (_, i) => i);
-    chart2 = new Chart(document.getElementById('manaChart'), {
+    chart2 = new Chart(document.getElementById('cmcChart'), {
         type: 'bar',
-        data: { labels: cmcLabels, datasets: [{ data: cmcLabels.map(l => cmcCounts[l] || 0), backgroundColor: '#ffca28', borderColor: '#444', borderWidth: 1 }] },
-        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+        data: { labels: cmcLabels.map(k => k >= 6 ? '6+' : k), datasets: [{ data: cmcLabels.map(l => cmcCounts[l] || 0), backgroundColor: '#c89b3c88', borderColor: '#c89b3c', borderWidth: 1 }] },
+        options: { ...CHART_DEFAULTS, plugins: { legend: { display: false } }, responsive: true, maintainAspectRatio: false }
     });
 
     chart3 = new Chart(document.getElementById('typeChart'), {
         type: 'doughnut',
-        data: { labels: Object.keys(typeCounts), datasets: [{ data: Object.values(typeCounts), backgroundColor: ['#2ecc71','#3498db','#9b59b6','#e67e22','#f1c40f','#e74c3c','#95a5a6'], borderColor: '#222', borderWidth: 1.5 }] },
-        options: { responsive: true, maintainAspectRatio: false }
+        data: { labels: Object.keys(typeCounts), datasets: [{ data: Object.values(typeCounts), backgroundColor: ['#4a9e6b','#6aadff','#aa88ff','#ffaa44','#ff6688','#c89b3c','#7a7a7a'], borderColor: '#1a1e30', borderWidth: 2 }] },
+        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'right', labels: { color: '#7a7060', font: { size: 9 }, boxWidth: 12 } } } }
     });
 
     applyFilters();
@@ -859,7 +849,6 @@ window.onload = initCharts;
 </body>
 </html>"""
 
-    # Pure block injection maps string variables directly with zero framework clashing
     html = html.replace("__CARDS_DATA_PLACEHOLDER__", cards_json)
     html = html.replace("__ANALYTICS_DATA_PLACEHOLDER__", analytics_json)
     return html
@@ -887,7 +876,7 @@ def main():
     print("Pushing to GitHub...")
     os.chdir(REPO_DIR)
     subprocess.run(["git", "add", "."])
-    subprocess.run(["git", "commit", "-m", "Deploy native string template compiler fix"])
+    subprocess.run(["git", "commit", "-m", "Synchronize chart loop property structures"])
     subprocess.run(["git", "push"])
     print("Done! Visit: https://hlobbdaboss.github.io/dota2-set/")
 
