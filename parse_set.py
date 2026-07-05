@@ -11,7 +11,7 @@ REPO_DIR = "/Users/Harrison_1/dota2-set"
 OUTPUT_JSON = os.path.join(REPO_DIR, "docs", "cards.json")
 IMAGES_DIR = os.path.join(REPO_DIR, "docs", "cards")
 
-# ─── Mana cost parsing ────────────────────────────────────────────────────────
+# ─── Mana cost & Rule text symbol parsing ──────────────────────────────────────
 
 def parse_mana_cost(cost_str):
     if not cost_str:
@@ -61,6 +61,19 @@ def cmc_from_cost(cost_str):
         else:
             total += 1
     return total
+
+def substitute_text_symbols(text):
+    if not text:
+        return ""
+    # Convert text patterns like R/W or W/U into asset pips
+    def replace_hybrid(match):
+        sym = match.group(0).upper().replace("/", "")
+        clean_sym = "".join(sorted(list(sym)))
+        return f'<img class="svg-symbol" style="width:15px; height:15px; margin:0 1px; vertical-align:-2px;" src="https://svgs.scryfall.io/card-symbols/{clean_sym}.svg" />'
+    
+    # Target pure color combinations like R/W, W/U, B/G, etc.
+    text = re.sub(r'\b[WUBRGCX]/[WUBRGCX](/[WUBRGCX])?\b', replace_hybrid, text)
+    return text
 
 
 # ─── MSE parsing ──────────────────────────────────────────────────────────────
@@ -185,6 +198,11 @@ def parse_mse(filepath):
 
             card['colors'] = get_color_identity(card.get('cost', ''), card.get('rules', ''))
             card['color_label'] = color_identity_label(card['colors'])
+            
+            # Substitute hybrid abbreviations directly inside rules texts
+            if 'rules' in card:
+                card['rules'] = substitute_text_symbols(card['rules'])
+                
             cards.append(card)
 
     return cards
@@ -325,7 +343,7 @@ def build_html_raw(cards, analytics):
             letter-spacing: 0.08em;
             margin-bottom: 8px;
         }
-        .chart-box canvas { max-height: 120px; }
+        .chart-box canvas { max-height: 120px; cursor: pointer; }
 
         .filters {
             display: flex;
@@ -749,7 +767,7 @@ function showModal(localIdx) {
         <div class="modal-name">` + c.name + `</div>
         <div class="modal-cost">` + formatManaSymbols(c.mana_symbols) + `</div>
         <div class="modal-type">` + (c.type||'') + `</div>
-        <div class="modal-rules">` + ((c.rules||'').replace(/\\n/g,'<br>')) + `</div>
+        <div class="modal-rules">` + (c.rules||'') + `</div>
         ` + (c.flavor ? `<div class="modal-flavor">` + c.flavor + `</div>` : '') + `
         ` + (c.pt ? `<div class="modal-pt">` + c.pt + `</div>` : '') + `
         <div class="modal-meta">
@@ -829,7 +847,20 @@ function initCharts() {
     chart1 = new Chart(document.getElementById('colorChart'), {
         type: 'bar',
         data: { labels: labelKeys.filter(k => colorMap[k] > 0), datasets: [{ data: labelKeys.filter(k => colorMap[k] > 0).map(k => colorMap[k] || 0), backgroundColor: '#c89b3c88', borderColor: '#c89b3c', borderWidth: 1 }] },
-        options: { ...CHART_DEFAULTS, plugins: { legend: { display: false } }, responsive: true, maintainAspectRatio: false }
+        options: { 
+            ...CHART_DEFAULTS, 
+            plugins: { legend: { display: false } }, 
+            responsive: true, 
+            maintainAspectRatio: false,
+            onClick: (e, elements) => {
+                if (elements.length > 0) {
+                    const idx = elements[0].index;
+                    const label = chart1.data.labels[idx];
+                    document.getElementById('color-filter').value = label;
+                    applyFilters();
+                }
+            }
+        }
     });
 
     const maxCmc = Math.max(...Object.keys(cmcCounts).map(Number), 5);
@@ -837,13 +868,40 @@ function initCharts() {
     chart2 = new Chart(document.getElementById('cmcChart'), {
         type: 'bar',
         data: { labels: cmcLabels.map(k => k >= 6 ? '6+' : k), datasets: [{ data: cmcLabels.map(l => cmcCounts[l] || 0), backgroundColor: '#c89b3c88', borderColor: '#c89b3c', borderWidth: 1 }] },
-        options: { ...CHART_DEFAULTS, plugins: { legend: { display: false } }, responsive: true, maintainAspectRatio: false }
+        options: { 
+            ...CHART_DEFAULTS, 
+            plugins: { legend: { display: false } }, 
+            responsive: true, 
+            maintainAspectRatio: false,
+            onClick: (e, elements) => {
+                if (elements.length > 0) {
+                    const idx = elements[0].index;
+                    const label = chart2.data.labels[idx].toString().replace('+', '');
+                    document.getElementById('cmc-filter').value = label;
+                    applyFilters();
+                }
+            }
+        }
     });
 
     chart3 = new Chart(document.getElementById('typeChart'), {
         type: 'doughnut',
-        data: { labels: Object.keys(typeCounts), datasets: [{ data: Object.values(typeCounts), backgroundColor: ['#4a9e6b','#6aadff','#aa88ff','#ffaa44','#ff6688','#c89b3c','#7a7a7a'], borderColor: '#1a1e30', borderWidth: 2 }] },
-        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'right', labels: { color: '#7a7060', font: { size: 9 }, boxWidth: 12 } } } }
+        data: { labels: Object.keys(typeCounts), datasets: [{ data: Object.values(typeCounts), backgroundColor: ['#4a9e6b','#6aadff','#aa88ff','#ffaa44','#ff6688','#c89b3c','#7a7060'], borderColor: '#1a1e30', borderWidth: 2 }] },
+        options: { 
+            responsive: true, 
+            maintainAspectRatio: false, 
+            plugins: { legend: { position: 'right', labels: { color: '#7a7060', font: { size: 9 }, boxWidth: 12 } } },
+            onClick: (e, elements) => {
+                if (elements.length > 0) {
+                    const idx = elements[0].index;
+                    const label = chart3.data.labels[idx];
+                    if (document.querySelector(`#type-filter option[value="${label}"]`)) {
+                        document.getElementById('type-filter').value = label;
+                        applyFilters();
+                    }
+                }
+            }
+        }
     });
 
     applyFilters();
@@ -879,7 +937,7 @@ def main():
     print("Pushing to GitHub...")
     os.chdir(REPO_DIR)
     subprocess.run(["git", "add", "."])
-    subprocess.run(["git", "commit", "-m", "Restore clean concatenation architecture to index pipeline"])
+    subprocess.run(["git", "commit", "-m", "Integrate regex text symbol engine and chart click filtration layers"])
     subprocess.run(["git", "push"])
     print("Done! Visit: https://hlobbdaboss.github.io/dota2-set/")
 
