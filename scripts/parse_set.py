@@ -1,3 +1,4 @@
+cat << 'EOF' > parse_set.py
 import zipfile
 import json
 import os
@@ -14,7 +15,6 @@ IMAGES_DIR = os.path.join(REPO_DIR, "docs", "cards")
 # ─── Mana parsing ─────────────────────────────────────────────────────────────
 
 def parse_mana_cost(cost_str):
-    """Parse MSE casting_cost string into list of pip tokens."""
     if not cost_str:
         return []
     tokens = []
@@ -39,24 +39,18 @@ def parse_mana_cost(cost_str):
 
 
 def pip_to_scryfall(pip):
-    """
-    Convert a pip token to a Scryfall SVG symbol key.
-    Hybrid pips like W/B → WB (sorted), generic numerals stay as-is.
-    """
     pip = pip.upper()
     if '/' in pip:
         parts = pip.split('/')
-        # Sort WUBRG order for consistent Scryfall URL
         order = 'WUBRG'
         colored = [p for p in parts if p in order]
         other = [p for p in parts if p not in order]
         sorted_parts = sorted(colored, key=lambda c: order.index(c) if c in order else 99) + other
-        return ''.join(sorted_parts)  # e.g. WB, GW, BR
-    return pip  # W, U, 2, X, etc.
+        return ''.join(sorted_parts)
+    return pip
 
 
 def mana_symbols_list(cost_str):
-    """Return list of Scryfall symbol keys for a cost string."""
     return [pip_to_scryfall(p) for p in parse_mana_cost(cost_str)]
 
 
@@ -139,7 +133,6 @@ def parse_mse(filepath):
                 card['cost'] = field_val('casting_cost:'); current_field = None
             elif s.startswith('image:') and 'image_2' not in s and 'image_3' not in s:
                 val = field_val('image:')
-                # MSE stores filename with or without .png — normalise
                 if val:
                     card['image'] = val if val.endswith('.png') else val + '.png'
                 current_field = None
@@ -210,7 +203,7 @@ def compute_analytics(cards):
         else: type_counts['Other'] += 1
 
     return {'total': len(playable), 'color_counts': color_counts,
-            'cmc_counts': cmc_counts, 'type_counts': type_counts}
+            'cmcC': cmc_counts, 'type_counts': type_counts}
 
 
 # ─── HTML builder ─────────────────────────────────────────────────────────────
@@ -219,7 +212,6 @@ def build_html(cards, analytics):
     cards_json = json.dumps(cards, ensure_ascii=False)
     analytics_json = json.dumps(analytics, ensure_ascii=False)
 
-    # Using raw string concatenation to avoid f-string / JS brace conflicts
     html = (
         '<!DOCTYPE html>\n'
         '<html lang="en">\n'
@@ -250,11 +242,12 @@ def build_html(cards, analytics):
         '    .reset-btn:hover { background: #e0b44e; }\n'
         '    .result-count { font-size: .8em; color: #7a7060; white-space: nowrap; }\n'
         '    .grid { display: flex; flex-wrap: wrap; gap: 10px; padding: 16px 20px; justify-content: flex-start; }\n'
-        '    .card { width: 160px; cursor: pointer; transition: transform .15s,box-shadow .15s; border-radius: 8px; overflow: hidden; background: #1a1e30; border: 1px solid #c89b3c22; }\n'
+        '    .card { width: 160px; height: 232px; cursor: pointer; transition: transform .15s,box-shadow .15s; border-radius: 8px; overflow: hidden; background: #12151f; border: 1px solid #c89b3c22; display: flex; flex-direction: column; }\n'
         '    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(200,155,60,.25); border-color: #c89b3c88; }\n'
-        '    .card img { width: 100%; display: block; aspect-ratio: 5/7; object-fit: cover; }\n'
-        '    .card .no-img { width: 100%; aspect-ratio: 5/7; display: flex; align-items: center; justify-content: center; background: #12151f; color: #3a3520; font-size: 2em; }\n'
-        '    .card-footer { padding: 6px 8px; display: flex; align-items: center; justify-content: space-between; gap: 4px; }\n'
+        '    .card .img-container { width: 100%; aspect-ratio: 5/7; background: #12151f; overflow: hidden; position: relative; flex: 1; }\n'
+        '    .card img { width: 100%; height: 100%; object-fit: cover; display: block; }\n'
+        '    .card .no-img { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: #12151f; color: #3a3520; font-size: 2em; }\n'
+        '    .card-footer { padding: 6px 8px; display: flex; align-items: center; justify-content: space-between; gap: 4px; background: #1a1e30; border-top: 1px solid #c89b3c11; }\n'
         '    .card-name { font-size: .68em; color: #c89b3c; font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex: 1; }\n'
         '    .rarity-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }\n'
         '    .r-common { background: #999; } .r-uncommon { background: #6aadff; } .r-rare { background: #ffaa44; } .r-mythic { background: #ff66aa; }\n'
@@ -269,7 +262,7 @@ def build_html(cards, analytics):
         '    .modal-cost img { width: 22px; height: 22px; border-radius: 50%; box-shadow: 0 1px 3px rgba(0,0,0,.6); display: inline-block; vertical-align: middle; }\n'
         '    .modal-type { font-size: .85em; color: #7a7060; font-style: italic; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #c89b3c22; }\n'
         '    .modal-rules { font-size: .88em; line-height: 1.65; margin-bottom: 10px; white-space: pre-line; }\n'
-        '    .modal-rules img { width: 15px; height: 15px; vertical-align: -2px; display: inline-block; }\n'
+        '    .modal-rules img { width: 15px; height: 15px; vertical-align: -2px; display: inline-block; margin: 0 1px; }\n'
         '    .modal-flavor { font-size: .8em; color: #7a7060; font-style: italic; border-top: 1px solid #c89b3c22; padding-top: 10px; line-height: 1.5; }\n'
         '    .modal-pt { text-align: right; font-size: 1.1em; font-weight: bold; color: #c89b3c; margin-top: 8px; }\n'
         '    .modal-meta { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }\n'
@@ -418,30 +411,43 @@ def build_html(cards, analytics):
         '\n'
         'function renderGrid(cards) {\n'
         '  document.getElementById("grid").innerHTML = cards.map((c,i) => {\n'
-        '    const img = c.image\n'
-        '      ? "<img src=\\"cards/" + c.image + "\\" alt=\\"" + c.name + "\\" loading=\\"lazy\\" onerror=\\"this.style.display=\'none\'\\">"\n'
-        '      : "<div class=\\"no-img\\">&#127820;</div>";\n'
-        '    return "<div class=\\"card\\" onclick=\\"showModal(" + i + ")\\">" + img + "<div class=\\"card-footer\\"><span class=\\"card-name\\">" + c.name + "</span><span class=\\"rarity-dot " + rarityClass(c.rarity) + "\\"></span></div></div>";\n'
+        '    const imgHtml = c.image\n'
+        '      ? `<img src="cards/${c.image}" alt="${c.name}" loading="lazy" onerror="this.style.display=\'none\'; this.nextElementSibling.style.display=\'flex\';">`\n'
+        '      : "";\n'
+        '    const displayNoImg = c.image ? "none" : "flex";\n'
+        '    return `<div class="card" onclick="showModal(${i})">` +\n'
+        '             `<div class="img-container">${imgHtml}<div class="no-img" style="display:${displayNoImg}">🎴</div></div>` +\n'
+        '             `<div class="card-footer"><span class="card-name">${c.name}</span><span class="rarity-dot ${rarityClass(c.rarity)}"></span></div>` +\n'
+        '           `</div>`;\n'
         '  }).join("");\n'
         '}\n'
         '\n'
         'function renderRulesSymbols(text) {\n'
         '  if (!text) return "";\n'
-        '  // Replace hybrid mana in rules text: R/W, W/B, G/W etc\n'
         '  const WUBRG = "WUBRG";\n'
+        '\n'
+        '  // 1. Parse complex multi-slash hybrid symbols (like R/W/P or R/W/B) dynamically\n'
+        '  text = text.replace(/([WUBRGC0-9])(\\\/[WUBRGCP])+/gi, (match) => {\n'
+        '    const parts = match.toUpperCase().split("/");\n'
+        '    const colored = parts.filter(p => WUBRG.includes(p));\n'
+        '    const other = parts.filter(p => !WUBRG.includes(p));\n'
+        '    const sortedSym = sortedSym = colored.sort((a, b) => WUBRG.indexOf(a) - WUBRG.indexOf(b)).join("") + other.join("");\n'
+        '    return `<img src="${SCRYFALL}${sortedSym}.svg">`;\n'
+        '  });\n'
+        '\n'
+        '  // 2. Parse remaining standard single slash hybrid tokens\n'
         '  text = text.replace(/([WUBRGC2])\\\/([WUBRGCP])/gi, (m, a, b) => {\n'
         '    a = a.toUpperCase(); b = b.toUpperCase();\n'
-        '    let sym;\n'
-        '    if (a === "2" || a === "P") { sym = a + b; }\n'
-        '    else {\n'
-        '      const ai = WUBRG.indexOf(a), bi = WUBRG.indexOf(b);\n'
-        '      sym = (ai <= bi || bi < 0) ? a + b : b + a;\n'
-        '    }\n'
-        '    return `<img src="${SCRYFALL}${sym}.svg" style="width:15px;height:15px;border-radius:50%;vertical-align:-2px;display:inline-block;">`;\n'
+        '    let sym = (a === "2" || a === "P") ? a + b : (WUBRG.indexOf(a) <= WUBRG.indexOf(b) ? a + b : b + a);\n'
+        '    return `<img src="${SCRYFALL}${sym}.svg">`;\n'
         '  });\n'
-        '  // Replace single mana symbols: W, U, B, R, G, C, X, T\n'
-        '  text = text.replace(/\\b([WUBRGCXT])\\b(?![\\/<])/g, (m, sym) => {\n'
-        '    return `<img src="${SCRYFALL}${sym}.svg" style="width:15px;height:15px;border-radius:50%;vertical-align:-2px;display:inline-block;">`;\n'
+        '\n'
+        '  // 3. Swap T symbol entries directly into Scryfall tap icon paths\n'
+        '  text = text.replace(/\\bT\\b(?![\\/<])/g, `<img src="${SCRYFALL}T.svg" title="Tap">`);\n'
+        '\n'
+        '  // 4. Parse isolated pure single colors\n'
+        '  text = text.replace(/\\b([WUBRGCX])\\b(?![\\/<])/g, (m, sym) => {\n'
+        '    return `<img src="${SCRYFALL}${sym.toUpperCase()}.svg">`;\n'
         '  });\n'
         '  return text;\n'
         '}\n'
@@ -451,7 +457,7 @@ def build_html(cards, analytics):
         '  if (!c) return;\n'
         '  const rules = renderRulesSymbols((c.rules||"").replace(/\\n/g,"<br>"));\n'
         '  document.getElementById("modal-body").innerHTML =\n'
-        '    (c.image ? `<img src="cards/${c.image}">` : "") +\n'
+        '    (c.image ? `<img src="cards/${c.image}" onerror="this.style.display=\'none\';">` : "") +\n'
         '    `<div class="modal-name">${c.name}</div>` +\n'
         '    `<div class="modal-cost">${formatCost(c.mana_symbols)}</div>` +\n'
         '    `<div class="modal-type">${c.type||""}</div>` +\n'
@@ -571,3 +577,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+EOF
