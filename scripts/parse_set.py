@@ -1,20 +1,22 @@
-cat << 'EOF' > parse_set.py
 import zipfile
 import json
 import os
 import subprocess
 from datetime import datetime
 import re
+import hashlib
+import zipfile
 
 # Paths
-MSE_FILE = "/Users/Harrison_1/Desktop/Full-Magic-Pack-main/Sets/Dota Set.mse-set"
-REPO_DIR = "/Users/Harrison_1/dota2-set"
+MSE_FILE = "/Users/Harrison_1/Desktop/dota2-UB/mse/Dota 2 Universes Beyond.mse-set"
+REPO_DIR = "/Users/Harrison_1/Desktop/dota2-UB"
 OUTPUT_JSON = os.path.join(REPO_DIR, "docs", "cards.json")
 IMAGES_DIR = os.path.join(REPO_DIR, "docs", "cards")
 
-# ─── Mana parsing ─────────────────────────────────────────────────────────────
+# --- Mana parsing -----------------------------------------------------------
 
 def parse_mana_cost(cost_str):
+    """Parse MSE casting_cost string into list of pip tokens."""
     if not cost_str:
         return []
     tokens = []
@@ -23,7 +25,12 @@ def parse_mana_cost(cost_str):
     while i < len(s):
         if i + 2 < len(s) and s[i+1] == '/':
             tokens.append(s[i:i+3]); i += 3
-        elif i + 3 < len(s) and s[i+2] == '/':
+        # Only merge into a 4-char token ("10/W") when the leading two chars
+        # are actually a two-digit number. Without this check, a plain pip
+        # sitting right before a hybrid pair (e.g. "RG/W" = R + {G/W}) got
+        # incorrectly swallowed into one bogus token -- this was the main
+        # cause of broken/garbled hybrid mana costs.
+        elif i + 3 < len(s) and s[i].isdigit() and s[i+1].isdigit() and s[i+2] == '/':
             tokens.append(s[i:i+4]); i += 4
         elif s[i].isdigit():
             j = i
@@ -38,19 +45,43 @@ def parse_mana_cost(cost_str):
     return tokens
 
 
+# Scryfall's hybrid symbol files use a fixed color-wheel order, NOT alphabetical
+# WUBRG order. Allied pairs (adjacent) and enemy pairs (across) each have one
+# canonical two-letter code -- the reverse spelling doesn't exist as a file.
+_HYBRID_PAIR_ORDER = {
+    frozenset('WU'): 'WU', frozenset('UB'): 'UB', frozenset('BR'): 'BR',
+    frozenset('RG'): 'RG', frozenset('GW'): 'GW',   # allied
+    frozenset('WB'): 'WB', frozenset('UR'): 'UR', frozenset('BG'): 'BG',
+    frozenset('RW'): 'RW', frozenset('GU'): 'GU',   # enemy
+}
+
+
 def pip_to_scryfall(pip):
+    """
+    Convert a pip token to a Scryfall SVG symbol key.
+    - Color/color hybrid (W/B, G/W, R/W, G/U, ...) -> canonical color-wheel code.
+    - Generic hybrid (2/W) -> "2W" (digit first).
+    - Phyrexian (W/P) -> "WP" (color first).
+    - Plain pips (W, U, 2, X, ...) -> unchanged.
+    """
     pip = pip.upper()
     if '/' in pip:
         parts = pip.split('/')
-        order = 'WUBRG'
-        colored = [p for p in parts if p in order]
-        other = [p for p in parts if p not in order]
-        sorted_parts = sorted(colored, key=lambda c: order.index(c) if c in order else 99) + other
-        return ''.join(sorted_parts)
-    return pip
+        if '2' in parts:
+            colored = [p for p in parts if p != '2']
+            return '2' + (colored[0] if colored else '')
+        if 'P' in parts:
+            colored = [p for p in parts if p != 'P']
+            return (colored[0] if colored else '') + 'P'
+        key = frozenset(parts)
+        if key in _HYBRID_PAIR_ORDER:
+            return _HYBRID_PAIR_ORDER[key]
+        return ''.join(parts)  # fallback, unknown combo
+    return pip  # W, U, 2, X, etc.
 
 
 def mana_symbols_list(cost_str):
+    """Return list of Scryfall symbol keys for a cost string."""
     return [pip_to_scryfall(p) for p in parse_mana_cost(cost_str)]
 
 
@@ -64,7 +95,7 @@ def cmc_from_cost(cost_str):
     return total
 
 
-# ─── Color identity ───────────────────────────────────────────────────────────
+# --- Color identity ----------------------------------------------------------
 
 def get_color_identity(cost_str, rules_text=''):
     pips = parse_mana_cost(cost_str)
@@ -91,7 +122,7 @@ def color_identity_label(colors):
     return labels.get(key, f'{len(colors)}-color' if colors else 'Colorless')
 
 
-# ─── Text cleanup ─────────────────────────────────────────────────────────────
+# --- Text cleanup --------------------------------------------------------------
 
 def clean_mse_text(text):
     text = re.sub(r'<[^>]+>', '', text)
@@ -99,11 +130,41 @@ def clean_mse_text(text):
     return text.strip()
 
 
-# ─── MSE parser ───────────────────────────────────────────────────────────────
+def fix_hanging_ability_costs(text):
+    """
+    MSE writes activated-ability costs followed by some run of whitespace
+    (this may be a real newline, or just a wide run of spaces/nbsp used for
+    hanging-indent alignment in MSE's own narrow card frame -- either way it
+    reads as "{R/W}" then a gap then ": Effect text"). In our wide gallery
+    modal that gap either forces a hard line break or just enough wrap to
+    look broken. Collapse ANY run of whitespace right before a colon so the
+    cost and colon sit on one line: "{R/W}: Effect text".
+    """
+    if not text:
+        return text
+    # Broad whitespace class: normal space/tab/CR/LF, nbsp (\xa0), and the
+    # general unicode "space separator" block, in case MSE's text engine
+    # used one of those for its own layout hints.
+    return re.sub(
+        '[ \t\r\n\xa0 -     　]+:',
+        ':', text
+    )
+
+
+# --- MSE parser ----------------------------------------------------------------
 
 def parse_mse(filepath):
     with zipfile.ZipFile(filepath, 'r') as z:
         print("Extracting card images...")
+        # Wipe the images dir first. Without this, a PNG left over from a
+        # previous export (under a filename MSE has since reassigned to a
+        # different card) sticks around and gets served as if it were current --
+        # this is how a card can end up showing another card's art.
+        if os.path.isdir(IMAGES_DIR):
+            for fn in os.listdir(IMAGES_DIR):
+                fp = os.path.join(IMAGES_DIR, fn)
+                if os.path.isfile(fp):
+                    os.remove(fp)
         os.makedirs(IMAGES_DIR, exist_ok=True)
         for name in z.namelist():
             if name.endswith('.png'):
@@ -133,6 +194,7 @@ def parse_mse(filepath):
                 card['cost'] = field_val('casting_cost:'); current_field = None
             elif s.startswith('image:') and 'image_2' not in s and 'image_3' not in s:
                 val = field_val('image:')
+                # MSE stores filename with or without .png -- normalise
                 if val:
                     card['image'] = val if val.endswith('.png') else val + '.png'
                 current_field = None
@@ -163,9 +225,19 @@ def parse_mse(filepath):
             card[current_field] = '\n'.join(current_value).strip()
 
         if 'name' in card and card['name']:
+            if 'rules' in card:
+                # TEMP DEBUG: print the raw bytes for Davion so we can see
+                # exactly what whitespace/characters sit between the cost
+                # symbols and the colon. Safe to remove once the hybrid
+                # line-break issue is confirmed fixed.
+                if 'Davion' in card['name']:
+                    print("DEBUG raw rules for Davion:", repr(card['rules']))
+                card['rules'] = fix_hanging_ability_costs(card['rules'])
+                if 'Davion' in card['name']:
+                    print("DEBUG fixed rules for Davion:", repr(card['rules']))
             super_type = card.get('super_type', '')
             sub_type = card.get('sub_type', '')
-            card['type'] = f"{super_type} — {sub_type}" if sub_type else super_type
+            card['type'] = f"{super_type} -- {sub_type}" if sub_type else super_type
             card['cmc'] = cmc_from_cost(card.get('cost', ''))
             card['mana_symbols'] = mana_symbols_list(card.get('cost', ''))
             card['colors'] = get_color_identity(card.get('cost', ''), card.get('rules', ''))
@@ -173,10 +245,43 @@ def parse_mse(filepath):
             card['is_token'] = 'Token' in card.get('type', '') or 'token' in card.get('name', '').lower()
             cards.append(card)
 
+    # Hash every referenced image file's actual bytes. Two things ride on this:
+    # 1) Flag cards whose art is genuinely identical (not just same filename) --
+    #    MSE gives duplicated cards their own filename even if the art on the
+    #    copy was never replaced, so a filename check alone misses this.
+    # 2) Stamp each card with a content hash to use as a cache-busting query
+    #    param on the image URL. Filenames don't change between exports, so a
+    #    browser that already cached "cards/12.png" under old (wrong) bytes
+    #    will keep showing that old art after a normal reload -- this is
+    #    almost certainly why "old art keeps sticking around" persisted even
+    #    after the server-side files were fixed.
+    hash_cache = {}
+    hash_to_names = {}
+    for c in cards:
+        img = c.get('image')
+        if not img:
+            continue
+        path = os.path.join(IMAGES_DIR, img)
+        if path not in hash_cache:
+            try:
+                with open(path, 'rb') as f:
+                    hash_cache[path] = hashlib.md5(f.read()).hexdigest()
+            except OSError:
+                hash_cache[path] = None
+        h = hash_cache[path]
+        if h:
+            c['img_ver'] = h[:10]
+            hash_to_names.setdefault(h, []).append(c['name'])
+
+    for img_hash, names in hash_to_names.items():
+        if len(set(names)) > 1:
+            print(f"WARNING: {sorted(set(names))} share identical artwork (hash {img_hash[:8]}) -- "
+                  f"reassign art for these in MSE, the parser can't fix this from data alone.")
+
     return cards
 
 
-# ─── Analytics ────────────────────────────────────────────────────────────────
+# --- Analytics -----------------------------------------------------------------
 
 def compute_analytics(cards):
     playable = [c for c in cards if not c.get('is_token') and c.get('name')]
@@ -203,15 +308,16 @@ def compute_analytics(cards):
         else: type_counts['Other'] += 1
 
     return {'total': len(playable), 'color_counts': color_counts,
-            'cmcC': cmc_counts, 'type_counts': type_counts}
+            'cmc_counts': cmc_counts, 'type_counts': type_counts}
 
 
-# ─── HTML builder ─────────────────────────────────────────────────────────────
+# --- HTML builder ----------------------------------------------------------------
 
 def build_html(cards, analytics):
     cards_json = json.dumps(cards, ensure_ascii=False)
     analytics_json = json.dumps(analytics, ensure_ascii=False)
 
+    # Using raw string concatenation to avoid f-string / JS brace conflicts
     html = (
         '<!DOCTYPE html>\n'
         '<html lang="en">\n'
@@ -242,12 +348,11 @@ def build_html(cards, analytics):
         '    .reset-btn:hover { background: #e0b44e; }\n'
         '    .result-count { font-size: .8em; color: #7a7060; white-space: nowrap; }\n'
         '    .grid { display: flex; flex-wrap: wrap; gap: 10px; padding: 16px 20px; justify-content: flex-start; }\n'
-        '    .card { width: 160px; height: 232px; cursor: pointer; transition: transform .15s,box-shadow .15s; border-radius: 8px; overflow: hidden; background: #12151f; border: 1px solid #c89b3c22; display: flex; flex-direction: column; }\n'
+        '    .card { width: 160px; cursor: pointer; transition: transform .15s,box-shadow .15s; border-radius: 8px; overflow: hidden; background: #1a1e30; border: 1px solid #c89b3c22; }\n'
         '    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(200,155,60,.25); border-color: #c89b3c88; }\n'
-        '    .card .img-container { width: 100%; aspect-ratio: 5/7; background: #12151f; overflow: hidden; position: relative; flex: 1; }\n'
-        '    .card img { width: 100%; height: 100%; object-fit: cover; display: block; }\n'
-        '    .card .no-img { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: #12151f; color: #3a3520; font-size: 2em; }\n'
-        '    .card-footer { padding: 6px 8px; display: flex; align-items: center; justify-content: space-between; gap: 4px; background: #1a1e30; border-top: 1px solid #c89b3c11; }\n'
+        '    .card img { width: 100%; display: block; aspect-ratio: 5/7; object-fit: cover; }\n'
+        '    .card .no-img { width: 100%; aspect-ratio: 5/7; display: flex; align-items: center; justify-content: center; background: #12151f; color: #3a3520; font-size: 2em; }\n'
+        '    .card-footer { padding: 6px 8px; display: flex; align-items: center; justify-content: space-between; gap: 4px; }\n'
         '    .card-name { font-size: .68em; color: #c89b3c; font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex: 1; }\n'
         '    .rarity-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }\n'
         '    .r-common { background: #999; } .r-uncommon { background: #6aadff; } .r-rare { background: #ffaa44; } .r-mythic { background: #ff66aa; }\n'
@@ -262,7 +367,7 @@ def build_html(cards, analytics):
         '    .modal-cost img { width: 22px; height: 22px; border-radius: 50%; box-shadow: 0 1px 3px rgba(0,0,0,.6); display: inline-block; vertical-align: middle; }\n'
         '    .modal-type { font-size: .85em; color: #7a7060; font-style: italic; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #c89b3c22; }\n'
         '    .modal-rules { font-size: .88em; line-height: 1.65; margin-bottom: 10px; white-space: pre-line; }\n'
-        '    .modal-rules img { width: 15px; height: 15px; vertical-align: -2px; display: inline-block; margin: 0 1px; }\n'
+        '    .modal-rules img { width: 15px; height: 15px; vertical-align: -2px; display: inline-block; }\n'
         '    .modal-flavor { font-size: .8em; color: #7a7060; font-style: italic; border-top: 1px solid #c89b3c22; padding-top: 10px; line-height: 1.5; }\n'
         '    .modal-pt { text-align: right; font-size: 1.1em; font-weight: bold; color: #c89b3c; margin-top: 8px; }\n'
         '    .modal-meta { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }\n'
@@ -409,45 +514,40 @@ def build_html(cards, analytics):
         '  applyFilters();\n'
         '}\n'
         '\n'
+        'function cardImgSrc(c) {\n'
+        '  // Cache-bust with the art\'s content hash so a browser that already\n'
+        '  // cached this filename under old/wrong bytes is forced to refetch.\n'
+        '  return "cards/" + c.image + (c.img_ver ? ("?v=" + c.img_ver) : "");\n'
+        '}\n'
+        '\n'
         'function renderGrid(cards) {\n'
         '  document.getElementById("grid").innerHTML = cards.map((c,i) => {\n'
-        '    const imgHtml = c.image\n'
-        '      ? `<img src="cards/${c.image}" alt="${c.name}" loading="lazy" onerror="this.style.display=\'none\'; this.nextElementSibling.style.display=\'flex\';">`\n'
-        '      : "";\n'
-        '    const displayNoImg = c.image ? "none" : "flex";\n'
-        '    return `<div class="card" onclick="showModal(${i})">` +\n'
-        '             `<div class="img-container">${imgHtml}<div class="no-img" style="display:${displayNoImg}">🎴</div></div>` +\n'
-        '             `<div class="card-footer"><span class="card-name">${c.name}</span><span class="rarity-dot ${rarityClass(c.rarity)}"></span></div>` +\n'
-        '           `</div>`;\n'
+        '    const img = c.image\n'
+        '      ? "<img src=\\"" + cardImgSrc(c) + "\\" alt=\\"" + c.name + "\\" loading=\\"lazy\\" onerror=\\"this.style.display=\'none\'\\">"\n'
+        '      : "<div class=\\"no-img\\">&#127820;</div>";\n'
+        '    return "<div class=\\"card\\" onclick=\\"showModal(" + i + ")\\">" + img + "<div class=\\"card-footer\\"><span class=\\"card-name\\">" + c.name + "</span><span class=\\"rarity-dot " + rarityClass(c.rarity) + "\\"></span></div></div>";\n'
         '  }).join("");\n'
         '}\n'
         '\n'
         'function renderRulesSymbols(text) {\n'
         '  if (!text) return "";\n'
-        '  const WUBRG = "WUBRG";\n'
-        '\n'
-        '  // 1. Parse complex multi-slash hybrid symbols (like R/W/P or R/W/B) dynamically\n'
-        '  text = text.replace(/([WUBRGC0-9])(\\\/[WUBRGCP])+/gi, (match) => {\n'
-        '    const parts = match.toUpperCase().split("/");\n'
-        '    const colored = parts.filter(p => WUBRG.includes(p));\n'
-        '    const other = parts.filter(p => !WUBRG.includes(p));\n'
-        '    const sortedSym = sortedSym = colored.sort((a, b) => WUBRG.indexOf(a) - WUBRG.indexOf(b)).join("") + other.join("");\n'
-        '    return `<img src="${SCRYFALL}${sortedSym}.svg">`;\n'
-        '  });\n'
-        '\n'
-        '  // 2. Parse remaining standard single slash hybrid tokens\n'
-        '  text = text.replace(/([WUBRGC2])\\\/([WUBRGCP])/gi, (m, a, b) => {\n'
+        '  // Replace hybrid mana in rules text: R/W, W/B, G/W etc\n'
+        '  // Scryfall hybrid files use a fixed color-wheel order, not alphabetical --\n'
+        '  // the reverse spelling (e.g. "WG") does not exist as a file.\n'
+        '  const HYBRID_PAIRS = {WU:"WU",UW:"WU",UB:"UB",BU:"UB",BR:"BR",RB:"BR",\n'
+        '    RG:"RG",GR:"RG",GW:"GW",WG:"GW",WB:"WB",BW:"WB",UR:"UR",RU:"UR",\n'
+        '    BG:"BG",GB:"BG",RW:"RW",WR:"RW",GU:"GU",UG:"GU"};\n'
+        '  text = text.replace(/([WUBRGC2])\\/([WUBRGCP])/gi, (m, a, b) => {\n'
         '    a = a.toUpperCase(); b = b.toUpperCase();\n'
-        '    let sym = (a === "2" || a === "P") ? a + b : (WUBRG.indexOf(a) <= WUBRG.indexOf(b) ? a + b : b + a);\n'
-        '    return `<img src="${SCRYFALL}${sym}.svg">`;\n'
+        '    let sym;\n'
+        '    if (a === "2" || a === "P") { sym = a + b; }\n'
+        '    else if (b === "P") { sym = a + b; }\n'
+        '    else { sym = HYBRID_PAIRS[a+b] || (a+b); }\n'
+        '    return `<img src="${SCRYFALL}${sym}.svg" style="width:15px;height:15px;border-radius:50%;vertical-align:-2px;display:inline-block;">`;\n'
         '  });\n'
-        '\n'
-        '  // 3. Swap T symbol entries directly into Scryfall tap icon paths\n'
-        '  text = text.replace(/\\bT\\b(?![\\/<])/g, `<img src="${SCRYFALL}T.svg" title="Tap">`);\n'
-        '\n'
-        '  // 4. Parse isolated pure single colors\n'
-        '  text = text.replace(/\\b([WUBRGCX])\\b(?![\\/<])/g, (m, sym) => {\n'
-        '    return `<img src="${SCRYFALL}${sym.toUpperCase()}.svg">`;\n'
+        '  // Replace single mana symbols: W, U, B, R, G, C, X, T\n'
+        '  text = text.replace(/\\b([WUBRGCXT])\\b(?![\\/<])/g, (m, sym) => {\n'
+        '    return `<img src="${SCRYFALL}${sym}.svg" style="width:15px;height:15px;border-radius:50%;vertical-align:-2px;display:inline-block;">`;\n'
         '  });\n'
         '  return text;\n'
         '}\n'
@@ -457,7 +557,7 @@ def build_html(cards, analytics):
         '  if (!c) return;\n'
         '  const rules = renderRulesSymbols((c.rules||"").replace(/\\n/g,"<br>"));\n'
         '  document.getElementById("modal-body").innerHTML =\n'
-        '    (c.image ? `<img src="cards/${c.image}" onerror="this.style.display=\'none\';">` : "") +\n'
+        '    (c.image ? `<img src="${cardImgSrc(c)}">` : "") +\n'
         '    `<div class="modal-name">${c.name}</div>` +\n'
         '    `<div class="modal-cost">${formatCost(c.mana_symbols)}</div>` +\n'
         '    `<div class="modal-type">${c.type||""}</div>` +\n'
@@ -548,7 +648,7 @@ def build_html(cards, analytics):
     return html
 
 
-# ─── Main ─────────────────────────────────────────────────────────────────────
+# --- Main -------------------------------------------------------------------------
 
 def main():
     print("Parsing MSE file...")
@@ -570,11 +670,10 @@ def main():
     print("Pushing to GitHub...")
     os.chdir(REPO_DIR)
     subprocess.run(["git", "add", "."])
-    subprocess.run(["git", "commit", "-m", f"Update set — {datetime.now().strftime('%Y-%m-%d %H:%M')}"])
+    subprocess.run(["git", "commit", "-m", f"Update set -- {datetime.now().strftime('%Y-%m-%d %H:%M')}"])
     subprocess.run(["git", "push"])
     print("Done! Visit: https://hlobbdaboss.github.io/dota2-UB/")
 
 
 if __name__ == "__main__":
     main()
-EOF
