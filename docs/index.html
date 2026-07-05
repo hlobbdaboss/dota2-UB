@@ -216,7 +216,7 @@ function renderRulesSymbols(text) {
   const HYBRID_PAIRS = {WU:"WU",UW:"WU",UB:"UB",BU:"UB",BR:"BR",RB:"BR",
     RG:"RG",GR:"RG",GW:"GW",WG:"GW",WB:"WB",BW:"WB",UR:"UR",RU:"UR",
     BG:"BG",GB:"BG",RW:"RW",WR:"RW",GU:"GU",UG:"GU"};
-  text = text.replace(/([WUBRGC2])\\/([WUBRGCP])/gi, (m, a, b) => {
+  text = text.replace(/([WUBRGC2])\/([WUBRGCP])/gi, (m, a, b) => {
     a = a.toUpperCase(); b = b.toUpperCase();
     let sym;
     if (a === "2" || a === "P") { sym = a + b; }

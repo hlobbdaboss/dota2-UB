@@ -505,7 +505,7 @@ def build_html(cards, analytics):
         '  const HYBRID_PAIRS = {WU:"WU",UW:"WU",UB:"UB",BU:"UB",BR:"BR",RB:"BR",\n'
         '    RG:"RG",GR:"RG",GW:"GW",WG:"GW",WB:"WB",BW:"WB",UR:"UR",RU:"UR",\n'
         '    BG:"BG",GB:"BG",RW:"RW",WR:"RW",GU:"GU",UG:"GU"};\n'
-        '  text = text.replace(/([WUBRGC2])\\\/([WUBRGCP])/gi, (m, a, b) => {\n'
+        '  text = text.replace(/([WUBRGC2])\\/([WUBRGCP])/gi, (m, a, b) => {\n'
         '    a = a.toUpperCase(); b = b.toUpperCase();\n'
         '    let sym;\n'
         '    if (a === "2" || a === "P") { sym = a + b; }\n'
