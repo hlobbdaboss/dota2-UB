@@ -1,3 +1,4 @@
+cat << 'EOF' > parse_set.py
 import zipfile
 import json
 import os
@@ -14,36 +15,23 @@ IMAGES_DIR = os.path.join(REPO_DIR, "docs", "cards")
 # ─── Mana cost parsing ────────────────────────────────────────────────────────
 
 def parse_mana_cost(cost_str):
-    """
-    Convert MSE casting_cost string into a list of pip tokens.
-    MSE hybrid format: W/BW/B  →  [{W/B}, {W/B}]
-    MSE phyrexian:     W/P     →  [{W/P}]
-    Generic numerals and X are single tokens.
-    """
     if not cost_str:
         return []
 
     tokens = []
     i = 0
-    s = cost_str.strip()
+    s = cost_str.strip().replace(" ", "").upper()
 
     while i < len(s):
-        # Try to match a hybrid/phyrexian pip: two chars, slash, two chars  e.g. W/B or G/W or 2/W
-        # MSE concatenates hybrid pips with no separator, e.g. "W/BW/B"
-        # We detect a hybrid pip as: (char)(char?)/( char)(char?)
-        # Simple approach: look for '/' and grab the surrounding characters
         if i + 2 < len(s) and s[i+1] == '/':
-            # single char / single char  e.g. W/B, G/W, R/G, B/R, X/Y
-            pip = s[i:i+3]   # e.g. "W/B"
+            pip = s[i:i+3]
             tokens.append(pip)
             i += 3
         elif i + 3 < len(s) and s[i+2] == '/':
-            # two char / single char  e.g. "2/W" — phyrexian generic
             pip = s[i:i+4]
             tokens.append(pip)
             i += 4
         elif s[i].isdigit():
-            # Collect multi-digit generic mana
             j = i
             while j < len(s) and s[j].isdigit():
                 j += 1
@@ -56,89 +44,12 @@ def parse_mana_cost(cost_str):
             tokens.append(s[i])
             i += 1
         else:
-            i += 1  # skip unknown characters
+            i += 1
 
     return tokens
 
 
-def mana_pip_html(pip):
-    """Return an HTML span for a single mana pip."""
-    # Colour map for single pips
-    COLORS = {
-        'W': ('#f9faf4', '#a89f7a', 'W'),
-        'U': ('#0e68ab', '#0a4d80', 'U'),
-        'B': ('#150b00', '#4a3728', 'B'),
-        'R': ('#d3202a', '#a01820', 'R'),
-        'G': ('#00733e', '#005c32', 'G'),
-        'C': ('#c0b9bc', '#8a8086', 'C'),  # colourless
-        'X': ('#888', '#555', 'X'),
-    }
-    # Hybrid pip colours (background is a gradient split)
-    HYBRID_GRAD = {
-        'W/U': ('#f9faf4', '#0e68ab'),
-        'W/B': ('#f9faf4', '#150b00'),
-        'U/B': ('#0e68ab', '#150b00'),
-        'U/R': ('#0e68ab', '#d3202a'),
-        'B/R': ('#150b00', '#d3202a'),
-        'B/G': ('#150b00', '#00733e'),
-        'R/G': ('#d3202a', '#00733e'),
-        'R/W': ('#d3202a', '#f9faf4'),
-        'G/W': ('#00733e', '#f9faf4'),
-        'G/U': ('#00733e', '#0e68ab'),
-        'W/G': ('#f9faf4', '#00733e'),
-    }
-
-    pip = pip.upper()
-
-    style_base = (
-        "display:inline-flex;align-items:center;justify-content:center;"
-        "width:18px;height:18px;border-radius:50%;font-size:10px;"
-        "font-weight:bold;border:1px solid rgba(0,0,0,0.4);"
-        "margin:0 1px;vertical-align:middle;flex-shrink:0;"
-    )
-
-    if '/' in pip:
-        left, right = pip.split('/', 1)
-        if pip in HYBRID_GRAD:
-            c1, c2 = HYBRID_GRAD[pip]
-        else:
-            c1 = COLORS.get(left, ('#888', '#555', left))[0]
-            c2 = COLORS.get(right, ('#888', '#555', right))[0]
-        text_color = '#000' if pip in ('W/U', 'G/W', 'R/W', 'W/G', 'G/U') else '#fff'
-        bg = f"linear-gradient(135deg, {c1} 50%, {c2} 50%)"
-        label = f"{left}/{right}"
-        return (
-            f'<span class="mana-pip" style="{style_base}background:{bg};color:{text_color};" '
-            f'title="{{{label}}}">{label}</span>'
-        )
-    elif pip.lstrip('0123456789') == '':
-        # Generic mana numeral
-        return (
-            f'<span class="mana-pip" style="{style_base}background:#bbb;color:#222;" '
-            f'title="{{{pip}}}">{pip}</span>'
-        )
-    elif pip == 'X':
-        return (
-            f'<span class="mana-pip" style="{style_base}background:#888;color:#fff;" '
-            f'title="{{X}}">X</span>'
-        )
-    else:
-        c = COLORS.get(pip, ('#888', '#555', pip))
-        text_color = '#222' if pip == 'W' else '#fff'
-        return (
-            f'<span class="mana-pip" style="{style_base}background:{c[0]};color:{text_color};" '
-            f'title="{{{pip}}}">{pip}</span>'
-        )
-
-
-def mana_cost_html(cost_str):
-    """Render a full casting cost string as HTML pips."""
-    pips = parse_mana_cost(cost_str)
-    return ''.join(mana_pip_html(p) for p in pips)
-
-
 def cmc_from_cost(cost_str):
-    """Calculate converted mana cost (CMC) from MSE cost string."""
     pips = parse_mana_cost(cost_str)
     total = 0
     for pip in pips:
@@ -146,7 +57,7 @@ def cmc_from_cost(cost_str):
             continue
         elif '/' in pip:
             total += 1
-        elif pip.isdigit() or pip.lstrip('0123456789') == '':
+        elif pip.isdigit():
             total += int(pip)
         else:
             total += 1
@@ -156,14 +67,12 @@ def cmc_from_cost(cost_str):
 # ─── MSE parsing ──────────────────────────────────────────────────────────────
 
 def clean_mse_text(text):
-    """Remove MSE markup and clean up text."""
     text = re.sub(r'<[^>]+>', '', text)
     text = text.replace('\\n', '\n')
     return text.strip()
 
 
 def get_color_identity(cost_str, rules_text=''):
-    """Derive color identity from mana cost and rules text."""
     pips = parse_mana_cost(cost_str)
     colors = set()
     color_map = {'W': 'W', 'U': 'U', 'B': 'B', 'R': 'R', 'G': 'G'}
@@ -173,7 +82,6 @@ def get_color_identity(cost_str, rules_text=''):
             if ch in color_map:
                 colors.add(ch)
 
-    # Also scan rules text for mana symbols like {W}, {U} etc.
     for ch in 'WUBRG':
         if f'{{{ch}}}' in rules_text:
             colors.add(ch)
@@ -182,7 +90,6 @@ def get_color_identity(cost_str, rules_text=''):
 
 
 def color_identity_label(colors):
-    """Convert a sorted list of colors to a guild/shard label."""
     key = ''.join(colors)
     labels = {
         '': 'Colorless', 'W': 'White', 'U': 'Blue', 'B': 'Black',
@@ -207,7 +114,7 @@ def parse_mse(filepath):
                         f.write(img_data)
 
         with z.open('set') as f:
-            content = f.read().decode('utf-8')
+            content = f.read().decode('utf-8', errors='ignore')
 
     cards = []
     blocks = content.split('\ncard:\n')
@@ -216,14 +123,12 @@ def parse_mse(filepath):
         card = {}
         lines = block.splitlines()
 
-        # Multi-line field accumulation
         current_field = None
         current_value = []
 
         for line in lines:
             stripped = line.strip()
 
-            # Detect field start
             if stripped.startswith('name:'):
                 card['name'] = stripped[5:].strip()
                 current_field = None
@@ -233,7 +138,7 @@ def parse_mse(filepath):
             elif stripped.startswith('image:') and 'image_2' not in stripped and 'image_3' not in stripped:
                 val = stripped[6:].strip()
                 if val:
-                    card['image'] = val
+                    card['image'] = f"{val}.png"
                 current_field = None
             elif stripped.startswith('super_type:'):
                 card['super_type'] = clean_mse_text(stripped[11:].strip())
@@ -268,6 +173,17 @@ def parse_mse(filepath):
             sub_type = card.get('sub_type', '')
             card['type'] = f"{super_type} — {sub_type}" if sub_type else super_type
             card['cmc'] = cmc_from_cost(card.get('cost', ''))
+            
+            card['is_token'] = "TOKEN" in card['type'].upper()
+            
+            card['mana_symbols'] = []
+            pips = parse_mana_cost(card.get('cost', ''))
+            for pip in pips:
+                if '/' in pip:
+                    card['mana_symbols'].append("".join(sorted(list(pip.replace("/", "")))))
+                else:
+                    card['mana_symbols'].append(pip)
+
             card['colors'] = get_color_identity(card.get('cost', ''), card.get('rules', ''))
             card['color_label'] = color_identity_label(card['colors'])
             cards.append(card)
@@ -278,8 +194,7 @@ def parse_mse(filepath):
 # ─── Analytics helpers ────────────────────────────────────────────────────────
 
 def compute_analytics(cards):
-    # Exclude tokens and basic lands for most stats
-    playable = [c for c in cards if 'Token' not in c.get('type', '') and c.get('name')]
+    playable = [c for c in cards if not c.get('is_token', False) and c.get('name')]
 
     color_counts = {'W': 0, 'U': 0, 'B': 0, 'R': 0, 'G': 0,
                     'Azorius': 0, 'Orzhov': 0, 'Boros': 0, 'Selesnya': 0,
@@ -296,7 +211,6 @@ def compute_analytics(cards):
         label = c.get('color_label', 'Colorless')
         colors = c.get('colors', [])
 
-        # Color identity
         if 'Land' in t:
             color_counts['Land'] = color_counts.get('Land', 0) + 1
         elif len(colors) == 0:
@@ -308,11 +222,9 @@ def compute_analytics(cards):
         else:
             color_counts['Multicolor'] = color_counts.get('Multicolor', 0) + 1
 
-        # CMC
         cmc = min(c.get('cmc', 0), 9)
         cmc_counts[cmc] = cmc_counts.get(cmc, 0) + 1
 
-        # Type
         if 'Land' in t:
             type_counts['Land'] += 1
         elif 'Creature' in t:
@@ -359,7 +271,6 @@ def build_html(cards, analytics):
             min-height: 100vh;
         }}
 
-        /* ── Header ── */
         .header {{
             background: linear-gradient(180deg, #1a1228 0%, #0d0f1a 100%);
             border-bottom: 1px solid #c89b3c44;
@@ -380,7 +291,6 @@ def build_html(cards, analytics):
             text-transform: uppercase;
         }}
 
-        /* ── Analytics dashboard ── */
         .dashboard {{
             display: grid;
             grid-template-columns: 140px 1fr 1fr 1fr;
@@ -427,7 +337,6 @@ def build_html(cards, analytics):
         }}
         .chart-box canvas {{ max-height: 120px; }}
 
-        /* ── Filters ── */
         .filters {{
             display: flex;
             flex-wrap: wrap;
@@ -471,7 +380,6 @@ def build_html(cards, analytics):
             white-space: nowrap;
         }}
 
-        /* ── Card grid ── */
         .grid {{
             display: flex;
             flex-wrap: wrap;
@@ -536,7 +444,6 @@ def build_html(cards, analytics):
         .r-rare {{ background: #ffaa44; }}
         .r-mythic {{ background: #ff66aa; }}
 
-        /* ── Modal ── */
         .modal {{
             display: none;
             position: fixed;
@@ -583,9 +490,17 @@ def build_html(cards, analytics):
         .modal-cost {{
             display: flex;
             align-items: center;
-            gap: 2px;
+            gap: 4px;
             margin-bottom: 6px;
             flex-wrap: wrap;
+        }}
+        .svg-symbol {{
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.6);
+            vertical-align: middle;
+            display: inline-block;
         }}
         .modal-type {{
             font-size: 0.85em;
@@ -643,8 +558,8 @@ def build_html(cards, analytics):
 
 <div class="dashboard">
     <div class="stat-box">
-        <div class="stat-number" id="displayed-count">{analytics['total']}</div>
-        <div class="stat-label">Cards</div>
+        <div class="stat-number" id="displayed-count">0</div>
+        <div class="stat-label" id="kpiLabel">Draft Cards</div>
     </div>
     <div class="chart-box">
         <div class="chart-title">Color Identity Distribution</div>
@@ -707,6 +622,10 @@ def build_html(cards, analytics):
         <option value="5">5</option>
         <option value="6">6+</option>
     </select>
+    <select id="variant-filter" onchange="applyFilters()">
+        <option value="All">All Cube Cards</option>
+        <option value="Token">Tokens & Emblems Only</option>
+    </select>
     <select id="sort-filter" onchange="applyFilters()">
         <option value="name">Name (A–Z)</option>
         <option value="cmc">Mana Value</option>
@@ -729,69 +648,16 @@ def build_html(cards, analytics):
 
 <script>
 const ALL_CARDS = {cards_json};
-const ANALYTICS = {analytics_json};
+let chart1, chart2, chart3;
 
-// ── Mana pip renderer (JS mirror of Python) ───────────────────────────────────
-const COLOR_BG = {{
-    W:'#f9faf4', U:'#0e68ab', B:'#150b00', R:'#d3202a', G:'#00733e', C:'#c0b9bc'
-}};
-const HYBRID_GRAD = {{
-    'W/U':['#f9faf4','#0e68ab'], 'W/B':['#f9faf4','#150b00'],
-    'U/B':['#0e68ab','#150b00'], 'U/R':['#0e68ab','#d3202a'],
-    'B/R':['#150b00','#d3202a'], 'B/G':['#150b00','#00733e'],
-    'R/G':['#d3202a','#00733e'], 'R/W':['#d3202a','#f9faf4'],
-    'G/W':['#00733e','#f9faf4'], 'G/U':['#00733e','#0e68ab'],
-    'W/G':['#f9faf4','#00733e'],
-}};
-
-function parseCost(cost) {{
-    if (!cost) return [];
-    const tokens = [];
-    let i = 0;
-    const s = cost.toUpperCase();
-    while (i < s.length) {{
-        if (i+2 < s.length && s[i+1] === '/') {{
-            tokens.push(s.slice(i, i+3)); i += 3;
-        }} else if (i+3 < s.length && s[i+2] === '/') {{
-            tokens.push(s.slice(i, i+4)); i += 4;
-        }} else if (/\\d/.test(s[i])) {{
-            let j = i;
-            while (j < s.length && /\\d/.test(s[j])) j++;
-            tokens.push(s.slice(i, j)); i = j;
-        }} else {{
-            tokens.push(s[i]); i++;
-        }}
-    }}
-    return tokens;
+// Properly escape single literal curly braces by doubling them for the Python f-string scope
+function formatManaSymbols(manaSymbolsArray) {{
+    if (!manaSymbolsArray || manaSymbolsArray.length === 0) return '';
+    return manaSymbolsArray.map(sym => 
+        `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/\${{sym}}.svg" />`
+    ).join('');
 }}
 
-function pipHtml(pip) {{
-    const base = `display:inline-flex;align-items:center;justify-content:center;
-        width:20px;height:20px;border-radius:50%;font-size:10px;font-weight:bold;
-        border:1px solid rgba(0,0,0,0.5);margin:0 1px;vertical-align:middle;flex-shrink:0;`;
-    pip = pip.toUpperCase();
-    if (pip.includes('/')) {{
-        const [l, r] = pip.split('/');
-        const grad = HYBRID_GRAD[pip] || [COLOR_BG[l]||'#888', COLOR_BG[r]||'#888'];
-        const light = ['W/U','G/W','R/W','W/G','G/U'].includes(pip);
-        return `<span style="${{base}}background:linear-gradient(135deg,${{grad[0]}} 50%,${{grad[1]}} 50%);
-            color:${{light?'#222':'#fff'}}" title="${{ '{' + pip + '}' }}">${{l}}/${{r}}</span>`;
-    }} else if (/^\\d+$/.test(pip)) {{
-        return `<span style="${{base}}background:#bbb;color:#222" title="${{ '{' + pip + '}' }}">${{pip}}</span>`;
-    }} else if (pip === 'X') {{
-        return `<span style="${{base}}background:#888;color:#fff" title="{{X}}">X</span>`;
-    }} else {{
-        const bg = COLOR_BG[pip] || '#888';
-        const tc = pip === 'W' ? '#222' : '#fff';
-        return `<span style="${{base}}background:${{bg}};color:${{tc}}" title="${{ '{' + pip + '}' }}">${{pip}}</span>`;
-    }}
-}}
-
-function costHtml(cost) {{
-    return parseCost(cost).map(pipHtml).join('');
-}}
-
-// ── Rarity helpers ────────────────────────────────────────────────────────────
 function rarityClass(r) {{
     if (!r) return 'r-common';
     const rl = r.toLowerCase();
@@ -810,7 +676,6 @@ function rarityOrder(r) {{
     return 0;
 }}
 
-// ── Filtering & sorting ───────────────────────────────────────────────────────
 let visibleCards = [...ALL_CARDS];
 
 function applyFilters() {{
@@ -819,6 +684,7 @@ function applyFilters() {{
     const typ = document.getElementById('type-filter').value;
     const rar = document.getElementById('rarity-filter').value;
     const cmc = document.getElementById('cmc-filter').value;
+    const variant = document.getElementById('variant-filter').value;
     const srt = document.getElementById('sort-filter').value;
 
     let filtered = ALL_CARDS.filter(c => {{
@@ -827,10 +693,14 @@ function applyFilters() {{
         const typMatch = !typ || (c.type||'').includes(typ);
         const rarMatch = !rar || (c.rarity||'').toLowerCase() === rar;
         const cmcMatch = !cmc || (cmc === '6' ? c.cmc >= 6 : c.cmc == parseInt(cmc));
-        return nameMatch && colMatch && typMatch && rarMatch && cmcMatch;
+        
+        let tokenMatch = true;
+        if (variant === 'All') tokenMatch = !c.is_token;
+        if (variant === 'Token') tokenMatch = c.is_token;
+        
+        return nameMatch && colMatch && typMatch && rarMatch && cmcMatch && tokenMatch;
     }});
 
-    // Sort
     filtered.sort((a, b) => {{
         if (srt === 'name') return (a.name||'').localeCompare(b.name||'');
         if (srt === 'cmc') return (a.cmc||0) - (b.cmc||0) || (a.name||'').localeCompare(b.name||'');
@@ -842,8 +712,11 @@ function applyFilters() {{
 
     visibleCards = filtered;
     renderGrid(filtered);
-    document.getElementById('result-count').textContent = `${{filtered.length}} of ${{ALL_CARDS.length}} cards`;
+    document.getElementById('result-count').textContent = `\${{filtered.length}} of \${{ALL_CARDS.length}} cards`;
     document.getElementById('displayed-count').textContent = filtered.length;
+    document.getElementById('kpiLabel').textContent = variant === 'Token' ? 'Tokens' : 'Draft Cards';
+    
+    updateCharts(filtered);
 }}
 
 function resetFilters() {{
@@ -852,43 +725,42 @@ function resetFilters() {{
     document.getElementById('type-filter').value = '';
     document.getElementById('rarity-filter').value = '';
     document.getElementById('cmc-filter').value = '';
+    document.getElementById('variant-filter').value = 'All';
     document.getElementById('sort-filter').value = 'name';
     applyFilters();
 }}
 
-// ── Grid rendering ────────────────────────────────────────────────────────────
 function renderGrid(cards) {{
     const grid = document.getElementById('grid');
     grid.innerHTML = cards.map((c, i) => {{
         const img = c.image
-            ? `<img src="cards/${{c.image}}" alt="${{c.name}}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'no-img\\'>🎴</div>'">`
+            ? `<img src="cards/\${{c.image}}" alt="\${{c.name}}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'no-img\\'>🎴</div>'">`
             : `<div class="no-img">🎴</div>`;
-        return `<div class="card" onclick="showModal(${{ALL_CARDS.indexOf(c)}})">
-            ${{img}}
+        return `<div class="card" onclick="showModal(\${{ALL_CARDS.indexOf(c)}})">
+            \${{img}}
             <div class="card-footer">
-                <span class="card-name">${{c.name}}</span>
-                <span class="rarity-dot ${{rarityClass(c.rarity)}}"></span>
+                <span class="card-name">\${{c.name}}</span>
+                <span class="rarity-dot \${{rarityClass(c.rarity)}}"></span>
             </div>
         </div>`;
     }}).join('');
 }}
 
-// ── Modal ─────────────────────────────────────────────────────────────────────
 function showModal(idx) {{
     const c = ALL_CARDS[idx];
     const body = document.getElementById('modal-body');
     body.innerHTML = `
-        ${{c.image ? `<img src="cards/${{c.image}}" alt="${{c.name}}">` : ''}}
-        <div class="modal-name">${{c.name}}</div>
-        <div class="modal-cost">${{costHtml(c.cost)}}</div>
-        <div class="modal-type">${{c.type||''}}</div>
-        <div class="modal-rules">${{(c.rules||'').replace(/\\n/g,'<br>')}}</div>
-        ${{c.flavor ? `<div class="modal-flavor">${{c.flavor}}</div>` : ''}}
-        ${{c.pt ? `<div class="modal-pt">${{c.pt}}</div>` : ''}}
+        \${{c.image ? `<img src="cards/\${{c.image}}" alt="\${{c.name}}">` : ''}}
+        <div class="modal-name">\${{c.name}}</div>
+        <div class="modal-cost">\${{formatManaSymbols(c.mana_symbols)}}</div>
+        <div class="modal-type">\${{c.type||''}}</div>
+        <div class="modal-rules">\${{(c.rules||'').replace(/\\n/g,'<br>')}}</div>
+        \${{c.flavor ? `<div class="modal-flavor">\${{c.flavor}}</div>` : ''}}
+        \${{c.pt ? `<div class="modal-pt">\${{c.pt}}</div>` : ''}}
         <div class="modal-meta">
-            ${{c.rarity ? `<span class="badge">${{c.rarity}}</span>` : ''}}
-            ${{c.color_label ? `<span class="badge">${{c.color_label}}</span>` : ''}}
-            ${{c.cmc !== undefined ? `<span class="badge">CMC ${{c.cmc}}</span>` : ''}}
+            \${{c.rarity ? `<span class="badge">\${{c.rarity}}</span>` : ''}}
+            \${{c.color_label ? `<span class="badge">\${{c.color_label}}</span>` : ''}}
+            \${{c.cmc !== undefined ? `<span class="badge">CMC \${{c.cmc}}</span>` : ''}}
         </div>
     `;
     document.getElementById('modal').classList.add('active');
@@ -902,7 +774,6 @@ function modalBgClick(e) {{
     if (e.target === document.getElementById('modal')) closeModal();
 }}
 
-// ── Charts ────────────────────────────────────────────────────────────────────
 const CHART_DEFAULTS = {{
     plugins: {{ legend: {{ labels: {{ color: '#7a7060', font: {{ size: 10 }} }} }} }},
     scales: {{
@@ -911,47 +782,79 @@ const CHART_DEFAULTS = {{
     }}
 }};
 
-// Color chart
-const colorData = ANALYTICS.color_counts;
-const colorLabels = Object.keys(colorData).filter(k => colorData[k] > 0);
-const colorVals = colorLabels.map(k => colorData[k]);
-new Chart(document.getElementById('colorChart'), {{
-    type: 'bar',
-    data: {{
-        labels: colorLabels,
-        datasets: [{{ data: colorVals, backgroundColor: '#c89b3c88', borderColor: '#c89b3c', borderWidth: 1 }}]
-    }},
-    options: {{ ...CHART_DEFAULTS, plugins: {{ legend: {{ display: false }} }}, responsive: true, maintainAspectRatio: true }}
-}});
+function updateCharts(activeCards) {{
+    const colorMap = {{}};
+    const cmcCounts = {{}};
+    const typeCounts = {{ Creature:0, Instant:0, Sorcery:0, Enchantment:0, Artifact:0, Land:0, Other:0 }};
 
-// CMC chart
-const cmcData = ANALYTICS.cmc_counts;
-new Chart(document.getElementById('cmcChart'), {{
-    type: 'bar',
-    data: {{
-        labels: Object.keys(cmcData).map(k => k == 9 ? '9+' : k),
-        datasets: [{{ data: Object.values(cmcData), backgroundColor: '#c89b3c88', borderColor: '#c89b3c', borderWidth: 1 }}]
-    }},
-    options: {{ ...CHART_DEFAULTS, plugins: {{ legend: {{ display: false }} }}, responsive: true, maintainAspectRatio: true }}
-}});
+    activeCards.forEach(c => {{
+        colorMap[c.color_label] = (colorMap[c.color_label] || 0) + 1;
+        cmcCounts[c.cmc] = (cmcCounts[c.cmc] || 0) + 1;
+        
+        let found = false;
+        ['Creature', 'Instant', 'Sorcery', 'Enchantment', 'Artifact', 'Land'].forEach(t => {{
+            if ((c.type||'').includes(t)) {{ typeCounts[t]++; found = true; }}
+        }});
+        if (!found) typeCounts.Other++;
+    }});
 
-// Type donut
-const typeData = ANALYTICS.type_counts;
-new Chart(document.getElementById('typeChart'), {{
-    type: 'doughnut',
-    data: {{
-        labels: Object.keys(typeData),
-        datasets: [{{
-            data: Object.values(typeData),
-            backgroundColor: ['#4a9e6b','#6aadff','#aa88ff','#ffaa44','#ff6688','#c89b3c','#7a7060'],
-            borderColor: '#1a1e30', borderWidth: 2
-        }}]
-    }},
-    options: {{ responsive: true, maintainAspectRatio: true, plugins: {{ legend: {{ position: 'right', labels: {{ color: '#7a7060', font: {{ size: 9 }}, boxWidth: 12 }} }} }} }}
-}});
+    const labelKeys = ['White', 'Blue', 'Black', 'Red', 'Green', 'Azorius', 'Orzhov', 'Boros', 'Selesnya', 'Dimir', 'Izzet', 'Simic', 'Rakdos', 'Golgari', 'Gruul', 'Colorless', 'Land'];
+    chart1.data.labels = labelKeys.filter(k => colorMap[k] > 0);
+    chart1.data.datasets[0].data = chart1.data.labels.map(k => colorMap[k] || 0);
+    chart1.update();
 
-// ── Init ──────────────────────────────────────────────────────────────────────
-applyFilters();
+    const maxCmc = Math.max(...Object.keys(cmcCounts).map(Number), 5);
+    const cmcLabels = Array.from({{length: maxCmc + 1}}, (_, i) => i);
+    chart2.data.labels = cmcLabels.map(k => k >= 6 ? '6+' : k);
+    chart2.data.datasets[0].data = cmcLabels.map(l => cmcCounts[l] || 0);
+    chart2.update();
+
+    chart3.data.datasets[0].data = Object.values(typeCounts);
+    chart3.update();
+}}
+
+function initCharts() {{
+    const coreCards = ALL_CARDS.filter(c => !c.is_token);
+    const colorMap = {{}};
+    const cmcCounts = {{}};
+    const typeCounts = {{ Creature:0, Instant:0, Sorcery:0, Enchantment:0, Artifact:0, Land:0, Other:0 }};
+
+    coreCards.forEach(c => {{
+        colorMap[c.color_label] = (colorMap[c.color_label] || 0) + 1;
+        cmcCounts[c.cmc] = (cmcCounts[c.cmc] || 0) + 1;
+        let found = false;
+        ['Creature', 'Instant', 'Sorcery', 'Enchantment', 'Artifact', 'Land'].forEach(t => {{
+            if ((c.type||'').includes(t)) {{ typeCounts[t]++; found = true; }}
+        }});
+        if (!found) typeCounts.Other++;
+    }});
+
+    const labelKeys = ['White', 'Blue', 'Black', 'Red', 'Green', 'Azorius', 'Orzhov', 'Boros', 'Selesnya', 'Dimir', 'Izzet', 'Simic', 'Rakdos', 'Golgari', 'Gruul', 'Colorless', 'Land'];
+
+    chart1 = new Chart(document.getElementById('colorChart'), {{
+        type: 'bar',
+        data: {{ labels: labelKeys.filter(k => colorMap[k] > 0), datasets: [{{ data: labelKeys.filter(k => colorMap[k] > 0).map(k => colorMap[k] || 0), backgroundColor: '#c89b3c88', borderColor: '#c89b3c', borderWidth: 1 }}] }},
+        options: {{ ...CHART_DEFAULTS, plugins: {{ legend: {{ display: false }} }}, responsive: true, maintainAspectRatio: false }}
+    }});
+
+    const maxCmc = Math.max(...Object.keys(cmcCounts).map(Number), 5);
+    const cmcLabels = Array.from({{length: maxCmc + 1}}, (_, i) => i);
+    chart2 = new Chart(document.getElementById('cmcChart'), {{
+        type: 'bar',
+        data: {{ labels: cmcLabels.map(k => k >= 6 ? '6+' : k), datasets: [{{ data: cmcLabels.map(l => cmcCounts[l] || 0), backgroundColor: '#c89b3c88', borderColor: '#c89b3c', borderWidth: 1 }}] }},
+        options: {{ ...CHART_DEFAULTS, plugins: {{ legend: {{ display: false }} }}, responsive: true, maintainAspectRatio: false }}
+    }});
+
+    chart3 = new Chart(document.getElementById('typeChart'), {{
+        type: 'doughnut',
+        data: {{ labels: Object.keys(typeCounts), datasets: [{{ data: Object.values(typeCounts), backgroundColor: ['#4a9e6b','#6aadff','#aa88ff','#ffaa44','#ff6688','#c89b3c','#7a7a7a'], borderColor: '#1a1e30', borderWidth: 2 }}] }},
+        options: {{ responsive: true, maintainAspectRatio: false, plugins: {{ legend: {{ position: 'right', labels: {{ color: '#7a7060', font: {{ size: 9 }}, boxWidth: 12 }} }} }} }}
+    }});
+
+    applyFilters();
+}}
+
+window.onload = initCharts;
 </script>
 </body>
 </html>"""
@@ -987,3 +890,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+EOF

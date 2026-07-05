@@ -1,607 +1,891 @@
-import os
 import zipfile
-import re
 import json
+import os
+import subprocess
+from datetime import datetime
+import re
 
-MSE_FILE_PATH = "/Users/Harrison_1/Desktop/Full-Magic-Pack-main/Sets/Dota Set.mse-set"
-EXTRACT_DIR = "./temp_mse"
-DOCS_DIR = "./docs"
+# Paths
+MSE_FILE = "/Users/Harrison_1/Desktop/Full-Magic-Pack-main/Sets/Dota Set.mse-set"
+REPO_DIR = "/Users/Harrison_1/dota2-set"
+OUTPUT_JSON = os.path.join(REPO_DIR, "docs", "cards.json")
+IMAGES_DIR = os.path.join(REPO_DIR, "docs", "cards")
 
-def clean_tags(text):
-    if not text:
-        return ""
-    clean = re.sub(r'<(?!img\b)[^>]+>', '', text)
-    return clean.strip()
+# ─── Mana cost parsing ────────────────────────────────────────────────────────
 
-def parse_hybrid_and_cmc(mana_string):
-    if not mana_string:
-        return 0, [], []
-    
-    raw_symbols = mana_string.strip().replace(" ", "").upper()
-    mana_symbols_list = []
-    
-    generic_match = re.match(r'^(\d+)', raw_symbols)
-    generic_amt = int(generic_match.group(1)) if generic_match else 0
-    if generic_match:
-        mana_symbols_list.append(generic_match.group(1))
-        
-    symbol_part = re.sub(r'^\d+', '', raw_symbols)
-    
-    pattern = re.compile(r'([WUBRGCX]\/[WUBRGCX]|[WUBRGCX])')
-    parts = pattern.findall(symbol_part)
-    
-    symbol_count = len(parts)
-    for part in parts:
-        clean_part = part.replace("/", "")
-        if len(clean_part) == 1:
-            mana_symbols_list.append(clean_part)
+def parse_mana_cost(cost_str):
+    if not cost_str:
+        return []
+
+    tokens = []
+    i = 0
+    s = cost_str.strip().replace(" ", "").upper()
+
+    while i < len(s):
+        if i + 2 < len(s) and s[i+1] == '/':
+            pip = s[i:i+3]
+            tokens.append(pip)
+            i += 3
+        elif i + 3 < len(s) and s[i+2] == '/':
+            pip = s[i:i+4]
+            tokens.append(pip)
+            i += 4
+        elif s[i].isdigit():
+            j = i
+            while j < len(s) and s[j].isdigit():
+                j += 1
+            tokens.append(s[i:j])
+            i = j
+        elif s[i] == 'X':
+            tokens.append('X')
+            i += 1
+        elif s[i].isalpha():
+            tokens.append(s[i])
+            i += 1
         else:
-            mana_symbols_list.append("".join(sorted(list(clean_part))))
-            
-    cmc = generic_amt + symbol_count
-    
-    flat_symbols = "".join(parts).replace("/", "")
-    colors = []
-    for c in ['W', 'U', 'B', 'R', 'G']:
-        if c in flat_symbols:
-            colors.append(c)
-            
-    return cmc, colors, mana_symbols_list
+            i += 1
 
-def substitute_mse_symbols(text):
-    if not text:
-        return ""
-        
-    def replace_sym(match):
-        sym = match.group(1).upper().replace(" ", "")
-        if "/" in sym:
-            sym = "".join(sorted(list(sym.replace("/", ""))))
-        if sym == "T":
-            return '<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/T.svg" />'
-        if sym == "Q":
-            return '<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/Q.svg" />'
-        return f'<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/{sym}.svg" />'
+    return tokens
 
-    text = re.sub(r'<sym(?:-auto)?>([^<]+)</sym(?:-auto)?>', replace_sym, text)
-    return text
 
-def parse_mse_set():
-    if not os.path.exists(MSE_FILE_PATH):
-        print(f"Error: Could not find MSE file at {MSE_FILE_PATH}")
-        return
+def cmc_from_cost(cost_str):
+    pips = parse_mana_cost(cost_str)
+    total = 0
+    for pip in pips:
+        if pip == 'X':
+            continue
+        elif '/' in pip:
+            total += 1
+        elif pip.isdigit():
+            total += int(pip)
+        else:
+            total += 1
+    return total
 
-    print("Extracting archive engine...")
-    with zipfile.ZipFile(MSE_FILE_PATH, 'r') as zip_ref:
-        zip_ref.extractall(EXTRACT_DIR)
 
-    set_data_path = os.path.join(EXTRACT_DIR, "set")
-    if not os.path.exists(set_data_path):
-        print("Error: 'set' data file not found.")
-        return
+# ─── MSE parsing ──────────────────────────────────────────────────────────────
 
-    print("Parsing full set card array...")
-    card_list = []
-    current_card = None
-    in_text_block = False
-    text_target = "text"
-    text_store = {"text": [], "text_2": []}
+def clean_mse_text(text):
+    text = re.sub(r'<[^>]+>', '', text)
+    text = text.replace('\\n', '\n')
+    return text.strip()
 
-    with open(set_data_path, 'r', encoding='utf-8', errors='ignore') as f:
-        for line in f:
-            if line.strip() == "card:":
-                if current_card and current_card.get('name'):
-                    current_card['text'] = "\n".join(text_store["text"]).strip()
-                    current_card['text_2'] = "\n".join(text_store["text_2"]).strip()
-                    card_list.append(current_card)
-                current_card = {
-                    'name': '', 'super_type': '', 'sub_type': '', 'mana': '', 'text': '', 'power': '', 'toughness': '', 'rarity': 'common',
-                    'name_2': '', 'super_type_2': '', 'sub_type_2': '', 'text_2': '', 'power_2': '', 'toughness_2': ''
-                }
-                text_store = {"text": [], "text_2": []}
-                in_text_block = False
-                continue
 
-            if current_card is None:
-                continue
+def get_color_identity(cost_str, rules_text=''):
+    pips = parse_mana_cost(cost_str)
+    colors = set()
+    color_map = {'W': 'W', 'U': 'U', 'B': 'B', 'R': 'R', 'G': 'G'}
 
-            if in_text_block:
-                if line.startswith("\t\t") or line.startswith("  "):
-                    processed_line = substitute_mse_symbols(line)
-                    text_store[text_target].append(clean_tags(processed_line))
-                    continue
-                else:
-                    in_text_block = False
+    for pip in pips:
+        for ch in pip:
+            if ch in color_map:
+                colors.add(ch)
 
+    for ch in 'WUBRG':
+        if f'{{{ch}}}' in rules_text:
+            colors.add(ch)
+
+    return sorted(colors, key=lambda c: 'WUBRG'.index(c))
+
+
+def color_identity_label(colors):
+    key = ''.join(colors)
+    labels = {
+        '': 'Colorless', 'W': 'White', 'U': 'Blue', 'B': 'Black',
+        'R': 'Red', 'G': 'Green',
+        'WU': 'Azorius', 'WB': 'Orzhov', 'WR': 'Boros', 'WG': 'Selesnya',
+        'UB': 'Dimir', 'UR': 'Izzet', 'UG': 'Simic',
+        'BR': 'Rakdos', 'BG': 'Golgari', 'RG': 'Gruul',
+    }
+    return labels.get(key, f'{len(colors)}-color' if colors else 'Colorless')
+
+
+def parse_mse(filepath):
+    with zipfile.ZipFile(filepath, 'r') as z:
+        print("Extracting card images...")
+        os.makedirs(IMAGES_DIR, exist_ok=True)
+        for name in z.namelist():
+            if name.endswith('.png'):
+                with z.open(name) as img_file:
+                    img_data = img_file.read()
+                    out_path = os.path.join(IMAGES_DIR, name)
+                    with open(out_path, 'wb') as f:
+                        f.write(img_data)
+
+        with z.open('set') as f:
+            content = f.read().decode('utf-8', errors='ignore')
+
+    cards = []
+    blocks = content.split('\ncard:\n')
+
+    for block in blocks[1:]:
+        card = {}
+        lines = block.splitlines()
+
+        current_field = None
+        current_value = []
+
+        for line in lines:
             stripped = line.strip()
-            if not stripped or ":" not in stripped:
-                continue
 
-            key, value = stripped.split(":", 1)
-            key = key.strip()
-            value = value.strip()
+            if stripped.startswith('name:'):
+                card['name'] = stripped[5:].strip()
+                current_field = None
+            elif stripped.startswith('casting_cost:'):
+                card['cost'] = stripped[13:].strip()
+                current_field = None
+            elif stripped.startswith('image:') and 'image_2' not in stripped and 'image_3' not in stripped:
+                val = stripped[6:].strip()
+                if val:
+                    card['image'] = f"{val}.png"
+                current_field = None
+            elif stripped.startswith('super_type:'):
+                card['super_type'] = clean_mse_text(stripped[11:].strip())
+                current_field = None
+            elif stripped.startswith('sub_type:'):
+                card['sub_type'] = clean_mse_text(stripped[9:].strip())
+                current_field = None
+            elif stripped.startswith('rarity:'):
+                card['rarity'] = stripped[7:].strip()
+                current_field = None
+            elif stripped.startswith('rule_text:'):
+                current_field = 'rules'
+                current_value = [clean_mse_text(stripped[10:].strip())]
+            elif stripped.startswith('flavor_text:'):
+                if current_field and current_value:
+                    card[current_field] = '\n'.join(current_value).strip()
+                current_field = 'flavor'
+                current_value = [clean_mse_text(stripped[12:].strip())]
+            elif stripped.startswith('pt:'):
+                if current_field and current_value:
+                    card[current_field] = '\n'.join(current_value).strip()
+                card['pt'] = stripped[3:].strip()
+                current_field = None
+            elif current_field and stripped and not ':' in stripped[:20]:
+                current_value.append(clean_mse_text(stripped))
 
-            if key == "name": current_card['name'] = clean_tags(value)
-            elif key == "casting_cost": current_card['mana'] = clean_tags(value)
-            elif key == "super_type": current_card['super_type'] = clean_tags(value)
-            elif key == "sub_type": current_card['sub_type'] = clean_tags(value)
-            elif key == "power": current_card['power'] = clean_tags(value)
-            elif key == "toughness": current_card['toughness'] = clean_tags(value)
-            elif key == "rarity": current_card['rarity'] = clean_tags(value).lower()
-            elif key == "rule_text":
-                in_text_block = True
-                text_target = "text"
-                if value: text_store["text"].append(clean_tags(substitute_mse_symbols(value)))
-            elif key == "name_2": current_card['name_2'] = clean_tags(value)
-            elif key == "super_type_2": current_card['super_type_2'] = clean_tags(value)
-            elif key == "sub_type_2": current_card['sub_type_2'] = clean_tags(value)
-            elif key == "power_2": current_card['power_2'] = clean_tags(value)
-            elif key == "toughness_2": current_card['toughness_2'] = clean_tags(value)
-            elif key == "rule_text_2":
-                in_text_block = True
-                text_target = "text_2"
-                if value: text_store["text_2"].append(clean_tags(substitute_mse_symbols(value)))
+        if current_field and current_value:
+            card[current_field] = '\n'.join(current_value).strip()
 
-        if current_card and current_card.get('name'):
-            current_card['text'] = "\n".join(text_store["text"]).strip()
-            current_card['text_2'] = "\n".join(text_store["text_2"]).strip()
-            card_list.append(current_card)
+        if 'name' in card and card['name']:
+            super_type = card.get('super_type', '')
+            sub_type = card.get('sub_type', '')
+            card['type'] = f"{super_type} — {sub_type}" if sub_type else super_type
+            card['cmc'] = cmc_from_cost(card.get('cost', ''))
+            
+            card['is_token'] = "TOKEN" in card['type'].upper()
+            
+            card['mana_symbols'] = []
+            pips = parse_mana_cost(card.get('cost', ''))
+            for pip in pips:
+                if '/' in pip:
+                    card['mana_symbols'].append("".join(sorted(list(pip.replace("/", "")))))
+                else:
+                    card['mana_symbols'].append(pip)
 
-    for card in card_list:
-        card['type'] = f"{card['super_type']} — {card['sub_type']}" if card['super_type'] and card['sub_type'] else (card['super_type'] if card['super_type'] else "Unknown")
-        card['is_dfc'] = bool(card['name_2'].strip())
-        if card['is_dfc']:
-            card['type_2'] = f"{card['super_type_2']} — {card['sub_type_2']}" if card['super_type_2'] and card['sub_type_2'] else (card['super_type_2'] if card['super_type_2'] else "")
-        card['is_legendary'] = "Legendary" in card['type'] or "Legendary" in card.get('type_2', '')
-        
-        card['is_token'] = "TOKEN" in card['type'].upper() or ("TOKEN" in card.get('type_2', '').upper() if card.get('type_2') else False)
-        
-        card['cmc'], card['colors'], card['mana_symbols'] = parse_hybrid_and_cmc(card['mana'])
+            card['colors'] = get_color_identity(card.get('cost', ''), card.get('rules', ''))
+            card['color_label'] = color_identity_label(card['colors'])
+            cards.append(card)
 
-        if not card['colors']:
-            card['color_group'] = 'Land' if "Land" in card['type'] else 'Colorless'
-        elif len(card['colors']) > 1:
-            card['color_group'] = "".join(card['colors'])
+    return cards
+
+
+# ─── Analytics helpers ────────────────────────────────────────────────────────
+
+def compute_analytics(cards):
+    playable = [c for c in cards if not c.get('is_token', False) and c.get('name')]
+
+    color_counts = {'W': 0, 'U': 0, 'B': 0, 'R': 0, 'G': 0,
+                    'Azorius': 0, 'Orzhov': 0, 'Boros': 0, 'Selesnya': 0,
+                    'Dimir': 0, 'Izzet': 0, 'Simic': 0,
+                    'Rakdos': 0, 'Golgari': 0, 'Gruul': 0,
+                    'Colorless': 0, 'Multicolor': 0, 'Land': 0}
+
+    cmc_counts = {i: 0 for i in range(10)}
+    type_counts = {'Creature': 0, 'Instant': 0, 'Sorcery': 0,
+                   'Enchantment': 0, 'Artifact': 0, 'Land': 0, 'Other': 0}
+
+    for c in playable:
+        t = c.get('type', '')
+        label = c.get('color_label', 'Colorless')
+        colors = c.get('colors', [])
+
+        if 'Land' in t:
+            color_counts['Land'] = color_counts.get('Land', 0) + 1
+        elif len(colors) == 0:
+            color_counts['Colorless'] += 1
+        elif len(colors) == 1:
+            color_counts[colors[0]] = color_counts.get(colors[0], 0) + 1
+        elif len(colors) == 2:
+            color_counts[label] = color_counts.get(label, 0) + 1
         else:
-            card['color_group'] = card['colors'][0]
+            color_counts['Multicolor'] = color_counts.get('Multicolor', 0) + 1
 
-    card_list.sort(key=lambda c: c['cmc'])
-    generate_html(card_list)
+        cmc = min(c.get('cmc', 0), 9)
+        cmc_counts[cmc] = cmc_counts.get(cmc, 0) + 1
 
-    import shutil
-    shutil.rmtree(EXTRACT_DIR)
-    print(f"Successfully processed suite matrix for {len(card_list)} cards!")
+        if 'Land' in t:
+            type_counts['Land'] += 1
+        elif 'Creature' in t:
+            type_counts['Creature'] += 1
+        elif 'Instant' in t:
+            type_counts['Instant'] += 1
+        elif 'Sorcery' in t:
+            type_counts['Sorcery'] += 1
+        elif 'Enchantment' in t:
+            type_counts['Enchantment'] += 1
+        elif 'Artifact' in t:
+            type_counts['Artifact'] += 1
+        else:
+            type_counts['Other'] += 1
 
-def generate_html(cards):
-    os.makedirs(DOCS_DIR, exist_ok=True)
-    html_path = os.path.join(DOCS_DIR, "index.html")
+    return {
+        'total': len(playable),
+        'color_counts': color_counts,
+        'cmc_counts': cmc_counts,
+        'type_counts': type_counts
+    }
+
+
+# ─── HTML builder ─────────────────────────────────────────────────────────────
+
+def build_html(cards, analytics):
     cards_json = json.dumps(cards)
+    analytics_json = json.dumps(analytics)
 
-    html_content = """<!DOCTYPE html>
-<html>
+    html = f"""<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Dota 2 Cube Studio Dashboard</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dota 2 Cube — Universes Beyond</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
-        body { font-family: system-ui, -apple-system, sans-serif; background: #121212; color: #e0e0e0; padding: 25px; margin: 0; }
-        .header-row { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #222; padding-bottom: 10px; margin-bottom: 20px; }
-        h1 { margin: 0; font-size: 2.2em; color: #fff; }
-        
-        .dashboard-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-bottom: 30px; }
-        .chart-card { background: #1e1e1e; border: 1px solid #2a2a2a; border-radius: 8px; padding: 15px; height: 280px; display: flex; flex-direction: column; align-items: center; cursor: pointer; }
-        .chart-card h3 { margin: 0 0 10px 0; font-size: 1em; color: #aaa; text-align: left; width: 100%; }
-        .chart-container { position: relative; width: 100%; height: 100%; }
+        *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
 
-        .kpi-card { background: #1e1e1e; border: 1px solid #ffca28; border-radius: 8px; padding: 15px; height: 280px; display: flex; flex-direction: column; justify-content: center; align-items: center; box-sizing: border-box; }
-        .kpi-number { font-size: 4.5em; font-weight: 800; color: #ffca28; line-height: 1; margin-bottom: 10px; }
-        .kpi-label { font-size: 0.9em; text-transform: uppercase; letter-spacing: 1.5px; color: #888; font-weight: bold; text-align: center; }
+        body {{
+            background: #0d0f1a;
+            color: #e8e0d0;
+            font-family: 'Georgia', serif;
+            min-height: 100vh;
+        }}
 
-        .controls { background: #1a1a1a; padding: 20px; border-radius: 8px; border: 1px solid #2a2a2a; margin-bottom: 25px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; align-items: center; }
-        .control-group { display: flex; flex-direction: column; gap: 5px; }
-        .control-group label { font-size: 0.85em; color: #888; font-weight: bold; text-transform: uppercase; }
-        .search-box, .select-box { background: #2b2b2b; border: 1px solid #444; color: #fff; padding: 10px; border-radius: 6px; font-size: 0.95em; width: 100%; box-sizing: border-box; }
-        .reset-btn { background: #ff4757; border: none; color: white; padding: 11px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.95em; width: 100%; transition: background 0.2s; margin-top: 18px; }
-        .reset-btn:hover { background: #ff6b81; }
-        
-        .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 20px; align-items: start; }
-        .card-container-3d { perspective: 1000px; min-height: 200px; }
-        .card-inner-3d { position: relative; width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; }
-        .card-container-3d.flipped .card-inner-3d { transform: rotateY(180deg); }
-        
-        .card { background: #1e1e1e; border-left: 5px solid #444; border-top: 1px solid #2a2a2a; border-right: 1px solid #2a2a2a; border-bottom: 1px solid #2a2a2a; border-radius: 6px; padding: 15px; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box; }
-        
-        .dfc-front, .dfc-back { backface-visibility: hidden; width: 100%; -webkit-backface-visibility: hidden; }
-        .dfc-back { position: absolute; top: 0; left: 0; transform: rotateY(180deg); height: 100%; display: flex; flex-direction: column; justify-content: space-between; padding: 15px; background: #1e1e1e; border-left: 5px dashed #ffca28; border-top: 1px solid #2a2a2a; border-right: 1px solid #2a2a2a; border-bottom: 1px solid #2a2a2a; border-radius: 6px; box-sizing: border-box; }
+        .header {{
+            background: linear-gradient(180deg, #1a1228 0%, #0d0f1a 100%);
+            border-bottom: 1px solid #c89b3c44;
+            padding: 28px 24px 20px;
+            text-align: center;
+        }}
+        .header h1 {{
+            font-size: 2.8em;
+            color: #c89b3c;
+            letter-spacing: 0.04em;
+            text-shadow: 0 0 40px #c89b3c66;
+            margin-bottom: 4px;
+        }}
+        .header .tagline {{
+            color: #7a7060;
+            font-size: 0.95em;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }}
 
-        .card.color-Multicolor { border-left-color: #d4af37; }
-        .card.color-Colorless { border-left-color: #7a7a7a; }
-        .card.color-Land { border-left-color: #8b5a2b; }
-        .card.monocolor-W { border-left-color: #f0f2c5; }
-        .card.monocolor-U { border-left-color: #0077ff; }
-        .card.monocolor-B { border-left-color: #444444; }
-        .card.monocolor-R { border-left-color: #ff3333; }
-        .card.monocolor-G { border-left-color: #00aa44; }
+        .dashboard {{
+            display: grid;
+            grid-template-columns: 140px 1fr 1fr 1fr;
+            gap: 12px;
+            padding: 16px 20px;
+            background: #111420;
+            border-bottom: 1px solid #c89b3c22;
+        }}
+        .stat-box {{
+            background: #1a1e30;
+            border: 1px solid #c89b3c33;
+            border-radius: 8px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }}
+        .stat-number {{
+            font-size: 3em;
+            font-weight: bold;
+            color: #c89b3c;
+            line-height: 1;
+        }}
+        .stat-label {{
+            font-size: 0.7em;
+            color: #7a7060;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 6px;
+        }}
+        .chart-box {{
+            background: #1a1e30;
+            border: 1px solid #c89b3c33;
+            border-radius: 8px;
+            padding: 12px;
+        }}
+        .chart-title {{
+            font-size: 0.72em;
+            color: #7a7060;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 8px;
+        }}
+        .chart-box canvas {{ max-height: 120px; }}
 
-        .card-header { margin-bottom: 5px; display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
-        .card-name { font-size: 1.15em; font-weight: bold; color: #fff; max-width: 65%; }
-        
-        .card-mana { text-align: right; display: flex; gap: 3px; justify-content: flex-end; flex-wrap: wrap; max-width: 45%; padding-top: 2px; }
-        .svg-symbol { width: 18px; height: 18px; border-radius: 50%; box-shadow: 0 1px 2px rgba(0,0,0,0.6); vertical-align: middle; display: inline-block; }
-        .card-text .svg-symbol { width: 15px; height: 15px; margin: 0 1px; vertical-align: -2px; }
+        .filters {{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 14px 20px;
+            background: #0d0f1a;
+            border-bottom: 1px solid #c89b3c22;
+            align-items: center;
+        }}
+        .filters input, .filters select {{
+            background: #1a1e30;
+            border: 1px solid #c89b3c44;
+            color: #e8e0d0;
+            padding: 7px 12px;
+            border-radius: 6px;
+            font-size: 0.85em;
+            font-family: Georgia, serif;
+        }}
+        .filters input {{ width: 220px; }}
+        .filters select {{ cursor: pointer; }}
+        .filters input:focus, .filters select:focus {{
+            outline: none;
+            border-color: #c89b3c;
+        }}
+        .reset-btn {{
+            background: #c89b3c;
+            color: #0d0f1a;
+            border: none;
+            padding: 7px 16px;
+            border-radius: 6px;
+            font-size: 0.85em;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: Georgia, serif;
+            margin-left: auto;
+        }}
+        .reset-btn:hover {{ background: #e0b44e; }}
+        .result-count {{
+            font-size: 0.8em;
+            color: #7a7060;
+            white-space: nowrap;
+        }}
 
-        .card-type { font-style: italic; font-size: 0.85em; color: #888; margin-bottom: 10px; border-bottom: 1px solid #2a2a2a; padding-bottom: 4px; }
-        .card-text { font-size: 0.9em; white-space: pre-wrap; line-height: 1.4; color: #bbb; flex-grow: 1; margin-bottom: 10px; }
-        .flip-btn { background: #333; border: 1px solid #555; color: #ffca28; font-size: 0.75em; padding: 3px 8px; border-radius: 4px; cursor: pointer; font-weight: bold; display: flex; align-items: center; gap: 4px; }
-        .flip-btn:hover { background: #444; }
+        .grid {{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 16px 20px;
+            justify-content: flex-start;
+        }}
+        .card {{
+            width: 160px;
+            cursor: pointer;
+            transition: transform 0.15s, box-shadow 0.15s;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #1a1e30;
+            border: 1px solid #c89b3c22;
+        }}
+        .card:hover {{
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(200,155,60,0.25);
+            border-color: #c89b3c88;
+        }}
+        .card img {{
+            width: 100%;
+            display: block;
+            aspect-ratio: 5/7;
+            object-fit: cover;
+        }}
+        .card .no-img {{
+            width: 100%;
+            aspect-ratio: 5/7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #12151f;
+            color: #3a3520;
+            font-size: 2em;
+        }}
+        .card-footer {{
+            padding: 6px 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4px;
+        }}
+        .card-name {{
+            font-size: 0.68em;
+            color: #c89b3c;
+            font-weight: bold;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            flex: 1;
+        }}
+        .rarity-dot {{
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }}
+        .r-common {{ background: #999; }}
+        .r-uncommon {{ background: #6aadff; }}
+        .r-rare {{ background: #ffaa44; }}
+        .r-mythic {{ background: #ff66aa; }}
 
-        .card-footer { display: flex; justify-content: space-between; align-items: center; font-size: 0.85em; color: #777; margin-top: auto; width: 100%; box-sizing: border-box; }
-        .rarity-tag { text-transform: uppercase; font-size: 0.8em; padding: 2px 6px; border-radius: 4px; font-weight: bold; }
-        .rarity-common { background: #333; color: #bbb; }
-        .rarity-uncommon { background: #4b6584; color: #fff; }
-        .rarity-rare { background: #b8860b; color: #fff; }
-        .rarity-mythic { background: #8b0000; color: #ffca28; }
-        .card-pt { font-weight: bold; color: #fff; font-size: 1.05em; }
+        .modal {{
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.88);
+            z-index: 200;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }}
+        .modal.active {{ display: flex; }}
+        .modal-inner {{
+            background: #1a1e30;
+            border: 1px solid #c89b3c66;
+            border-radius: 12px;
+            max-width: 480px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            padding: 20px;
+        }}
+        .modal-close {{
+            position: absolute;
+            top: 12px; right: 16px;
+            font-size: 1.4em;
+            cursor: pointer;
+            color: #7a7060;
+            background: none;
+            border: none;
+            line-height: 1;
+        }}
+        .modal-close:hover {{ color: #e8e0d0; }}
+        .modal img {{
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 14px;
+        }}
+        .modal-name {{
+            font-size: 1.3em;
+            color: #c89b3c;
+            margin-bottom: 4px;
+        }}
+        .modal-cost {{
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+        }}
+        .svg-symbol {{
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.6);
+            vertical-align: middle;
+            display: inline-block;
+        }}
+        .modal-type {{
+            font-size: 0.85em;
+            color: #7a7060;
+            font-style: italic;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #c89b3c22;
+        }}
+        .modal-rules {{
+            font-size: 0.88em;
+            line-height: 1.65;
+            margin-bottom: 10px;
+            white-space: pre-line;
+        }}
+        .modal-flavor {{
+            font-size: 0.8em;
+            color: #7a7060;
+            font-style: italic;
+            border-top: 1px solid #c89b3c22;
+            padding-top: 10px;
+            line-height: 1.5;
+        }}
+        .modal-pt {{
+            text-align: right;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #c89b3c;
+            margin-top: 8px;
+        }}
+        .modal-meta {{
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }}
+        .badge {{
+            font-size: 0.7em;
+            padding: 2px 8px;
+            border-radius: 20px;
+            background: #0d0f1a;
+            border: 1px solid #c89b3c44;
+            color: #c89b3c;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }}
     </style>
 </head>
 <body>
 
-    <div class="header-row">
-        <h1>Dota 2 Cube — Creative Suite</h1>
+<div class="header">
+    <h1>Dota 2 Cube</h1>
+    <div class="tagline">Universes Beyond &nbsp;·&nbsp; Custom Design Portfolio</div>
+</div>
+
+<div class="dashboard">
+    <div class="stat-box">
+        <div class="stat-number" id="displayed-count">0</div>
+        <div class="stat-label" id="kpiLabel">Draft Cards</div>
     </div>
-
-    <div class="dashboard-row">
-        <div class="kpi-card">
-            <div class="kpi-number" id="kpiCounter">0</div>
-            <div class="kpi-label" id="kpiLabel">Cards Loaded</div>
-        </div>
-        <div class="chart-card" style="grid-column: span 2;">
-            <h3>Color Identity Distribution</h3>
-            <div class="chart-container"><canvas id="colorChart"></canvas></div>
-        </div>
-        <div class="chart-card">
-            <h3>Mana Curve</h3>
-            <div class="chart-container"><canvas id="manaChart"></canvas></div>
-        </div>
-        <div class="chart-card">
-            <h3>Card Types</h3>
-            <div class="chart-container"><canvas id="typeChart"></canvas></div>
-        </div>
+    <div class="chart-box">
+        <div class="chart-title">Color Identity Distribution</div>
+        <canvas id="colorChart"></canvas>
     </div>
-
-    <div class="controls">
-        <div class="control-group">
-            <label>Search Content</label>
-            <input type="text" id="search" class="search-box" placeholder="Name or text details...">
-        </div>
-        <div class="control-group">
-            <label>Color Identity</label>
-            <select id="colorFilter" class="select-box" onchange="applyFilters()">
-                <option value="All">All Identities</option>
-                <option value="W">White</option>
-                <option value="U">Blue</option>
-                <option value="B">Black</option>
-                <option value="R">Red</option>
-                <option value="G">Green</option>
-                <option value="Multicolor">Any Multicolor</option>
-                <option value="WU">Azorius (WU)</option>
-                <option value="WB">Orzhov (WB)</option>
-                <option value="WR">Boros (WR)</option>
-                <option value="WG">Selesnya (WG)</option>
-                <option value="UB">Dimir (UB)</option>
-                <option value="UR">Izzet (UR)</option>
-                <option value="UG">Simic (UG)</option>
-                <option value="BR">Rakdos (BR)</option>
-                <option value="BG">Golgari (BG)</option>
-                <option value="RG">Gruul (RG)</option>
-                <option value="Colorless">Colorless</option>
-                <option value="Land">Lands</option>
-            </select>
-        </div>
-        <div class="control-group">
-            <label>Mana Value (CMC)</label>
-            <select id="cmcFilter" class="select-box" onchange="applyFilters()">
-                <option value="All">All Costs</option>
-                <option value="0">0 CMC</option>
-                <option value="1">1 CMC</option>
-                <option value="2">2 CMC</option>
-                <option value="3">3 CMC</option>
-                <option value="4">4 CMC</option>
-                <option value="5">5 CMC</option>
-                <option value="6">6 CMC</option>
-                <option value="7">7+ CMC</option>
-            </select>
-        </div>
-        <div class="control-group">
-            <label>Card Type</label>
-            <select id="typeFilter" class="select-box" onchange="applyFilters()">
-                <option value="All">All Types</option>
-                <option value="Creature">Creature</option>
-                <option value="Instant">Instant</option>
-                <option value="Sorcery">Sorcery</option>
-                <option value="Artifact">Artifact</option>
-                <option value="Enchantment">Enchantment</option>
-                <option value="Planeswalker">Planeswalker</option>
-                <option value="Land">Land</option>
-            </select>
-        </div>
-        <div class="control-group">
-            <label>Frame Variant / Manifest</label>
-            <select id="legendFilter" class="select-box" onchange="applyFilters()">
-                <option value="All">All Cube Cards</option>
-                <option value="Legendary">Legendary Only</option>
-                <option value="DFC">Double-Faced (DFC)</option>
-                <option value="Token">Tokens & Emblems Only</option>
-            </select>
-        </div>
-        <div class="control-group">
-            <label>Sort Order</label>
-            <select id="sortFilter" class="select-box" onchange="applyFilters()">
-                <option value="cmc">Mana Value (Low-High)</option>
-                <option value="alpha">Alphabetical (A-Z)</option>
-                <option value="power">Power (High-Low)</option>
-            </select>
-        </div>
-        <div class="control-group">
-            <button class="reset-btn" onclick="resetAllFilters()">Reset Filters</button>
-        </div>
+    <div class="chart-box">
+        <div class="chart-title">Mana Curve</div>
+        <canvas id="cmcChart"></canvas>
     </div>
+    <div class="chart-box">
+        <div class="chart-title">Card Types</div>
+        <canvas id="typeChart"></canvas>
+    </div>
+</div>
 
-    <div class="card-grid" id="grid"></div>
+<div class="filters">
+    <input type="text" id="search" placeholder="Search name or text…" oninput="applyFilters()">
+    <select id="color-filter" onchange="applyFilters()">
+        <option value="">All Colors</option>
+        <option value="White">White</option>
+        <option value="Blue">Blue</option>
+        <option value="Black">Black</option>
+        <option value="Red">Red</option>
+        <option value="Green">Green</option>
+        <option value="Azorius">Azorius (WU)</option>
+        <option value="Orzhov">Orzhov (WB)</option>
+        <option value="Boros">Boros (WR)</option>
+        <option value="Selesnya">Selesnya (WG)</option>
+        <option value="Dimir">Dimir (UB)</option>
+        <option value="Izzet">Izzet (UR)</option>
+        <option value="Simic">Simic (UG)</option>
+        <option value="Rakdos">Rakdos (BR)</option>
+        <option value="Golgari">Golgari (BG)</option>
+        <option value="Gruul">Gruul (RG)</option>
+        <option value="Colorless">Colorless</option>
+    </select>
+    <select id="type-filter" onchange="applyFilters()">
+        <option value="">All Types</option>
+        <option value="Creature">Creature</option>
+        <option value="Instant">Instant</option>
+        <option value="Sorcery">Sorcery</option>
+        <option value="Enchantment">Enchantment</option>
+        <option value="Artifact">Artifact</option>
+        <option value="Land">Land</option>
+    </select>
+    <select id="rarity-filter" onchange="applyFilters()">
+        <option value="">All Rarities</option>
+        <option value="common">Common</option>
+        <option value="uncommon">Uncommon</option>
+        <option value="rare">Rare</option>
+        <option value="mythic rare">Mythic</option>
+    </select>
+    <select id="cmc-filter" onchange="applyFilters()">
+        <option value="">All CMC</option>
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6+</option>
+    </select>
+    <select id="variant-filter" onchange="applyFilters()">
+        <option value="All">All Cube Cards</option>
+        <option value="Token">Tokens & Emblems Only</option>
+    </select>
+    <select id="sort-filter" onchange="applyFilters()">
+        <option value="name">Name (A–Z)</option>
+        <option value="cmc">Mana Value</option>
+        <option value="color">Color</option>
+        <option value="rarity">Rarity</option>
+        <option value="type">Type</option>
+    </select>
+    <span class="result-count" id="result-count"></span>
+    <button class="reset-btn" onclick="resetFilters()">Reset Filters</button>
+</div>
 
-    <script>
-        let cardsData = __CARDS_JSON_PLACEHOLDER__;
-        let chart1, chart2, chart3;
+<div class="grid" id="grid"></div>
 
-        function formatManaSymbols(manaSymbolsArray) {
-            if (!manaSymbolsArray || manaSymbolsArray.length === 0) return '';
-            let outputHtml = '';
-            manaSymbolsArray.forEach(sym => {
-                outputHtml += `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/${sym}.svg" />`;
-            });
-            return outputHtml;
-        }
+<div class="modal" id="modal" onclick="modalBgClick(event)">
+    <div class="modal-inner">
+        <button class="modal-close" onclick="closeModal()">✕</button>
+        <div id="modal-body"></div>
+    </div>
+</div>
 
-        function toggleFlip(btn) {
-            const container = btn.closest('.card-container-3d');
-            container.classList.toggle('flipped');
-        }
+<script>
+const ALL_CARDS = {cards_json};
+let chart1, chart2, chart3;
 
-        function buildCardHtml(card) {
-            let ptDisplay = (card.power || card.toughness) ? `<div class="card-pt">${card.power}/${card.toughness}</div>` : '<div></div>';
-            let borderClass = `color-${card.color_group}`;
-            if (card.colors.length === 1) {
-                borderClass = `monocolor-${card.colors[0]}`;
-            } else if (card.colors.length > 1) {
-                borderClass = 'color-Multicolor';
-            }
+// Properly escape single literal curly braces by doubling them for the Python f-string scope
+function formatManaSymbols(manaSymbolsArray) {{
+    if (!manaSymbolsArray || manaSymbolsArray.length === 0) return '';
+    return manaSymbolsArray.map(sym => 
+        `<img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/\${{sym}}.svg" />`
+    ).join('');
+}}
 
-            let backFaceHtml = '';
-            if (card.is_dfc) {
-                const backPt = (card.power_2 || card.toughness_2) ? `<div class="card-pt">${card.power_2}/${card.toughness_2}</div>` : '<div></div>';
-                backFaceHtml = `
-                    <div class="dfc-back">
-                        <div>
-                            <div class="card-header">
-                                <div class="card-name">${card.name_2}</div>
-                                <span class="card-mana"><img class="svg-symbol" src="https://svgs.scryfall.io/card-symbols/CARD.svg" /></span>
-                            </div>
-                            <div class="card-type">${card.type_2}</div>
-                            <div class="card-text">${card.text_2}</div>
-                        </div>
-                        <div class="card-footer" style="margin-top: 12px;">
-                            <button class="flip-btn" onclick="toggleFlip(this)">Transform 🔄</button>
-                            ${backPt}
-                        </div>
-                    </div>
-                `;
-            }
+function rarityClass(r) {{
+    if (!r) return 'r-common';
+    const rl = r.toLowerCase();
+    if (rl.includes('mythic')) return 'r-mythic';
+    if (rl === 'rare') return 'r-rare';
+    if (rl === 'uncommon') return 'r-uncommon';
+    return 'r-common';
+}}
 
-            if (!card.is_dfc) {
-                return `<div class="card ${borderClass}">
-                    <div>
-                        <div class="card-header">
-                            <div class="card-name">${card.name}</div>
-                            <span class="card-mana">${formatManaSymbols(card.mana_symbols)}</span>
-                        </div>
-                        <div class="card-type">${card.type}</div>
-                        <div class="card-text">${card.text}</div>
-                    </div>
-                    <div class="card-footer" style="margin-top: 12px;">
-                        <span class="rarity-tag rarity-${card.rarity}">CMC ${card.cmc} — ${card.rarity}</span>
-                        ${ptDisplay}
-                    </div>
-                </div>`;
-            } else {
-                return `<div class="card-container-3d">
-                    <div class="card-inner-3d">
-                        <div class="card dfc-front ${borderClass}">
-                            <div>
-                                <div class="card-header">
-                                    <div class="card-name">${card.name}</div>
-                                    <span class="card-mana">${formatManaSymbols(card.mana_symbols)}</span>
-                                </div>
-                                <div class="card-type">${card.type}</div>
-                                <div class="card-text">${card.text}</div>
-                            </div>
-                            <div class="card-footer" style="margin-top: 12px;">
-                                <button class="flip-btn" onclick="toggleFlip(this)">Transform 🔄</button>
-                                ${ptDisplay}
-                            </div>
-                        </div>
-                        ${backFaceHtml}
-                    </div>
-                </div>`;
-            }
-        }
+function rarityOrder(r) {{
+    if (!r) return 0;
+    const rl = r.toLowerCase();
+    if (rl.includes('mythic')) return 3;
+    if (rl === 'rare') return 2;
+    if (rl === 'uncommon') return 1;
+    return 0;
+}}
 
-        function applyFilters() {
-            const searchText = document.getElementById('search').value.toLowerCase();
-            const colorSel = document.getElementById('colorFilter').value;
-            const cmcSel = document.getElementById('cmcFilter').value;
-            const typeSel = document.getElementById('typeFilter').value;
-            const legendSel = document.getElementById('legendFilter').value;
-            const sortSel = document.getElementById('sortFilter').value;
+let visibleCards = [...ALL_CARDS];
 
-            let filtered = cardsData.filter(card => {
-                const textHaystack = (card.name + " " + card.text + " " + card.name_2 + " " + card.text_2).toLowerCase();
-                const matchesSearch = textHaystack.includes(searchText);
-                
-                let matchesColor = true;
-                if (colorSel !== 'All') {
-                    if (colorSel === 'Multicolor') {
-                        matchesColor = card.colors.length > 1;
-                    } else if (['W','U','B','R','G'].includes(colorSel)) {
-                        matchesColor = card.colors.length === 1 && card.colors[0] === colorSel;
-                    } else {
-                        matchesColor = card.color_group === colorSel;
-                    }
-                }
+function applyFilters() {{
+    const q = document.getElementById('search').value.toLowerCase();
+    const col = document.getElementById('color-filter').value;
+    const typ = document.getElementById('type-filter').value;
+    const rar = document.getElementById('rarity-filter').value;
+    const cmc = document.getElementById('cmc-filter').value;
+    const variant = document.getElementById('variant-filter').value;
+    const srt = document.getElementById('sort-filter').value;
 
-                let matchesCmc = true;
-                if (cmcSel !== 'All') {
-                    if (cmcSel === '7') {
-                        matchesCmc = card.cmc >= 7;
-                    } else {
-                        matchesCmc = card.cmc === parseInt(cmcSel);
-                    }
-                }
+    let filtered = ALL_CARDS.filter(c => {{
+        const nameMatch = !q || (c.name||'').toLowerCase().includes(q) || (c.rules||'').toLowerCase().includes(q);
+        const colMatch = !col || c.color_label === col;
+        const typMatch = !typ || (c.type||'').includes(typ);
+        const rarMatch = !rar || (c.rarity||'').toLowerCase() === rar;
+        const cmcMatch = !cmc || (cmc === '6' ? c.cmc >= 6 : c.cmc == parseInt(cmc));
+        
+        let tokenMatch = true;
+        if (variant === 'All') tokenMatch = !c.is_token;
+        if (variant === 'Token') tokenMatch = c.is_token;
+        
+        return nameMatch && colMatch && typMatch && rarMatch && cmcMatch && tokenMatch;
+    }});
 
-                const matchesType = (typeSel === 'All') || card.type.includes(typeSel) || (card.type_2 && card.type_2.includes(typeSel));
-                
-                // Adaptive target partitioning handles the token manifest view contextually
-                let matchesLegend = true;
-                if (legendSel === 'All') {
-                    matchesLegend = !card.is_token; // Default view isolates playables from tokens
-                } else if (legendSel === 'Legendary') {
-                    matchesLegend = card.is_legendary && !card.is_token;
-                } else if (legendSel === 'DFC') {
-                    matchesLegend = card.is_dfc && !card.is_token;
-                } else if (legendSel === 'Token') {
-                    matchesLegend = card.is_token;
-                }
+    filtered.sort((a, b) => {{
+        if (srt === 'name') return (a.name||'').localeCompare(b.name||'');
+        if (srt === 'cmc') return (a.cmc||0) - (b.cmc||0) || (a.name||'').localeCompare(b.name||'');
+        if (srt === 'color') return (a.color_label||'').localeCompare(b.color_label||'') || (a.name||'').localeCompare(b.name||'');
+        if (srt === 'rarity') return rarityOrder(b.rarity) - rarityOrder(a.rarity) || (a.name||'').localeCompare(b.name||'');
+        if (srt === 'type') return (a.type||'').localeCompare(b.type||'') || (a.name||'').localeCompare(b.name||'');
+        return 0;
+    }});
 
-                return matchesSearch && matchesColor && matchesCmc && matchesType && matchesLegend;
-            });
+    visibleCards = filtered;
+    renderGrid(filtered);
+    document.getElementById('result-count').textContent = `\${{filtered.length}} of \${{ALL_CARDS.length}} cards`;
+    document.getElementById('displayed-count').textContent = filtered.length;
+    document.getElementById('kpiLabel').textContent = variant === 'Token' ? 'Tokens' : 'Draft Cards';
+    
+    updateCharts(filtered);
+}}
 
-            if (sortSel === 'alpha') {
-                filtered.sort((a, b) => a.name.localeCompare(b.name));
-            } else if (sortSel === 'power') {
-                filtered.sort((a, b) => {
-                    let pA = parseInt(a.power) || 0;
-                    let pB = parseInt(b.power) || 0;
-                    return pB - pA;
-                });
-            } else {
-                filtered.sort((a, b) => a.cmc - b.cmc);
-            }
+function resetFilters() {{
+    document.getElementById('search').value = '';
+    document.getElementById('color-filter').value = '';
+    document.getElementById('type-filter').value = '';
+    document.getElementById('rarity-filter').value = '';
+    document.getElementById('cmc-filter').value = '';
+    document.getElementById('variant-filter').value = 'All';
+    document.getElementById('sort-filter').value = 'name';
+    applyFilters();
+}}
 
-            // Repopulate DOM grid matrix
-            const grid = document.getElementById('grid');
-            grid.innerHTML = '';
-            document.getElementById('kpiCounter').innerText = filtered.length;
-            document.getElementById('kpiLabel').innerText = legendSel === 'Token' ? 'Tokens Loaded' : 'Draft Cards';
-            filtered.forEach(card => { grid.innerHTML += buildCardHtml(card); });
+function renderGrid(cards) {{
+    const grid = document.getElementById('grid');
+    grid.innerHTML = cards.map((c, i) => {{
+        const img = c.image
+            ? `<img src="cards/\${{c.image}}" alt="\${{c.name}}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'no-img\\'>🎴</div>'">`
+            : `<div class="no-img">🎴</div>`;
+        return `<div class="card" onclick="showModal(\${{ALL_CARDS.indexOf(c)}})">
+            \${{img}}
+            <div class="card-footer">
+                <span class="card-name">\${{c.name}}</span>
+                <span class="rarity-dot \${{rarityClass(c.rarity)}}"></span>
+            </div>
+        </div>`;
+    }}).join('');
+}}
 
-            updateCharts(filtered);
-        }
+function showModal(idx) {{
+    const c = ALL_CARDS[idx];
+    const body = document.getElementById('modal-body');
+    body.innerHTML = `
+        \${{c.image ? `<img src="cards/\${{c.image}}" alt="\${{c.name}}">` : ''}}
+        <div class="modal-name">\${{c.name}}</div>
+        <div class="modal-cost">\${{formatManaSymbols(c.mana_symbols)}}</div>
+        <div class="modal-type">\${{c.type||''}}</div>
+        <div class="modal-rules">\${{(c.rules||'').replace(/\\n/g,'<br>')}}</div>
+        \${{c.flavor ? `<div class="modal-flavor">\${{c.flavor}}</div>` : ''}}
+        \${{c.pt ? `<div class="modal-pt">\${{c.pt}}</div>` : ''}}
+        <div class="modal-meta">
+            \${{c.rarity ? `<span class="badge">\${{c.rarity}}</span>` : ''}}
+            \${{c.color_label ? `<span class="badge">\${{c.color_label}}</span>` : ''}}
+            \${{c.cmc !== undefined ? `<span class="badge">CMC \${{c.cmc}}</span>` : ''}}
+        </div>
+    `;
+    document.getElementById('modal').classList.add('active');
+}}
 
-        function resetAllFilters() {
-            document.getElementById('search').value = '';
-            document.getElementById('colorFilter').value = 'All';
-            document.getElementById('cmcFilter').value = 'All';
-            document.getElementById('typeFilter').value = 'All';
-            document.getElementById('legendFilter').value = 'All';
-            document.getElementById('sortFilter').value = 'cmc';
-            applyFilters();
-        }
+function closeModal() {{
+    document.getElementById('modal').classList.remove('active');
+}}
 
-        document.getElementById('search').addEventListener('input', applyFilters);
+function modalBgClick(e) {{
+    if (e.target === document.getElementById('modal')) closeModal();
+}}
 
-        function updateCharts(activeCards) {
-            const colorMap = {};
-            const cmcCounts = {};
-            const typeCounts = { Creature:0, Sorcery:0, Instant:0, Artifact:0, Enchantment:0, Planeswalker:0, Other:0 };
+const CHART_DEFAULTS = {{
+    plugins: {{ legend: {{ labels: {{ color: '#7a7060', font: {{ size: 10 }} }} }} }},
+    scales: {{
+        x: {{ ticks: {{ color: '#7a7060', font: {{ size: 9 }} }}, grid: {{ color: '#ffffff0a' }} }},
+        y: {{ ticks: {{ color: '#7a7060', font: {{ size: 9 }} }}, grid: {{ color: '#ffffff0a' }} }}
+    }}
+}};
 
-            activeCards.forEach(c => {
-                colorMap[c.color_group] = (colorMap[c.color_group] || 0) + 1;
-                cmcCounts[c.cmc] = (cmcCounts[c.cmc] || 0) + 1;
-                
-                let foundType = false;
-                ['Creature', 'Sorcery', 'Instant', 'Artifact', 'Enchantment', 'Planeswalker'].forEach(t => {
-                    if (c.type.includes(t)) { typeCounts[t]++; foundType = true; }
-                });
-                if (!foundType) typeCounts.Other++;
-            });
+function updateCharts(activeCards) {{
+    const colorMap = {{}};
+    const cmcCounts = {{}};
+    const typeCounts = {{ Creature:0, Instant:0, Sorcery:0, Enchantment:0, Artifact:0, Land:0, Other:0 }};
 
-            const labelKeys = ['W', 'U', 'B', 'R', 'G', 'WU', 'WB', 'WR', 'WG', 'UB', 'UR', 'UG', 'BR', 'BG', 'RG', 'Colorless', 'Land'];
-            const dynamicData = labelKeys.map(k => colorMap[k] || 0);
-            chart1.data.datasets[0].data = dynamicData;
-            chart1.update();
+    activeCards.forEach(c => {{
+        colorMap[c.color_label] = (colorMap[c.color_label] || 0) + 1;
+        cmcCounts[c.cmc] = (cmcCounts[c.cmc] || 0) + 1;
+        
+        let found = false;
+        ['Creature', 'Instant', 'Sorcery', 'Enchantment', 'Artifact', 'Land'].forEach(t => {{
+            if ((c.type||'').includes(t)) {{ typeCounts[t]++; found = true; }}
+        }});
+        if (!found) typeCounts.Other++;
+    }});
 
-            const maxCmc = Math.max(...Object.keys(cmcCounts).map(Number), 5);
-            const cmcLabels = Array.from({length: maxCmc + 1}, (_, i) => i);
-            const cmcData = cmcLabels.map(l => cmcCounts[l] || 0);
-            chart2.data.labels = cmcLabels;
-            chart2.data.datasets[0].data = cmcData;
-            chart2.update();
+    const labelKeys = ['White', 'Blue', 'Black', 'Red', 'Green', 'Azorius', 'Orzhov', 'Boros', 'Selesnya', 'Dimir', 'Izzet', 'Simic', 'Rakdos', 'Golgari', 'Gruul', 'Colorless', 'Land'];
+    chart1.data.labels = labelKeys.filter(k => colorMap[k] > 0);
+    chart1.data.datasets[0].data = chart1.data.labels.map(k => colorMap[k] || 0);
+    chart1.update();
 
-            chart3.data.datasets[0].data = Object.values(typeCounts);
-            chart3.update();
-        }
+    const maxCmc = Math.max(...Object.keys(cmcCounts).map(Number), 5);
+    const cmcLabels = Array.from({{length: maxCmc + 1}}, (_, i) => i);
+    chart2.data.labels = cmcLabels.map(k => k >= 6 ? '6+' : k);
+    chart2.data.datasets[0].data = cmcLabels.map(l => cmcCounts[l] || 0);
+    chart2.update();
 
-        function initCharts() {
-            const coreCards = cardsData.filter(c => !c.is_token);
-            const colorMap = {};
-            const cmcCounts = {};
-            const typeCounts = { Creature:0, Sorcery:0, Instant:0, Artifact:0, Enchantment:0, Planeswalker:0, Other:0 };
+    chart3.data.datasets[0].data = Object.values(typeCounts);
+    chart3.update();
+}}
 
-            coreCards.forEach(c => {
-                colorMap[c.color_group] = (colorMap[c.color_group] || 0) + 1;
-                cmcCounts[c.cmc] = (cmcCounts[c.cmc] || 0) + 1;
-                let foundType = false;
-                ['Creature', 'Sorcery', 'Instant', 'Artifact', 'Enchantment', 'Planeswalker'].forEach(t => {
-                    if (c.type.includes(t)) { typeCounts[t]++; foundType = true; }
-                });
-                if (!foundType) typeCounts.Other++;
-            });
+function initCharts() {{
+    const coreCards = ALL_CARDS.filter(c => !c.is_token);
+    const colorMap = {{}};
+    const cmcCounts = {{}};
+    const typeCounts = {{ Creature:0, Instant:0, Sorcery:0, Enchantment:0, Artifact:0, Land:0, Other:0 }};
 
-            const labelKeys = ['W', 'U', 'B', 'R', 'G', 'WU', 'WB', 'WR', 'WG', 'UB', 'UR', 'UG', 'BR', 'BG', 'RG', 'Colorless', 'Land'];
-            const displayLabels = ['W', 'U', 'B', 'R', 'G', 'Azorius', 'Orzhov', 'Boros', 'Selesnya', 'Dimir', 'Izzet', 'Simic', 'Rakdos', 'Golgari', 'Gruul', 'Colorless', 'Land'];
-            const chartColors = ['#f0f2c5', '#0077ff', '#242424', '#ff3333', '#00aa44', '#70a1ff', '#747d8c', '#ff6b81', '#2ed573', '#57606f', '#ff7f50', '#1e90ff', '#ff4757', '#a4b0be', '#ffa502', '#7a7a7a', '#8b5a2b'];
+    coreCards.forEach(c => {{
+        colorMap[c.color_label] = (colorMap[c.color_label] || 0) + 1;
+        cmcCounts[c.cmc] = (cmcCounts[c.cmc] || 0) + 1;
+        let found = false;
+        ['Creature', 'Instant', 'Sorcery', 'Enchantment', 'Artifact', 'Land'].forEach(t => {{
+            if ((c.type||'').includes(t)) {{ typeCounts[t]++; found = true; }}
+        }});
+        if (!found) typeCounts.Other++;
+    }});
 
-            chart1 = new Chart(document.getElementById('colorChart'), {
-                type: 'bar',
-                data: { labels: displayLabels, datasets: [{ data: labelKeys.map(k => colorMap[k] || 0), backgroundColor: chartColors, borderColor: '#555', borderWidth: 1.5 }] },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
-            });
+    const labelKeys = ['White', 'Blue', 'Black', 'Red', 'Green', 'Azorius', 'Orzhov', 'Boros', 'Selesnya', 'Dimir', 'Izzet', 'Simic', 'Rakdos', 'Golgari', 'Gruul', 'Colorless', 'Land'];
 
-            const maxCmc = Math.max(...Object.keys(cmcCounts).map(Number), 5);
-            const cmcLabels = Array.from({length: maxCmc + 1}, (_, i) => i);
-            chart2 = new Chart(document.getElementById('manaChart'), {
-                type: 'bar',
-                data: { labels: cmcLabels, datasets: [{ data: cmcLabels.map(l => cmcCounts[l] || 0), backgroundColor: '#ffca28', borderColor: '#444', borderWidth: 1 }] },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
-            });
+    chart1 = new Chart(document.getElementById('colorChart'), {{
+        type: 'bar',
+        data: {{ labels: labelKeys.filter(k => colorMap[k] > 0), datasets: [{{ data: labelKeys.filter(k => colorMap[k] > 0).map(k => colorMap[k] || 0), backgroundColor: '#c89b3c88', borderColor: '#c89b3c', borderWidth: 1 }}] }},
+        options: {{ ...CHART_DEFAULTS, plugins: {{ legend: {{ display: false }} }}, responsive: true, maintainAspectRatio: false }}
+    }});
 
-            chart3 = new Chart(document.getElementById('typeChart'), {
-                type: 'doughnut',
-                data: { labels: Object.keys(typeCounts), datasets: [{ data: Object.values(typeCounts), backgroundColor: ['#2ecc71','#3498db','#9b59b6','#e67e22','#f1c40f','#e74c3c','#95a5a6'], borderColor: '#222', borderWidth: 1.5 }] },
-                options: { responsive: true, maintainAspectRatio: false }
-            });
+    const maxCmc = Math.max(...Object.keys(cmcCounts).map(Number), 5);
+    const cmcLabels = Array.from({{length: maxCmc + 1}}, (_, i) => i);
+    chart2 = new Chart(document.getElementById('cmcChart'), {{
+        type: 'bar',
+        data: {{ labels: cmcLabels.map(k => k >= 6 ? '6+' : k), datasets: [{{ data: cmcLabels.map(l => cmcCounts[l] || 0), backgroundColor: '#c89b3c88', borderColor: '#c89b3c', borderWidth: 1 }}] }},
+        options: {{ ...CHART_DEFAULTS, plugins: {{ legend: {{ display: false }} }}, responsive: true, maintainAspectRatio: false }}
+    }});
 
-            // Set up starting view layout parameters
-            document.getElementById('kpiCounter').innerText = coreCards.length;
-            applyFilters();
-        }
+    chart3 = new Chart(document.getElementById('typeChart'), {{
+        type: 'doughnut',
+        data: {{ labels: Object.keys(typeCounts), datasets: [{{ data: Object.values(typeCounts), backgroundColor: ['#4a9e6b','#6aadff','#aa88ff','#ffaa44','#ff6688','#c89b3c','#7a7a7a'], borderColor: '#1a1e30', borderWidth: 2 }}] }},
+        options: {{ responsive: true, maintainAspectRatio: false, plugins: {{ legend: {{ position: 'right', labels: {{ color: '#7a7060', font: {{ size: 9 }}, boxWidth: 12 }} }} }} }}
+    }});
 
-        window.onload = initCharts;
-    </script>
+    applyFilters();
+}}
+
+window.onload = initCharts;
+</script>
 </body>
-</html>
-"""
-    html_content = html_content.replace("__CARDS_JSON_PLACEHOLDER__", cards_json)
-    with open(html_path, 'w', encoding='utf-8') as f:
-        f.write(html_content)
+</html>"""
+    return html
+
+
+# ── Main ───────────────────────────────────────────────────────────────────────
+
+def main():
+    print("Parsing MSE file...")
+    cards = parse_mse(MSE_FILE)
+    print(f"Found {len(cards)} cards")
+
+    print("Computing analytics...")
+    analytics = compute_analytics(cards)
+
+    print("Building gallery...")
+    html = build_html(cards, analytics)
+    with open(os.path.join(REPO_DIR, "docs", "index.html"), "w", encoding="utf-8") as f:
+        f.write(html)
+
+    print("Saving card data...")
+    with open(OUTPUT_JSON, "w", encoding="utf-8") as f:
+        json.dump(cards, f, indent=2, ensure_ascii=False)
+
+    print("Pushing to GitHub...")
+    os.chdir(REPO_DIR)
+    subprocess.run(["git", "add", "."])
+    subprocess.run(["git", "commit", "-m", f"Update set — {datetime.now().strftime('%Y-%m-%d %H:%M')}"])
+    subprocess.run(["git", "push"])
+    print("Done! Visit: https://hlobbdaboss.github.io/dota2-UB/")
+
 
 if __name__ == "__main__":
-    parse_mse_set()
+    main()
