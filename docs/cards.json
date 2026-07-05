@@ -2,7 +2,7 @@
   {
     "name": "Anti-Mage",
     "cost": "2W",
-    "image": "image44.png.png",
+    "image": "image44.png",
     "super_type": "Legendary Creature",
     "sub_type": "Human Monk",
     "rarity": "uncommon",
@@ -10,7 +10,6 @@
     "flavor": "“Magic shall not prevail!”",
     "type": "Legendary Creature — Human Monk",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "W"
@@ -18,7 +17,8 @@
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Abaddon, the Lord of Avernus",
@@ -31,16 +31,16 @@
     "flavor": "“You have called death upon yourself.”",
     "type": "Legendary Creature — Spirit Knight",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
-      "BW",
-      "BW"
+      "WB",
+      "WB"
     ],
     "colors": [
       "W",
       "B"
     ],
-    "color_label": "Orzhov"
+    "color_label": "Orzhov",
+    "is_token": false
   },
   {
     "name": "Razzil Darkbrew, the Alchemist",
@@ -53,7 +53,6 @@
     "flavor": "“Easy now, this stuff is explosive!”",
     "type": "Legendary Creature — Gnome Ogre Warlock",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "U",
       "R"
@@ -62,7 +61,8 @@
       "U",
       "R"
     ],
-    "color_label": "Izzet"
+    "color_label": "Izzet",
+    "is_token": false
   },
   {
     "name": "Kaldr, the Ancient Apparition",
@@ -75,7 +75,6 @@
     "flavor": "“One day, ice will cover these lands, and it will be as if this war never happened.”",
     "type": "Legendary Creature — Elder Elemental",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "W",
       "U"
@@ -84,12 +83,13 @@
       "W",
       "U"
     ],
-    "color_label": "Azorius"
+    "color_label": "Azorius",
+    "is_token": false
   },
   {
     "name": "Zet, the Arc Warden",
     "cost": "3U",
-    "image": "image26.png.png",
+    "image": "image26.png",
     "super_type": "Legendary Creature",
     "sub_type": "Avatar Soldier",
     "rarity": "uncommon",
@@ -97,7 +97,6 @@
     "flavor": "“Matter has been split from its intended form. These must be made to unite.”",
     "type": "Legendary Creature — Avatar Soldier",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "U"
@@ -105,7 +104,8 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Roshan the Immortal",
@@ -118,7 +118,6 @@
     "flavor": "Roshan’s punishment for killing a shopkeeper is to be slain and reborn for an eternity by the Radiant and Dire alike.",
     "type": "Battle — Raid",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "B",
       "R",
@@ -129,12 +128,13 @@
       "R",
       "G"
     ],
-    "color_label": "3-color"
+    "color_label": "3-color",
+    "is_token": false
   },
   {
     "name": "Mogul Khan, the Axe",
     "cost": "3RR",
-    "image": "image37.png.png",
+    "image": "image37.png",
     "super_type": "Legendary Creature",
     "sub_type": "Ogre Berserker",
     "rarity": "uncommon",
@@ -142,7 +142,6 @@
     "flavor": "“You fought badly—died worse.”",
     "type": "Legendary Creature — Ogre Berserker",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "R",
@@ -151,7 +150,8 @@
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Atropos, the Bane",
@@ -164,7 +164,6 @@
     "flavor": "“The rebirth of my dream means the end of a myriad others.”",
     "type": "Legendary Creature — Nightmare",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "U",
@@ -174,7 +173,8 @@
       "U",
       "B"
     ],
-    "color_label": "Dimir"
+    "color_label": "Dimir",
+    "is_token": false
   },
   {
     "name": "Jin'zakk, the Batrider",
@@ -187,7 +187,6 @@
     "flavor": "“Roasted, toasted and burned to a crisp.”",
     "type": "Legendary Creature — Troll Scout",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "R"
@@ -195,7 +194,8 @@
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Radiant Melee Creep",
@@ -207,15 +207,15 @@
     "flavor": "",
     "type": "Creature — Elemental",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
-      "GW"
+      "WG"
     ],
     "colors": [
       "W",
       "G"
     ],
-    "color_label": "Selesnya"
+    "color_label": "Selesnya",
+    "is_token": false
   },
   {
     "name": "Radiant Ranged Creep",
@@ -228,20 +228,20 @@
     "flavor": "",
     "type": "Creature — Elemental",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
-      "GW"
+      "WG"
     ],
     "colors": [
       "W",
       "G"
     ],
-    "color_label": "Selesnya"
+    "color_label": "Selesnya",
+    "is_token": false
   },
   {
     "name": "Radiant Flagbearer",
     "cost": "2G/W",
-    "image": "image49.png.png",
+    "image": "image49.png",
     "super_type": "Creature",
     "sub_type": "Elemental",
     "rarity": "uncommon",
@@ -249,15 +249,15 @@
     "flavor": "",
     "type": "Creature — Elemental",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
-      "2GW"
+      "W2G"
     ],
     "colors": [
       "W",
       "G"
     ],
-    "color_label": "Selesnya"
+    "color_label": "Selesnya",
+    "is_token": false
   },
   {
     "name": "Radiant Super Melee Creep",
@@ -270,15 +270,15 @@
     "flavor": "",
     "type": "Creature — Elemental",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
-      "3GW"
+      "W3G"
     ],
     "colors": [
       "W",
       "G"
     ],
-    "color_label": "Selesnya"
+    "color_label": "Selesnya",
+    "is_token": false
   },
   {
     "name": "Black Hole",
@@ -291,7 +291,6 @@
     "flavor": "“Stare into the abyss.” — Enigma, the Consumer of Worlds",
     "type": "Legendary Sorcery",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "B",
       "B",
@@ -302,19 +301,19 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Dire Melee Creep",
     "cost": "B/R",
-    "image": "image33.png.png",
+    "image": "image33.png",
     "super_type": "Creature",
     "sub_type": "Elemental",
     "rules": "Evolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)",
     "flavor": "",
     "type": "Creature — Elemental",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "BR"
     ],
@@ -322,7 +321,8 @@
       "B",
       "R"
     ],
-    "color_label": "Rakdos"
+    "color_label": "Rakdos",
+    "is_token": false
   },
   {
     "name": "Dire Ranged Creep",
@@ -334,7 +334,6 @@
     "flavor": "",
     "type": "Creature — Elemental",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "BR"
     ],
@@ -342,7 +341,8 @@
       "B",
       "R"
     ],
-    "color_label": "Rakdos"
+    "color_label": "Rakdos",
+    "is_token": false
   },
   {
     "name": "Dire Flagbearer",
@@ -355,15 +355,15 @@
     "flavor": "",
     "type": "Creature — Elemental",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
-      "2BR"
+      "R2B"
     ],
     "colors": [
       "B",
       "R"
     ],
-    "color_label": "Rakdos"
+    "color_label": "Rakdos",
+    "is_token": false
   },
   {
     "name": "Dire Super Melee Creep",
@@ -376,15 +376,15 @@
     "flavor": "",
     "type": "Creature — Elemental",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
-      "3BR"
+      "R3B"
     ],
     "colors": [
       "B",
       "R"
     ],
-    "color_label": "Rakdos"
+    "color_label": "Rakdos",
+    "is_token": false
   },
   {
     "name": "Dire Super Ranged Creep",
@@ -397,15 +397,15 @@
     "flavor": "",
     "type": "Creature — Elemental",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
-      "3BR"
+      "R3B"
     ],
     "colors": [
       "B",
       "R"
     ],
-    "color_label": "Rakdos"
+    "color_label": "Rakdos",
+    "is_token": false
   },
   {
     "name": "Boots of Speed",
@@ -418,12 +418,12 @@
     "flavor": "Fleet footwear, increasing movement.",
     "type": "Artifact — Equipment",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "1"
     ],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Finger of Death",
@@ -436,7 +436,6 @@
     "flavor": "“When you get to Hell, tell them I sent you.” — Lion, the Demon Witch",
     "type": "Legendary Sorcery",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "X",
       "X",
@@ -447,12 +446,13 @@
       "B",
       "R"
     ],
-    "color_label": "Rakdos"
+    "color_label": "Rakdos",
+    "is_token": false
   },
   {
     "name": "Stifling Dagger",
     "cost": "1B",
-    "image": "image23.png.png",
+    "image": "image23.png",
     "super_type": "Enchantment",
     "sub_type": "Aura",
     "rarity": "uncommon",
@@ -460,7 +460,6 @@
     "flavor": "“Where falls my shadow, fells my blade.”  — Mortred, the Phantom Assassin",
     "type": "Enchantment — Aura",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "B"
@@ -468,12 +467,13 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Roshan’s Pit",
     "cost": "",
-    "image": "image65.png.png",
+    "image": "image65.png",
     "super_type": "Legendary Land",
     "sub_type": "",
     "rarity": "rare",
@@ -481,10 +481,10 @@
     "flavor": "The depths of Roshan’s lair are unable to dampen the resounding quake of his emergence.",
     "type": "Legendary Land",
     "cmc": 0,
-    "is_token": false,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Kobold Thief",
@@ -496,14 +496,14 @@
     "flavor": "",
     "type": "Creature — Kobold Rogue",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "R"
     ],
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Juxtapose",
@@ -516,7 +516,6 @@
     "flavor": "",
     "type": "Enchantment",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "U"
@@ -524,7 +523,8 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Glyph of Fortification",
@@ -537,7 +537,6 @@
     "flavor": "A powerful glyph, it makes allies impervious to all damage for some time.",
     "type": "Instant",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "W"
@@ -545,7 +544,8 @@
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Observer Ward",
@@ -558,12 +558,12 @@
     "flavor": "A form of half-sentient plant, often cultivated by apprentice wizards.",
     "type": "Artifact",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "2"
     ],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Blink Dagger",
@@ -576,7 +576,6 @@
     "flavor": "The fabled dagger used by the fastest assassin ever to walk the lands.",
     "type": "Legendary Artifact — Equipment",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "U"
@@ -584,7 +583,8 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Sentry Ward",
@@ -597,17 +597,17 @@
     "flavor": "A form of plant originally grown in the garden of a fearful king.",
     "type": "Artifact",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "2"
     ],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Karroch, the Beastmaster",
     "cost": "RGW",
-    "image": "image51.png.png",
+    "image": "image51.png",
     "super_type": "Legendary Creature",
     "sub_type": "Human Warrior",
     "rarity": "rare",
@@ -615,7 +615,6 @@
     "flavor": "“Welcome to the food chain.”",
     "type": "Legendary Creature — Human Warrior",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "R",
       "G",
@@ -626,12 +625,13 @@
       "R",
       "G"
     ],
-    "color_label": "3-color"
+    "color_label": "3-color",
+    "is_token": false
   },
   {
     "name": "Strygwyr, the Bloodseeker",
     "cost": "1RR",
-    "image": "image6.png.png",
+    "image": "image6.png",
     "super_type": "Legendary Creature",
     "sub_type": "Beast Berserker",
     "rarity": "uncommon",
@@ -639,7 +639,6 @@
     "flavor": "“For the Flayed Twins, I seek blood.”",
     "type": "Legendary Creature — Beast Berserker",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "R",
@@ -648,12 +647,13 @@
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Gondar, the Bounty Hunter",
     "cost": "2BG",
-    "image": "image24.png.png",
+    "image": "image24.png",
     "super_type": "Legendary Creature",
     "sub_type": "Beast Scout",
     "rarity": "uncommon",
@@ -661,7 +661,6 @@
     "flavor": "“It was just business before. Now it’s personal.”",
     "type": "Legendary Creature — Beast Scout",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "B",
@@ -671,7 +670,8 @@
       "B",
       "G"
     ],
-    "color_label": "Golgari"
+    "color_label": "Golgari",
+    "is_token": false
   },
   {
     "name": "Mangix, the Brewmaster",
@@ -684,7 +684,6 @@
     "flavor": "“Drink and be bleary, for tomorrow we die!”",
     "type": "Legendary Creature — Bear Monk",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "G",
@@ -694,7 +693,8 @@
       "U",
       "G"
     ],
-    "color_label": "Simic"
+    "color_label": "Simic",
+    "is_token": false
   },
   {
     "name": "Nether Ward",
@@ -707,7 +707,6 @@
     "flavor": "While at the lamasery for the Arts of Oblivion, Pugna learned to dominate his classmates with a simple ward charged with Nether magic.",
     "type": "Artifact",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "B",
@@ -716,7 +715,8 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Rigwarl, the Bristleback",
@@ -729,7 +729,6 @@
     "flavor": "“More where that came from, sunshine.”",
     "type": "Legendary Creature — Beast Berserker",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "R"
@@ -737,7 +736,8 @@
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Black Arachnia, the Broodmother",
@@ -750,7 +750,6 @@
     "flavor": "“You’re not afraid of spiders, are you?”",
     "type": "Legendary Creature — Spider",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "B",
@@ -759,12 +758,13 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Bradwarden, the Centaur Warrunner",
     "cost": "2RGW",
-    "image": "image50.png.png",
+    "image": "image50.png",
     "super_type": "Legendary Creature",
     "sub_type": "Centaur Warrior",
     "rarity": "rare",
@@ -772,7 +772,6 @@
     "flavor": "“These proving grounds shall be littered with the dead.”",
     "type": "Legendary Creature — Centaur Warrior",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "R",
@@ -784,7 +783,8 @@
       "R",
       "G"
     ],
-    "color_label": "3-color"
+    "color_label": "3-color",
+    "is_token": false
   },
   {
     "name": "Chaos Knight",
@@ -797,7 +797,6 @@
     "flavor": "“Fall to your knees and lament.”",
     "type": "Legendary Creature — Avatar Knight",
     "cmc": 8,
-    "is_token": false,
     "mana_symbols": [
       "6",
       "B",
@@ -807,12 +806,13 @@
       "B",
       "R"
     ],
-    "color_label": "Rakdos"
+    "color_label": "Rakdos",
+    "is_token": false
   },
   {
     "name": "Chen, the Holy Knight",
     "cost": "2GW",
-    "image": "image68.png.png",
+    "image": "image68.png",
     "super_type": "Legendary Creature",
     "sub_type": "Human Knight",
     "rarity": "rare",
@@ -820,7 +820,6 @@
     "flavor": "“I have left the dark desert of my past to walk now in the light of Obelis.”",
     "type": "Legendary Creature — Human Knight",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "G",
@@ -830,7 +829,8 @@
       "W",
       "G"
     ],
-    "color_label": "Selesnya"
+    "color_label": "Selesnya",
+    "is_token": false
   },
   {
     "name": "Magebane’s Mirror",
@@ -843,14 +843,14 @@
     "flavor": "With the proper focus, Anti-Mage turns innate resistance into calculated retaliation.",
     "type": "Instant",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "W"
     ],
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Clinkz, the Bone Fletcher",
@@ -863,7 +863,6 @@
     "flavor": "“Fire grows hungrier the more it’s fed.”",
     "type": "Legendary Creature — Skeleton Archer",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "R",
       "W",
@@ -874,7 +873,8 @@
       "B",
       "R"
     ],
-    "color_label": "3-color"
+    "color_label": "3-color",
+    "is_token": false
   },
   {
     "name": "Rattletrap, the Clockwerk",
@@ -887,7 +887,6 @@
     "flavor": "“I’ve a mind like a steel trap, and the physique to go with it!”",
     "type": "Legendary Creature — Gnome Artificer",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "R",
@@ -897,12 +896,13 @@
       "W",
       "R"
     ],
-    "color_label": "Boros"
+    "color_label": "Boros",
+    "is_token": false
   },
   {
     "name": "Rylai, the Crystal Maiden",
     "cost": "W/UW/U",
-    "image": "image17.png.png",
+    "image": "image17.png",
     "super_type": "Legendary Creature",
     "sub_type": "Human Wizard",
     "rarity": "uncommon",
@@ -910,21 +910,21 @@
     "flavor": "“Guess you didn’t know a little game of freeze tag could turn lethal.”",
     "type": "Legendary Creature — Human Wizard",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
-      "UW",
-      "UW"
+      "WU",
+      "WU"
     ],
     "colors": [
       "W",
       "U"
     ],
-    "color_label": "Azorius"
+    "color_label": "Azorius",
+    "is_token": false
   },
   {
     "name": "Ish'Kafel, the Dark Seer",
     "cost": "5U/BU/B",
-    "image": "image67.png.png",
+    "image": "image67.png",
     "super_type": "Legendary Creature",
     "sub_type": "Elder Elemental",
     "rarity": "uncommon",
@@ -932,16 +932,16 @@
     "flavor": "“Your life, much like your head, lacked a point.”",
     "type": "Legendary Creature — Elder Elemental",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
-      "5BU",
-      "BU"
+      "B5U",
+      "UB"
     ],
     "colors": [
       "U",
       "B"
     ],
-    "color_label": "Dimir"
+    "color_label": "Dimir",
+    "is_token": false
   },
   {
     "name": "Mireska, the Dark Willow",
@@ -954,14 +954,14 @@
     "flavor": "“A little mischief never killed anyone... well, you I guess.”",
     "type": "Legendary Creature — Faerie Rogue",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "B"
     ],
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Valora, the Dawnbreaker",
@@ -974,7 +974,6 @@
     "flavor": "“My powers, like my life, were given to me. The will to wield them justly I found on my own.”",
     "type": "Legendary Creature — Elemental Warrior",
     "cmc": 7,
-    "is_token": false,
     "mana_symbols": [
       "4",
       "W",
@@ -984,7 +983,8 @@
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Aghanim’s Sceptre",
@@ -997,12 +997,12 @@
     "flavor": "The scepter of a wizard with demigod-like powers.",
     "type": "Legendary Artifact",
     "cmc": 7,
-    "is_token": false,
     "mana_symbols": [
       "7"
     ],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Dazzle, the Shadow Priest",
@@ -1015,7 +1015,6 @@
     "flavor": "“Where my shadow falls, there falls my foe.”",
     "type": "Legendary Creature — Troll Cleric",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "B"
@@ -1023,7 +1022,8 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Deafening Blast",
@@ -1036,7 +1036,6 @@
     "flavor": "“I am a beacon of knowledge blazing out across a black sea of ignorance.” — Carl, the Invoker",
     "type": "Legendary Sorcery",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "U",
@@ -1048,7 +1047,8 @@
       "B",
       "R"
     ],
-    "color_label": "3-color"
+    "color_label": "3-color",
+    "is_token": false
   },
   {
     "name": "Grimstroke",
@@ -1061,7 +1061,6 @@
     "flavor": "“The battlefield is merely a canvas, waiting for my brush.”",
     "type": "Legendary Creature — Demon Spirit",
     "cmc": 6,
-    "is_token": false,
     "mana_symbols": [
       "4",
       "R",
@@ -1070,12 +1069,13 @@
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Krobelus, the Death Prophet",
     "cost": "3WB",
-    "image": "image43.png.png",
+    "image": "image43.png",
     "super_type": "Legendary Creature",
     "sub_type": "Spirit Cleric",
     "rarity": "rare",
@@ -1083,7 +1083,6 @@
     "flavor": "“What I’ve seen goes far beyond death.”",
     "type": "Legendary Creature — Spirit Cleric",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "W",
@@ -1093,7 +1092,8 @@
       "W",
       "B"
     ],
-    "color_label": "Orzhov"
+    "color_label": "Orzhov",
+    "is_token": false
   },
   {
     "name": "Disruptor, the Stormcrafter",
@@ -1106,7 +1106,6 @@
     "flavor": "“Feeling under the weather?”",
     "type": "Legendary Creature — Ogre Wizard",
     "cmc": 6,
-    "is_token": false,
     "mana_symbols": [
       "4",
       "U",
@@ -1116,7 +1115,8 @@
       "U",
       "R"
     ],
-    "color_label": "Izzet"
+    "color_label": "Izzet",
+    "is_token": false
   },
   {
     "name": "Lucifer, the Doom",
@@ -1129,7 +1129,6 @@
     "flavor": "“I am the midnight of your soul.”",
     "type": "Legendary Creature — Avatar Demon",
     "cmc": 6,
-    "is_token": false,
     "mana_symbols": [
       "4",
       "B",
@@ -1139,7 +1138,8 @@
       "B",
       "R"
     ],
-    "color_label": "Rakdos"
+    "color_label": "Rakdos",
+    "is_token": false
   },
   {
     "name": "Doom",
@@ -1152,7 +1152,6 @@
     "flavor": "When a name is tolled from the bell of Vashundol, Doom is sure to follow.",
     "type": "Instant",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "B",
       "B"
@@ -1160,7 +1159,8 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Davion, the Dragon Knight",
@@ -1169,19 +1169,19 @@
     "super_type": "Legendary Creature",
     "sub_type": "Human",
     "rarity": "rare",
-    "rules": "<img class=\"svg-symbol\" style=\"width:15px; height:15px; margin:0 1px; vertical-align:-2px;\" src=\"https://svgs.scryfall.io/card-symbols/RW.svg\" />: Davion becomes a Human Knight with base power and toughness 2/2.\nR/WR/WR/W: If Davion is a Knight, it becomes a Human Dragon Knight with base power and toughness 4/4 and first strike.\nR/WR/WR/WR/WR/WR/W: If Davion is a Dragon, it becomes an Elder Dragon Knight with base power and toughness 8/8, flying, and first strike.",
+    "rules": "R/W: Davion becomes a Human Knight with base power and toughness 2/2.\nR/WR/WR/W: If Davion is a Knight, it becomes a Human Dragon Knight with base power and toughness 4/4 and first strike.\nR/WR/WR/WR/WR/WR/W: If Davion is a Dragon, it becomes an Elder Dragon Knight with base power and toughness 8/8, flying, and first strike.",
     "flavor": "“The dragon Slyrak sleeps within this armor, and the knight within the Dragon waits. Beware you do not wake them both.”",
     "type": "Legendary Creature — Human",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
-      "RW"
+      "WR"
     ],
     "colors": [
       "W",
       "R"
     ],
-    "color_label": "Boros"
+    "color_label": "Boros",
+    "is_token": false
   },
   {
     "name": "Kaolin, the Earth Spirit",
@@ -1194,7 +1194,6 @@
     "flavor": "“Through conflict, one’s nature is revealed.”",
     "type": "Legendary Creature — Spirit Warrior",
     "cmc": 6,
-    "is_token": false,
     "mana_symbols": [
       "4",
       "G",
@@ -1203,7 +1202,8 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Echo Slam",
@@ -1216,7 +1216,6 @@
     "flavor": "“No one sees an earthquake coming.” — Raigor, the Earthshaker",
     "type": "Instant",
     "cmc": 8,
-    "is_token": false,
     "mana_symbols": [
       "5",
       "R",
@@ -1226,7 +1225,8 @@
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Raigor, the Earthshaker",
@@ -1239,7 +1239,6 @@
     "flavor": "“There may be many earths, but there’s only one Earthshaker.”",
     "type": "Legendary Creature — Beast Warrior",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "R",
@@ -1249,7 +1248,8 @@
       "R",
       "G"
     ],
-    "color_label": "Gruul"
+    "color_label": "Gruul",
+    "is_token": false
   },
   {
     "name": "Elder Titan, the Worldsmith",
@@ -1262,7 +1262,6 @@
     "flavor": "“What long ago I shattered must be rendered whole.",
     "type": "Legendary Creature — Elder Giant",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "G",
@@ -1271,7 +1270,8 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Astral Spirit",
@@ -1284,7 +1284,6 @@
     "flavor": "“My broken soul goes forth.” — Elder Titan, the Worldsmith",
     "type": "Instant",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "G",
@@ -1293,7 +1292,8 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Xin, the Ember Spirit",
@@ -1306,7 +1306,6 @@
     "flavor": "“Balance in all things.”",
     "type": "Legendary Creature — Spirit Warrior",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "R"
@@ -1314,7 +1313,8 @@
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Aiushtha, the Enchantress",
@@ -1327,7 +1327,6 @@
     "flavor": "“It’s a hop, skip and a jump!”",
     "type": "Legendary Creature — Satyr",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "G",
@@ -1336,7 +1335,8 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Enigma, Consumer of Worlds",
@@ -1349,7 +1349,6 @@
     "flavor": "“That which is fundamental cannot be destroyed.”",
     "type": "Legendary Creature — Avatar",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "B",
@@ -1358,29 +1357,30 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Darkterror, the Faceless Void",
     "cost": "U/BU/B",
-    "image": "image5.png.png",
+    "image": "image5.png",
     "super_type": "Legendary Creature",
     "sub_type": "Avatar Warrior",
     "rarity": "rare",
-    "rules": "<img class=\"svg-symbol\" style=\"width:15px; height:15px; margin:0 1px; vertical-align:-2px;\" src=\"https://svgs.scryfall.io/card-symbols/BU.svg\" />: Exile Darkterror with a time counter on it. If it doesn’t have suspend, it gains suspend.\nWhenever Darkterror attacks, draw a card. Then, exile a nonland card from your hand with X time counters on it, where X is that card’s mana value. If that card doesn’t have suspend, it gains suspend.",
+    "rules": "U/B: Exile Darkterror with a time counter on it. If it doesn’t have suspend, it gains suspend.\nWhenever Darkterror attacks, draw a card. Then, exile a nonland card from your hand with X time counters on it, where X is that card’s mana value. If that card doesn’t have suspend, it gains suspend.",
     "flavor": "“Time is a river with many eddies. I have seen its head waters, and I have seen its currents reach the sea.”",
     "type": "Legendary Creature — Avatar Warrior",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
-      "BU",
-      "BU"
+      "UB",
+      "UB"
     ],
     "colors": [
       "U",
       "B"
     ],
-    "color_label": "Dimir"
+    "color_label": "Dimir",
+    "is_token": false
   },
   {
     "name": "Chronosphere",
@@ -1393,7 +1393,6 @@
     "flavor": "“I have seen the future; you’re not in it.” — Darkterror, the Faceless Void",
     "type": "Legendary Instant",
     "cmc": 6,
-    "is_token": false,
     "mana_symbols": [
       "4",
       "U",
@@ -1403,7 +1402,8 @@
       "U",
       "B"
     ],
-    "color_label": "Dimir"
+    "color_label": "Dimir",
+    "is_token": false
   },
   {
     "name": "Aurel, the Gyrocopter",
@@ -1416,7 +1416,6 @@
     "flavor": "“You remind me of my old boss. Rot in Hell!”",
     "type": "Legendary Creature — Gnome Pilot",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "R",
@@ -1426,7 +1425,8 @@
       "W",
       "R"
     ],
-    "color_label": "Boros"
+    "color_label": "Boros",
+    "is_token": false
   },
   {
     "name": "Hoodwink",
@@ -1439,16 +1439,16 @@
     "flavor": "“You ever hear the one about the tortoise and the hare and the squirrel that shot ‘em both?”",
     "type": "Legendary Creature — Squirrel Ranger",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
-      "1GW",
-      "GW"
+      "W1G",
+      "WG"
     ],
     "colors": [
       "W",
       "G"
     ],
-    "color_label": "Selesnya"
+    "color_label": "Selesnya",
+    "is_token": false
   },
   {
     "name": "Chilling Touch",
@@ -1461,7 +1461,6 @@
     "flavor": "The Ancient Apparition’s eternal knowledge brings a frigid enchantment to his attacks.",
     "type": "Instant",
     "cmc": 6,
-    "is_token": false,
     "mana_symbols": [
       "4",
       "U",
@@ -1470,7 +1469,8 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Huskar, the Sacred Warrior",
@@ -1483,7 +1483,6 @@
     "flavor": "“Great honors await you in the Nothl Realm.”",
     "type": "Legendary Creature — Troll Warrior",
     "cmc": 6,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "R",
@@ -1493,7 +1492,8 @@
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Carl, the Invoker",
@@ -1506,7 +1506,6 @@
     "flavor": "“Did I hear a squeak?”",
     "type": "Legendary Creature — Human Wizard",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "U",
       "B",
@@ -1517,7 +1516,8 @@
       "B",
       "R"
     ],
-    "color_label": "3-color"
+    "color_label": "3-color",
+    "is_token": false
   },
   {
     "name": "Dragon Tail",
@@ -1530,19 +1530,19 @@
     "flavor": "Davion’s combination of dragon talents and knightly skills makes him a vicious opponent in melee combat.",
     "type": "Instant",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "W"
     ],
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Timber Chain",
     "cost": "R",
-    "image": "image38.png.png",
+    "image": "image38.png",
     "super_type": "Sorcery",
     "sub_type": "",
     "rarity": "uncommon",
@@ -1550,14 +1550,14 @@
     "flavor": "“I’m not a lumberjack. This. This is personal. — Rizzrack, the Timbersaw",
     "type": "Sorcery",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "R"
     ],
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Kraken Shell",
@@ -1570,7 +1570,6 @@
     "flavor": "Claddish navymen tell tales of a mighty sea-faring beast that suffered spear and sword but continued to lay waste to the fleet.",
     "type": "Enchantment — Aura",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "U",
@@ -1579,7 +1578,8 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Magic Wand",
@@ -1592,12 +1592,12 @@
     "flavor": "A simple wand used to channel magic energies, it is favored by apprentice wizards and great warlocks alike.",
     "type": "Artifact",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "2"
     ],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Io, the Wisp",
@@ -1610,19 +1610,19 @@
     "flavor": "The benevolent touch of Io brings strength from between the planes.",
     "type": "Legendary Creature — Spirit",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "W"
     ],
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Overcharge",
     "cost": "1W",
-    "image": "image92.png.png",
+    "image": "image92.png",
     "super_type": "Instant",
     "sub_type": "",
     "rarity": "common",
@@ -1630,7 +1630,6 @@
     "flavor": "Drawing on the energy of matter from all worlds, Io begins the unravelling of time.",
     "type": "Instant",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "W"
@@ -1638,7 +1637,8 @@
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Arena of Blood",
@@ -1651,7 +1651,6 @@
     "flavor": "“DADADA DA DA DA-DA-DA!” — Mars, the First Son of Heaven",
     "type": "Enchantment",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "R",
@@ -1660,7 +1659,8 @@
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Shackleshot",
@@ -1673,7 +1673,6 @@
     "flavor": "“I now pronounce you man and tree.” — Lyralei, the Windranger",
     "type": "Enchantment — Aura",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "G",
@@ -1683,7 +1682,8 @@
       "W",
       "G"
     ],
-    "color_label": "Selesnya"
+    "color_label": "Selesnya",
+    "is_token": false
   },
   {
     "name": "Rot",
@@ -1696,19 +1696,19 @@
     "flavor": "“Fill your lungs up.” — Pudge, the Butcher",
     "type": "Enchantment — Aura",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "B"
     ],
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Open Wounds",
     "cost": "1B",
-    "image": "image98.png.png",
+    "image": "image98.png",
     "super_type": "Sorcery",
     "sub_type": "",
     "rarity": "uncommon",
@@ -1716,7 +1716,6 @@
     "flavor": "Sometimes, the first slash cuts the deepest",
     "type": "Sorcery",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "B"
@@ -1724,7 +1723,8 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Naix, the Lifestealer",
@@ -1737,7 +1737,6 @@
     "flavor": "“Your life, stolen right out from under you.”",
     "type": "Legendary Creature — Zombie Minion",
     "cmc": 6,
-    "is_token": false,
     "mana_symbols": [
       "4",
       "B",
@@ -1746,7 +1745,8 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Tango",
@@ -1758,14 +1758,14 @@
     "flavor": "Forage to survive on the battlefield.",
     "type": "Artifact",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "G"
     ],
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Faerie Fire",
@@ -1777,14 +1777,14 @@
     "flavor": "The ethereal flames from the ever-burning ruins of Kindertree ignite across realities.",
     "type": "Instant",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "G"
     ],
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Enchanted Mango",
@@ -1797,7 +1797,6 @@
     "flavor": "The bittersweet flavors of Jidi Isle are irresistible to amphibians.",
     "type": "Instant",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "G",
       "U"
@@ -1806,7 +1805,8 @@
       "U",
       "G"
     ],
-    "color_label": "Simic"
+    "color_label": "Simic",
+    "is_token": false
   },
   {
     "name": "Town Portal Scroll",
@@ -1819,12 +1819,12 @@
     "flavor": "What a hero truly needs.",
     "type": "Artifact",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "2"
     ],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Reincarnation",
@@ -1837,7 +1837,6 @@
     "flavor": "“Death has no grip on me.” — Ostarion, the Wraith King",
     "type": "Legendary Sorcery",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "B",
       "B"
@@ -1845,7 +1844,8 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Ostarion, the Wraith King",
@@ -1858,7 +1858,6 @@
     "flavor": "“Was that some sort of misguided tribute?”",
     "type": "Legendary Creature — Skeleton Noble",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "B",
@@ -1867,12 +1866,13 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Claymore",
     "cost": "1R",
-    "image": "image34.png.png",
+    "image": "image34.png",
     "super_type": "Artifact",
     "sub_type": "Equipment",
     "rarity": "uncommon",
@@ -1880,7 +1880,6 @@
     "flavor": "A sword that can cut through armor, it’s a commonly chosen first weapon for budding swordsmen.",
     "type": "Artifact — Equipment",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "R"
@@ -1888,7 +1887,8 @@
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Gem of True Sight",
@@ -1901,17 +1901,17 @@
     "flavor": "Not one thrall creature of the depths, nor spirit bound in drowning’s keep, nor Maelrawn the Tentacular, shall rest till seas, gem comes to sleep.",
     "type": "Legendary Artifact",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "2"
     ],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Presence of the Dark Lord",
     "cost": "2BB",
-    "image": "image28.png.png",
+    "image": "image28.png",
     "super_type": "Enchantment",
     "sub_type": "",
     "rarity": "uncommon",
@@ -1919,7 +1919,6 @@
     "flavor": "Even being near Nevermore eats away at one’s soul.",
     "type": "Enchantment",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "B",
@@ -1928,7 +1927,8 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Soul Ring",
@@ -1941,7 +1941,6 @@
     "flavor": "A ring that feeds on the souls of those who wear it.",
     "type": "Legendary Artifact",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "B",
       "R"
@@ -1950,7 +1949,8 @@
       "B",
       "R"
     ],
-    "color_label": "Rakdos"
+    "color_label": "Rakdos",
+    "is_token": false
   },
   {
     "name": "Hand of Midas",
@@ -1963,12 +1963,12 @@
     "flavor": "Preserved through unknown magical means, the Hand of Midas is a weapon of greed, sacrificing animals to line the owner’s pockets.",
     "type": "Legendary Artifact",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "2"
     ],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Moon Shard",
@@ -1981,12 +1981,12 @@
     "flavor": "Said to be a tear from the lunar goddess Selemene.",
     "type": "Legendary Artifact — Equipment",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "3"
     ],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Urn of Shadows",
@@ -1999,7 +1999,6 @@
     "flavor": "Contains the ashes of powerful demons—invigorating to some, and deadly to most.",
     "type": "Artifact",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "B",
       "G"
@@ -2008,7 +2007,8 @@
       "B",
       "G"
     ],
-    "color_label": "Golgari"
+    "color_label": "Golgari",
+    "is_token": false
   },
   {
     "name": "Desolator",
@@ -2021,7 +2021,6 @@
     "flavor": "A wicked weapon, used in torturing political criminals.",
     "type": "Legendary Artifact — Equipment",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "B",
@@ -2031,7 +2030,8 @@
       "B",
       "R"
     ],
-    "color_label": "Rakdos"
+    "color_label": "Rakdos",
+    "is_token": false
   },
   {
     "name": "Mekansm",
@@ -2044,7 +2044,6 @@
     "flavor": "A glowing jewel formed out of assorted parts that somehow fit together perfectly.",
     "type": "Legendary Artifact",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "W"
@@ -2052,7 +2051,8 @@
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Drums of Endurance",
@@ -2065,7 +2065,6 @@
     "flavor": "A relic that enchants the bodies of those around it for swifter movement in times of crisis.",
     "type": "Legendary Artifact",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "R",
       "G"
@@ -2074,7 +2073,8 @@
       "R",
       "G"
     ],
-    "color_label": "Gruul"
+    "color_label": "Gruul",
+    "is_token": false
   },
   {
     "name": "Meepo, the Geomancer",
@@ -2087,7 +2087,6 @@
     "flavor": "“I guess size ain’t everything, eh?”",
     "type": "Legendary Creature — Kobold Scout",
     "cmc": 6,
-    "is_token": false,
     "mana_symbols": [
       "4",
       "G",
@@ -2097,7 +2096,8 @@
       "U",
       "G"
     ],
-    "color_label": "Simic"
+    "color_label": "Simic",
+    "is_token": false
   },
   {
     "name": "Jakiro, the Twin Head Dragon",
@@ -2110,7 +2110,6 @@
     "flavor": "“Tis an honor to die by dragons.”",
     "type": "Legendary Creature — Dragon",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "U",
@@ -2120,7 +2119,8 @@
       "U",
       "R"
     ],
-    "color_label": "Izzet"
+    "color_label": "Izzet",
+    "is_token": false
   },
   {
     "name": "Yurnero, the Juggernaut",
@@ -2133,7 +2133,6 @@
     "flavor": "“There’s a fine line between bravery and stupidity.”",
     "type": "Legendary Creature — Human Warrior",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "W"
@@ -2141,7 +2140,8 @@
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Ezalor, the Keeper of the Light",
@@ -2154,7 +2154,6 @@
     "flavor": "“I’ll forego green girdles and questing beasts, for all such knightly trifles pale before the light.”",
     "type": "Legendary Creature — Human Wizard",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "W"
@@ -2162,7 +2161,8 @@
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Kunkka, the Admiral",
@@ -2175,7 +2175,6 @@
     "flavor": "“This’ll trim your sails!”",
     "type": "Legendary Creature — Spirit Pirate",
     "cmc": 6,
-    "is_token": false,
     "mana_symbols": [
       "4",
       "U",
@@ -2184,7 +2183,8 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Fiend’s Grip",
@@ -2197,7 +2197,6 @@
     "flavor": "Victims of Atropos are frequently torn apart by vivid conjurations of their own nightmares.",
     "type": "Enchantment — Aura",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "U",
@@ -2207,12 +2206,13 @@
       "U",
       "B"
     ],
-    "color_label": "Dimir"
+    "color_label": "Dimir",
+    "is_token": false
   },
   {
     "name": "Tresdin, the Legion Commander",
     "cost": "2R",
-    "image": "image78.png.png",
+    "image": "image78.png",
     "super_type": "Legendary Creature",
     "sub_type": "Human Soldier",
     "rarity": "uncommon",
@@ -2220,7 +2220,6 @@
     "flavor": "“I’ve come to put an end to hope.”",
     "type": "Legendary Creature — Human Soldier",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "R"
@@ -2228,7 +2227,8 @@
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Leshrac, the Tormented Soul",
@@ -2241,7 +2241,6 @@
     "flavor": "“Your desolation and the world’s are one.”",
     "type": "Legendary Creature — Satyr",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "R",
@@ -2250,7 +2249,8 @@
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Ethreain, the Lich",
@@ -2263,7 +2263,6 @@
     "flavor": "“I number you among the dead.”",
     "type": "Legendary Creature — Zombie Wizard",
     "cmc": 7,
-    "is_token": false,
     "mana_symbols": [
       "5",
       "W",
@@ -2273,7 +2272,8 @@
       "W",
       "U"
     ],
-    "color_label": "Azorius"
+    "color_label": "Azorius",
+    "is_token": false
   },
   {
     "name": "Lina, the Slayer",
@@ -2286,7 +2286,6 @@
     "flavor": "“Burn, baby, burn.”",
     "type": "Legendary Creature — Human Wizard",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "R",
@@ -2295,7 +2294,8 @@
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Lion, the Demon Witch",
@@ -2308,7 +2308,6 @@
     "flavor": "“I’ve been to Hell and back, and back to Hell…and back.”",
     "type": "Legendary Creature — Demon Wizard",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "B",
@@ -2318,7 +2317,8 @@
       "B",
       "R"
     ],
-    "color_label": "Rakdos"
+    "color_label": "Rakdos",
+    "is_token": false
   },
   {
     "name": "Sylla, the Lone Druid",
@@ -2331,7 +2331,6 @@
     "flavor": "‘Nature chose her guardian well.”",
     "type": "Legendary Creature — Human Druid",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "G"
@@ -2339,7 +2338,8 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Luna, the Moon Rider",
@@ -2352,7 +2352,6 @@
     "flavor": "“By Nightsilver!”",
     "type": "Legendary Creature — Human Cleric",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "B"
@@ -2360,7 +2359,8 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Banehallow, the Lycan",
@@ -2373,7 +2373,6 @@
     "flavor": "“I am the alpha wolf.”",
     "type": "Legendary Creature — Human Werewolf",
     "cmc": 6,
-    "is_token": false,
     "mana_symbols": [
       "4",
       "B",
@@ -2382,7 +2381,8 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Puck, the Faerie Dragon",
@@ -2395,7 +2395,6 @@
     "flavor": "“Stay and amuse me!”",
     "type": "Legendary Creature — Faerie Dragon",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "W",
@@ -2405,7 +2404,8 @@
       "W",
       "U"
     ],
-    "color_label": "Azorius"
+    "color_label": "Azorius",
+    "is_token": false
   },
   {
     "name": "Magnus, the Magnoceros",
@@ -2418,7 +2418,6 @@
     "flavor": "“You must have mistaken my purpose…to flatten you!”",
     "type": "Legendary Creature — Rhino",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "G",
@@ -2427,7 +2426,8 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Marci",
@@ -2440,7 +2440,6 @@
     "flavor": "Marci learned at a young age that the best asset in a scrap is a steady companion.",
     "type": "Legendary Creature — Human",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "R",
@@ -2450,7 +2449,8 @@
       "W",
       "R"
     ],
-    "color_label": "Boros"
+    "color_label": "Boros",
+    "is_token": false
   },
   {
     "name": "Mars, the First Son of Heaven",
@@ -2463,7 +2463,6 @@
     "flavor": "“Let the name Mars ring across the battlefield, and bear witness to my enemy’s flight.”",
     "type": "Legendary Creature — Demigod Warrior",
     "cmc": 6,
-    "is_token": false,
     "mana_symbols": [
       "4",
       "R",
@@ -2472,7 +2471,8 @@
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Medusa, the Gorgon",
@@ -2485,7 +2485,6 @@
     "flavor": "“Never come between a Gorgon and her sisters”",
     "type": "Legendary Creature — Gorgon",
     "cmc": 6,
-    "is_token": false,
     "mana_symbols": [
       "4",
       "B",
@@ -2495,7 +2494,8 @@
       "B",
       "G"
     ],
-    "color_label": "Golgari"
+    "color_label": "Golgari",
+    "is_token": false
   },
   {
     "name": "Mirana of Nightsilver",
@@ -2508,7 +2508,6 @@
     "flavor": "“The stars are in alignment, and our victory is certain.”",
     "type": "Legendary Creature — Human Ranger",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "U",
       "B"
@@ -2517,7 +2516,8 @@
       "U",
       "B"
     ],
-    "color_label": "Dimir"
+    "color_label": "Dimir",
+    "is_token": false
   },
   {
     "name": "Wukong, the Monkey King",
@@ -2530,7 +2530,6 @@
     "flavor": "“My next great challenge will be your last.”",
     "type": "Legendary Creature — Ape Warrior",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "G",
       "U",
@@ -2541,7 +2540,8 @@
       "R",
       "G"
     ],
-    "color_label": "3-color"
+    "color_label": "3-color",
+    "is_token": false
   },
   {
     "name": "Morphling",
@@ -2554,7 +2554,6 @@
     "flavor": "“You’re washed up!”",
     "type": "Legendary Creature — Shapeshifter",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "U",
@@ -2563,7 +2562,8 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Muerta",
@@ -2576,7 +2576,6 @@
     "flavor": "“I promise you a quick death. The eternity of torment waiting for you in the afterlife might take a bit longer.”",
     "type": "Legendary Creature — Spirit Assassin",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "4",
       "B"
@@ -2584,7 +2583,8 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Slithice, the Naga Siren",
@@ -2597,16 +2597,16 @@
     "flavor": "“From this sleep you will not wake.”",
     "type": "Legendary Creature — Naga",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
-      "1GU",
-      "GU"
+      "U1G",
+      "UG"
     ],
     "colors": [
       "U",
       "G"
     ],
-    "color_label": "Simic"
+    "color_label": "Simic",
+    "is_token": false
   },
   {
     "name": "Tormentor",
@@ -2619,12 +2619,12 @@
     "flavor": "Innocuous as first, the Divine Sentinel lashes out at anyone who dares draw near.",
     "type": "Battle — Raid",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "1"
     ],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Nature’s Grasp",
@@ -2637,7 +2637,6 @@
     "flavor": "“I would like nothing more than to plant myself in the sunshine, next to a cool stream.” — Rooftrellen, the Treant Protector",
     "type": "Instant",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "G"
@@ -2645,7 +2644,8 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Nature’s Prophet",
@@ -2658,7 +2658,6 @@
     "flavor": "“Ah, the sun in my leaves.”",
     "type": "Legendary Creature — Satyr Druid",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "G",
@@ -2668,7 +2667,8 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Rotund'jere, Necrophos",
@@ -2681,7 +2681,6 @@
     "flavor": "“You become feast for the flesh flies.”",
     "type": "Legendary Creature — Zombie Warlock",
     "cmc": 6,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "W",
@@ -2693,12 +2692,13 @@
       "B",
       "G"
     ],
-    "color_label": "3-color"
+    "color_label": "3-color",
+    "is_token": false
   },
   {
     "name": "Reaper’s Scythe",
     "cost": "B",
-    "image": "image90.png.png",
+    "image": "image90.png",
     "super_type": "Instant",
     "sub_type": "",
     "rarity": "uncommon",
@@ -2706,14 +2706,14 @@
     "flavor": "The amount of death and suffering in the air increases the power of the Necrophos’ plague magic.",
     "type": "Instant",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "B"
     ],
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Balanar, the Night Stalker",
@@ -2726,7 +2726,6 @@
     "flavor": "“I’m the beast of bedtime tales.”",
     "type": "Legendary Creature — Horror",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "B"
@@ -2734,7 +2733,8 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Dark Ascension",
@@ -2747,14 +2747,14 @@
     "flavor": "The hunting prowess of Balanar improves as the night beckons.",
     "type": "Instant",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "B"
     ],
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Nyx Assassin",
@@ -2767,7 +2767,6 @@
     "flavor": "“Your thoughts betray you.”",
     "type": "Legendary Creature — Insect Assassin",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "U",
@@ -2777,12 +2776,13 @@
       "U",
       "B"
     ],
-    "color_label": "Dimir"
+    "color_label": "Dimir",
+    "is_token": false
   },
   {
     "name": "Aggron Stonebreak, the Ogre Magi",
     "cost": "5U/RU/R",
-    "image": "image11.png.png",
+    "image": "image11.png",
     "super_type": "Legendary Creature",
     "sub_type": "Ogre Wizard",
     "rarity": "rare",
@@ -2790,16 +2790,16 @@
     "flavor": "“Running’s not as fun as hitting. Not one bit fun!”",
     "type": "Legendary Creature — Ogre Wizard",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
-      "5RU",
-      "RU"
+      "R5U",
+      "UR"
     ],
     "colors": [
       "U",
       "R"
     ],
-    "color_label": "Izzet"
+    "color_label": "Izzet",
+    "is_token": false
   },
   {
     "name": "Purist Thunderwrath, the Omniknight",
@@ -2812,7 +2812,6 @@
     "flavor": "“Let this be the last crusade. Let me find peace.”",
     "type": "Legendary Creature — Human Knight",
     "cmc": 6,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "W",
@@ -2822,7 +2821,8 @@
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Nerif, the Oracle",
@@ -2835,7 +2835,6 @@
     "flavor": "“Like a promise, you were made to be broken.”",
     "type": "Legendary Creature — Vedalken Cleric",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "U",
       "B"
@@ -2844,7 +2843,8 @@
       "U",
       "B"
     ],
-    "color_label": "Dimir"
+    "color_label": "Dimir",
+    "is_token": false
   },
   {
     "name": "Buyback",
@@ -2857,12 +2857,12 @@
     "flavor": "“Wait, you don’t have buyback?” — Famous last words",
     "type": "Instant",
     "cmc": 0,
-    "is_token": false,
     "mana_symbols": [
       "0"
     ],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Harbinger, Outworld Destroyer",
@@ -2875,7 +2875,6 @@
     "flavor": "“My wings beat with the rhythms of eternity.”",
     "type": "Legendary Creature — Archon",
     "cmc": 7,
-    "is_token": false,
     "mana_symbols": [
       "5",
       "U",
@@ -2885,7 +2884,8 @@
       "U",
       "B"
     ],
-    "color_label": "Dimir"
+    "color_label": "Dimir",
+    "is_token": false
   },
   {
     "name": "Astral Imprisonment",
@@ -2898,14 +2898,14 @@
     "flavor": "“Their sanity I’ll shatter, their dreams of conquest I’ll destroy.” — Harbinger, the Outworld Destroyer",
     "type": "Enchantment — Aura",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "U"
     ],
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Donté Panlin, the Pangolier",
@@ -2918,7 +2918,6 @@
     "flavor": "“Where the finest warriors alive have gathered for battle, of course you can expect to find me.”",
     "type": "Legendary Creature — Pangolin",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "R"
@@ -2926,12 +2925,13 @@
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Mortred, the Phantom Assassin",
     "cost": "1WB",
-    "image": "image36.png.png",
+    "image": "image36.png",
     "super_type": "Legendary Creature",
     "sub_type": "Spirit Assassin",
     "rarity": "uncommon",
@@ -2939,7 +2939,6 @@
     "flavor": "“Even in death, you’ll not see beyond the Phantom Veil.”",
     "type": "Legendary Creature — Spirit Assassin",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "W",
@@ -2949,7 +2948,8 @@
       "W",
       "B"
     ],
-    "color_label": "Orzhov"
+    "color_label": "Orzhov",
+    "is_token": false
   },
   {
     "name": "Azwraith, the Phantom Lancer",
@@ -2962,7 +2962,6 @@
     "flavor": "“We outnumbered you. We outnumber them all!”",
     "type": "Legendary Creature — Cat Warrior",
     "cmc": 6,
-    "is_token": false,
     "mana_symbols": [
       "4",
       "W",
@@ -2972,7 +2971,8 @@
       "W",
       "U"
     ],
-    "color_label": "Azorius"
+    "color_label": "Azorius",
+    "is_token": false
   },
   {
     "name": "Phoenix",
@@ -2985,7 +2985,6 @@
     "flavor": "The ever-collapsing core of Phoenix often emits short-lived bursts of conscious light.",
     "type": "Legendary Creature — Phoenix",
     "cmc": 7,
-    "is_token": false,
     "mana_symbols": [
       "4",
       "R",
@@ -2995,7 +2994,8 @@
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Primal Beast",
@@ -3008,7 +3008,6 @@
     "flavor": "The Beast’s single-minded focus on chosen prey leaves all other considerations scattered in his ruinous wake.",
     "type": "Legendary Creature — Dinosaur Beast",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "X",
       "R",
@@ -3018,7 +3017,8 @@
       "R",
       "G"
     ],
-    "color_label": "Gruul"
+    "color_label": "Gruul",
+    "is_token": false
   },
   {
     "name": "Pudge, the Butcher",
@@ -3031,7 +3031,6 @@
     "flavor": "“Have I got juice on me chins?”",
     "type": "Legendary Creature — Zombie",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "B",
@@ -3040,7 +3039,8 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Pugna",
@@ -3053,7 +3053,6 @@
     "flavor": "“I’ll take that life if you’re not using it, he he he.”",
     "type": "Legendary Creature — Skeleton Wizard",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "B"
@@ -3061,7 +3060,8 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Akasha, the Queen of Pain",
@@ -3074,7 +3074,6 @@
     "flavor": "“Long live your Queen!”",
     "type": "Legendary Creature — Demon Sorcerer",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "R",
@@ -3083,7 +3082,8 @@
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Razor, the Lightning Revenant",
@@ -3096,16 +3096,16 @@
     "flavor": "“I bring my lightning whip not to punish souls, but only to hasten them toward the inevitable exit.”",
     "type": "Legendary Creature — Elemental Warrior",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
-      "1RU",
-      "RU"
+      "R1U",
+      "UR"
     ],
     "colors": [
       "U",
       "R"
     ],
-    "color_label": "Izzet"
+    "color_label": "Izzet",
+    "is_token": false
   },
   {
     "name": "Riki, the Stealth Assassin",
@@ -3118,7 +3118,6 @@
     "flavor": "“I speak softly, but carry a sharp knife.”",
     "type": "Legendary Creature — Satyr Rogue",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "U",
@@ -3128,7 +3127,8 @@
       "U",
       "B"
     ],
-    "color_label": "Dimir"
+    "color_label": "Dimir",
+    "is_token": false
   },
   {
     "name": "Rubick, the Grand Magus",
@@ -3141,7 +3141,6 @@
     "flavor": "“Such fascinating energies!”",
     "type": "Legendary Creature — Vedalken Wizard",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "U",
@@ -3151,12 +3150,13 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Crixalis, the Sand King",
     "cost": "1BRG",
-    "image": "image54.png.png",
+    "image": "image54.png",
     "super_type": "Legendary Creature",
     "sub_type": "Scorpion Noble",
     "rarity": "rare",
@@ -3164,7 +3164,6 @@
     "flavor": "“Oh Desert Djinn who forged my living carapace, eternally the sand will praise your name!”",
     "type": "Legendary Creature — Scorpion Noble",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "B",
@@ -3176,7 +3175,8 @@
       "R",
       "G"
     ],
-    "color_label": "3-color"
+    "color_label": "3-color",
+    "is_token": false
   },
   {
     "name": "Shadow Demon",
@@ -3189,7 +3189,6 @@
     "flavor": "“Your soul will make a fine minion!”",
     "type": "Legendary Creature — Demon Wizard",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "R"
@@ -3197,7 +3196,8 @@
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Nevermore, the Shadow Fiend",
@@ -3210,7 +3210,6 @@
     "flavor": "“I’ll leave you a couple pennies for your eyes.”",
     "type": "Legendary Creature — Demon Archon",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "BR",
       "BR"
@@ -3219,7 +3218,8 @@
       "B",
       "R"
     ],
-    "color_label": "Rakdos"
+    "color_label": "Rakdos",
+    "is_token": false
   },
   {
     "name": "Rhasta, the Shadow Shaman",
@@ -3232,7 +3232,6 @@
     "flavor": "“A fine form for you!”",
     "type": "Legendary Creature — Troll Shaman",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "G",
@@ -3242,7 +3241,8 @@
       "U",
       "G"
     ],
-    "color_label": "Simic"
+    "color_label": "Simic",
+    "is_token": false
   },
   {
     "name": "Nortrom, the Silencer",
@@ -3255,7 +3255,6 @@
     "flavor": "“Shhh!”",
     "type": "Legendary Creature — Human Advisor",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "W",
@@ -3265,7 +3264,8 @@
       "W",
       "B"
     ],
-    "color_label": "Orzhov"
+    "color_label": "Orzhov",
+    "is_token": false
   },
   {
     "name": "Dragonus, the Skywrath Mage",
@@ -3278,7 +3278,6 @@
     "flavor": "“I am a tool of the greater good. What does that make you?”",
     "type": "Legendary Creature — Angel Wizard",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "W",
       "U"
@@ -3287,7 +3286,8 @@
       "W",
       "U"
     ],
-    "color_label": "Azorius"
+    "color_label": "Azorius",
+    "is_token": false
   },
   {
     "name": "Slardar, Slithereen Guard",
@@ -3300,7 +3300,6 @@
     "flavor": "“Can’t fathom why you thought you’d survive.”",
     "type": "Legendary Creature — Naga Warrior",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "U",
@@ -3309,7 +3308,8 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Slark, the Nightcrawler",
@@ -3322,7 +3322,6 @@
     "flavor": "“If I’d known I’d end up here, I’d have stayed in Dark Reef Prison.”",
     "type": "Legendary Creature — Naga Rogue",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "B",
       "G",
@@ -3333,7 +3332,8 @@
       "B",
       "G"
     ],
-    "color_label": "3-color"
+    "color_label": "3-color",
+    "is_token": false
   },
   {
     "name": "Beatrix and Mortimer",
@@ -3346,7 +3346,6 @@
     "flavor": "“I’m Beadie. N’ this here’s Mortimer. Nothing fancy. Just here to kill some time and if we can manage, some people.”",
     "type": "Legendary Creature — Lizard Gnome",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "R",
       "G"
@@ -3355,7 +3354,8 @@
       "R",
       "G"
     ],
-    "color_label": "Gruul"
+    "color_label": "Gruul",
+    "is_token": false
   },
   {
     "name": "Kardel Sharpeye, the Sniper",
@@ -3368,7 +3368,6 @@
     "flavor": "“As long as there are two heroes left on the battlefield, someone is gonna want someone dead.”",
     "type": "Legendary Creature — Gnome Scout",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "R",
       "W"
@@ -3377,12 +3376,13 @@
       "W",
       "R"
     ],
-    "color_label": "Boros"
+    "color_label": "Boros",
+    "is_token": false
   },
   {
     "name": "Mercurial, the Spectre",
     "cost": "1BB",
-    "image": "image13.png.png",
+    "image": "image13.png",
     "super_type": "Legendary Creature",
     "sub_type": "Spirit",
     "rarity": "uncommon",
@@ -3390,7 +3390,6 @@
     "flavor": "“Who cannot endure, is entombed.”",
     "type": "Legendary Creature — Spirit",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "B",
@@ -3399,7 +3398,8 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Barathrum, the Spirit Breaker",
@@ -3412,7 +3412,6 @@
     "flavor": "“Mine is the anvil on which your spirit broke.”",
     "type": "Legendary Creature — Beast Warrior",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "G",
@@ -3422,7 +3421,8 @@
       "U",
       "G"
     ],
-    "color_label": "Simic"
+    "color_label": "Simic",
+    "is_token": false
   },
   {
     "name": "Raijin, the Storm Spirit",
@@ -3435,7 +3435,6 @@
     "flavor": "“Told you a storm was coming!”",
     "type": "Legendary Creature — Spirit Wizard",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "4",
       "U"
@@ -3443,7 +3442,8 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Sven, the Rogue Knight",
@@ -3456,7 +3456,6 @@
     "flavor": "“Rogue Knight claims another.”",
     "type": "Legendary Creature — Rogue Knight",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "R",
@@ -3466,7 +3465,8 @@
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Inai, the Void Spirit",
@@ -3479,7 +3479,6 @@
     "flavor": "“I abhor the blindness of the mortal plane.”",
     "type": "Legendary Creature — Spirit",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "B",
@@ -3488,7 +3487,8 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Squee, Spleen, and Spoon, the Techies",
@@ -3501,7 +3501,6 @@
     "flavor": "“Techies Demolitions! We put the tech in tech-nically we meant to do that.”",
     "type": "Legendary Creature — Goblin",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "R"
@@ -3509,7 +3508,8 @@
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Lanaya, the Templar Assassin",
@@ -3522,7 +3522,6 @@
     "flavor": "“Your death was a secret I can no longer hide.”",
     "type": "Legendary Creature — Human Assassin",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "W"
@@ -3530,7 +3529,8 @@
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Terrorblade, Demon Marauder",
@@ -3543,19 +3543,19 @@
     "flavor": "“The self-righteous shall choke on their sanctimony.”",
     "type": "Legendary Creature — Demon Warrior",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "B"
     ],
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Leviathan, the Tidehunter",
     "cost": "3UUU",
-    "image": "image19.png.png",
+    "image": "image19.png",
     "super_type": "Legendary Creature",
     "sub_type": "Leviathan",
     "rarity": "rare",
@@ -3563,7 +3563,6 @@
     "flavor": "“I’m hungry enough to eat a manta ray.”",
     "type": "Legendary Creature — Leviathan",
     "cmc": 6,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "U",
@@ -3573,12 +3572,13 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Rizzrack, the Timbersaw",
     "cost": "1RG",
-    "image": "image39.png.png",
+    "image": "image39.png",
     "super_type": "Legendary Creature",
     "sub_type": "Gnome Pilot",
     "rarity": "uncommon",
@@ -3586,7 +3586,6 @@
     "flavor": "“I cut you, and I split you, and I killed you! Ha ha ha ha ha ha!”",
     "type": "Legendary Creature — Gnome Pilot",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "R",
@@ -3596,12 +3595,13 @@
       "R",
       "G"
     ],
-    "color_label": "Gruul"
+    "color_label": "Gruul",
+    "is_token": false
   },
   {
     "name": "Boush, the Tinker",
     "cost": "U",
-    "image": "image7.png.png",
+    "image": "image7.png",
     "super_type": "Legendary Creature",
     "sub_type": "Gnome Artificer",
     "rarity": "uncommon",
@@ -3609,19 +3609,19 @@
     "flavor": "“You can keep your magic, I have laser beams!”",
     "type": "Legendary Creature — Gnome Artificer",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "U"
     ],
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Tiny, the Stone Giant",
     "cost": "1G",
-    "image": "image1.png.png",
+    "image": "image1.png",
     "super_type": "Legendary Creature",
     "sub_type": "Elemental",
     "rarity": "mythic rare",
@@ -3629,7 +3629,6 @@
     "flavor": "“Sticks and stones will break their bones!”",
     "type": "Legendary Creature — Elemental",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "G"
@@ -3637,7 +3636,8 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Rooftrellen, Treant Protector",
@@ -3650,7 +3650,6 @@
     "flavor": "“Where the path branched, you chose unwisely.”",
     "type": "Legendary Creature — Treefolk",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "G"
@@ -3658,7 +3657,8 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Jah'rakal, the Troll Warlord",
@@ -3671,16 +3671,16 @@
     "flavor": "“All hail the Lord of Trolls.”",
     "type": "Legendary Creature — Troll Warrior",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
-      "GR",
-      "GR"
+      "RG",
+      "RG"
     ],
     "colors": [
       "R",
       "G"
     ],
-    "color_label": "Gruul"
+    "color_label": "Gruul",
+    "is_token": false
   },
   {
     "name": "Ymir, the Tusk",
@@ -3693,15 +3693,15 @@
     "flavor": "“I say we should trade blows!”",
     "type": "Legendary Creature — Beast Warrior",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
-      "3UW"
+      "U3W"
     ],
     "colors": [
       "W",
       "U"
     ],
-    "color_label": "Azorius"
+    "color_label": "Azorius",
+    "is_token": false
   },
   {
     "name": "Vrogros, the Underlord",
@@ -3714,7 +3714,6 @@
     "flavor": "“I will scorch this land and its people will come to fear a new master!”",
     "type": "Legendary Creature — Demon Warrior",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "B",
@@ -3723,7 +3722,8 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Undying, the Almighty Dirge",
@@ -3736,7 +3736,6 @@
     "flavor": "“I bring the song of death.”",
     "type": "Legendary Creature — Zombie",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "B",
@@ -3746,7 +3745,8 @@
       "B",
       "G"
     ],
-    "color_label": "Golgari"
+    "color_label": "Golgari",
+    "is_token": false
   },
   {
     "name": "Ulfsaar, the Ursa Warrior",
@@ -3759,7 +3759,6 @@
     "flavor": "“Come not near the darkwoods where my kindred sleep.”",
     "type": "Legendary Creature — Bear Warrior",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "G"
@@ -3767,12 +3766,13 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Shendelzare, Vengeful Spirit",
     "cost": "WB",
-    "image": "image41.png.png",
+    "image": "image41.png",
     "super_type": "Legendary Creature",
     "sub_type": "Angel Spirit",
     "rarity": "uncommon",
@@ -3780,7 +3780,6 @@
     "flavor": "“By the bloody pinions of Avilliva!”",
     "type": "Legendary Creature — Angel Spirit",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "W",
       "B"
@@ -3789,7 +3788,8 @@
       "W",
       "B"
     ],
-    "color_label": "Orzhov"
+    "color_label": "Orzhov",
+    "is_token": false
   },
   {
     "name": "Lesale Deathbringer, the Venomancer",
@@ -3802,7 +3802,6 @@
     "flavor": "“Have I tainted the well of our discourse?”",
     "type": "Legendary Creature — Snake",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "BG",
       "BG"
@@ -3811,7 +3810,8 @@
       "B",
       "G"
     ],
-    "color_label": "Golgari"
+    "color_label": "Golgari",
+    "is_token": false
   },
   {
     "name": "Viper, the Netherdrake",
@@ -3824,7 +3824,6 @@
     "flavor": "“Burns…doesn’t it?”",
     "type": "Legendary Creature — Dragon",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "B",
@@ -3834,7 +3833,8 @@
       "B",
       "G"
     ],
-    "color_label": "Golgari"
+    "color_label": "Golgari",
+    "is_token": false
   },
   {
     "name": "Visage, the Form of Necro'lic",
@@ -3847,7 +3847,6 @@
     "flavor": "“I perceive beyond this realm.”",
     "type": "Legendary Creature — Spirit Gargoyle",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "W",
@@ -3859,7 +3858,8 @@
       "B",
       "G"
     ],
-    "color_label": "3-color"
+    "color_label": "3-color",
+    "is_token": false
   },
   {
     "name": "Demnok Lannik, the Warlock",
@@ -3868,11 +3868,10 @@
     "super_type": "Legendary Creature",
     "sub_type": "Human Warlock",
     "rarity": "uncommon",
-    "rules": "When Demnok enters, create an <img class=\"svg-symbol\" style=\"width:15px; height:15px; margin:0 1px; vertical-align:-2px;\" src=\"https://svgs.scryfall.io/card-symbols/XX.svg\" /> red and black Demon Golem creature token with trample and haste.",
+    "rules": "When Demnok enters, create an X/X red and black Demon Golem creature token with trample and haste.",
     "flavor": "“You’re but a blot in the Black Grimoire.”",
     "type": "Legendary Creature — Human Warlock",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "X",
       "B",
@@ -3882,7 +3881,8 @@
       "B",
       "R"
     ],
-    "color_label": "Rakdos"
+    "color_label": "Rakdos",
+    "is_token": false
   },
   {
     "name": "Skitskurr, the Weaver",
@@ -3895,7 +3895,6 @@
     "flavor": "“To the loom with you, to be rewoven.”",
     "type": "Legendary Creature — Insect",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "W",
@@ -3905,7 +3904,8 @@
       "W",
       "U"
     ],
-    "color_label": "Azorius"
+    "color_label": "Azorius",
+    "is_token": false
   },
   {
     "name": "Lyralei, the Windranger",
@@ -3918,7 +3918,6 @@
     "flavor": "“If you weren’t so damned dead, I’d shoot you again.”",
     "type": "Legendary Creature — Human Ranger",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "G",
@@ -3930,7 +3929,8 @@
       "U",
       "G"
     ],
-    "color_label": "3-color"
+    "color_label": "3-color",
+    "is_token": false
   },
   {
     "name": "Auroth, the Winter Wyvern",
@@ -3943,7 +3943,6 @@
     "flavor": "“Let them all fall still beneath my shadow!”",
     "type": "Legendary Creature — Dragon Wizard",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "W",
@@ -3953,7 +3952,8 @@
       "W",
       "U"
     ],
-    "color_label": "Azorius"
+    "color_label": "Azorius",
+    "is_token": false
   },
   {
     "name": "Heat Seeking Missiles",
@@ -3966,7 +3966,6 @@
     "flavor": "“Initializing in… 3..2..1!” — Boush, the Tinker",
     "type": "Sorcery",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "U",
@@ -3976,7 +3975,8 @@
       "U",
       "R"
     ],
-    "color_label": "Izzet"
+    "color_label": "Izzet",
+    "is_token": false
   },
   {
     "name": "Zharvakko, the Witch Doctor",
@@ -3989,7 +3989,6 @@
     "flavor": "“Malpractice makes perfect.”",
     "type": "Legendary Creature — Troll Cleric",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "B",
       "G"
@@ -3998,7 +3997,8 @@
       "B",
       "G"
     ],
-    "color_label": "Golgari"
+    "color_label": "Golgari",
+    "is_token": false
   },
   {
     "name": "Zeus, the Lord of Heaven",
@@ -4011,7 +4011,6 @@
     "flavor": "“For this I gave up immortality?”",
     "type": "Legendary Creature — God Wizard",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "R",
@@ -4020,7 +4019,8 @@
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Harpy Stormcrafter",
@@ -4033,7 +4033,6 @@
     "flavor": "",
     "type": "Creature — Harpy",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "U",
       "R"
@@ -4042,7 +4041,8 @@
       "U",
       "R"
     ],
-    "color_label": "Izzet"
+    "color_label": "Izzet",
+    "is_token": false
   },
   {
     "name": "Vhoul Assassin",
@@ -4054,19 +4054,19 @@
     "flavor": "",
     "type": "Creature — Human Rogue",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "B"
     ],
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Alpha Wolf",
     "cost": "RG",
-    "image": "image21.png.png",
+    "image": "image21.png",
     "super_type": "Creature",
     "sub_type": "Wolf",
     "rarity": "uncommon",
@@ -4074,7 +4074,6 @@
     "flavor": "",
     "type": "Creature — Wolf",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "R",
       "G"
@@ -4083,12 +4082,13 @@
       "R",
       "G"
     ],
-    "color_label": "Gruul"
+    "color_label": "Gruul",
+    "is_token": false
   },
   {
     "name": "Satyr Mindstealer",
     "cost": "1UB",
-    "image": "image4.png.png",
+    "image": "image4.png",
     "super_type": "Creature",
     "sub_type": "Satyr Wizard",
     "rarity": "uncommon",
@@ -4096,7 +4096,6 @@
     "flavor": "",
     "type": "Creature — Satyr Wizard",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "U",
@@ -4106,26 +4105,27 @@
       "U",
       "B"
     ],
-    "color_label": "Dimir"
+    "color_label": "Dimir",
+    "is_token": false
   },
   {
     "name": "Satyr Banisher",
     "cost": "U",
-    "image": "image2.png.png",
+    "image": "image2.png",
     "super_type": "Creature",
     "sub_type": "Satyr Wizard",
     "rules": "Flash (You may cast this spell any time you could cast an instant.)\nWhen this creature enters, target creature phases out.",
     "flavor": "",
     "type": "Creature — Satyr Wizard",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "U"
     ],
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Pollywog",
@@ -4138,7 +4138,6 @@
     "flavor": "",
     "type": "Creature — Frog",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "U"
@@ -4146,7 +4145,8 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Hill Troll Priest",
@@ -4159,7 +4159,6 @@
     "flavor": "",
     "type": "Creature — Troll Cleric",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "G",
@@ -4169,7 +4168,8 @@
       "W",
       "G"
     ],
-    "color_label": "Selesnya"
+    "color_label": "Selesnya",
+    "is_token": false
   },
   {
     "name": "Kobold Foreman",
@@ -4182,7 +4182,6 @@
     "flavor": "",
     "type": "Creature — Kobold",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "R"
@@ -4190,7 +4189,8 @@
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Fell Spirit",
@@ -4203,7 +4203,6 @@
     "flavor": "",
     "type": "Creature — Spirit",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "W",
       "B"
@@ -4212,7 +4211,8 @@
       "W",
       "B"
     ],
-    "color_label": "Orzhov"
+    "color_label": "Orzhov",
+    "is_token": false
   },
   {
     "name": "Mud Golem",
@@ -4225,7 +4225,6 @@
     "flavor": "",
     "type": "Creature — Golem",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "W"
@@ -4233,12 +4232,13 @@
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Centaur Courser",
     "cost": "G",
-    "image": "image22.png.png",
+    "image": "image22.png",
     "super_type": "Creature",
     "sub_type": "Centaur",
     "rarity": "common",
@@ -4246,19 +4246,19 @@
     "flavor": "",
     "type": "Creature — Centaur",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "G"
     ],
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Satyr Cutthroat",
     "cost": "3BB",
-    "image": "image3.png.png",
+    "image": "image3.png",
     "super_type": "Creature",
     "sub_type": "Satyr Rogue",
     "rarity": "uncommon",
@@ -4266,7 +4266,6 @@
     "flavor": "",
     "type": "Creature — Satyr Rogue",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "B",
@@ -4275,7 +4274,8 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Harpy Spellweaver",
@@ -4288,7 +4288,6 @@
     "flavor": "",
     "type": "Creature — Harpy Wizard",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "U"
@@ -4296,12 +4295,13 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Wildwing Ripper",
     "cost": "2RW",
-    "image": "image31.png.png",
+    "image": "image31.png",
     "super_type": "Creature",
     "sub_type": "Bird",
     "rarity": "uncommon",
@@ -4309,7 +4309,6 @@
     "flavor": "",
     "type": "Creature — Bird",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "R",
@@ -4319,7 +4318,8 @@
       "W",
       "R"
     ],
-    "color_label": "Boros"
+    "color_label": "Boros",
+    "is_token": false
   },
   {
     "name": "Dark Troll Summoner",
@@ -4332,7 +4332,6 @@
     "flavor": "",
     "type": "Creature — Troll Shaman",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "B",
@@ -4342,7 +4341,8 @@
       "B",
       "G"
     ],
-    "color_label": "Golgari"
+    "color_label": "Golgari",
+    "is_token": false
   },
   {
     "name": "Warpine Raider",
@@ -4355,7 +4355,6 @@
     "flavor": "",
     "type": "Creature — Elemental",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "G",
       "U"
@@ -4364,7 +4363,8 @@
       "U",
       "G"
     ],
-    "color_label": "Simic"
+    "color_label": "Simic",
+    "is_token": false
   },
   {
     "name": "Ancient Black Dragon",
@@ -4377,7 +4377,6 @@
     "flavor": "",
     "type": "Creature — Dragon",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "B",
@@ -4386,7 +4385,8 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Ancient Granite Golem",
@@ -4399,7 +4399,6 @@
     "flavor": "",
     "type": "Creature — Golem",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "G",
@@ -4408,12 +4407,13 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Ancient Thunderhide",
     "cost": "3RR",
-    "image": "image32.png.png",
+    "image": "image32.png",
     "super_type": "Creature",
     "sub_type": "Dinosaur",
     "rarity": "uncommon",
@@ -4421,7 +4421,6 @@
     "flavor": "",
     "type": "Creature — Dinosaur",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "R",
@@ -4430,7 +4429,8 @@
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Ancient Ice Shaman",
@@ -4443,7 +4443,6 @@
     "flavor": "",
     "type": "Creature — Golem Shaman",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "W",
@@ -4452,7 +4451,8 @@
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Ice Golem",
@@ -4465,7 +4465,6 @@
     "flavor": "",
     "type": "Creature — Golem",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "W",
@@ -4475,7 +4474,8 @@
       "W",
       "U"
     ],
-    "color_label": "Azorius"
+    "color_label": "Azorius",
+    "is_token": false
   },
   {
     "name": "Phase Boots",
@@ -4488,7 +4488,6 @@
     "flavor": "Boots that allow the wearer to travel between the ether.",
     "type": "Artifact — Equipment",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "W",
       "U"
@@ -4497,7 +4496,8 @@
       "W",
       "U"
     ],
-    "color_label": "Azorius"
+    "color_label": "Azorius",
+    "is_token": false
   },
   {
     "name": "Tranquil Boots",
@@ -4510,7 +4510,6 @@
     "flavor": "While they increase the longevity of the wearer, this boot is not particularly reliable.",
     "type": "Legendary Artifact — Equipment",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "W"
@@ -4518,7 +4517,8 @@
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Power Treads",
@@ -4531,12 +4531,12 @@
     "flavor": "A pair of tough-skinned boots that change to meet the demands of the wearer.",
     "type": "Artifact — Equipment",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "2"
     ],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Linken’s Sphere",
@@ -4549,7 +4549,6 @@
     "flavor": "This magical sphere once protected one of the most famous heroes in history.",
     "type": "Legendary Artifact — Equipment",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "G",
       "U"
@@ -4558,7 +4557,8 @@
       "U",
       "G"
     ],
-    "color_label": "Simic"
+    "color_label": "Simic",
+    "is_token": false
   },
   {
     "name": "Refresher Orb",
@@ -4571,7 +4571,6 @@
     "flavor": "A powerful artifact created for an unknown wizard, it’s appearance is inert to the naked eye.",
     "type": "Legendary Artifact",
     "cmc": 7,
-    "is_token": false,
     "mana_symbols": [
       "4",
       "U",
@@ -4581,7 +4580,8 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Manta Style",
@@ -4594,7 +4594,6 @@
     "flavor": "An axe made of reflective materials that causes confusion amongst enemy ranks.",
     "type": "Legendary Artifact — Equipment",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "W"
@@ -4602,7 +4601,8 @@
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Blade Mail",
@@ -4615,12 +4615,12 @@
     "flavor": "A razor-sharp coat of mail, it is the choice of selfless martyrs in combat.",
     "type": "Legendary Artifact — Equipment",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "3"
     ],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Aeon Disk",
@@ -4633,14 +4633,14 @@
     "flavor": "A powerful artifact long ago smuggled out of the Ivory Incubarium. Or so many believe.",
     "type": "Legendary Artifact — Equipment",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "W"
     ],
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Holy Locket",
@@ -4653,7 +4653,6 @@
     "flavor": "A prized relic long thought lost forever in a failed crusade.",
     "type": "Legendary Artifact",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "W"
@@ -4661,7 +4660,8 @@
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Dust of Appearance",
@@ -4674,12 +4674,12 @@
     "flavor": "One may hide visage, but never volume.",
     "type": "Artifact",
     "cmc": 0,
-    "is_token": false,
     "mana_symbols": [
       "0"
     ],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Infused Raindrop",
@@ -4692,14 +4692,14 @@
     "flavor": "Elemental protection from magical assaults.",
     "type": "Instant",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "U"
     ],
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Orb of Corrosion",
@@ -4712,14 +4712,14 @@
     "flavor": "Seepage from the wounds of a warrior deity, sealed in an arcanist’s orb following a campaign of vicious slaughter.",
     "type": "Artifact",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "B"
     ],
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Aether Lens",
@@ -4732,7 +4732,6 @@
     "flavor": "Polished with the incantation of his final breath, the gift of a dying mage to his sickly son.",
     "type": "Artifact — Equipment",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "U"
@@ -4740,7 +4739,8 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Dagon",
@@ -4753,7 +4753,6 @@
     "flavor": "A lesser wand that grows in power the longer it is used, it brings magic to the fingertips of the user.",
     "type": "Legendary Artifact",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "U",
       "R"
@@ -4762,7 +4761,8 @@
       "U",
       "R"
     ],
-    "color_label": "Izzet"
+    "color_label": "Izzet",
+    "is_token": false
   },
   {
     "name": "Eul’s Scepter",
@@ -4775,7 +4775,6 @@
     "flavor": "Proof enough to some that unseen forces manipulate the happenings of the material plane.",
     "type": "Legendary Artifact — Equipment",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "U",
@@ -4784,7 +4783,8 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Glimmer Cape",
@@ -4797,7 +4797,6 @@
     "flavor": "The stolen cape of a master illusionist.",
     "type": "Legendary Artifact — Equipment",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "U",
       "U"
@@ -4805,7 +4804,8 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Scythe of Vyse",
@@ -4818,7 +4818,6 @@
     "flavor": "The most guarded relic among the cult of Vyse, it is the most coveted weapon among magi.",
     "type": "Legendary Artifact",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "4",
       "U"
@@ -4826,7 +4825,8 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Overclocking",
@@ -4839,7 +4839,6 @@
     "flavor": "“I am a can of whoop-ass!” — Rattletrap, the Clockwerk",
     "type": "Instant",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "R"
@@ -4847,12 +4846,13 @@
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Hammer of Purity",
     "cost": "2W",
-    "image": "image47.png.png",
+    "image": "image47.png",
     "super_type": "Legendary Artifact",
     "sub_type": "Equipment",
     "rarity": "uncommon",
@@ -4860,7 +4860,6 @@
     "flavor": "An enchanted hammer forged of metals discovered in the ruins of a village destroyed by a great star storm.",
     "type": "Legendary Artifact — Equipment",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "W"
@@ -4868,7 +4867,8 @@
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Butterfly",
@@ -4881,7 +4881,6 @@
     "flavor": "Only the mightiest and most experienced of warriors can wield the Butterfly, but it provides incredible dexterity in combat.",
     "type": "Legendary Artifact — Equipment",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "G",
       "G",
@@ -4891,7 +4890,8 @@
       "W",
       "G"
     ],
-    "color_label": "Selesnya"
+    "color_label": "Selesnya",
+    "is_token": false
   },
   {
     "name": "Divine Rapier",
@@ -4904,12 +4904,12 @@
     "flavor": "So powerful, it cannot have a single owner.",
     "type": "Legendary Artifact — Equipment",
     "cmc": 9,
-    "is_token": false,
     "mana_symbols": [
       "9"
     ],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Radiance",
@@ -4922,7 +4922,6 @@
     "flavor": "A divine weapon that causes damage and a bright burning effect that lays waste to nearby enemies.",
     "type": "Legendary Artifact",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "R",
       "R",
@@ -4933,7 +4932,8 @@
       "W",
       "R"
     ],
-    "color_label": "Boros"
+    "color_label": "Boros",
+    "is_token": false
   },
   {
     "name": "Khanda",
@@ -4946,7 +4946,6 @@
     "flavor": "A blade sharp enough to slice through magic itself.",
     "type": "Artifact — Equipment",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "U"
@@ -4954,7 +4953,8 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Cheese",
@@ -4967,7 +4967,6 @@
     "flavor": "Made from the milk of a long lost Furbolg vendor, it restores the vitality of those who taste it.",
     "type": "Legendary Artifact — Food",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "G",
@@ -4977,7 +4976,8 @@
       "W",
       "G"
     ],
-    "color_label": "Selesnya"
+    "color_label": "Selesnya",
+    "is_token": false
   },
   {
     "name": "Acorn Shot",
@@ -4990,7 +4990,6 @@
     "flavor": "“Caught ya in your stubbies did we?” — Hoodwink",
     "type": "Sorcery",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "G"
@@ -4998,7 +4997,8 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Black King Bar",
@@ -5011,7 +5011,6 @@
     "flavor": "A powerful staff imbued with the strength of giants.",
     "type": "Legendary Artifact — Equipment",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "W",
       "B"
@@ -5020,7 +5019,8 @@
       "W",
       "B"
     ],
-    "color_label": "Orzhov"
+    "color_label": "Orzhov",
+    "is_token": false
   },
   {
     "name": "Noxious Plague",
@@ -5033,7 +5033,6 @@
     "flavor": "“Keep your enemies close, and your antidotes closer.” — Lesale Deathbringer, the Venomancer",
     "type": "Legendary Sorcery",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "B",
@@ -5043,7 +5042,8 @@
       "B",
       "G"
     ],
-    "color_label": "Golgari"
+    "color_label": "Golgari",
+    "is_token": false
   },
   {
     "name": "Unleash",
@@ -5056,7 +5056,6 @@
     "flavor": "Not many understand Marci’s whistles, but everyone knows which whistle means its time to turn and run.",
     "type": "Legendary Sorcery",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "X",
       "X",
@@ -5067,7 +5066,8 @@
       "W",
       "R"
     ],
-    "color_label": "Boros"
+    "color_label": "Boros",
+    "is_token": false
   },
   {
     "name": "Animal Courier",
@@ -5080,14 +5080,14 @@
     "flavor": "“Whaddya mean we should kill ‘im, lookit how cute he is! OH GOD HE’S GOT A DAGON!” — Aggron, the Ogre Magi",
     "type": "Creature — Beast",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "W"
     ],
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Radiant Tower",
@@ -5100,7 +5100,6 @@
     "flavor": "The light emitting from the Radiant Tower draws its creeps ever forward.",
     "type": "Artifact Creature — Wall",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "W",
@@ -5109,7 +5108,8 @@
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Dire Tower",
@@ -5122,7 +5122,6 @@
     "flavor": "If the mere appearance of the Dire Tower isn’t dissuading enough on its own, there are always the cannons.",
     "type": "Artifact Creature — Wall",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "B",
@@ -5131,12 +5130,13 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Spell Steal",
     "cost": "3UU",
-    "image": "image45.png.png",
+    "image": "image45.png",
     "super_type": "Legendary Instant",
     "sub_type": "",
     "rarity": "rare",
@@ -5144,7 +5144,6 @@
     "flavor": "“Yoink.” — Rubick, the Grand Magus",
     "type": "Legendary Instant",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "U",
@@ -5153,7 +5152,8 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Chaos Meteor",
@@ -5166,7 +5166,6 @@
     "flavor": "“Exort, Wex, Exort!” — Carl, the Invoker",
     "type": "Legendary Sorcery",
     "cmc": 8,
-    "is_token": false,
     "mana_symbols": [
       "6",
       "R",
@@ -5175,7 +5174,8 @@
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Thundergod’s Wrath",
@@ -5188,7 +5188,6 @@
     "flavor": "“You can’t run from heaven.” — Zeus, the Lord of Heaven",
     "type": "Legendary Sorcery",
     "cmc": 7,
-    "is_token": false,
     "mana_symbols": [
       "5",
       "R",
@@ -5197,7 +5196,8 @@
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Wrath of Nature",
@@ -5210,7 +5210,6 @@
     "flavor": "“New life will make its home amongst your bones.” — Nature’s Prophet",
     "type": "Legendary Sorcery",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "G",
       "G",
@@ -5220,11 +5219,12 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Druud, Host of Stryders",
-    "image": "image16.png.png",
+    "image": "image16.png",
     "super_type": "Land",
     "sub_type": "",
     "rarity": "common",
@@ -5232,10 +5232,10 @@
     "flavor": "In a single night their refuge became a killing floor.",
     "type": "Land",
     "cmc": 0,
-    "is_token": false,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Radiant Fountain",
@@ -5247,10 +5247,10 @@
     "flavor": "Any encroaching darkness is quickly is purified with a brilliant, bright light.",
     "type": "Land",
     "cmc": 0,
-    "is_token": false,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Hazhadal Barrens",
@@ -5262,10 +5262,10 @@
     "flavor": "Beneath its peat lay a the remnants of the siege of Valhessi.",
     "type": "Land",
     "cmc": 0,
-    "is_token": false,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Shadeshore",
@@ -5277,14 +5277,14 @@
     "flavor": "Its deceptively beautiful carnivorous mangroves digest flesh with ease.",
     "type": "Land",
     "cmc": 0,
-    "is_token": false,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Shrine to Elune",
-    "image": "image14.png.png",
+    "image": "image14.png",
     "super_type": "Land",
     "sub_type": "",
     "rarity": "common",
@@ -5292,10 +5292,10 @@
     "flavor": "The Moon Goddess is said to reveal herself at her shrine during a full moon.",
     "type": "Land",
     "cmc": 0,
-    "is_token": false,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Icewrack",
@@ -5307,10 +5307,10 @@
     "flavor": "“You move like a Blueheart Glacier!” — Rylai, the Crystal Maiden.",
     "type": "Land",
     "cmc": 0,
-    "is_token": false,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Stonehall",
@@ -5322,14 +5322,14 @@
     "flavor": "Vrogos’ forces wreaked unfathomed destruction on Stonehall, but its scars now stand as a testament to its enduring courage.",
     "type": "Land",
     "cmc": 0,
-    "is_token": false,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Wailing Mountains",
-    "image": "image73.png.png",
+    "image": "image73.png",
     "super_type": "Land",
     "sub_type": "",
     "rarity": "common",
@@ -5337,10 +5337,10 @@
     "flavor": "Many have set out to trace their course—none have returned to chart their end.",
     "type": "Land",
     "cmc": 0,
-    "is_token": false,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Mount Joerlack",
@@ -5352,14 +5352,14 @@
     "flavor": "Untamed wilderness—unmatched danger.",
     "type": "Land",
     "cmc": 0,
-    "is_token": false,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Thorny Wastes",
-    "image": "image75.png.png",
+    "image": "image75.png",
     "super_type": "Land",
     "sub_type": "",
     "rarity": "common",
@@ -5367,10 +5367,10 @@
     "flavor": "The home of Black Arachnia, few dare enter her domain.",
     "type": "Land",
     "cmc": 0,
-    "is_token": false,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Wildwing",
@@ -5383,7 +5383,6 @@
     "flavor": "",
     "type": "Creature — Bird",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "W"
@@ -5391,7 +5390,8 @@
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Radiant Siege Wagon",
@@ -5404,21 +5404,21 @@
     "flavor": "A Radiant Siege Engine has been known to singlehandedly topple an unguarded Dire Tower.",
     "type": "Artifact Creature — Construct",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
-      "1GW",
-      "GW"
+      "W1G",
+      "WG"
     ],
     "colors": [
       "W",
       "G"
     ],
-    "color_label": "Selesnya"
+    "color_label": "Selesnya",
+    "is_token": false
   },
   {
     "name": "Dire Siege Wagon",
     "cost": "1B/RB/R",
-    "image": "image20.png.png",
+    "image": "image20.png",
     "super_type": "Artifact Creature",
     "sub_type": "Construct",
     "rarity": "common",
@@ -5426,16 +5426,16 @@
     "flavor": "A lone Dire siege engine has been known to single-handedly topple an unguarded Radiant Tower.",
     "type": "Artifact Creature — Construct",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
-      "1BR",
+      "R1B",
       "BR"
     ],
     "colors": [
       "B",
       "R"
     ],
-    "color_label": "Rakdos"
+    "color_label": "Rakdos",
+    "is_token": false
   },
   {
     "name": "Smoke Screen",
@@ -5448,7 +5448,6 @@
     "flavor": "“Here’s smoke in your eyes!” — Riki, the Stealth Assassin",
     "type": "Enchantment",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "U"
@@ -5456,7 +5455,8 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Mystic Flare",
@@ -5469,7 +5469,6 @@
     "flavor": "“Those who tangle with the Skywrath risk a fall from starry heights.” — Dragonus, the Skywrath Mage",
     "type": "Instant",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "U",
@@ -5478,7 +5477,8 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "The Shop",
@@ -5490,14 +5490,14 @@
     "flavor": "“Excellent choice. I’ll just wrap it up, shall I?” — The Shopkeeper",
     "type": "Land — Forest Plains Island",
     "cmc": 0,
-    "is_token": false,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Inner Colonnade",
-    "image": "image30.png.png",
+    "image": "image30.png",
     "super_type": "Land",
     "sub_type": "Island Mountain Plains",
     "rarity": "uncommon",
@@ -5505,15 +5505,15 @@
     "flavor": "Within it’s walls, the Vigil Knights of the Flameguard stand watch over the Holy Flame.",
     "type": "Land — Island Mountain Plains",
     "cmc": 0,
-    "is_token": false,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Last Word",
     "cost": "3WW",
-    "image": "image10.png.png",
+    "image": "image10.png",
     "super_type": "Legendary Sorcery",
     "sub_type": "",
     "rarity": "uncommon",
@@ -5521,7 +5521,6 @@
     "flavor": "Nortrom ensures that spells uttered by his opponents will be their last.",
     "type": "Legendary Sorcery",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "W",
@@ -5530,7 +5529,8 @@
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Admiral’s Call",
@@ -5543,7 +5543,6 @@
     "flavor": "The final ship of the Claddish Navy can be called upon by Kunkka to assist him in battle, its haunting hymn conscripting his allies into its phantom crew.",
     "type": "Sorcery",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "U",
@@ -5552,7 +5551,8 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Ignis Fatuus",
@@ -5565,7 +5565,6 @@
     "flavor": "“I was the light at the end of your tunnel.” — Ezalor, Keeper of the Light",
     "type": "Legendary Sorcery",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "W",
@@ -5575,12 +5574,13 @@
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Overpower",
     "cost": "2G",
-    "image": "image8.png.png",
+    "image": "image8.png",
     "super_type": "Sorcery",
     "sub_type": "",
     "rarity": "uncommon",
@@ -5588,7 +5588,6 @@
     "flavor": "“A loss so small, the world will hardly notice.” — Ulfsaar, the Ursa Warrior",
     "type": "Sorcery",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "G"
@@ -5596,12 +5595,13 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Guardian Angel",
     "cost": "1WW",
-    "image": "image40.png.png",
+    "image": "image40.png",
     "super_type": "Legendary Enchantment",
     "sub_type": "Aura",
     "rarity": "mythic rare",
@@ -5609,7 +5609,6 @@
     "flavor": "“The wings of omniscience enwrap us.” — Purist Thunderwrath, the Omniknight",
     "type": "Legendary Enchantment — Aura",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "W",
@@ -5618,11 +5617,12 @@
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Omexe, the Grand Arena",
-    "image": "image27.png.png",
+    "image": "image27.png",
     "super_type": "Land",
     "sub_type": "Mountain Plains Swamp",
     "rarity": "uncommon",
@@ -5630,10 +5630,10 @@
     "flavor": "“The Omexe Arena is where I made a name for myself. I was its champion, and no one was my equal.” — Bradwarden, the Centaur Warrunner",
     "type": "Land — Mountain Plains Swamp",
     "cmc": 0,
-    "is_token": false,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Maledict",
@@ -5646,7 +5646,6 @@
     "flavor": "“He’s about to pop!” — Zharvakko, the Witch Doctor",
     "type": "Enchantment — Aura",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "B"
@@ -5654,12 +5653,13 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Mirror Image",
     "cost": "XGU",
-    "image": "image94.png.png",
+    "image": "image94.png",
     "super_type": "Legendary Sorcery",
     "sub_type": "",
     "rarity": "rare",
@@ -5667,7 +5667,6 @@
     "flavor": "“Oh, look, it’s me.” — Slithice, the Naga Siren",
     "type": "Legendary Sorcery",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "X",
       "G",
@@ -5677,7 +5676,8 @@
       "U",
       "G"
     ],
-    "color_label": "Simic"
+    "color_label": "Simic",
+    "is_token": false
   },
   {
     "name": "Wukong’s Command",
@@ -5690,7 +5690,6 @@
     "flavor": "“Leave it to me. Lots and lots of me.” — Sun Wukong, the Monkey King",
     "type": "Legendary Sorcery",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "X",
       "G",
@@ -5702,7 +5701,8 @@
       "R",
       "G"
     ],
-    "color_label": "3-color"
+    "color_label": "3-color",
+    "is_token": false
   },
   {
     "name": "Alfredo",
@@ -5714,10 +5714,10 @@
     "flavor": "",
     "type": "Token Legendary Creature — Bear",
     "cmc": 0,
-    "is_token": true,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": true
   },
   {
     "name": "Treasure",
@@ -5728,10 +5728,10 @@
     "flavor": "",
     "type": "Token Artifact — Treasure",
     "cmc": 0,
-    "is_token": true,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": true
   },
   {
     "name": "Golem",
@@ -5740,10 +5740,10 @@
     "sub_type": "Golem",
     "type": "Token Creature — Golem",
     "cmc": 0,
-    "is_token": true,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": true
   },
   {
     "name": "Skeleton",
@@ -5752,10 +5752,10 @@
     "sub_type": "Skeleton",
     "type": "Token Creature — Skeleton",
     "cmc": 0,
-    "is_token": true,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": true
   },
   {
     "name": "Eidolon",
@@ -5767,10 +5767,10 @@
     "flavor": "",
     "type": "Token Creature — Eidolon",
     "cmc": 0,
-    "is_token": true,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": true
   },
   {
     "name": "Ape",
@@ -5781,10 +5781,10 @@
     "flavor": "",
     "type": "Token Creature — Ape",
     "cmc": 0,
-    "is_token": true,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": true
   },
   {
     "name": "Tempest Double",
@@ -5793,10 +5793,10 @@
     "sub_type": "Illusion",
     "type": "Token Creature — Illusion",
     "cmc": 0,
-    "is_token": true,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": true
   },
   {
     "name": "Illusion",
@@ -5807,10 +5807,10 @@
     "flavor": "",
     "type": "Token Creature — Illusion",
     "cmc": 0,
-    "is_token": true,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": true
   },
   {
     "name": "Boar",
@@ -5820,10 +5820,10 @@
     "rarity": "common",
     "type": "Token Creature — Boar",
     "cmc": 0,
-    "is_token": true,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": true
   },
   {
     "name": "Map",
@@ -5834,10 +5834,10 @@
     "flavor": "",
     "type": "Token Artifact — Map",
     "cmc": 0,
-    "is_token": true,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": true
   },
   {
     "name": "Hawk",
@@ -5848,10 +5848,10 @@
     "flavor": "",
     "type": "Token Creature — Bird",
     "cmc": 0,
-    "is_token": true,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": true
   },
   {
     "name": "Wolf",
@@ -5862,10 +5862,10 @@
     "flavor": "",
     "type": "Token Creature — Wolf",
     "cmc": 0,
-    "is_token": true,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": true
   },
   {
     "name": "Plague Ward",
@@ -5876,10 +5876,10 @@
     "flavor": "",
     "type": "Token Creature",
     "cmc": 0,
-    "is_token": true,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": true
   },
   {
     "name": "Spider",
@@ -5890,10 +5890,10 @@
     "flavor": "",
     "type": "Token Creature — Spider",
     "cmc": 0,
-    "is_token": true,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": true
   },
   {
     "name": "Stone Remnant",
@@ -5902,10 +5902,10 @@
     "sub_type": "",
     "type": "Token Artifact",
     "cmc": 0,
-    "is_token": true,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": true
   },
   {
     "name": "Snake",
@@ -5914,10 +5914,10 @@
     "sub_type": "Snake",
     "type": "Token Artifact Creature — Snake",
     "cmc": 0,
-    "is_token": true,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": true
   },
   {
     "name": "Zombie",
@@ -5926,10 +5926,10 @@
     "sub_type": "Zombie",
     "type": "Token Creature — Zombie",
     "cmc": 0,
-    "is_token": true,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": true
   },
   {
     "name": "Ghastly Aerie",
@@ -5941,14 +5941,14 @@
     "flavor": "“From the Ghastly Eyrie I can see to the ends of the world, and from this vantage point I declare with utter certainty that this one is in the bag!” — Dragonus, the Skywrath Mage",
     "type": "Land — Plains Swamp Forest",
     "cmc": 0,
-    "is_token": false,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Ogoldi Slave Pen",
-    "image": "image48.png.png",
+    "image": "image48.png",
     "super_type": "Land",
     "sub_type": "Swamp Mountain Forest",
     "rarity": "uncommon",
@@ -5956,14 +5956,14 @@
     "flavor": "The Red Mist army relies on a system of cruelty and torture to supply their forces against the demonic warlord.",
     "type": "Land — Swamp Mountain Forest",
     "cmc": 0,
-    "is_token": false,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Cathedral of Rumusque",
-    "image": "image29.png.png",
+    "image": "image29.png",
     "super_type": "Land",
     "sub_type": "Plains Island Swamp",
     "rarity": "uncommon",
@@ -5971,14 +5971,14 @@
     "flavor": "Within its marble, the grand priestess Crella forged the Chains of Abscession to bind the servants of the Dead God.",
     "type": "Land — Plains Island Swamp",
     "cmc": 0,
-    "is_token": false,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Tyler Estate",
-    "image": "image58.png.png",
+    "image": "image58.png",
     "super_type": "Land",
     "sub_type": "Island Swamp Mountain",
     "rarity": "uncommon",
@@ -5986,10 +5986,10 @@
     "flavor": "Inmates are experimented on at the Estate, with items such as the Witchbane being developed as a result.",
     "type": "Land — Island Swamp Mountain",
     "cmc": 0,
-    "is_token": false,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Oroyo Expanse",
@@ -6001,14 +6001,14 @@
     "flavor": "The home of Mangix is rich in culture—and even richer in alcohol.",
     "type": "Land — Forest Island Mountain",
     "cmc": 0,
-    "is_token": false,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Dark Reef",
-    "image": "image74.png.png",
+    "image": "image74.png",
     "super_type": "Land",
     "sub_type": "Swamp Forest Island",
     "rarity": "uncommon",
@@ -6016,10 +6016,10 @@
     "flavor": "Only but one is known to have bypassed the Prison’s defenses.",
     "type": "Land — Swamp Forest Island",
     "cmc": 0,
-    "is_token": false,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Frostbite",
@@ -6031,14 +6031,14 @@
     "flavor": "“You’ll make a nice snow angel!”",
     "type": "Instant",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "U"
     ],
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Clarity",
@@ -6050,14 +6050,14 @@
     "flavor": "Clear water that enhances the ability to meditate.",
     "type": "Artifact",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "U"
     ],
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Healing Salve",
@@ -6069,14 +6069,14 @@
     "flavor": "A magical salve that can quickly mend even the deepest of wounds.",
     "type": "Instant",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "W"
     ],
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Sunder",
@@ -6089,7 +6089,6 @@
     "flavor": "“Stolen fruit is ever sweetest.” — Terrorblade, the Demon Marauder",
     "type": "Legendary Instant",
     "cmc": 6,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "B",
@@ -6099,12 +6098,13 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Exorcism",
     "cost": "2WB",
-    "image": "image42.png.png",
+    "image": "image42.png",
     "super_type": "Legendary Sorcery",
     "sub_type": "",
     "rarity": "rare",
@@ -6112,7 +6112,6 @@
     "flavor": "“Go, my sweet sisters, go!” — Krobelus, the Death Prophet",
     "type": "Legendary Sorcery",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "W",
@@ -6122,7 +6121,8 @@
       "W",
       "B"
     ],
-    "color_label": "Orzhov"
+    "color_label": "Orzhov",
+    "is_token": false
   },
   {
     "name": "Ancient Croaker",
@@ -6135,7 +6135,6 @@
     "flavor": "",
     "type": "Creature — Frog",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "U",
@@ -6144,7 +6143,8 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Croaker",
@@ -6157,7 +6157,6 @@
     "flavor": "",
     "type": "Creature — Frog",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "U"
@@ -6165,7 +6164,8 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Harpy Scout",
@@ -6177,7 +6177,6 @@
     "flavor": "",
     "type": "Creature — Harpy Scout",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "U"
@@ -6185,7 +6184,8 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Cogliostro, the Ringmaster",
@@ -6198,7 +6198,6 @@
     "flavor": "“I am a showman. The rest of you are the circus.”",
     "type": "Legendary Artifact Creature — Wizard",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "U",
@@ -6207,7 +6206,8 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Kez",
@@ -6220,7 +6220,6 @@
     "flavor": "“My sword, my beak, and myself! Three sharpest things in this forest.”",
     "type": "Legendary Creature — Bird Samurai",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "W"
@@ -6228,7 +6227,8 @@
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Conjured Image",
@@ -6239,10 +6239,10 @@
     "flavor": "",
     "type": "Token Creature — Demon Illusion",
     "cmc": 0,
-    "is_token": true,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": true
   },
   {
     "name": "Demon Golem",
@@ -6253,10 +6253,10 @@
     "flavor": "",
     "type": "Token Creature — Demon Golem",
     "cmc": 0,
-    "is_token": true,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": true
   },
   {
     "name": "Incapacitating Bite",
@@ -6269,7 +6269,6 @@
     "flavor": "Paralytic toxins come from Black Arachnia’s fangs, causing a slow and painful death to those who intrude on her webs.",
     "type": "Sorcery",
     "cmc": 6,
-    "is_token": false,
     "mana_symbols": [
       "4",
       "B",
@@ -6278,7 +6277,8 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Remote Mine",
@@ -6289,10 +6289,10 @@
     "flavor": "",
     "type": "Token Artifact",
     "cmc": 0,
-    "is_token": true,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": true
   },
   {
     "name": "Skeleton Army",
@@ -6303,10 +6303,10 @@
     "flavor": "",
     "type": "Token Creature — Skeleton Army",
     "cmc": 0,
-    "is_token": true,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": true
   },
   {
     "name": "Reality Rift",
@@ -6319,7 +6319,6 @@
     "flavor": "Armageddon rides between the planes, bringing Chaos Knight to his victim wherever he may hide.",
     "type": "Sorcery",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "R",
@@ -6328,12 +6327,13 @@
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Double Edge",
     "cost": "1RG",
-    "image": "image46.png.png",
+    "image": "image46.png",
     "super_type": "Instant",
     "sub_type": "",
     "rarity": "uncommon",
@@ -6341,7 +6341,6 @@
     "flavor": "In the spurs of combat, Bradwarden’s vicious strikes sometimes cause self-inflicted collateral damage.",
     "type": "Instant",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "R",
@@ -6351,7 +6350,8 @@
       "R",
       "G"
     ],
-    "color_label": "Gruul"
+    "color_label": "Gruul",
+    "is_token": false
   },
   {
     "name": "Sinister Gaze",
@@ -6364,7 +6364,6 @@
     "flavor": "“For the greater good—mine!” — Ethreain, the Lich",
     "type": "Sorcery",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "B"
@@ -6372,7 +6371,8 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Ring of Tarasque",
@@ -6385,7 +6385,6 @@
     "flavor": "Preserved heart of an extinct monster, it bolsters the bearer’s fortitude.",
     "type": "Legendary Artifact — Equipment",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "G"
@@ -6393,7 +6392,8 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Pipe of Insight",
@@ -6406,7 +6406,6 @@
     "flavor": "A powerful artifact of mysterious origin, it creates barriers against magical forces.",
     "type": "Legendary Artifact",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "G",
       "W"
@@ -6415,7 +6414,8 @@
       "W",
       "G"
     ],
-    "color_label": "Selesnya"
+    "color_label": "Selesnya",
+    "is_token": false
   },
   {
     "name": "Robot",
@@ -6426,10 +6426,10 @@
     "flavor": "",
     "type": "Token Artifact Creature — Robot",
     "cmc": 0,
-    "is_token": true,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": true
   },
   {
     "name": "Nature’s Attendants",
@@ -6442,7 +6442,6 @@
     "flavor": "Whimsical spirits of the woods possess a healing power that is quite subtle, but gains strength in numbers.",
     "type": "Enchantment — Aura",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "G"
@@ -6450,7 +6449,8 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Ice Path",
@@ -6463,7 +6463,6 @@
     "flavor": "Jakiro’s cunning right head calls upon its frozen heritage, glazing the earth with blistering cold.",
     "type": "Enchantment — Aura",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "U"
@@ -6471,7 +6470,8 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Nether Strike",
@@ -6484,7 +6484,6 @@
     "flavor": "Barathrum’s unyielding focus forms a pocket of planar convergence from which not even the most powerful arcane energies can escape.",
     "type": "Instant",
     "cmc": 6,
-    "is_token": false,
     "mana_symbols": [
       "4",
       "G",
@@ -6494,7 +6493,8 @@
       "U",
       "G"
     ],
-    "color_label": "Simic"
+    "color_label": "Simic",
+    "is_token": false
   },
   {
     "name": "Primal Roar",
@@ -6507,15 +6507,15 @@
     "flavor": "The Beastmaster has learned to channel his primal instincts into an animalistic roar, causing devastation in the ranks of enemies.",
     "type": "Legendary Sorcery",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
-      "4GR"
+      "G4R"
     ],
     "colors": [
       "R",
       "G"
     ],
-    "color_label": "Gruul"
+    "color_label": "Gruul",
+    "is_token": false
   },
   {
     "name": "Firesnap Cookie",
@@ -6528,7 +6528,6 @@
     "flavor": "With the help of a secret mixture that pairs Beadie’s baking skills with her passion for black powder, these battle biscuits pack a punch.",
     "type": "Artifact — Food",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "R",
@@ -6538,7 +6537,8 @@
       "R",
       "G"
     ],
-    "color_label": "Gruul"
+    "color_label": "Gruul",
+    "is_token": false
   },
   {
     "name": "Powershot",
@@ -6551,7 +6551,6 @@
     "flavor": "Lyralei enchants gusts of winds to flight incoming attacks.",
     "type": "Instant",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "W",
@@ -6560,7 +6559,8 @@
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Penitence",
@@ -6573,7 +6573,6 @@
     "flavor": "“The recusant shall pay!” — Chen, the Holy Knight",
     "type": "Instant",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "W"
@@ -6581,7 +6580,8 @@
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Spirit Link",
@@ -6594,7 +6594,6 @@
     "flavor": "Sylla is emboldened by the presence of his companion, his vitality replenished with each swipe of the Spirit Bear’s claws.",
     "type": "Enchantment — Aura",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "G"
@@ -6602,7 +6601,8 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Enchant Remnant",
@@ -6615,7 +6615,6 @@
     "flavor": "Kaolin uses the elemental power of the Earth to temporarily petrify living beings, so that they might be conscripted into his stone funerary army.",
     "type": "Enchantment — Aura",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "G"
@@ -6623,7 +6622,8 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Sprint",
@@ -6635,19 +6635,19 @@
     "flavor": "As Slardar has made the transition from the Deeps, it has been necessary to use his powerful tail for sprinting instead of swimming.",
     "type": "Instant",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "G"
     ],
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Corrosive Skin",
     "cost": "2G",
-    "image": "image18.png.png",
+    "image": "image18.png",
     "super_type": "Enchantment",
     "sub_type": "Aura",
     "rarity": "uncommon",
@@ -6655,7 +6655,6 @@
     "flavor": "“You twitch like a snake-bitten mouse”. — Viper, the Nether Drake",
     "type": "Enchantment — Aura",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "G"
@@ -6663,7 +6662,8 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Dark Pact",
@@ -6676,7 +6676,6 @@
     "flavor": "I call darkness from the deep!” — Slark, the Nightcrawler",
     "type": "Sorcery",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "B"
@@ -6684,12 +6683,13 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Death Pact",
     "cost": "1B",
-    "image": "image93.png.png",
+    "image": "image93.png",
     "super_type": "Instant",
     "sub_type": "",
     "rarity": "uncommon",
@@ -6697,7 +6697,6 @@
     "flavor": "“I’ve already paid my pound of flesh.” — Clinkz, the Bone Fletcher",
     "type": "Instant",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "B"
@@ -6705,7 +6704,8 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "The Monarch",
@@ -6716,10 +6716,10 @@
     "flavor": "",
     "type": "",
     "cmc": 0,
-    "is_token": false,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Day/Night",
@@ -6730,10 +6730,10 @@
     "flavor": "",
     "type": "",
     "cmc": 0,
-    "is_token": false,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Phantasm Illusion",
@@ -6744,15 +6744,15 @@
     "flavor": "",
     "type": "Token Creature — Illusion Knight",
     "cmc": 0,
-    "is_token": true,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": true
   },
   {
     "name": "Traxex, the Drow Ranger",
     "cost": "WB",
-    "image": "image12.png.png",
+    "image": "image12.png",
     "super_type": "Legendary Creature",
     "sub_type": "Elf Ranger",
     "rarity": "uncommon",
@@ -6760,7 +6760,6 @@
     "flavor": "“I’ll cut a notch with your name on it!”",
     "type": "Legendary Creature — Elf Ranger",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "W",
       "B"
@@ -6769,7 +6768,8 @@
       "W",
       "B"
     ],
-    "color_label": "Orzhov"
+    "color_label": "Orzhov",
+    "is_token": false
   },
   {
     "name": "Ogre Bruiser",
@@ -6781,7 +6781,6 @@
     "flavor": "",
     "type": "Creature — Ogre Warrior",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "R"
@@ -6789,7 +6788,8 @@
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Aphotic Shield",
@@ -6802,7 +6802,6 @@
     "flavor": "The powers of the black mist rise to absorb attacks like the black mist absorbs light.",
     "type": "Enchantment — Aura",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "W",
       "B"
@@ -6811,12 +6810,13 @@
       "W",
       "B"
     ],
-    "color_label": "Orzhov"
+    "color_label": "Orzhov",
+    "is_token": false
   },
   {
     "name": "Spark Wraith",
     "cost": "U",
-    "image": "image15.png.png",
+    "image": "image15.png",
     "super_type": "Creature",
     "sub_type": "Elemental",
     "rarity": "common",
@@ -6824,14 +6824,14 @@
     "flavor": "“Let no foe come near” — Zet, the Arc Warden",
     "type": "Creature — Elemental",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "U"
     ],
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Whirling Axes",
@@ -6844,14 +6844,14 @@
     "flavor": "“I peel back your uglies.” — Jah’rakal, the Troll Warlord",
     "type": "Sorcery",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "R"
     ],
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Gush",
@@ -6863,7 +6863,6 @@
     "flavor": "“Look what the tide washed in.” — Leviathan, the Tidehunter",
     "type": "Instant",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "4",
       "U"
@@ -6871,7 +6870,8 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Toss",
@@ -6883,7 +6883,6 @@
     "flavor": "",
     "type": "Instant",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "G"
@@ -6891,7 +6890,8 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Ignite",
@@ -6904,7 +6904,6 @@
     "flavor": "“And another... and another!” — Aggron Stonebreak, the Ogre Magi",
     "type": "Sorcery",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "X",
       "R",
@@ -6913,7 +6912,8 @@
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Take Aim",
@@ -6926,7 +6926,6 @@
     "flavor": "“Thanks for standing still, wanker!” — Kardel Sharpeye, the Sniper",
     "type": "Instant",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "R",
       "W"
@@ -6935,7 +6934,8 @@
       "W",
       "R"
     ],
-    "color_label": "Boros"
+    "color_label": "Boros",
+    "is_token": false
   },
   {
     "name": "Shockwave",
@@ -6948,7 +6948,6 @@
     "flavor": "Mt. Joerlak was a somewhat unstable mass, and Magnus has learned to channel its reverberations.",
     "type": "Instant",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "G",
@@ -6957,7 +6956,8 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Decay",
@@ -6970,7 +6970,6 @@
     "flavor": "The strength of the living is simply borrowed from the strength of the dead.",
     "type": "Sorcery",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "B",
@@ -6980,7 +6979,8 @@
       "B",
       "G"
     ],
-    "color_label": "Golgari"
+    "color_label": "Golgari",
+    "is_token": false
   },
   {
     "name": "Helm of the Dominator",
@@ -6993,7 +6993,6 @@
     "flavor": "The powerful headpiece of a dead necromancer.",
     "type": "Legendary Artifact — Equipment",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "G",
@@ -7003,7 +7002,8 @@
       "U",
       "G"
     ],
-    "color_label": "Simic"
+    "color_label": "Simic",
+    "is_token": false
   },
   {
     "name": "Ion Shell",
@@ -7016,7 +7016,6 @@
     "flavor": "“If your enemy is equal, prepare for him. If greater, elude him. If weaker, crush him.” — Ish’Kafel, the Dark Seer",
     "type": "Enchantment — Aura",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "U"
@@ -7024,7 +7023,8 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Culling Blade",
@@ -7037,14 +7037,14 @@
     "flavor": "“You get nothing. Good day, sir!” — Mogul Khan, the Axe",
     "type": "Instant",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "R"
     ],
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Chain Frost",
@@ -7057,7 +7057,6 @@
     "flavor": "",
     "type": "Legendary Sorcery",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "W",
@@ -7068,7 +7067,8 @@
       "W",
       "U"
     ],
-    "color_label": "Azorius"
+    "color_label": "Azorius",
+    "is_token": false
   },
   {
     "name": "Provocative Comment",
@@ -7081,7 +7081,6 @@
     "flavor": "“You want some of this, son, you want it?” — Rigwarl, the Bristleback",
     "type": "Sorcery",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "R",
       "G"
@@ -7090,7 +7089,8 @@
       "R",
       "G"
     ],
-    "color_label": "Gruul"
+    "color_label": "Gruul",
+    "is_token": false
   },
   {
     "name": "Lightning Bolt",
@@ -7103,14 +7103,14 @@
     "flavor": "“Your prayer, answered.” — Zeus, the Lord of Heaven",
     "type": "Instant",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "R"
     ],
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Smoke of Deceit",
@@ -7122,12 +7122,12 @@
     "flavor": "The charlatan wizard Myrddin’s only true contribution to the arcane arts.",
     "type": "Artifact",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "1"
     ],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Arc Lightning",
@@ -7140,7 +7140,6 @@
     "flavor": "“Ha ha ha ha ha. Well what did you expect?” — Zeus, the Lord of Heaven",
     "type": "Sorcery",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "R"
@@ -7148,7 +7147,8 @@
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Obvious Distraction",
@@ -7160,14 +7160,14 @@
     "flavor": "Meepo’s proficiency for diversion is bested only by his clumsiness.",
     "type": "Instant",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "U"
     ],
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Viscous Nasasl Goo",
@@ -7180,14 +7180,14 @@
     "flavor": "",
     "type": "Enchantment — Curse",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "R"
     ],
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Living Armor",
@@ -7200,7 +7200,6 @@
     "flavor": "“Come into my shade.” — Rooftrellen, the Treant Protector",
     "type": "Enchantment — Aura",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "G"
@@ -7208,7 +7207,8 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Fountain of Rejuvenation",
@@ -7221,7 +7221,6 @@
     "flavor": "Basking in the Fountain is a short respite from the chaos of battle.",
     "type": "Artifact",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "W",
@@ -7230,7 +7229,8 @@
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Walrus PUNCH!",
@@ -7243,7 +7243,6 @@
     "flavor": "It never matters who throws the first punch, only who throws the last.",
     "type": "Instant",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "G",
       "W"
@@ -7252,7 +7251,8 @@
       "W",
       "G"
     ],
-    "color_label": "Selesnya"
+    "color_label": "Selesnya",
+    "is_token": false
   },
   {
     "name": "Bramble Maze",
@@ -7265,7 +7265,6 @@
     "flavor": "“You want me, come get me...” — Mireska, the Dark Willow",
     "type": "Enchantment",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "B",
@@ -7275,7 +7274,8 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Shadow Walk",
@@ -7287,14 +7287,14 @@
     "flavor": "“You can’t fight what you can’t see.” — Gondar, the Bounty Hunter",
     "type": "Instant",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "B"
     ],
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Tandem Takedown",
@@ -7307,7 +7307,6 @@
     "flavor": "“Ready? One... Two... Three!” — Nattea, Centaur Courser",
     "type": "Instant",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "G",
@@ -7316,7 +7315,8 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Light Strike Array",
@@ -7329,7 +7329,6 @@
     "flavor": "“One little spark and before you know it, the whole world is burning.” — Lina, the Slayer",
     "type": "Sorcery",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "R",
@@ -7339,7 +7338,8 @@
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Static Remnant",
@@ -7350,10 +7350,10 @@
     "flavor": "",
     "type": "Token Creature — Elemental Spirit",
     "cmc": 0,
-    "is_token": true,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": true
   },
   {
     "name": "Enchant",
@@ -7366,7 +7366,6 @@
     "flavor": "“Charmed, I’m sure!” —  Aiushtha, the Enchantress",
     "type": "Enchantment — Aura",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "G",
       "U"
@@ -7375,7 +7374,8 @@
       "U",
       "G"
     ],
-    "color_label": "Simic"
+    "color_label": "Simic",
+    "is_token": false
   },
   {
     "name": "Infernal Blade",
@@ -7388,7 +7388,6 @@
     "flavor": "“I stoke the furnace with your corpse.” — Lucifer, the Doom",
     "type": "Legendary Artifact — Equipment",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "B",
       "R"
@@ -7397,7 +7396,8 @@
       "B",
       "R"
     ],
-    "color_label": "Rakdos"
+    "color_label": "Rakdos",
+    "is_token": false
   },
   {
     "name": "Pounce",
@@ -7410,7 +7410,6 @@
     "flavor": "Time in the Dark Reef made Slark a dangerous assassin; aggressive and fearless.",
     "type": "Sorcery",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "G"
@@ -7418,7 +7417,8 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Refraction",
@@ -7431,7 +7431,6 @@
     "flavor": "“Another scale of ignorance shed.” — Lanaya, the Templar Assassin",
     "type": "Instant",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "X",
       "W",
@@ -7440,7 +7439,8 @@
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Largo",
@@ -7453,7 +7453,6 @@
     "flavor": "“Hoo easy, mate. I’m gonna write a killer song about this.”",
     "type": "Legendary Creature — Frog Bard",
     "cmc": 5,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "G",
@@ -7465,7 +7464,8 @@
       "R",
       "G"
     ],
-    "color_label": "3-color"
+    "color_label": "3-color",
+    "is_token": false
   },
   {
     "name": "Starfall",
@@ -7478,7 +7478,6 @@
     "flavor": "The Goddess breaks the strata to empower her Princess in the time of need.",
     "type": "Sorcery",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "U",
       "B"
@@ -7487,11 +7486,12 @@
       "U",
       "B"
     ],
-    "color_label": "Dimir"
+    "color_label": "Dimir",
+    "is_token": false
   },
   {
     "name": "Vale of Augury",
-    "image": "image9.png.png",
+    "image": "image9.png",
     "super_type": "Land",
     "sub_type": "Plains Mountain Forest",
     "rarity": "uncommon",
@@ -7499,22 +7499,21 @@
     "flavor": "Rootfallen and the Ent live in the mountains beyond the Vale, where the eldritch soil keeps them nourished.",
     "type": "Land — Plains Mountain Forest",
     "cmc": 0,
-    "is_token": false,
     "mana_symbols": [],
     "colors": [],
-    "color_label": "Colorless"
+    "color_label": "Colorless",
+    "is_token": false
   },
   {
     "name": "Omexe Ambush",
     "cost": "2G",
-    "image": "image53.png.png",
+    "image": "image53.png",
     "super_type": "Instant",
     "sub_type": "",
     "rules": "Choose one —\n• Target creature you control gets +3/+3 and gains trample until end of turn.\n• Target creature you control fights target creature you don’t control.",
     "flavor": "The Omexe archers are renowned for their ability to track targets through the Jungle with ease.",
     "type": "Instant",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "G"
@@ -7522,19 +7521,19 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Sprout Treant",
     "cost": "1G",
-    "image": "image52.png.png",
+    "image": "image52.png",
     "super_type": "Instant",
     "sub_type": "",
     "rules": "Create a 2/2 green Treant creature token.\nRetrace (You may cast this card from your graveyard by discarding a land card in addition to paying its other costs.)",
     "flavor": "Verodicia bestowed the Prophet with the ability to summon the Treant Guard, a mythical sentient army of the wild.",
     "type": "Instant",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "G"
@@ -7542,19 +7541,19 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Gust",
     "cost": "2W",
-    "image": "image35.png.png",
+    "image": "image35.png",
     "super_type": "Instant",
     "sub_type": "",
     "rules": "Put target noncreature spell on top of its owner’s library.\nDraw a card.",
     "flavor": "Traxex is rather fond of the tranquility of physical combat, calling on her Drow heritage to end the incantations of opposing magi.",
     "type": "Instant",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "W"
@@ -7562,20 +7561,20 @@
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Conscript",
     "cost": "4GW",
-    "image": "image56.png.png",
+    "image": "image56.png",
     "super_type": "Sorcery",
     "sub_type": "",
     "rarity": "uncommon",
-    "rules": "Exile target creature you don’t control. Create an <img class=\"svg-symbol\" style=\"width:15px; height:15px; margin:0 1px; vertical-align:-2px;\" src=\"https://svgs.scryfall.io/card-symbols/XX.svg\" /> green and white Wolf Soldier creature token, where X is that creature’s toughness.",
+    "rules": "Exile target creature you don’t control. Create an X/X green and white Wolf Soldier creature token, where X is that creature’s toughness.",
     "flavor": "The Bronze Legion does not discriminate against any prisoners based on their race or kin, provided they know how to fight.",
     "type": "Sorcery",
     "cmc": 6,
-    "is_token": false,
     "mana_symbols": [
       "4",
       "G",
@@ -7585,19 +7584,19 @@
       "W",
       "G"
     ],
-    "color_label": "Selesnya"
+    "color_label": "Selesnya",
+    "is_token": false
   },
   {
     "name": "Roam the Jungle",
     "cost": "1G",
-    "image": "image57.png.png",
+    "image": "image57.png",
     "super_type": "Sorcery",
     "sub_type": "",
     "rules": "Search your library for a basic land card and put it onto the battlefield tapped, then shuffle.\nIf you control a legendary creature, search for two basic land cards instead.",
     "flavor": "To some, the Radiant Jungle is a battlefield, to others, it is home.",
     "type": "Sorcery",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "G"
@@ -7605,12 +7604,13 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Stern Rebuttal",
     "cost": "1WW",
-    "image": "image59.png.png",
+    "image": "image59.png",
     "super_type": "Instant",
     "sub_type": "",
     "rarity": "uncommon",
@@ -7618,7 +7618,6 @@
     "flavor": "“I cast Magic aside” — Anti-Mage",
     "type": "Instant",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "W",
@@ -7627,12 +7626,13 @@
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Slack Off",
     "cost": "2W",
-    "image": "image60.png.png",
+    "image": "image60.png",
     "super_type": "Enchantment",
     "sub_type": "Aura",
     "rarity": "uncommon",
@@ -7640,7 +7640,6 @@
     "flavor": "Oftentimes, thought Krang, the siege wagons seemed to load themselves.",
     "type": "Enchantment — Aura",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "W"
@@ -7648,12 +7647,13 @@
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Helping Hand",
     "cost": "2GW",
-    "image": "image62.png.png",
+    "image": "image62.png",
     "super_type": "Instant",
     "sub_type": "",
     "rarity": "uncommon",
@@ -7661,7 +7661,6 @@
     "flavor": "“I’ve got you!”",
     "type": "Instant",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "G",
@@ -7671,12 +7670,13 @@
       "W",
       "G"
     ],
-    "color_label": "Selesnya"
+    "color_label": "Selesnya",
+    "is_token": false
   },
   {
     "name": "Ball of Creeps",
     "cost": "4GW",
-    "image": "image63.png.png",
+    "image": "image63.png",
     "super_type": "Legendary Creature",
     "sub_type": "Horror",
     "rarity": "rare",
@@ -7684,7 +7684,6 @@
     "flavor": "Some say you can hear the sound of gold dropping as it rolls.",
     "type": "Legendary Creature — Horror",
     "cmc": 6,
-    "is_token": false,
     "mana_symbols": [
       "4",
       "G",
@@ -7694,12 +7693,13 @@
       "W",
       "G"
     ],
-    "color_label": "Selesnya"
+    "color_label": "Selesnya",
+    "is_token": false
   },
   {
     "name": "Protect the Young",
     "cost": "GW",
-    "image": "image64.png.png",
+    "image": "image64.png",
     "super_type": "Instant",
     "sub_type": "",
     "rarity": "uncommon",
@@ -7707,7 +7707,6 @@
     "flavor": "Thunderhide migration is always discernible by an impending quake.",
     "type": "Instant",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "G",
       "W"
@@ -7716,31 +7715,32 @@
       "W",
       "G"
     ],
-    "color_label": "Selesnya"
+    "color_label": "Selesnya",
+    "is_token": false
   },
   {
     "name": "Bronze Hoplite",
     "cost": "W",
-    "image": "image66.png.png",
+    "image": "image66.png",
     "super_type": "Creature",
     "sub_type": "Soldier",
     "rules": "First strike",
     "flavor": "",
     "type": "Creature — Soldier",
     "cmc": 1,
-    "is_token": false,
     "mana_symbols": [
       "W"
     ],
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Covet",
     "cost": "2UU",
-    "image": "image69.png.png",
+    "image": "image69.png",
     "super_type": "Sorcery",
     "sub_type": "",
     "rarity": "uncommon",
@@ -7748,7 +7748,6 @@
     "flavor": "“When do I get a turn?” “You’ve already had a turn!”  — Aggron Stonebreak, the Ogre Magi",
     "type": "Sorcery",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "U",
@@ -7757,19 +7756,19 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Coup de Grace",
     "cost": "2B",
-    "image": "image79.png.png",
+    "image": "image79.png",
     "super_type": "Instant",
     "sub_type": "",
     "rules": "Destroy target creature an opponent controls.",
     "flavor": "",
     "type": "Instant",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "B"
@@ -7777,12 +7776,13 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Doppleganger",
     "cost": "3U",
-    "image": "image80.png.png",
+    "image": "image80.png",
     "super_type": "Instant",
     "sub_type": "",
     "rarity": "uncommon",
@@ -7790,7 +7790,6 @@
     "flavor": "Dread Magus Vorn’s death imbued the Phantom Lancer with the ability to blend with all spectrums of light.",
     "type": "Instant",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "U"
@@ -7798,12 +7797,13 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Ravage",
     "cost": "7UU",
-    "image": "image83.png.png",
+    "image": "image83.png",
     "super_type": "Legendary Sorcery",
     "sub_type": "",
     "rarity": "mythic rare",
@@ -7811,7 +7811,6 @@
     "flavor": "Calling to the abyssal god Maelrawn has resulted in entire armadas being lost at sea.",
     "type": "Legendary Sorcery",
     "cmc": 9,
-    "is_token": false,
     "mana_symbols": [
       "7",
       "U",
@@ -7820,12 +7819,13 @@
     "colors": [
       "U"
     ],
-    "color_label": "Blue"
+    "color_label": "Blue",
+    "is_token": false
   },
   {
     "name": "Dragon Slave",
     "cost": "3R",
-    "image": "image84.png.png",
+    "image": "image84.png",
     "super_type": "Sorcery",
     "sub_type": "",
     "rarity": "uncommon",
@@ -7833,7 +7833,6 @@
     "flavor": "In the scorched barren of Misrule, Lina learned to manipulate the fiery breath of the Desert Wyrm as a form of entertainment.",
     "type": "Sorcery",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "3",
       "R"
@@ -7841,12 +7840,13 @@
     "colors": [
       "R"
     ],
-    "color_label": "Red"
+    "color_label": "Red",
+    "is_token": false
   },
   {
     "name": "Black Grimoire",
     "cost": "1B",
-    "image": "image85.png.png",
+    "image": "image85.png",
     "super_type": "Artifact",
     "sub_type": "Book",
     "rarity": "uncommon",
@@ -7854,7 +7854,6 @@
     "flavor": "",
     "type": "Artifact — Book",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "B"
@@ -7862,12 +7861,13 @@
     "colors": [
       "B"
     ],
-    "color_label": "Black"
+    "color_label": "Black",
+    "is_token": false
   },
   {
     "name": "Solar Guardian",
     "cost": "2WW",
-    "image": "image86.png.png",
+    "image": "image86.png",
     "super_type": "Instant",
     "sub_type": "",
     "rarity": "uncommon",
@@ -7875,7 +7875,6 @@
     "flavor": "Its much harder to hit someone with a sword with the sun in your eyes.",
     "type": "Instant",
     "cmc": 4,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "W",
@@ -7884,19 +7883,19 @@
     "colors": [
       "W"
     ],
-    "color_label": "White"
+    "color_label": "White",
+    "is_token": false
   },
   {
     "name": "Overgrowth",
     "cost": "2G",
-    "image": "image88.png.png",
+    "image": "image88.png",
     "super_type": "Enchantment",
     "sub_type": "Aura",
     "rules": "Enchant land\nWhenever enchanted land is tapped for mana, its controller adds an additional GG.",
     "flavor": "“Thoughts cross my mind as the sun crosses the sky.” — Rooftrellen, the Treant Protector",
     "type": "Enchantment — Aura",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "G"
@@ -7904,19 +7903,19 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Bind to Earth",
     "cost": "1G",
-    "image": "image72.png.png",
+    "image": "image72.png",
     "super_type": "Enchantment",
     "sub_type": "Aura",
     "rules": "Enchant creature\nEnchanted creature loses flying. Prevent all combat damage enchanted creature deals.",
     "flavor": "",
     "type": "Enchantment — Aura",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "G"
@@ -7924,12 +7923,13 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Corner",
     "cost": "1G",
-    "image": "image76.png.png",
+    "image": "image76.png",
     "super_type": "Enchantment",
     "sub_type": "Aura",
     "rarity": "uncommon",
@@ -7937,7 +7937,6 @@
     "flavor": "“It appears I’ve gotten myself into a pickle” — Kardel Sharpeye, the Sniper",
     "type": "Enchantment — Aura",
     "cmc": 2,
-    "is_token": false,
     "mana_symbols": [
       "1",
       "G"
@@ -7945,12 +7944,13 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Unyielding Spirit",
     "cost": "2G",
-    "image": "image96.png.png",
+    "image": "image96.png",
     "super_type": "Enchantment",
     "sub_type": "",
     "rarity": "uncommon",
@@ -7958,7 +7958,6 @@
     "flavor": "Under fire, outnumbered, and surrounded, Torq never gave up hope.",
     "type": "Enchantment",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "G"
@@ -7966,19 +7965,19 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   },
   {
     "name": "Finesse",
     "cost": "2G",
-    "image": "image97.png.png",
+    "image": "image97.png",
     "super_type": "Instant",
     "sub_type": "",
     "rules": "Exile target artifact. Draw a card.",
     "flavor": "“Nothing to it Rikko, I told you!”",
     "type": "Instant",
     "cmc": 3,
-    "is_token": false,
     "mana_symbols": [
       "2",
       "G"
@@ -7986,6 +7985,7 @@
     "colors": [
       "G"
     ],
-    "color_label": "Green"
+    "color_label": "Green",
+    "is_token": false
   }
 ]
