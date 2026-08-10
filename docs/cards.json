@@ -69,7 +69,7 @@
     ],
     "color_label": "Izzet",
     "is_token": false,
-    "img_ver": "4e235de79f"
+    "img_ver": "18dc840bfc"
   },
   {
     "name": "Kaldr, the Ancient Apparition",
@@ -140,7 +140,7 @@
     ],
     "color_label": "3-color",
     "is_token": false,
-    "img_ver": "da368694ad"
+    "img_ver": "2a8320148a"
   },
   {
     "name": "Mogul Khan, the Axe",
@@ -209,7 +209,7 @@
     ],
     "color_label": "Red",
     "is_token": false,
-    "img_ver": "b026cd45bf"
+    "img_ver": "d52f97175f"
   },
   {
     "name": "Radiant Creep",
@@ -230,7 +230,7 @@
     ],
     "color_label": "Selesnya",
     "is_token": false,
-    "img_ver": "e97dfcda2e",
+    "img_ver": "b4a41e819c",
     "rarity": "common"
   },
   {
@@ -277,7 +277,7 @@
     ],
     "color_label": "Selesnya",
     "is_token": false,
-    "img_ver": "c965a1d77d"
+    "img_ver": "da06e7c736"
   },
   {
     "name": "Black Hole",
@@ -515,7 +515,7 @@
     ],
     "color_label": "Blue",
     "is_token": false,
-    "img_ver": "fe72af8096"
+    "img_ver": "e68eb79903"
   },
   {
     "name": "Sentry Ward",
@@ -652,7 +652,7 @@
     ],
     "color_label": "Black",
     "is_token": false,
-    "img_ver": "fd7ecc9791"
+    "img_ver": "ba20429595"
   },
   {
     "name": "Rigwarl, the Bristleback",
@@ -697,7 +697,7 @@
     ],
     "color_label": "Black",
     "is_token": false,
-    "img_ver": "97f04ec14e"
+    "img_ver": "e233a62d7b"
   },
   {
     "name": "Bradwarden, the Centaur Warrunner",
@@ -747,7 +747,7 @@
     ],
     "color_label": "Rakdos",
     "is_token": false,
-    "img_ver": "9da5ae85e6"
+    "img_ver": "d2ac052d03"
   },
   {
     "name": "Chen, the Holy Knight",
@@ -819,7 +819,7 @@
     ],
     "color_label": "3-color",
     "is_token": false,
-    "img_ver": "86e0ef76c5"
+    "img_ver": "8297839fe2"
   },
   {
     "name": "Rattletrap, the Clockwerk",
@@ -843,7 +843,7 @@
     ],
     "color_label": "Boros",
     "is_token": false,
-    "img_ver": "8cdfad6140"
+    "img_ver": "1ec246244a"
   },
   {
     "name": "Rylai, the Crystal Maiden",
@@ -912,7 +912,7 @@
     ],
     "color_label": "Black",
     "is_token": false,
-    "img_ver": "cc153dc8f0"
+    "img_ver": "0dd003f59e"
   },
   {
     "name": "Valora, the Dawnbreaker",
@@ -1007,7 +1007,7 @@
   {
     "name": "Grimstroke",
     "cost": "5RR",
-    "image": "image50.png",
+    "image": "image50__x.png",
     "super_type": "Legendary Creature",
     "sub_type": "Demon Spirit",
     "rarity": "uncommon",
@@ -1025,7 +1025,7 @@
     ],
     "color_label": "Red",
     "is_token": false,
-    "img_ver": "4f6bb524fa"
+    "img_ver": "a6f1559842"
   },
   {
     "name": "Krobelus, the Death Prophet",
@@ -1097,7 +1097,7 @@
     ],
     "color_label": "Rakdos",
     "is_token": false,
-    "img_ver": "a9c413ef2e"
+    "img_ver": "38b4509420"
   },
   {
     "name": "Piercing Shot",
@@ -1142,7 +1142,7 @@
     ],
     "color_label": "Boros",
     "is_token": false,
-    "img_ver": "6fe25e4053"
+    "img_ver": "2d9fed5463"
   },
   {
     "name": "Kaolin, the Earth Spirit",
@@ -1213,7 +1213,7 @@
     ],
     "color_label": "Gruul",
     "is_token": false,
-    "img_ver": "0a5f65830f"
+    "img_ver": "6212632a70"
   },
   {
     "name": "Elder Titan, the Worldsmith",
@@ -1235,7 +1235,7 @@
     ],
     "color_label": "Green",
     "is_token": false,
-    "img_ver": "02f499866a"
+    "img_ver": "6fc4874597"
   },
   {
     "name": "Xin, the Ember Spirit",
@@ -1257,7 +1257,7 @@
     ],
     "color_label": "Red",
     "is_token": false,
-    "img_ver": "9f0fb621bf"
+    "img_ver": "59afdb21e4"
   },
   {
     "name": "Aiushtha, the Enchantress",
@@ -1280,12 +1280,12 @@
     ],
     "color_label": "Green",
     "is_token": false,
-    "img_ver": "517b430358"
+    "img_ver": "18ef158e21"
   },
   {
     "name": "Enigma, Consumer of Worlds",
     "cost": "1BB",
-    "image": "image65.png",
+    "image": "image65__x.png",
     "super_type": "Legendary Creature",
     "sub_type": "Avatar",
     "rarity": "rare",
@@ -1303,7 +1303,7 @@
     ],
     "color_label": "Black",
     "is_token": false,
-    "img_ver": "b2629d2a5b"
+    "img_ver": "0770b864aa"
   },
   {
     "name": "Darkterror, the Faceless Void",
@@ -1350,7 +1350,7 @@
     ],
     "color_label": "Dimir",
     "is_token": false,
-    "img_ver": "08d017a442"
+    "img_ver": "64ba9c4b1a"
   },
   {
     "name": "Aurel, the Gyrocopter",
@@ -1374,7 +1374,7 @@
     ],
     "color_label": "Boros",
     "is_token": false,
-    "img_ver": "227ef97e23"
+    "img_ver": "83907186cd"
   },
   {
     "name": "Hoodwink",
@@ -1446,7 +1446,7 @@
     ],
     "color_label": "Red",
     "is_token": false,
-    "img_ver": "85471ac8fb"
+    "img_ver": "0a3803b856"
   },
   {
     "name": "Carl, the Invoker",
@@ -1606,7 +1606,7 @@
     ],
     "color_label": "Red",
     "is_token": false,
-    "img_ver": "e03abce512"
+    "img_ver": "19e9d59a22"
   },
   {
     "name": "Shackleshot",
@@ -1628,7 +1628,7 @@
     ],
     "color_label": "White",
     "is_token": false,
-    "img_ver": "a1e9dabf2f"
+    "img_ver": "1627d27e87"
   },
   {
     "name": "Rot",
@@ -1694,7 +1694,7 @@
     ],
     "color_label": "Black",
     "is_token": false,
-    "img_ver": "fc993f4d3a"
+    "img_ver": "6296e82eb6"
   },
   {
     "name": "Town Portal Scroll",
@@ -1920,7 +1920,7 @@
   {
     "name": "Meepo, the Geomancer",
     "cost": "2UUU",
-    "image": "image23.png",
+    "image": "image23__x.png",
     "super_type": "Legendary Creature",
     "sub_type": "Kobold Scout",
     "rarity": "mythic rare",
@@ -1939,7 +1939,7 @@
     ],
     "color_label": "Blue",
     "is_token": false,
-    "img_ver": "41c88f3661"
+    "img_ver": "106ae38f20"
   },
   {
     "name": "Jakiro, the Twin Head Dragon",
@@ -1963,7 +1963,7 @@
     ],
     "color_label": "Izzet",
     "is_token": false,
-    "img_ver": "064b546dbf"
+    "img_ver": "3d180bbf11"
   },
   {
     "name": "Yurnero, the Juggernaut",
@@ -1985,12 +1985,12 @@
     ],
     "color_label": "White",
     "is_token": false,
-    "img_ver": "088fbf3436"
+    "img_ver": "2cd3699d2b"
   },
   {
     "name": "Ezalor, the Keeper of the Light",
     "cost": "4W",
-    "image": "image129.png",
+    "image": "image129__x.png",
     "super_type": "Legendary Creature",
     "sub_type": "Human Wizard",
     "rarity": "uncommon",
@@ -2007,12 +2007,12 @@
     ],
     "color_label": "White",
     "is_token": false,
-    "img_ver": "2a2648ea0c"
+    "img_ver": "2e27d8b364"
   },
   {
     "name": "Kunkka, the Admiral",
     "cost": "4UU",
-    "image": "image134.png",
+    "image": "image134__x.png",
     "super_type": "Legendary Creature",
     "sub_type": "Spirit Pirate",
     "rarity": "uncommon",
@@ -2030,7 +2030,7 @@
     ],
     "color_label": "Blue",
     "is_token": false,
-    "img_ver": "e4aaaf9c2e"
+    "img_ver": "e471f5b654"
   },
   {
     "name": "Fiend’s Grip",
@@ -2059,7 +2059,7 @@
   {
     "name": "Tresdin, the Legion Commander",
     "cost": "2R",
-    "image": "image78.png",
+    "image": "image78.png__x.png",
     "super_type": "Legendary Creature",
     "sub_type": "Human Soldier",
     "rarity": "rare",
@@ -2123,7 +2123,7 @@
     ],
     "color_label": "Azorius",
     "is_token": false,
-    "img_ver": "621311f78b"
+    "img_ver": "dd6e8360f0"
   },
   {
     "name": "Lina, the Slayer",
@@ -2169,7 +2169,7 @@
     ],
     "color_label": "Rakdos",
     "is_token": false,
-    "img_ver": "70793c2c36"
+    "img_ver": "e20abe34ef"
   },
   {
     "name": "Luna, the Moon Rider",
@@ -2191,7 +2191,7 @@
     ],
     "color_label": "Black",
     "is_token": false,
-    "img_ver": "e3dc6b6489"
+    "img_ver": "ff9439c709"
   },
   {
     "name": "Banehallow, the Lycan",
@@ -2332,7 +2332,7 @@
     ],
     "color_label": "Golgari",
     "is_token": false,
-    "img_ver": "525247b01e"
+    "img_ver": "450110268e"
   },
   {
     "name": "Mirana of Nightsilver",
@@ -2355,7 +2355,7 @@
     ],
     "color_label": "Dimir",
     "is_token": false,
-    "img_ver": "ab8378f847"
+    "img_ver": "9bd0a81a35"
   },
   {
     "name": "Wukong, the Monkey King",
@@ -2384,7 +2384,7 @@
   {
     "name": "Morphling",
     "cost": "1UU",
-    "image": "image148.png",
+    "image": "image148__x.png",
     "super_type": "Legendary Creature",
     "sub_type": "Shapeshifter",
     "rarity": "uncommon",
@@ -2402,7 +2402,7 @@
     ],
     "color_label": "Blue",
     "is_token": false,
-    "img_ver": "71d71d9653"
+    "img_ver": "90a3805423"
   },
   {
     "name": "Muerta",
@@ -2465,7 +2465,7 @@
     "colors": [],
     "color_label": "Colorless",
     "is_token": false,
-    "img_ver": "087408744e"
+    "img_ver": "48cf49b95d"
   },
   {
     "name": "Nature’s Grasp",
@@ -2492,7 +2492,7 @@
   {
     "name": "Nature’s Prophet",
     "cost": "1GGG",
-    "image": "image146.png",
+    "image": "image146.png__x.png",
     "super_type": "Legendary Creature",
     "sub_type": "Satyr Druid",
     "rarity": "mythic rare",
@@ -2516,7 +2516,7 @@
   {
     "name": "Rotund'jere, Necrophos",
     "cost": "3WBG",
-    "image": "image43.png",
+    "image": "image43__x.png",
     "super_type": "Legendary Creature",
     "sub_type": "Zombie Warlock",
     "rarity": "rare",
@@ -2537,12 +2537,12 @@
     ],
     "color_label": "3-color",
     "is_token": false,
-    "img_ver": "468bf3b723"
+    "img_ver": "c3114eb5e3"
   },
   {
     "name": "Balanar, the Night Stalker",
     "cost": "2B",
-    "image": "image126.png",
+    "image": "image126__x.png",
     "super_type": "Legendary Creature",
     "sub_type": "Horror",
     "rarity": "uncommon",
@@ -2559,7 +2559,7 @@
     ],
     "color_label": "Black",
     "is_token": false,
-    "img_ver": "760ff7ce3b"
+    "img_ver": "6cecd17229"
   },
   {
     "name": "Dark Ascension",
@@ -2580,7 +2580,7 @@
     ],
     "color_label": "Black",
     "is_token": false,
-    "img_ver": "ffb283a459"
+    "img_ver": "3fbd8fdbba"
   },
   {
     "name": "Nyx Assassin",
@@ -2604,12 +2604,12 @@
     ],
     "color_label": "Dimir",
     "is_token": false,
-    "img_ver": "c22a5575a6"
+    "img_ver": "9bbb19e90f"
   },
   {
     "name": "Aggron Stonebreak, the Ogre Magi",
     "cost": "5UR",
-    "image": "image11.png",
+    "image": "image11.png__x.png",
     "super_type": "Legendary Creature",
     "sub_type": "Ogre Wizard",
     "rarity": "rare",
@@ -2699,7 +2699,7 @@
   {
     "name": "Harbinger, the Outworld Destroyer",
     "cost": "5UB",
-    "image": "image157.png",
+    "image": "image157.png__x.png",
     "super_type": "Legendary Creature",
     "sub_type": "Archon",
     "rarity": "uncommon",
@@ -2739,7 +2739,7 @@
     ],
     "color_label": "Blue",
     "is_token": false,
-    "img_ver": "4f19a5c45b"
+    "img_ver": "c7d39ae39e"
   },
   {
     "name": "Donté Panlin, the Pangolier",
@@ -2761,12 +2761,12 @@
     ],
     "color_label": "Red",
     "is_token": false,
-    "img_ver": "91f0921d71"
+    "img_ver": "712d37109b"
   },
   {
     "name": "Mortred, the Phantom Assassin",
     "cost": "1WB",
-    "image": "image36.png",
+    "image": "image36.png__x.png",
     "super_type": "Legendary Creature",
     "sub_type": "Spirit Assassin",
     "rarity": "uncommon",
@@ -2809,7 +2809,7 @@
     ],
     "color_label": "Azorius",
     "is_token": false,
-    "img_ver": "6adda92a77"
+    "img_ver": "40154e2edb"
   },
   {
     "name": "Phoenix",
@@ -2838,7 +2838,7 @@
   {
     "name": "Primal Beast",
     "cost": "4RG",
-    "image": "image208.png",
+    "image": "image208.png__x.png",
     "super_type": "Legendary Creature",
     "sub_type": "Dinosaur Beast",
     "rarity": "uncommon",
@@ -2907,7 +2907,7 @@
   {
     "name": "Akasha, the Queen of Pain",
     "cost": "1RRR",
-    "image": "image139.png",
+    "image": "image139.png__x.png",
     "super_type": "Legendary Creature",
     "sub_type": "Demon Sorcerer",
     "rarity": "uncommon",
@@ -2955,7 +2955,7 @@
   {
     "name": "Riki, the Stealth Assassin",
     "cost": "1UB",
-    "image": "image137.png",
+    "image": "image137.png__x.png",
     "super_type": "Legendary Creature",
     "sub_type": "Satyr Rogue",
     "rarity": "uncommon",
@@ -2979,7 +2979,7 @@
   {
     "name": "Rubick, the Grand Magus",
     "cost": "1UUU",
-    "image": "image188.png",
+    "image": "image188__x.png",
     "super_type": "Legendary Creature",
     "sub_type": "Vedalken Wizard",
     "rarity": "mythic rare",
@@ -2998,7 +2998,7 @@
     ],
     "color_label": "Blue",
     "is_token": false,
-    "img_ver": "38c4d082fa"
+    "img_ver": "e7c9d5d54a"
   },
   {
     "name": "Crixalis, the Sand King",
@@ -3046,7 +3046,7 @@
     ],
     "color_label": "Red",
     "is_token": false,
-    "img_ver": "b056c05850"
+    "img_ver": "d5d865899d"
   },
   {
     "name": "Nevermore, the Shadow Fiend",
@@ -3168,7 +3168,7 @@
   {
     "name": "Slark, the Nightcrawler",
     "cost": "1B/GB/G",
-    "image": "image58.png",
+    "image": "image58.png__x.png",
     "super_type": "Legendary Creature",
     "sub_type": "Naga Rogue",
     "rarity": "rare",
@@ -3310,7 +3310,7 @@
   {
     "name": "Sven, the Rogue Knight",
     "cost": "1RRR",
-    "image": "image49.png",
+    "image": "image49__x.png",
     "super_type": "Legendary Creature",
     "sub_type": "Human Rogue Knight",
     "rarity": "uncommon",
@@ -3329,7 +3329,7 @@
     ],
     "color_label": "Red",
     "is_token": false,
-    "img_ver": "1226ac2b59"
+    "img_ver": "49a402d5d7"
   },
   {
     "name": "Inai, the Void Spirit",
@@ -3379,7 +3379,7 @@
   {
     "name": "Lanaya, the Templar Assassin",
     "cost": "3W",
-    "image": "image194.png",
+    "image": "image194__x.png",
     "super_type": "Legendary Creature",
     "sub_type": "Human Assassin",
     "rarity": "rare",
@@ -3396,7 +3396,7 @@
     ],
     "color_label": "White",
     "is_token": false,
-    "img_ver": "33f58c5a4c"
+    "img_ver": "6c225597b8"
   },
   {
     "name": "Terrorblade, the Demon Marauder",
@@ -3447,7 +3447,7 @@
   {
     "name": "Rizzrack, the Timbersaw",
     "cost": "1RG",
-    "image": "image39.png",
+    "image": "image39.png__x.png",
     "super_type": "Legendary Creature",
     "sub_type": "Gnome Pilot",
     "rarity": "uncommon",
@@ -3554,7 +3554,7 @@
     ],
     "color_label": "Gruul",
     "is_token": false,
-    "img_ver": "377d78f511"
+    "img_ver": "aa329d92a5"
   },
   {
     "name": "Ymir, the Tusk",
@@ -3630,7 +3630,7 @@
   {
     "name": "Ulfsaar, the Ursa Warrior",
     "cost": "1G",
-    "image": "image206.png",
+    "image": "image206__x.png",
     "super_type": "Legendary Creature",
     "sub_type": "Bear Warrior",
     "rarity": "uncommon",
@@ -3647,12 +3647,12 @@
     ],
     "color_label": "Green",
     "is_token": false,
-    "img_ver": "7d1713e18b"
+    "img_ver": "8989e01535"
   },
   {
     "name": "Shendelzare, Vengeful Spirit",
     "cost": "BB",
-    "image": "image180.png",
+    "image": "image180.png__x.png",
     "super_type": "Legendary Creature",
     "sub_type": "Angel Spirit",
     "rarity": "uncommon",
@@ -3716,12 +3716,12 @@
     ],
     "color_label": "Golgari",
     "is_token": false,
-    "img_ver": "e6aa9641ed"
+    "img_ver": "9646c9165a"
   },
   {
     "name": "Visage, the Form of Necro'lic",
     "cost": "2WBG",
-    "image": "image149.png",
+    "image": "image149.png__x.png",
     "super_type": "Legendary Creature",
     "sub_type": "Spirit Gargoyle",
     "rarity": "rare",
@@ -3747,7 +3747,7 @@
   {
     "name": "Demnok Lannik, the Warlock",
     "cost": "4BR",
-    "image": "image217.png",
+    "image": "image217__x.png",
     "super_type": "Legendary Creature",
     "sub_type": "Human Warlock",
     "rarity": "uncommon",
@@ -3766,7 +3766,7 @@
     ],
     "color_label": "Rakdos",
     "is_token": false,
-    "img_ver": "901ef39b50"
+    "img_ver": "339ba42c8b"
   },
   {
     "name": "Skitskurr, the Weaver",
@@ -3821,7 +3821,7 @@
   {
     "name": "Auroth, the Winter Wyvern",
     "cost": "1WU",
-    "image": "image143.png",
+    "image": "image143__x.png",
     "super_type": "Legendary Creature",
     "sub_type": "Dragon Wizard",
     "rarity": "uncommon",
@@ -3840,7 +3840,7 @@
     ],
     "color_label": "Azorius",
     "is_token": false,
-    "img_ver": "8a517b3a5a"
+    "img_ver": "3846beec6b"
   },
   {
     "name": "Heat Seeking Missiles",
@@ -3889,7 +3889,7 @@
     ],
     "color_label": "3-color",
     "is_token": false,
-    "img_ver": "1c507c7de4"
+    "img_ver": "ec37f219ba"
   },
   {
     "name": "Zeus, the Lord of Heaven",
@@ -4096,7 +4096,7 @@
     ],
     "color_label": "Orzhov",
     "is_token": false,
-    "img_ver": "f8ba001a17"
+    "img_ver": "93b2aa4fb1"
   },
   {
     "name": "Mud Golem",
@@ -4144,7 +4144,7 @@
   {
     "name": "Satyr Cutthroat",
     "cost": "3BB",
-    "image": "image3.png",
+    "image": "image3.png__x.png",
     "super_type": "Creature",
     "sub_type": "Satyr Rogue",
     "rarity": "common",
@@ -4417,7 +4417,7 @@
     ],
     "color_label": "White",
     "is_token": false,
-    "img_ver": "cd63af6299"
+    "img_ver": "e849fe6899"
   },
   {
     "name": "Refresher Orb",
@@ -4487,7 +4487,7 @@
   {
     "name": "Orb of Venom",
     "cost": "B",
-    "image": "image130.png",
+    "image": "image130.png__x.png",
     "super_type": "Artifact",
     "sub_type": "",
     "rarity": "uncommon",
@@ -4690,7 +4690,7 @@
   {
     "name": "Bushwack",
     "cost": "G",
-    "image": "image202.png",
+    "image": "image202.png__x.png",
     "super_type": "Sorcery",
     "sub_type": "",
     "rarity": "common",
@@ -4852,7 +4852,7 @@
   {
     "name": "Chaos Meteor",
     "cost": "6RR",
-    "image": "image167.png",
+    "image": "image167.png__x.png",
     "super_type": "Legendary Sorcery",
     "sub_type": "",
     "rarity": "mythic rare",
@@ -4986,7 +4986,7 @@
   },
   {
     "name": "Icewrack",
-    "image": "image165.png",
+    "image": "image165.png__x.png",
     "super_type": "Legendary Land",
     "sub_type": "",
     "rarity": "common",
@@ -5002,7 +5002,7 @@
   },
   {
     "name": "Stonehall",
-    "image": "image235.png",
+    "image": "image235__x.png",
     "super_type": "Legendary Land",
     "sub_type": "",
     "rarity": "common",
@@ -5014,7 +5014,7 @@
     "colors": [],
     "color_label": "Colorless",
     "is_token": false,
-    "img_ver": "7615aa6cae"
+    "img_ver": "e5c758181c"
   },
   {
     "name": "Thorny Wastes",
@@ -5145,7 +5145,7 @@
     ],
     "color_label": "Blue",
     "is_token": false,
-    "img_ver": "9d1ac7b8e4"
+    "img_ver": "cce78bb170"
   },
   {
     "name": "Global Silence",
@@ -5173,7 +5173,7 @@
   {
     "name": "Admiral’s Call",
     "cost": "U",
-    "image": "image21.png",
+    "image": "image21__x.png",
     "super_type": "Instant",
     "sub_type": "",
     "rarity": "common",
@@ -5189,7 +5189,7 @@
     ],
     "color_label": "Blue",
     "is_token": false,
-    "img_ver": "04e8da98e9"
+    "img_ver": "dd121c4a61"
   },
   {
     "name": "Ignis Fatuus",
@@ -5218,7 +5218,7 @@
   {
     "name": "Overpower",
     "cost": "2G",
-    "image": "image8.png",
+    "image": "image8.png__x.png",
     "super_type": "Sorcery",
     "sub_type": "",
     "rarity": "uncommon",
@@ -5341,13 +5341,13 @@
     ],
     "color_label": "Blue",
     "is_token": false,
-    "img_ver": "df6945c685",
+    "img_ver": "5c2ef5b086",
     "rarity": "common"
   },
   {
     "name": "Salve of Healing",
     "cost": "W",
-    "image": "image47.png",
+    "image": "image47__x.png",
     "super_type": "Instant",
     "sub_type": "",
     "rules": "Choose one —\n• Target player gains 3 life.\n• Prevent the next 3 damage that would be dealt to any target this turn.",
@@ -5362,7 +5362,7 @@
     ],
     "color_label": "White",
     "is_token": false,
-    "img_ver": "1784258efa",
+    "img_ver": "5cca91407c",
     "rarity": "common"
   },
   {
@@ -5569,7 +5569,7 @@
     ],
     "color_label": "Black",
     "is_token": false,
-    "img_ver": "ab16fc87cf"
+    "img_ver": "a24ff7191b"
   },
   {
     "name": "Ring of Tarasque",
@@ -5617,7 +5617,7 @@
   {
     "name": "Nether Strike",
     "cost": "4GU",
-    "image": "image221.png",
+    "image": "image221.png__x.png",
     "super_type": "Instant",
     "sub_type": "",
     "rarity": "rare",
@@ -5687,7 +5687,7 @@
   {
     "name": "Powershot",
     "cost": "1WW",
-    "image": "image48.png",
+    "image": "image48__x.png",
     "super_type": "Instant",
     "sub_type": "",
     "rarity": "uncommon",
@@ -5705,7 +5705,7 @@
     ],
     "color_label": "White",
     "is_token": false,
-    "img_ver": "abdcce1ce5"
+    "img_ver": "5de3118e80"
   },
   {
     "name": "Penitence",
@@ -5749,12 +5749,12 @@
     ],
     "color_label": "Green",
     "is_token": false,
-    "img_ver": "914e2566c2"
+    "img_ver": "0b9030dac6"
   },
   {
     "name": "Corrosive Skin",
     "cost": "G",
-    "image": "image18.png",
+    "image": "image18.png__x.png",
     "super_type": "Enchantment",
     "sub_type": "Aura",
     "rarity": "uncommon",
@@ -5775,7 +5775,7 @@
   {
     "name": "Dark Pact",
     "cost": "2B",
-    "image": "image30.png",
+    "image": "image30.png__x.png",
     "super_type": "Sorcery",
     "sub_type": "",
     "rarity": "common",
@@ -5818,7 +5818,7 @@
   {
     "name": "Traxex, the Drow Ranger",
     "cost": "2WB",
-    "image": "image12.png",
+    "image": "image12.png__x.png",
     "super_type": "Legendary Creature",
     "sub_type": "Elf Ranger",
     "rarity": "uncommon",
@@ -5864,7 +5864,7 @@
   {
     "name": "Aphotic Shield",
     "cost": "WB",
-    "image": "image22.png",
+    "image": "image22__x.png",
     "super_type": "Enchantment",
     "sub_type": "Aura",
     "rarity": "common",
@@ -5882,7 +5882,7 @@
     ],
     "color_label": "Orzhov",
     "is_token": false,
-    "img_ver": "cd2bd0d471"
+    "img_ver": "e509938752"
   },
   {
     "name": "Spark Wraith",
@@ -5991,12 +5991,12 @@
     ],
     "color_label": "Red",
     "is_token": false,
-    "img_ver": "3260faadf5"
+    "img_ver": "dc2dbedecd"
   },
   {
     "name": "Take Aim",
     "cost": "RW",
-    "image": "image229.png",
+    "image": "image229__x.png",
     "super_type": "Instant",
     "sub_type": "",
     "rarity": "uncommon",
@@ -6014,7 +6014,7 @@
     ],
     "color_label": "Boros",
     "is_token": false,
-    "img_ver": "695edc9639"
+    "img_ver": "c32c419e55"
   },
   {
     "name": "Shockwave",
@@ -6179,7 +6179,7 @@
   {
     "name": "Smoke of Deceit",
     "cost": "0",
-    "image": "image76.png",
+    "image": "image76__x.png",
     "super_type": "Artifact",
     "sub_type": "",
     "rules": "T, Sacrifice this artifact: Target creature can’t be blocked this turn. Draw a card at the beginning of the next turn’s upkeep.",
@@ -6192,7 +6192,7 @@
     "colors": [],
     "color_label": "Colorless",
     "is_token": false,
-    "img_ver": "153036812f",
+    "img_ver": "b021c4544a",
     "rarity": "common"
   },
   {
@@ -6215,7 +6215,7 @@
     ],
     "color_label": "Red",
     "is_token": false,
-    "img_ver": "2b7d1c97bd"
+    "img_ver": "1de7ef18bb"
   },
   {
     "name": "Fleeting Distraction",
@@ -6235,13 +6235,13 @@
     ],
     "color_label": "Blue",
     "is_token": false,
-    "img_ver": "61b3a5d210",
+    "img_ver": "17f1e65370",
     "rarity": "common"
   },
   {
     "name": "Living Armor",
     "cost": "2G",
-    "image": "image242.png",
+    "image": "image242__x.png",
     "super_type": "Enchantment",
     "sub_type": "Aura",
     "rarity": "uncommon",
@@ -6258,12 +6258,12 @@
     ],
     "color_label": "Green",
     "is_token": false,
-    "img_ver": "d53e2a45ae"
+    "img_ver": "fff735b819"
   },
   {
     "name": "Fountain of Rejuvenation",
     "cost": "1WW",
-    "image": "image252.png",
+    "image": "image252__x.png",
     "super_type": "Artifact",
     "sub_type": "",
     "rarity": "common",
@@ -6281,7 +6281,7 @@
     ],
     "color_label": "White",
     "is_token": false,
-    "img_ver": "00d04306cb"
+    "img_ver": "4a28058746"
   },
   {
     "name": "Walrus PUNCH!",
@@ -6421,7 +6421,7 @@
   {
     "name": "Pounce",
     "cost": "1G",
-    "image": "image38.png",
+    "image": "image38__x.png",
     "super_type": "Sorcery",
     "sub_type": "",
     "rarity": "common",
@@ -6438,7 +6438,7 @@
     ],
     "color_label": "Green",
     "is_token": false,
-    "img_ver": "936e51776d"
+    "img_ver": "82d2334e92"
   },
   {
     "name": "Refraction",
@@ -6465,7 +6465,7 @@
   {
     "name": "Largo",
     "cost": "2GUR",
-    "image": "image1.png",
+    "image": "image1__x.png",
     "super_type": "Legendary Creature",
     "sub_type": "Frog Bard",
     "rarity": "mythic rare",
@@ -6486,12 +6486,12 @@
     ],
     "color_label": "3-color",
     "is_token": false,
-    "img_ver": "394937496b"
+    "img_ver": "f76c031fda"
   },
   {
     "name": "Starfall",
     "cost": "B",
-    "image": "image7.png",
+    "image": "image7__x.png",
     "super_type": "Sorcery",
     "sub_type": "",
     "rarity": "uncommon",
@@ -6507,11 +6507,11 @@
     ],
     "color_label": "Black",
     "is_token": false,
-    "img_ver": "e3da10a322"
+    "img_ver": "b2c84fe617"
   },
   {
     "name": "Vale of Augury",
-    "image": "image219.png",
+    "image": "image219.png__x.png",
     "super_type": "Legendary Land",
     "sub_type": "",
     "rarity": "common",
@@ -6618,7 +6618,7 @@
   {
     "name": "Roam the Jungle",
     "cost": "1G",
-    "image": "image57.png",
+    "image": "image57.png__x.png",
     "super_type": "Sorcery",
     "sub_type": "",
     "rules": "Search your library for a basic land card and put it onto the battlefield tapped, then shuffle.\nIf you control a legendary creature, search for two basic land cards instead. Put one on the battlefield tapped and one in your hand, then shuffle.",
@@ -6640,7 +6640,7 @@
   {
     "name": "Magebane Strike",
     "cost": "1WW",
-    "image": "image59.png",
+    "image": "image59.png__x.png",
     "super_type": "Instant",
     "sub_type": "",
     "rarity": "common",
@@ -6663,7 +6663,7 @@
   {
     "name": "Slack Off",
     "cost": "2W",
-    "image": "image60.png",
+    "image": "image60.png__x.png",
     "super_type": "Enchantment",
     "sub_type": "",
     "rarity": "uncommon",
@@ -6685,7 +6685,7 @@
   {
     "name": "Ball of Creeps",
     "cost": "3WUBRG",
-    "image": "image63.png",
+    "image": "image63.png__x.png",
     "super_type": "Legendary Creature",
     "sub_type": "Horror",
     "rarity": "mythic rare",
@@ -6736,7 +6736,7 @@
   {
     "name": "Covet",
     "cost": "2UU",
-    "image": "image69.png",
+    "image": "image69.png__x.png",
     "super_type": "Sorcery",
     "sub_type": "",
     "rarity": "uncommon",
@@ -6804,7 +6804,7 @@
   {
     "name": "Ravage",
     "cost": "7UUU",
-    "image": "image218.png",
+    "image": "image218.png__x.png",
     "super_type": "Legendary Sorcery",
     "sub_type": "",
     "rarity": "mythic rare",
@@ -6895,7 +6895,7 @@
   {
     "name": "Roseleaf Briarbush",
     "cost": "2G",
-    "image": "image88.png",
+    "image": "image88.png__x.png",
     "super_type": "Creature",
     "sub_type": "Elemental Wall",
     "rules": "Defender (This creature can’t attack.)\nT: Add G.\nT, Sacrifice this creature: Return target land card or creature card with defender from your graveyard to your hand.",
@@ -6985,7 +6985,7 @@
   {
     "name": "Animate Armory",
     "cost": "2U",
-    "image": "image25.png",
+    "image": "image25.png__x.png",
     "super_type": "Enchantment",
     "sub_type": "Aura",
     "rules": "Enchant equipment\nWhen this Aura enters, draw a card.\nAs long as enchanted equipment isn’t a creature, it’s a 3/3 artifact creature. It has the abilities it grants equipped creatures.",
@@ -7030,7 +7030,7 @@
   {
     "name": "Oathbound’s Brand",
     "cost": "2R",
-    "image": "image61.png",
+    "image": "image61.png__x.png",
     "super_type": "Sorcery",
     "sub_type": "",
     "rarity": "uncommon",
@@ -7119,7 +7119,7 @@
   {
     "name": "Loyal Sentry",
     "cost": "1W",
-    "image": "image81.png",
+    "image": "image81.png__x.png",
     "super_type": "Creature",
     "sub_type": "Beast Soldier",
     "rules": "Vigilance\nWhen this creature enters, put a shield counter on target creature you control.",
@@ -7186,7 +7186,7 @@
   {
     "name": "Kanna’s Hound",
     "cost": "2R/G",
-    "image": "image91.png",
+    "image": "image91.png__x.png",
     "super_type": "Creature",
     "sub_type": "Elemental Dog",
     "rules": "Enrage — When this creature is dealt damage, put two +1/+1 counters on it.",
@@ -7209,7 +7209,7 @@
   {
     "name": "Radiant Spark Mage",
     "cost": "1RW",
-    "image": "image95.png",
+    "image": "image95.png__x.png",
     "super_type": "Creature",
     "sub_type": "Gnome Wizard",
     "rules": "Lifelink\nWhen this creature enters, it deals 1 damage to target creature.",
@@ -7255,7 +7255,7 @@
   {
     "name": "Prellex, the Radiant",
     "cost": "GW",
-    "image": "image101.png",
+    "image": "image101.png__x.png",
     "super_type": "Legendary Creature",
     "sub_type": "Elemental Cleric",
     "rarity": "uncommon",
@@ -7278,7 +7278,7 @@
   {
     "name": "Mistblade’s Intervention",
     "cost": "1BR",
-    "image": "image102.png",
+    "image": "image102.png__x.png",
     "super_type": "Instant",
     "sub_type": "",
     "rarity": "uncommon",
@@ -7326,7 +7326,7 @@
   {
     "name": "Kanna, the Mistblade",
     "cost": "BR",
-    "image": "image105.png",
+    "image": "image105.png__x.png",
     "super_type": "Legendary Creature",
     "sub_type": "Elemental Priest",
     "rarity": "uncommon",
@@ -7371,7 +7371,7 @@
   {
     "name": "Temporal Disruption",
     "cost": "3U",
-    "image": "image104.png",
+    "image": "image104.png__x.png",
     "super_type": "Instant",
     "sub_type": "",
     "rules": "Put target creature on its owner’s library second from the top.\nIf you control both a legendary and a nonlegendary creature as you cast this spell, put that creature on the bottom of its owner’s library instead.",
@@ -7409,7 +7409,7 @@
   {
     "name": "Smeevil Blacksmith",
     "cost": "2R",
-    "image": "image108.png",
+    "image": "image108.png__x.png",
     "super_type": "Creature",
     "sub_type": "Smeevil Artificer",
     "rules": "T: Add one mana of any color. Spend this mana only on equipment spells or to activate equip abilities.",
@@ -7431,7 +7431,7 @@
   {
     "name": "Fog of War",
     "cost": "2G",
-    "image": "image113.png",
+    "image": "image113.png__x.png",
     "super_type": "Instant",
     "sub_type": "",
     "rules": "You gain 1 life for each creature on the battlefield. Prevent all combat damage that would be dealt this turn by creatures with power 3 or less.",
@@ -7479,7 +7479,7 @@
   {
     "name": "Path of Cognition",
     "cost": "U",
-    "image": "image122.png",
+    "image": "image122.png__x.png",
     "super_type": "Enchantment",
     "sub_type": "Path",
     "rarity": "uncommon",
@@ -7498,7 +7498,7 @@
   {
     "name": "Path of Brutality",
     "cost": "B",
-    "image": "image2.png",
+    "image": "image2__x.png",
     "super_type": "Enchantment",
     "sub_type": "Path",
     "rarity": "uncommon",
@@ -7512,7 +7512,7 @@
     ],
     "color_label": "Black",
     "is_token": false,
-    "img_ver": "19f0a72740"
+    "img_ver": "6ee502e58c"
   },
   {
     "name": "Path of Honor",
@@ -7555,7 +7555,7 @@
   {
     "name": "Pay Off",
     "cost": "U",
-    "image": "image216.png",
+    "image": "image216.png__x.png",
     "super_type": "Instant",
     "sub_type": "",
     "rules": "Target creature can’t be blocked this turn.\nDraw a card.",
@@ -7599,7 +7599,7 @@
   {
     "name": "Roshan b",
     "cost": "BRG",
-    "image": "image6.png",
+    "image": "image6__x.png",
     "super_type": "Battle",
     "sub_type": "Raid",
     "rarity": "mythic rare",
@@ -7619,12 +7619,12 @@
     ],
     "color_label": "3-color",
     "is_token": false,
-    "img_ver": "b4b38aea31"
+    "img_ver": "2a8320148a"
   },
   {
     "name": "Tormentor b",
     "cost": "1",
-    "image": "image14.png",
+    "image": "image14__x.png",
     "super_type": "Battle",
     "sub_type": "Raid",
     "rarity": "rare",
@@ -7638,12 +7638,12 @@
     "colors": [],
     "color_label": "Colorless",
     "is_token": false,
-    "img_ver": "c33e5ae2b5"
+    "img_ver": "48cf49b95d"
   },
   {
     "name": "Sylla, the Lone Druid",
     "cost": "3G",
-    "image": "image207.png",
+    "image": "image207.png__x.png",
     "super_type": "Legendary Creature",
     "sub_type": "Human Bear Druid",
     "rarity": "rare",
@@ -7706,7 +7706,7 @@
   {
     "name": "Quelling Blade",
     "cost": "1R",
-    "image": "image232.png",
+    "image": "image232.png__x.png",
     "super_type": "Artifact",
     "sub_type": "Equipment",
     "rules": "Equipped creature gets +2/+0 as long as its attacking.\nEquip creature 1",
@@ -7728,7 +7728,7 @@
   {
     "name": "Smeevil Forgemaster",
     "cost": "4R",
-    "image": "image234.png",
+    "image": "image234.png__x.png",
     "super_type": "Creature",
     "sub_type": "Smeevil",
     "rules": "Equipped creatures you control get +3/+3.\nT: Attach target equipment to target creature you control.",
@@ -7750,7 +7750,7 @@
   {
     "name": "Roseleaf Elder",
     "cost": "1G/U",
-    "image": "image246.png",
+    "image": "image246.png__x.png",
     "super_type": "Creature",
     "sub_type": "Treefolk",
     "rules": "The second spell you cast each turn costs 2 less to cast.",
