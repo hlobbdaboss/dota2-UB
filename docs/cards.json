@@ -46,7 +46,7 @@
     ],
     "color_label": "Orzhov",
     "is_token": false,
-    "img_ver": "2fce1b3af9"
+    "img_ver": "ec2e7d23fe"
   },
   {
     "name": "Razzil Darkbrew, the Alchemist",
@@ -92,7 +92,7 @@
     ],
     "color_label": "Azorius",
     "is_token": false,
-    "img_ver": "5d3519b2fa"
+    "img_ver": "0bfd632ec8"
   },
   {
     "name": "Zet, the Arc Warden",
@@ -167,17 +167,17 @@
   },
   {
     "name": "Atropos, the Bane",
-    "cost": "4UB",
+    "cost": "3UB",
     "image": "image162.png",
     "super_type": "Legendary Creature",
     "sub_type": "Nightmare",
     "rarity": "uncommon",
-    "rules": "Flying\nWhen Atropos deals combat damage to an opponent, tap target creature that player controls. It doesn’t untap during its controller’s next untap step.\nWhenever a creature an opponent controls becomes tapped, that player mills one card. (To mill a card, a player puts the top card of their library into their graveyard.)",
+    "rules": "Flying\nWhen Atropos enters, tap each creature target opponent controls. They don’t untap during their controller’s next untap step.\nWhenever a creature an opponent controls becomes tapped, that player mills one card. (To mill a card, a player puts the top card of their library into their graveyard.)",
     "flavor": "“The rebirth of my dream means the end of a myriad others.”",
     "type": "Legendary Creature -- Nightmare",
-    "cmc": 6,
+    "cmc": 5,
     "mana_symbols": [
-      "4",
+      "3",
       "U",
       "B"
     ],
@@ -209,7 +209,7 @@
     ],
     "color_label": "Red",
     "is_token": false,
-    "img_ver": "8ca391adcf"
+    "img_ver": "b026cd45bf"
   },
   {
     "name": "Radiant Creep",
@@ -219,7 +219,6 @@
     "sub_type": "Elemental Warrior",
     "rules": "Evolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)",
     "flavor": "",
-    "rarity": "common",
     "type": "Creature -- Elemental Warrior",
     "cmc": 1,
     "mana_symbols": [
@@ -231,7 +230,8 @@
     ],
     "color_label": "Selesnya",
     "is_token": false,
-    "img_ver": "e97dfcda2e"
+    "img_ver": "e97dfcda2e",
+    "rarity": "common"
   },
   {
     "name": "Radiant Mega Creep",
@@ -286,7 +286,7 @@
     "super_type": "Legendary Sorcery",
     "sub_type": "",
     "rarity": "mythic rare",
-    "rules": "(You may cast a legendary sorcery only if you control a legendary creature.)\nExile all nonland permanents your opponents control.",
+    "rules": "(You may cast a legendary sorcery only if you control a legendary permanent.)\nExile all nonland permanents your opponents control.",
     "flavor": "“Stare into the abyss.” — Enigma, the Consumer of Worlds",
     "type": "Legendary Sorcery",
     "cmc": 6,
@@ -313,7 +313,6 @@
     "sub_type": "Elemental",
     "rules": "Evolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)",
     "flavor": "",
-    "rarity": "common",
     "type": "Creature -- Elemental",
     "cmc": 1,
     "mana_symbols": [
@@ -325,7 +324,8 @@
     ],
     "color_label": "Rakdos",
     "is_token": false,
-    "img_ver": "901ef39b50"
+    "img_ver": "901ef39b50",
+    "rarity": "common"
   },
   {
     "name": "Dire Super Creep",
@@ -392,7 +392,7 @@
     ],
     "color_label": "Rakdos",
     "is_token": false,
-    "img_ver": "2c68254998"
+    "img_ver": "c6ae325c78"
   },
   {
     "name": "Stifling Dagger",
@@ -400,7 +400,7 @@
     "image": "image23.png",
     "super_type": "Enchantment",
     "sub_type": "Aura",
-    "rarity": "uncommon",
+    "rarity": "common",
     "rules": "Enchant creature\nEnchanted creature gets -1/-1.\nAt the beginning of the upkeep of enchanted creature’s controller, that player loses 2 life.",
     "flavor": "“Where falls my shadow, fells my blade.”  — Mortred, the Phantom Assassin",
     "type": "Enchantment -- Aura",
@@ -423,7 +423,7 @@
     "super_type": "Legendary Land",
     "sub_type": "",
     "rarity": "rare",
-    "rules": "T: Add C.\nT: Add one mana of any color to your mana pool. Spend this mana only on legendary creatures.\nT, 5, Sacrifice this land: Target legendary creature you control fights target creature you don’t control. Activate only as a sorcery.",
+    "rules": "T: Add one mana of any color to your mana pool. Spend this mana only on legendary creatures.\nT, 4, Sacrifice this land: Target legendary creature you control fights target creature you don’t control. Activate only as a sorcery.",
     "flavor": "The depths of Roshan’s lair are unable to dampen the resounding quake of his emergence.",
     "type": "Legendary Land",
     "cmc": 0,
@@ -441,7 +441,6 @@
     "sub_type": "Kobold Rogue",
     "rules": "When this creature dies, create a Treasure token.",
     "flavor": "",
-    "rarity": "common",
     "type": "Creature -- Kobold Rogue",
     "cmc": 1,
     "mana_symbols": [
@@ -452,7 +451,8 @@
     ],
     "color_label": "Red",
     "is_token": false,
-    "img_ver": "3d50358bda"
+    "img_ver": "10a9263521",
+    "rarity": "common"
   },
   {
     "name": "Fortification",
@@ -483,7 +483,7 @@
     "super_type": "Artifact",
     "sub_type": "",
     "rarity": "common",
-    "rules": "T: Surveil 1. (Look at the top card of your library. You may put it into your graveyard.)\nT: Add C.",
+    "rules": "At the beginning of your upkeep, scry 1.\nT: Add C.",
     "flavor": "A form of half-sentient plant, often cultivated by apprentice wizards.",
     "type": "Artifact",
     "cmc": 2,
@@ -542,7 +542,7 @@
     "image": "image51.png",
     "super_type": "Legendary Creature",
     "sub_type": "Human Warrior",
-    "rarity": "uncommon",
+    "rarity": "rare",
     "rules": "When Karroch enters, create a 2/2 green Boar creature token with wither and a 1/1 white Hawk creature token with flying.\nCreature tokens you control have first strike.",
     "flavor": "“Welcome to the food chain.”",
     "type": "Legendary Creature -- Human Warrior",
@@ -566,7 +566,7 @@
     "image": "image6.png",
     "super_type": "Legendary Creature",
     "sub_type": "Beast Berserker",
-    "rarity": "rare",
+    "rarity": "uncommon",
     "rules": "Bloodthirst 1 (If an opponent was dealt damage this turn, this creature enters with a +1/+1 counter on it.)\nAs long as an opponent has less than half their starting life total, Strygwyr has double strike.",
     "flavor": "“For the Flayed Twins, I seek blood.”",
     "type": "Legendary Creature -- Beast Berserker",
@@ -610,7 +610,7 @@
   {
     "name": "Mangix, the Brewmaster",
     "cost": "2GU",
-    "image": "image31.png",
+    "image": "image5.png",
     "super_type": "Legendary Creature",
     "sub_type": "Bear Monk",
     "rarity": "uncommon",
@@ -629,7 +629,7 @@
     ],
     "color_label": "Simic",
     "is_token": false,
-    "img_ver": "4efc7450f0"
+    "img_ver": "0ddddda6ea"
   },
   {
     "name": "Nether Ward",
@@ -637,7 +637,7 @@
     "image": "image30.png",
     "super_type": "Artifact",
     "sub_type": "",
-    "rarity": "uncommon",
+    "rarity": "common",
     "rules": "Whenever an opponent casts a noncreature spell, they lose life equal to that spell’s mana value and you gain that much life.\nT: Add B.",
     "flavor": "While at the lamasery for the Arts of Oblivion, Pugna learned to dominate his classmates with a simple ward charged with Nether magic.",
     "type": "Artifact",
@@ -682,7 +682,7 @@
     "image": "image34.png",
     "super_type": "Legendary Creature",
     "sub_type": "Spider",
-    "rarity": "rare",
+    "rarity": "uncommon",
     "rules": "Deathtouch\nIf a creature an opponent controls would die, instead exile it and create a 1/1 black Spider creature token with deathtouch.\n4BB: Spiders you control get +X/+X and gain lifelink until end of turn, where X is the number of Spiders you control.",
     "flavor": "“You’re not afraid of spiders, are you?”",
     "type": "Legendary Creature -- Spider",
@@ -697,7 +697,7 @@
     ],
     "color_label": "Black",
     "is_token": false,
-    "img_ver": "8f80557636"
+    "img_ver": "97f04ec14e"
   },
   {
     "name": "Bradwarden, the Centaur Warrunner",
@@ -794,7 +794,7 @@
     ],
     "color_label": "Azorius",
     "is_token": false,
-    "img_ver": "5a7a8aea3d"
+    "img_ver": "ca0df87f80"
   },
   {
     "name": "Clinkz, the Bone Fletcher",
@@ -870,17 +870,17 @@
   },
   {
     "name": "Ish'Kafel, the Dark Seer",
-    "cost": "3UB",
+    "cost": "4UB",
     "image": "image67.png",
     "super_type": "Legendary Creature",
     "sub_type": "Elder Elemental",
     "rarity": "uncommon",
-    "rules": "When Ish’Kafel deals combat damage to an opponent, create a token copy of target creature that player controls.",
+    "rules": "When Ish’Kafel enters, create a token copy of target legendary creature an opponent controls.",
     "flavor": "“Your life, much like your head, lacked a point.”",
     "type": "Legendary Creature -- Elder Elemental",
-    "cmc": 5,
+    "cmc": 6,
     "mana_symbols": [
-      "3",
+      "4",
       "U",
       "B"
     ],
@@ -977,7 +977,7 @@
     ],
     "color_label": "Black",
     "is_token": false,
-    "img_ver": "c9b3d547a2"
+    "img_ver": "cbd2f61009"
   },
   {
     "name": "Deafening Blast",
@@ -1106,7 +1106,7 @@
     "super_type": "Instant",
     "sub_type": "",
     "rarity": "common",
-    "rules": "Destroy target creature. Surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+    "rules": "Destroy target creature. Surveil 1.",
     "flavor": "",
     "type": "Instant",
     "cmc": 4,
@@ -1171,12 +1171,12 @@
     "name": "Echo Slam",
     "cost": "5RRR",
     "image": "image405.png",
-    "super_type": "Legendary Instant",
+    "super_type": "Instant",
     "sub_type": "",
-    "rarity": "mythic rare",
-    "rules": "(You may cast a legendary instant only if you control a legendary creature.)\nConvoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for 1 or one mana of that creature’s color.)\nEcho Slam deals X damage to each creature, where is X the number of creatures on the battlefield.",
+    "rarity": "rare",
+    "rules": "Convoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for 1 or one mana of that creature’s color.)\nEcho Slam deals X damage to each creature, where is X the number of creatures on the battlefield.",
     "flavor": "“No one sees an earthquake coming.” — Raigor, the Earthshaker",
-    "type": "Legendary Instant",
+    "type": "Instant",
     "cmc": 8,
     "mana_symbols": [
       "5",
@@ -1189,7 +1189,7 @@
     ],
     "color_label": "Red",
     "is_token": false,
-    "img_ver": "e928056502"
+    "img_ver": "092fc16d84"
   },
   {
     "name": "Raigor Stonehoof, the Earthshaker",
@@ -1289,7 +1289,7 @@
     "super_type": "Legendary Creature",
     "sub_type": "Avatar",
     "rarity": "rare",
-    "rules": "Flying\nAt the beginning of your end step, sacrifice another nontoken creature. When you do, create three 1/1 black Eidolon creature tokens with “Whenever this creature deals combat damage to a player, create a token that’s a copy of this creature.”",
+    "rules": "Flying\nAt the beginning of your end step, sacrifice another nontoken creature you control. When you do, create three 1/1 black Eidolon creature tokens with “Whenever this creature deals combat damage to a player, create a token that’s a copy of this creature.”",
     "flavor": "“That which is fundamental cannot be destroyed.”",
     "type": "Legendary Creature -- Avatar",
     "cmc": 3,
@@ -1334,7 +1334,7 @@
     "image": "image60.png",
     "super_type": "Legendary Instant",
     "sub_type": "",
-    "rarity": "rare",
+    "rarity": "mythic rare",
     "rules": "(You may cast a legendary instant only if you control a legendary creature.)\nSplit Second (As long as this spell is on the stack, players can’t cast spells or activate abilities that aren’t mana abilities.)\nEnd the turn.",
     "flavor": "“I have seen the future; you’re not in it.” — Darkterror, the Faceless Void",
     "type": "Legendary Instant",
@@ -1402,8 +1402,8 @@
   },
   {
     "name": "Chilling Touch",
-    "cost": "4UU",
-    "image": "image117.png",
+    "cost": "4WU",
+    "image": "image271.png",
     "super_type": "Instant",
     "sub_type": "",
     "rarity": "uncommon",
@@ -1413,15 +1413,16 @@
     "cmc": 6,
     "mana_symbols": [
       "4",
-      "U",
+      "W",
       "U"
     ],
     "colors": [
+      "W",
       "U"
     ],
-    "color_label": "Blue",
+    "color_label": "Azorius",
     "is_token": false,
-    "img_ver": "47328c0d1e"
+    "img_ver": "d093c92320"
   },
   {
     "name": "Huskar, the Sacred Warrior",
@@ -1429,7 +1430,7 @@
     "image": "image69.png",
     "super_type": "Legendary Creature",
     "sub_type": "Troll Warrior",
-    "rarity": "rare",
+    "rarity": "uncommon",
     "rules": "Haste\nT: Huskar deals damage to each player equal to half their life total, rounded down.",
     "flavor": "“Great honors await you in the Nothl Realm.”",
     "type": "Legendary Creature -- Troll Warrior",
@@ -1492,7 +1493,7 @@
     ],
     "color_label": "White",
     "is_token": false,
-    "img_ver": "26d48b7d60"
+    "img_ver": "f75ea08b80"
   },
   {
     "name": "Timber Chain",
@@ -1539,7 +1540,7 @@
     ],
     "color_label": "Simic",
     "is_token": false,
-    "img_ver": "bb7e145066"
+    "img_ver": "1d73271819"
   },
   {
     "name": "Io, the Wisp",
@@ -1547,7 +1548,7 @@
     "image": "image154.png",
     "super_type": "Legendary Creature",
     "sub_type": "Spirit",
-    "rarity": "rare",
+    "rarity": "uncommon",
     "rules": "Flying\nSoulbond (You may pair this creature with another unpaired creature when either enters. They remain paired for as long as you control both of them.)\nAs long as Io is paired with another creature, each of those creatures have “2W: Exile this creature, then return it to the battlefield under your control.”",
     "flavor": "The benevolent touch of Io brings strength from between the planes.",
     "type": "Legendary Creature -- Spirit",
@@ -1564,17 +1565,17 @@
   },
   {
     "name": "Overcharge",
-    "cost": "1W",
+    "cost": "2W",
     "image": "image92.png",
     "super_type": "Instant",
     "sub_type": "",
-    "rarity": "uncommon",
-    "rules": "Target creature gets +1/+0 and gains first strike until end of turn.\nDraw a card.\nFlashback 4W (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+    "rarity": "common",
+    "rules": "Target creature gets +1/+0 for each creature you control and gains double strike until end of turn.\nDraw a card.",
     "flavor": "Drawing on the energy of matter from all worlds, Io begins the unravelling of time.",
     "type": "Instant",
-    "cmc": 2,
+    "cmc": 3,
     "mana_symbols": [
-      "1",
+      "2",
       "W"
     ],
     "colors": [
@@ -1656,7 +1657,7 @@
     "image": "image98.png",
     "super_type": "Sorcery",
     "sub_type": "",
-    "rarity": "common",
+    "rarity": "uncommon",
     "rules": "Target creature an opponent controls gets -3/-3 until end of turn.\nCreatures you control gain lifelink until end of turn.",
     "flavor": "Sometimes, it’s the first slash cuts the deepest.",
     "type": "Sorcery",
@@ -1678,8 +1679,8 @@
     "image": "image104.png",
     "super_type": "Legendary Creature",
     "sub_type": "Zombie Minion",
-    "rarity": "rare",
-    "rules": "Lifelink (Damage dealt by this creature also causes you to gain that much life.)\nWhen Naix enters, destroy target creature.\nB: Naix gains indestructible until end of turn.",
+    "rarity": "uncommon",
+    "rules": "Lifelink (Damage dealt by this creature also causes you to gain that much life.)\nWhen Naix enters, destroy target creature.\n1B: Naix gains indestructible until end of turn.",
     "flavor": "“Your life, stolen right out from under you.”",
     "type": "Legendary Creature -- Zombie Minion",
     "cmc": 6,
@@ -1712,7 +1713,7 @@
     "colors": [],
     "color_label": "Colorless",
     "is_token": false,
-    "img_ver": "4c8ba82c9b"
+    "img_ver": "b29d0bc99e"
   },
   {
     "name": "Reincarnation",
@@ -1720,7 +1721,7 @@
     "image": "image195.png",
     "super_type": "Legendary Sorcery",
     "sub_type": "",
-    "rarity": "rare",
+    "rarity": "mythic rare",
     "rules": "(You may cast a legendary sorcery only if you control a legendary creature.)\nReturn target legendary creature card from your graveyard to the battlefield with finality counter on it.",
     "flavor": "“Death has no grip on me.” — Ostarion, the Wraith King",
     "type": "Legendary Sorcery",
@@ -1784,23 +1785,24 @@
   },
   {
     "name": "Soul Ring",
-    "cost": "BB",
+    "cost": "BR",
     "image": "image240.png",
     "super_type": "Legendary Artifact",
     "sub_type": "",
     "rarity": "uncommon",
-    "rules": "Soul Ring enters tapped.\nT: Add BBB to your mana pool. Soul Ring deals 3 damage to you.",
+    "rules": "Soul Ring enters tapped.\nT: Add BR to your mana pool. Soul Ring deals 3 damage to you.",
     "flavor": "A ring that feeds on the souls of those who wear it.",
     "type": "Legendary Artifact",
     "cmc": 2,
     "mana_symbols": [
       "B",
-      "B"
+      "R"
     ],
     "colors": [
-      "B"
+      "B",
+      "R"
     ],
-    "color_label": "Black",
+    "color_label": "Rakdos",
     "is_token": false,
     "img_ver": "658971ce36"
   },
@@ -1810,8 +1812,8 @@
     "image": "image134.png",
     "super_type": "Legendary Artifact",
     "sub_type": "",
-    "rarity": "common",
-    "rules": "T, Sacrifice Hand of Midas: Sacrifice a nonlegendary creature. Create X Treasure tokens, where X is the sacrificed creature’s mana value.",
+    "rarity": "uncommon",
+    "rules": "T, Sacrifice Hand of Midas: Destroy target nonlegendary creature. You create X treasure tokens, where X is that creature’s mana value.",
     "flavor": "Preserved through unknown magical means, the Hand of Midas is a weapon of greed, sacrificing animals to line the owner’s pockets.",
     "type": "Legendary Artifact",
     "cmc": 2,
@@ -1851,12 +1853,12 @@
     "name": "Urn of Shadows",
     "cost": "BG",
     "image": "image253.png",
-    "super_type": "Artifact",
+    "super_type": "Legendary Artifact",
     "sub_type": "",
     "rarity": "uncommon",
-    "rules": "When a creature an opponent controls dies, put a charge counter on this artifact.\nRemove a charge counter from this artifact: Put your choice of a -1/-1 counter or a +1/+1 counter on target creature.",
+    "rules": "When a creature an opponent controls dies, put a charge counter on this artifact.\nT, remove a charge counter from this artifact: Put your choice of a -1/-1 counter or a +1/+1 counter on target creature.",
     "flavor": "Contains the ashes of powerful demons—invigorating to some, and deadly to most.",
-    "type": "Artifact",
+    "type": "Legendary Artifact",
     "cmc": 2,
     "mana_symbols": [
       "B",
@@ -1877,7 +1879,7 @@
     "super_type": "Legendary Artifact",
     "sub_type": "",
     "rarity": "rare",
-    "rules": "Creatures you control get +0/+1.\nEach creature you control with defender can attack and assigns combat damage equal to its toughness rather than power.\nT: You gain 1 life for each defender creature you control.",
+    "rules": "Creatures you control get +0/+1.\nEach creature you control with defender can attack and assigns combat damage equal to its toughness rather than power.\nT: You gain 1 life for each creature you control.",
     "flavor": "A glowing jewel formed out of assorted parts that somehow fit together perfectly.",
     "type": "Legendary Artifact",
     "cmc": 2,
@@ -1890,7 +1892,7 @@
     ],
     "color_label": "White",
     "is_token": false,
-    "img_ver": "7210335c24"
+    "img_ver": "0d4d142672"
   },
   {
     "name": "Drums of Endurance",
@@ -1921,7 +1923,7 @@
     "image": "image23.png",
     "super_type": "Legendary Creature",
     "sub_type": "Kobold Scout",
-    "rarity": "rare",
+    "rarity": "mythic rare",
     "rules": "When Meepo enters, if it isn’t a token, create three tokens that are copies of it.\nAs long as Meepo is a token, it is not legendary.\nU: Meepo phases out.\nWhen Meepo leaves the battlefield, exile all other cards named Meepo, the Geomancer.",
     "flavor": "“I guess size ain’t everything, eh?”",
     "type": "Legendary Creature -- Kobold Scout",
@@ -1991,7 +1993,7 @@
     "image": "image129.png",
     "super_type": "Legendary Creature",
     "sub_type": "Human Wizard",
-    "rarity": "rare",
+    "rarity": "uncommon",
     "rules": "Prowess\nWhenever you cast your second spell during an opponent’s turn, tap target creature an opponent controls. It doesn’t untap for as long as you control Ezalor.",
     "flavor": "“I’ll forego green girdles and questing beasts, for all such knightly trifles pale before the light.”",
     "type": "Legendary Creature -- Human Wizard",
@@ -2052,7 +2054,7 @@
     ],
     "color_label": "Dimir",
     "is_token": false,
-    "img_ver": "75a2e3029c"
+    "img_ver": "83ec190eea"
   },
   {
     "name": "Tresdin, the Legion Commander",
@@ -2143,7 +2145,7 @@
     ],
     "color_label": "Red",
     "is_token": false,
-    "img_ver": "2c12d71b9c"
+    "img_ver": "f7fb30200d"
   },
   {
     "name": "Lion, the Demon Witch",
@@ -2152,7 +2154,7 @@
     "super_type": "Legendary Creature",
     "sub_type": "Demon Wizard",
     "rarity": "uncommon",
-    "rules": "T: Exile the top card of your library. You may play that card for as long as Lion remains tapped.\nWhen Lion dies, add BR.",
+    "rules": "T: Add R or B. Spend this mana only to cast an instant or sorcery spell.\nWhen Lion dies, add BR.",
     "flavor": "“I’ve been to Hell and back, and back to Hell…and back.”",
     "type": "Legendary Creature -- Demon Wizard",
     "cmc": 3,
@@ -2212,7 +2214,7 @@
     ],
     "color_label": "Black",
     "is_token": false,
-    "img_ver": "a5e585ed3f"
+    "img_ver": "231b9974ef"
   },
   {
     "name": "Puck, the Faerie Dragon",
@@ -2236,7 +2238,7 @@
     ],
     "color_label": "Azorius",
     "is_token": false,
-    "img_ver": "902cf224b0"
+    "img_ver": "4472a05a29"
   },
   {
     "name": "Magnus, the Magnoceros",
@@ -2244,7 +2246,7 @@
     "image": "image292.png",
     "super_type": "Legendary Creature",
     "sub_type": "Rhino",
-    "rarity": "rare",
+    "rarity": "uncommon",
     "rules": "Trample\nWhen one or more creatures you control deals excess combat damage to an opponent, draw a card.",
     "flavor": "“You must have mistaken my purpose…to flatten you!”",
     "type": "Legendary Creature -- Rhino",
@@ -2259,7 +2261,7 @@
     ],
     "color_label": "Green",
     "is_token": false,
-    "img_ver": "10d49f6430"
+    "img_ver": "2e6b8b5163"
   },
   {
     "name": "Marci",
@@ -2283,7 +2285,7 @@
     ],
     "color_label": "Boros",
     "is_token": false,
-    "img_ver": "24aa95ff23"
+    "img_ver": "485754ac18"
   },
   {
     "name": "Mars, the First Son of Heaven",
@@ -2306,7 +2308,7 @@
     ],
     "color_label": "Red",
     "is_token": false,
-    "img_ver": "5577d28b1a"
+    "img_ver": "59da62fe19"
   },
   {
     "name": "Medusa, the Gorgon",
@@ -2377,7 +2379,7 @@
     ],
     "color_label": "Simic",
     "is_token": false,
-    "img_ver": "380d61fbd6"
+    "img_ver": "f6d85851ff"
   },
   {
     "name": "Morphling",
@@ -2385,7 +2387,7 @@
     "image": "image148.png",
     "super_type": "Legendary Creature",
     "sub_type": "Shapeshifter",
-    "rarity": "rare",
+    "rarity": "uncommon",
     "rules": "When Morphling attacks, it becomes a copy of target creature you don’t control except it’s name is Morphling, it’s legendary in addition to its other types, and it has Morphling’s abilities.",
     "flavor": "“You’re washed up!”",
     "type": "Legendary Creature -- Shapeshifter",
@@ -2404,7 +2406,7 @@
   },
   {
     "name": "Muerta",
-    "cost": "4B",
+    "cost": "3B",
     "image": "image150.png",
     "super_type": "Legendary Creature",
     "sub_type": "Spirit Assassin",
@@ -2412,9 +2414,9 @@
     "rules": "Whenever Muerta deals combat damage to a player, put target creature from a graveyard on to the battlefield under your control with a finality counter on it.\n4BB: Muerta gets +X/+X and gains flying until end of turn, where X is the number of creature cards in all graveyards.",
     "flavor": "“I promise you a quick death. The eternity of torment waiting for you in the afterlife might take a bit longer.”",
     "type": "Legendary Creature -- Spirit Assassin",
-    "cmc": 5,
+    "cmc": 4,
     "mana_symbols": [
-      "4",
+      "3",
       "B"
     ],
     "colors": [
@@ -2422,7 +2424,7 @@
     ],
     "color_label": "Black",
     "is_token": false,
-    "img_ver": "4a124f5eae"
+    "img_ver": "c8d2ab5418"
   },
   {
     "name": "Slithice, the Naga Siren",
@@ -2485,7 +2487,7 @@
     ],
     "color_label": "Green",
     "is_token": false,
-    "img_ver": "4dcfa9ca74"
+    "img_ver": "d4b1cfdc3b"
   },
   {
     "name": "Nature’s Prophet",
@@ -2650,7 +2652,7 @@
     ],
     "color_label": "White",
     "is_token": false,
-    "img_ver": "741adcae1a"
+    "img_ver": "485fe4ffcf"
   },
   {
     "name": "Nerif, the Oracle",
@@ -2673,7 +2675,7 @@
     ],
     "color_label": "Dimir",
     "is_token": false,
-    "img_ver": "4375e6131d"
+    "img_ver": "2f6109bcb6"
   },
   {
     "name": "Buyback",
@@ -2692,7 +2694,7 @@
     "colors": [],
     "color_label": "Colorless",
     "is_token": false,
-    "img_ver": "e8b448de48"
+    "img_ver": "f6e6827726"
   },
   {
     "name": "Harbinger, the Outworld Destroyer",
@@ -2701,7 +2703,7 @@
     "super_type": "Legendary Creature",
     "sub_type": "Archon",
     "rarity": "uncommon",
-    "rules": "Delve (Each card you exile from your graveyard while casting this spell pays for 1.)\nFlying\nWhenever Harbinger deals combat damage to an opponent, return a noncreature, nonland card exiled with this creature to its owner’s hand.",
+    "rules": "Delve (Each card you exile from your graveyard while casting this spell pays for 1.)\nFlying\nWhenever Harbinger attacks, return a noncreature, nonland card exiled with this creature to its owner’s hand.",
     "flavor": "“My wings beat with the rhythms of eternity.”",
     "type": "Legendary Creature -- Archon",
     "cmc": 7,
@@ -2724,7 +2726,7 @@
     "image": "image234.png",
     "super_type": "Enchantment",
     "sub_type": "Aura",
-    "rarity": "uncommon",
+    "rarity": "common",
     "rules": "Flash (You may cast this spell any time you could cast an instant.)\nEnchant creature\n0: Exile enchanted creature. Return that card to the battlefield under its owners control at the beginning of that players next end step.",
     "flavor": "“Their sanity I’ll shatter, their dreams of conquest I’ll destroy.” — Harbinger, the Outworld Destroyer",
     "type": "Enchantment -- Aura",
@@ -2831,7 +2833,7 @@
     ],
     "color_label": "Red",
     "is_token": false,
-    "img_ver": "587d95e303"
+    "img_ver": "ea3707501d"
   },
   {
     "name": "Primal Beast",
@@ -2863,7 +2865,7 @@
     "image": "image173.png",
     "super_type": "Legendary Creature",
     "sub_type": "Zombie",
-    "rarity": "rare",
+    "rarity": "uncommon",
     "rules": "Trample\nIf a creature an opponent controls would die, exile it instead. Then, put a +1/+1 counter on Pudge.",
     "flavor": "“Have I got juice on me chins?”",
     "type": "Legendary Creature -- Zombie",
@@ -2878,7 +2880,7 @@
     ],
     "color_label": "Black",
     "is_token": false,
-    "img_ver": "2f38c1e0c0"
+    "img_ver": "dbe190a47c"
   },
   {
     "name": "Pugna",
@@ -2900,7 +2902,7 @@
     ],
     "color_label": "Black",
     "is_token": false,
-    "img_ver": "5065c3d74f"
+    "img_ver": "e36e0c0fdd"
   },
   {
     "name": "Akasha, the Queen of Pain",
@@ -2908,7 +2910,7 @@
     "image": "image139.png",
     "super_type": "Legendary Creature",
     "sub_type": "Demon Sorcerer",
-    "rarity": "rare",
+    "rarity": "uncommon",
     "rules": "Flying, haste\nWhenever a player casts an instant or sorcery spell, Akasha deals 1 damage to each opponent.",
     "flavor": "“Long live your Queen!”",
     "type": "Legendary Creature -- Demon Sorcerer",
@@ -2932,7 +2934,7 @@
     "image": "image118.png",
     "super_type": "Legendary Creature",
     "sub_type": "Elemental Warrior",
-    "rarity": "uncommon",
+    "rarity": "rare",
     "rules": "Flying, haste\nWhenever Razor attacks, exchange its power with target creature’s power until end of turn.",
     "flavor": "“I bring my lightning whip not to punish souls, but only to hasten them toward the inevitable exit.”",
     "type": "Legendary Creature -- Elemental Warrior",
@@ -2948,7 +2950,7 @@
     ],
     "color_label": "Izzet",
     "is_token": false,
-    "img_ver": "12a2cc2541"
+    "img_ver": "57719cf1a6"
   },
   {
     "name": "Riki, the Stealth Assassin",
@@ -2957,7 +2959,7 @@
     "super_type": "Legendary Creature",
     "sub_type": "Satyr Rogue",
     "rarity": "uncommon",
-    "rules": "Hexproof (This creature can’t be the target of spells of abilities your opponents control.)\nWhenever Riki deals combat damage to a player, they may mill three cards. If they don’t, you draw a card.",
+    "rules": "Hexproof (This creature can’t be the target of spells of abilities your opponents control.)\nWhenever Riki deals combat damage to a player, they may lose 2 life. If they don’t, you draw a card.",
     "flavor": "“I speak softly, but carry a sharp knife.”",
     "type": "Legendary Creature -- Satyr Rogue",
     "cmc": 3,
@@ -3067,7 +3069,7 @@
     ],
     "color_label": "Rakdos",
     "is_token": false,
-    "img_ver": "cf4abe4c6f"
+    "img_ver": "09fc7e27a3"
   },
   {
     "name": "Rhasta, the Shadow Shaman",
@@ -3090,7 +3092,7 @@
     ],
     "color_label": "Blue",
     "is_token": false,
-    "img_ver": "6856deec22"
+    "img_ver": "9929eb88ab"
   },
   {
     "name": "Nortrom, the Silencer",
@@ -3114,7 +3116,7 @@
     ],
     "color_label": "Orzhov",
     "is_token": false,
-    "img_ver": "94015b18be"
+    "img_ver": "9f31ea4963"
   },
   {
     "name": "Dragonus, the Skywrath Mage",
@@ -3138,7 +3140,7 @@
     ],
     "color_label": "Azorius",
     "is_token": false,
-    "img_ver": "71b5529083"
+    "img_ver": "e2505b70e3"
   },
   {
     "name": "Slardar, the Slithereen Guard",
@@ -3146,7 +3148,7 @@
     "image": "image194.png",
     "super_type": "Legendary Creature",
     "sub_type": "Naga Warrior",
-    "rarity": "rare",
+    "rarity": "uncommon",
     "rules": "Vigilance\nCreatures your opponents control lose hexproof and shroud and can’t have hexproof and shroud. Ward abilities of those creatures don’t trigger.\nThe first time you tap a creature an opponent controls each turn, draw a card.",
     "flavor": "“Can’t fathom why you thought you’d survive.”",
     "type": "Legendary Creature -- Naga Warrior",
@@ -3232,7 +3234,7 @@
     ],
     "color_label": "Boros",
     "is_token": false,
-    "img_ver": "eeac7d2efb"
+    "img_ver": "44cf17d08c"
   },
   {
     "name": "Mercurial, the Spectre",
@@ -3279,7 +3281,7 @@
     ],
     "color_label": "Simic",
     "is_token": false,
-    "img_ver": "316885c0a3"
+    "img_ver": "e220994fa5"
   },
   {
     "name": "Raijin, the Storm Spirit",
@@ -3303,21 +3305,22 @@
     ],
     "color_label": "Izzet",
     "is_token": false,
-    "img_ver": "be0f6e70e8"
+    "img_ver": "51de1da972"
   },
   {
     "name": "Sven, the Rogue Knight",
-    "cost": "2RR",
+    "cost": "1RRR",
     "image": "image49.png",
     "super_type": "Legendary Creature",
     "sub_type": "Human Rogue Knight",
-    "rarity": "rare",
+    "rarity": "uncommon",
     "rules": "Whenever Sven deals combat damage to an opponent’s creature, Sven deals that much damage to another target creature that player controls.",
     "flavor": "“Rogue Knight claims another.”",
     "type": "Legendary Creature -- Human Rogue Knight",
     "cmc": 4,
     "mana_symbols": [
-      "2",
+      "1",
+      "R",
       "R",
       "R"
     ],
@@ -3349,7 +3352,7 @@
     ],
     "color_label": "Black",
     "is_token": false,
-    "img_ver": "8039428edd"
+    "img_ver": "68ddfea408"
   },
   {
     "name": "Squee, Spleen, and Spoon, the Techies",
@@ -3380,7 +3383,7 @@
     "super_type": "Legendary Creature",
     "sub_type": "Human Assassin",
     "rarity": "rare",
-    "rules": "Whenever Lanaya attacks or is targeted by a spell an opponent controls, put a shield counter on it. (If it would be dealt damage or destroyed, remove a shield counter from it instead.\nWhenever a shield counter is removed from a creature, put a +1/+1 counter on it.",
+    "rules": "Whenever Lanaya enters or attacks, put a shield counter on it. (If it would be dealt damage or destroyed, remove a shield counter from it instead.\nWhenever a shield counter is removed from a creature, put a +1/+1 counter on it.",
     "flavor": "“Your death was a secret I can no longer hide.”",
     "type": "Legendary Creature -- Human Assassin",
     "cmc": 4,
@@ -3514,7 +3517,7 @@
     "image": "image349.png",
     "super_type": "Legendary Creature",
     "sub_type": "Treefolk",
-    "rarity": "rare",
+    "rarity": "uncommon",
     "rules": "Forestwalk (This creature can’t be blocked as long as defending player controls a Forest.)\nT: Add G.\nWhen Rooftrellen becomes tapped for the first time each turn, put a stun counter on it. (If a permanent with a stun counter would become untapped, remove one from it instead.)",
     "flavor": "“Where the path branched, you chose unwisely.”",
     "type": "Legendary Creature -- Treefolk",
@@ -3528,7 +3531,7 @@
     ],
     "color_label": "Green",
     "is_token": false,
-    "img_ver": "778901f85e"
+    "img_ver": "b11dc7af03"
   },
   {
     "name": "Jah'rakal, the Troll Warlord",
@@ -3583,7 +3586,7 @@
     "image": "image329.png",
     "super_type": "Legendary Creature",
     "sub_type": "Demon Warrior",
-    "rarity": "rare",
+    "rarity": "uncommon",
     "rules": "Each creature your opponents control get -2/-0 until end of turn for each creature that died this turn.",
     "flavor": "“I will scorch this land and its people will come to fear a new master!”",
     "type": "Legendary Creature -- Demon Warrior",
@@ -3598,7 +3601,7 @@
     ],
     "color_label": "Black",
     "is_token": false,
-    "img_ver": "be6f487e93"
+    "img_ver": "afc2b27e22"
   },
   {
     "name": "Undying, the Almighty Dirge",
@@ -3622,7 +3625,7 @@
     ],
     "color_label": "Golgari",
     "is_token": false,
-    "img_ver": "e421433735"
+    "img_ver": "4cbf440c08"
   },
   {
     "name": "Ulfsaar, the Ursa Warrior",
@@ -3630,7 +3633,7 @@
     "image": "image206.png",
     "super_type": "Legendary Creature",
     "sub_type": "Bear Warrior",
-    "rarity": "rare",
+    "rarity": "uncommon",
     "rules": "Trample\nG: Regenerate Ulfsaar. (The next time it would be destroyed, instead tap it, remove it from combat, and heal all damage on it)\nWhenever Ulfsaar deals combat damage, put a +1/+1 counter on it.",
     "flavor": "“Come not near the darkwoods where my kindred sleep.”",
     "type": "Legendary Creature -- Bear Warrior",
@@ -3689,7 +3692,7 @@
     ],
     "color_label": "Golgari",
     "is_token": false,
-    "img_ver": "fcb7121ca6"
+    "img_ver": "971a73ce4d"
   },
   {
     "name": "Viper, the Netherdrake",
@@ -3861,7 +3864,7 @@
     ],
     "color_label": "Izzet",
     "is_token": false,
-    "img_ver": "6ee502e58c"
+    "img_ver": "481e5a1880"
   },
   {
     "name": "Zharvakko, the Witch Doctor",
@@ -3910,7 +3913,7 @@
     ],
     "color_label": "Izzet",
     "is_token": false,
-    "img_ver": "26a2ed9b5a"
+    "img_ver": "dcf42d1451"
   },
   {
     "name": "Keenfolk Golem",
@@ -3919,7 +3922,7 @@
     "super_type": "Artifact Creature",
     "sub_type": "Golem",
     "rarity": "common",
-    "rules": "Affinity for artifacts (This spell costs 1 less to cast for each artifact you control)\nWhen Keenfolk Golem enters, you may return target noncreature card from your graveyard to hand.",
+    "rules": "Affinity for artifacts (This spell costs 1 less to cast for each artifact you control)\nWhen this creature enters, you may return target noncreature card from your graveyard to your hand.",
     "flavor": "",
     "type": "Artifact Creature -- Golem",
     "cmc": 7,
@@ -3944,7 +3947,6 @@
     "sub_type": "Human Rogue",
     "rules": "When this creature enters, each player discards a card.\n1B: This creature gains deathtouch until end of turn.",
     "flavor": "",
-    "rarity": "common",
     "type": "Creature -- Human Rogue",
     "cmc": 1,
     "mana_symbols": [
@@ -3955,7 +3957,8 @@
     ],
     "color_label": "Black",
     "is_token": false,
-    "img_ver": "89683724c4"
+    "img_ver": "7014a4f3ac",
+    "rarity": "common"
   },
   {
     "name": "Alpha Wolf",
@@ -4011,7 +4014,6 @@
     "image": "image2.png",
     "super_type": "Creature",
     "sub_type": "Satyr Wizard",
-    "rarity": "uncommon",
     "rules": "Flash (You may cast this spell any time you could cast an instant.)\nWhen this creature enters, target creature phases out.",
     "flavor": "",
     "type": "Creature -- Satyr Wizard",
@@ -4024,29 +4026,8 @@
     ],
     "color_label": "Blue",
     "is_token": false,
-    "img_ver": "19f0a72740"
-  },
-  {
-    "name": "Pollywog",
-    "cost": "1U",
-    "image": "image189.png",
-    "super_type": "Creature",
-    "sub_type": "Frog",
-    "rarity": "common",
-    "rules": "Flash (You may cast this spell any time you could cast an instant.)\nWhen this creature enters, return target creature you control from the battlefield to its owner’s hand.",
-    "flavor": "",
-    "type": "Creature -- Frog",
-    "cmc": 2,
-    "mana_symbols": [
-      "1",
-      "U"
-    ],
-    "colors": [
-      "U"
-    ],
-    "color_label": "Blue",
-    "is_token": false,
-    "img_ver": "a3af4d41f8"
+    "img_ver": "19f0a72740",
+    "rarity": "common"
   },
   {
     "name": "Hill Troll Priest",
@@ -4054,7 +4035,7 @@
     "image": "image419.png",
     "super_type": "Creature",
     "sub_type": "Troll Cleric",
-    "rarity": "common",
+    "rarity": "uncommon",
     "rules": "Lifelink\nWhen this creature enters, you gain 3 life.",
     "flavor": "",
     "type": "Creature -- Troll Cleric",
@@ -4070,7 +4051,7 @@
     ],
     "color_label": "Selesnya",
     "is_token": false,
-    "img_ver": "343bcb4a89"
+    "img_ver": "6ef6102910"
   },
   {
     "name": "Kobold Foreman",
@@ -4092,7 +4073,7 @@
     ],
     "color_label": "Red",
     "is_token": false,
-    "img_ver": "7b3ac81f22"
+    "img_ver": "ff4318a051"
   },
   {
     "name": "Fell Spirit",
@@ -4120,13 +4101,13 @@
   {
     "name": "Mud Golem",
     "cost": "2W",
-    "image": "image53.png",
+    "image": "image26.png",
     "super_type": "Creature",
-    "sub_type": "Golem",
+    "sub_type": "Elemental Golem",
     "rarity": "common",
     "rules": "When this creature dies, create two 1/1 white Golem creature tokens.",
     "flavor": "",
-    "type": "Creature -- Golem",
+    "type": "Creature -- Elemental Golem",
     "cmc": 3,
     "mana_symbols": [
       "2",
@@ -4137,7 +4118,7 @@
     ],
     "color_label": "White",
     "is_token": false,
-    "img_ver": "ab21b12359"
+    "img_ver": "4577113a5c"
   },
   {
     "name": "Omexe Overwatch",
@@ -4145,7 +4126,7 @@
     "image": "image22.png",
     "super_type": "Creature",
     "sub_type": "Centaur Archer",
-    "rarity": "uncommon",
+    "rarity": "common",
     "rules": "Creatures you control have ward 1.",
     "flavor": "“I’ll fall them long before you even notice you’re in danger” — Nattea, Omexe Ranger",
     "type": "Creature -- Centaur Archer",
@@ -4236,7 +4217,7 @@
     "image": "image418.png",
     "super_type": "Creature",
     "sub_type": "Troll Shaman",
-    "rarity": "common",
+    "rarity": "uncommon",
     "rules": "Whenever a nontoken creature you control dies, create a 2/2 black Zombie creature token.",
     "flavor": "",
     "type": "Creature -- Troll Shaman",
@@ -4252,7 +4233,7 @@
     ],
     "color_label": "Golgari",
     "is_token": false,
-    "img_ver": "d3b585a74c"
+    "img_ver": "4bcc93399a"
   },
   {
     "name": "Warpine Raider",
@@ -4283,8 +4264,8 @@
     "image": "image264.png",
     "super_type": "Creature",
     "sub_type": "Dragon",
-    "rarity": "uncommon",
-    "rules": "Flying\nWhen this creature dies, each opponent loses 3 life.",
+    "rarity": "common",
+    "rules": "Flying\nWhen this creature dies, each opponent loses 3 life.\nSwampcycling 1 (1, Discard this card: Search your library for a Swamp card, reveal it, put it into your hand, then shuffle.)",
     "flavor": "",
     "type": "Creature -- Dragon",
     "cmc": 5,
@@ -4305,11 +4286,11 @@
     "cost": "3GG",
     "image": "image249.png",
     "super_type": "Creature",
-    "sub_type": "Golem",
-    "rarity": "uncommon",
-    "rules": "Vigilance\nT: Add GG. If you control a creature with a counter on it, add GGGG instead.\nForestcycling 1 (1, Discard this card: Search your library for a Forest card, reveal it, put it into your hand, then shuffle.)",
+    "sub_type": "Elemental Golem",
+    "rarity": "common",
+    "rules": "Vigilance\nT: Add GG. If you control a creature with trample, add GGG instead.\nForestcycling 1 (1, Discard this card: Search your library for a Forest card, reveal it, put it into your hand, then shuffle.)",
     "flavor": "",
-    "type": "Creature -- Golem",
+    "type": "Creature -- Elemental Golem",
     "cmc": 5,
     "mana_symbols": [
       "3",
@@ -4329,8 +4310,8 @@
     "image": "image32.png",
     "super_type": "Creature",
     "sub_type": "Dinosaur",
-    "rarity": "uncommon",
-    "rules": "Ward—Pay 3 life.\nTrample",
+    "rarity": "common",
+    "rules": "Ward—Pay 3 life.\nTrample\nMountaincycling 1 (1, Discard this card: Search your library for a Mountain card, reveal it, put it into your hand, then shuffle.)",
     "flavor": "",
     "type": "Creature -- Dinosaur",
     "cmc": 5,
@@ -4352,8 +4333,8 @@
     "image": "image214.png",
     "super_type": "Creature",
     "sub_type": "Human Solider",
-    "rarity": "uncommon",
-    "rules": "At the beginning of combat on each opponent’s turn, tap target creature that player controls.",
+    "rarity": "common",
+    "rules": "At the beginning of combat on each opponent’s turn, tap target creature that player controls.\nBasic landcycling 2 (2, Discard this card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.)",
     "flavor": "",
     "type": "Creature -- Human Solider",
     "cmc": 5,
@@ -4372,13 +4353,13 @@
   {
     "name": "Ice Golem",
     "cost": "1WU",
-    "image": "image239.png",
+    "image": "image33.png",
     "super_type": "Creature",
-    "sub_type": "Golem",
+    "sub_type": "Elemental Golem",
     "rarity": "common",
     "rules": "When this creature enters, tap target creature an opponent controls. You may put a stun counter on it.",
     "flavor": "",
-    "type": "Creature -- Golem",
+    "type": "Creature -- Elemental Golem",
     "cmc": 3,
     "mana_symbols": [
       "1",
@@ -4391,7 +4372,7 @@
     ],
     "color_label": "Azorius",
     "is_token": false,
-    "img_ver": "2fe9fc2ebf"
+    "img_ver": "e7c36cd4d8"
   },
   {
     "name": "Phase Boots",
@@ -4399,7 +4380,7 @@
     "image": "image275.png",
     "super_type": "Artifact",
     "sub_type": "Equipment",
-    "rarity": "common",
+    "rarity": "uncommon",
     "rules": "Equipped creature gets +1/+0 and has haste.\nW/U: Equipped creature phases out. (While it’s phased out, it’s treated as though it doesn’t exist. It phases in before its controller untaps during their next untap step.)\nEquip 1",
     "flavor": "Boots that allow the wearer to travel between the ether.",
     "type": "Artifact -- Equipment",
@@ -4414,7 +4395,7 @@
     ],
     "color_label": "Azorius",
     "is_token": false,
-    "img_ver": "8c29f2cd89"
+    "img_ver": "b7315e1b46"
   },
   {
     "name": "Tranquil Boots",
@@ -4444,7 +4425,7 @@
     "image": "image376.png",
     "super_type": "Legendary Artifact",
     "sub_type": "",
-    "rarity": "mythic rare",
+    "rarity": "rare",
     "rules": "T, Exile Refresher Orb: Take an extra turn after this one.",
     "flavor": "A powerful artifact created for an unknown wizard, it’s appearance is inert to the naked eye.",
     "type": "Legendary Artifact",
@@ -4460,26 +4441,26 @@
     ],
     "color_label": "Blue",
     "is_token": false,
-    "img_ver": "3bb3bf41d7"
+    "img_ver": "8bf6defdab"
   },
   {
     "name": "Blade Mail",
-    "cost": "3",
+    "cost": "2",
     "image": "image328.png",
     "super_type": "Artifact",
     "sub_type": "Equipment",
     "rarity": "common",
-    "rules": "Whenever equipped creature is dealt damage by a source an opponent controls, this Equipment deals that much damage to that source.\nEquip creature 1",
+    "rules": "Whenever equipped creature is dealt damage by a source an opponent controls, this Equipment deals that much damage to that source.\nEquip 1",
     "flavor": "A razor-sharp coat of mail, it is the choice of selfless martyrs in combat.",
     "type": "Artifact -- Equipment",
-    "cmc": 3,
+    "cmc": 2,
     "mana_symbols": [
-      "3"
+      "2"
     ],
     "colors": [],
     "color_label": "Colorless",
     "is_token": false,
-    "img_ver": "ff9b348fd8"
+    "img_ver": "d3b1ed3ff5"
   },
   {
     "name": "Quorum Cube",
@@ -4504,31 +4485,12 @@
     "img_ver": "d53e2a45ae"
   },
   {
-    "name": "Dust of Appearance",
-    "cost": "0",
-    "image": "image60.png",
-    "super_type": "Artifact",
-    "sub_type": "",
-    "rarity": "common",
-    "rules": "T, Sacrifice this artifact: Until end of turn, creatures your opponents control lose hexproof and shroud and can’t have hexproof and shroud. Ward abilities of those creatures don’t trigger. Draw a card at the beginning of the next turn’s upkeep.",
-    "flavor": "One may hide visage, but never volume.",
-    "type": "Artifact",
-    "cmc": 0,
-    "mana_symbols": [
-      "0"
-    ],
-    "colors": [],
-    "color_label": "Colorless",
-    "is_token": false,
-    "img_ver": "08d017a442"
-  },
-  {
     "name": "Orb of Venom",
     "cost": "B",
     "image": "image130.png",
     "super_type": "Artifact",
     "sub_type": "",
-    "rarity": "common",
+    "rarity": "uncommon",
     "rules": "Sacrifice this artifact: Put a -1/-1 counter on target creature. Activate only as a sorcery.\nWhen this artifact is put into a graveyard from the battlefield, draw a card.",
     "flavor": "Seepage from the wounds of a warrior deity, sealed in an arcanist’s orb following a campaign of vicious slaughter.",
     "type": "Artifact",
@@ -4564,30 +4526,7 @@
     ],
     "color_label": "Izzet",
     "is_token": false,
-    "img_ver": "2f35e73a88"
-  },
-  {
-    "name": "Eul’s Scepter",
-    "cost": "1UU",
-    "image": "image64.png",
-    "super_type": "Artifact",
-    "sub_type": "",
-    "rarity": "uncommon",
-    "rules": "T, 4: Exile target creature. Return that creature to the battlefield under its owner’s control at the beginning of the next end step.",
-    "flavor": "Proof enough to some that unseen forces manipulate the happenings of the material plane.",
-    "type": "Artifact",
-    "cmc": 3,
-    "mana_symbols": [
-      "1",
-      "U",
-      "U"
-    ],
-    "colors": [
-      "U"
-    ],
-    "color_label": "Blue",
-    "is_token": false,
-    "img_ver": "4677ac0e90"
+    "img_ver": "36abb0ea81"
   },
   {
     "name": "Glimmer Cape",
@@ -4632,7 +4571,7 @@
     ],
     "color_label": "Blue",
     "is_token": false,
-    "img_ver": "0e1cea74f7"
+    "img_ver": "6170fa3176"
   },
   {
     "name": "Overclocking",
@@ -4654,7 +4593,7 @@
     ],
     "color_label": "Red",
     "is_token": false,
-    "img_ver": "a611f20ec4"
+    "img_ver": "f4879750cd"
   },
   {
     "name": "Hammer of Purity",
@@ -4662,7 +4601,7 @@
     "image": "image47.png",
     "super_type": "Artifact",
     "sub_type": "Equipment",
-    "rarity": "uncommon",
+    "rarity": "common",
     "rules": "When this equipment enters, destroy up to one target artifact or enchantment.\nEquipped creature gets +1/+0 and has lifelink.\nEquip creature 2W",
     "flavor": "The knight is merely a means to move the hammer.",
     "type": "Artifact -- Equipment",
@@ -4703,19 +4642,19 @@
   },
   {
     "name": "Radiance",
-    "cost": "1RWW",
+    "cost": "2RRW",
     "image": "image381.png",
     "super_type": "Legendary Artifact",
     "sub_type": "",
     "rarity": "rare",
-    "rules": "Whenever a creature enters the battlefield under an opponent’s control, equipped creature deals 1 damage to that creature and that creature becomes tapped.",
+    "rules": "Whenever a creature enters the battlefield under an opponent’s control, equipped creature deals 1 damage to that creature and that creature becomes tapped.\nEquip legendary creature 1",
     "flavor": "A divine weapon that causes damage and a bright burning effect that lays waste to nearby enemies.",
     "type": "Legendary Artifact",
-    "cmc": 4,
+    "cmc": 5,
     "mana_symbols": [
-      "1",
+      "2",
       "R",
-      "W",
+      "R",
       "W"
     ],
     "colors": [
@@ -4724,28 +4663,27 @@
     ],
     "color_label": "Boros",
     "is_token": false,
-    "img_ver": "6de1b14c50"
+    "img_ver": "e3bbdc544a"
   },
   {
     "name": "Roshefort Cheese",
-    "cost": "GW",
+    "cost": "2G",
     "image": "image183.png",
     "super_type": "Legendary Artifact",
     "sub_type": "Food",
     "rarity": "uncommon",
-    "rules": "2, T, Sacrifice this artifact: You gain 3 life.\n6, T, Sacrifice this artifact: Your life total becomes equal to your starting life total.",
+    "rules": "2, T, Sacrifice this artifact: You gain 3 life.\n7, T, Sacrifice this artifact: Your life total becomes equal to your starting life total.",
     "flavor": "Made from the milk of a long lost Furbolg vendor, it’s anyone’s guess how Roshan acquired it.",
     "type": "Legendary Artifact -- Food",
-    "cmc": 2,
+    "cmc": 3,
     "mana_symbols": [
-      "G",
-      "W"
-    ],
-    "colors": [
-      "W",
+      "2",
       "G"
     ],
-    "color_label": "Selesnya",
+    "colors": [
+      "G"
+    ],
+    "color_label": "Green",
     "is_token": false,
     "img_ver": "e335194df1"
   },
@@ -4776,7 +4714,7 @@
     "image": "image73.png",
     "super_type": "Legendary Sorcery",
     "sub_type": "",
-    "rarity": "rare",
+    "rarity": "mythic rare",
     "rules": "(You may cast a legendary sorcery only if you control a legendary creature.)\nDistribute X -1/-1 counters among any number of target creatures, where X is the number of creatures on the battlefield.",
     "flavor": "“Keep your enemies close, and your antidotes closer.” — Lesale Deathbringer, the Venomancer",
     "type": "Legendary Sorcery",
@@ -4792,7 +4730,7 @@
     ],
     "color_label": "Golgari",
     "is_token": false,
-    "img_ver": "9bb21f0639"
+    "img_ver": "9abbf45da6"
   },
   {
     "name": "Unleash",
@@ -4839,22 +4777,21 @@
     ],
     "color_label": "White",
     "is_token": false,
-    "img_ver": "e5e7ce51af"
+    "img_ver": "760bf99dbd"
   },
   {
     "name": "Radiant Tower",
-    "cost": "3G/WG/W",
+    "cost": "3G/W",
     "image": "image260.png",
     "super_type": "Artifact Creature",
     "sub_type": "Wall",
-    "rarity": "uncommon",
+    "rarity": "common",
     "rules": "Defender (This creature can’t attack.)\nCreatures can’t attack you unless their controller pays 2 for each creature they control that’s attacking you.\nWhenever a creature attacks you, you gain 1 life.",
     "flavor": "The light emitting from the Radiant Tower draws its creeps ever forward.",
     "type": "Artifact Creature -- Wall",
-    "cmc": 5,
+    "cmc": 4,
     "mana_symbols": [
       "3",
-      "GW",
       "GW"
     ],
     "colors": [
@@ -4867,18 +4804,17 @@
   },
   {
     "name": "Dire Tower",
-    "cost": "3B/RB/R",
+    "cost": "3B/R",
     "image": "image132.png",
     "super_type": "Artifact Creature",
     "sub_type": "Wall",
-    "rarity": "uncommon",
+    "rarity": "common",
     "rules": "Defender (This creature can’t attack.)\nCreatures can’t attack you unless their controller pays 2 for each creature they control that’s attacking you.\nWhenever a creature attacks you, its controller loses 1 life.",
     "flavor": "If the mere appearance of the Dire Tower isn’t dissuading enough on its own, there are always the cannons.",
     "type": "Artifact Creature -- Wall",
-    "cmc": 5,
+    "cmc": 4,
     "mana_symbols": [
       "3",
-      "BR",
       "BR"
     ],
     "colors": [
@@ -4896,7 +4832,7 @@
     "super_type": "Instant",
     "sub_type": "",
     "rarity": "rare",
-    "rules": "(You may cast a legendary instant only if you control a legendary creature.)\nGain control of target spell.",
+    "rules": "Gain control of target spell.",
     "flavor": "“Yoink.” — Rubick, the Grand Magus",
     "type": "Instant",
     "cmc": 4,
@@ -4942,8 +4878,8 @@
     "image": "image174.png",
     "super_type": "Legendary Sorcery",
     "sub_type": "",
-    "rarity": "rare",
-    "rules": "(You may cast a legendary sorcery only if you control a legendary creature.)\nExile the top ten cards of your library. You may cast any number of instant or sorcery cards from among the exiled cards without paying their mana costs.",
+    "rarity": "mythic rare",
+    "rules": "(You may cast a legendary sorcery only if you control a legendary permanent.)\nExile the top ten cards of your library. You may cast any number of instant or sorcery cards from among the exiled cards without paying their mana costs.",
     "flavor": "“You can’t run from heaven.” — Zeus, the Lord of Heaven",
     "type": "Legendary Sorcery",
     "cmc": 7,
@@ -4958,7 +4894,7 @@
     ],
     "color_label": "Izzet",
     "is_token": false,
-    "img_ver": "968f265b8c"
+    "img_ver": "4a84357efc"
   },
   {
     "name": "Wrath of Nature",
@@ -4966,8 +4902,8 @@
     "image": "image189.png",
     "super_type": "Legendary Sorcery",
     "sub_type": "",
-    "rarity": "rare",
-    "rules": "(You may cast a legendary sorcery only if you control a legendary creature.)\nPut three +1/+1 counters on each land you control. They become 0/0 Elemental creatures with vigilance and haste that are still lands. Untap them.",
+    "rarity": "mythic rare",
+    "rules": "(You may cast a legendary sorcery only if you control a legendary permanent.)\nPut three +1/+1 counters on each Forest you control. They become 0/0 Elemental creatures with vigilance and haste that are still lands. Untap them.",
     "flavor": "“New life will make its home amongst your bones.” — Nature’s Prophet",
     "type": "Legendary Sorcery",
     "cmc": 6,
@@ -4985,7 +4921,7 @@
     "img_ver": "a3af4d41f8"
   },
   {
-    "name": "Dire Fountain",
+    "name": "Dire Ancient",
     "image": "image185.png",
     "super_type": "Legendary Land",
     "sub_type": "",
@@ -5001,7 +4937,7 @@
     "img_ver": "3d91e0b15c"
   },
   {
-    "name": "Radiant Fountain",
+    "name": "Radiant Ancient",
     "image": "image256.png",
     "super_type": "Legendary Land",
     "sub_type": "",
@@ -5014,7 +4950,7 @@
     "colors": [],
     "color_label": "Colorless",
     "is_token": false,
-    "img_ver": "75848d2c6f"
+    "img_ver": "ec669688d1"
   },
   {
     "name": "Reef’s Edge",
@@ -5116,7 +5052,7 @@
     ],
     "color_label": "White",
     "is_token": false,
-    "img_ver": "3683b55ff1"
+    "img_ver": "2a53affd72"
   },
   {
     "name": "Radiant Siege Wagon",
@@ -5194,7 +5130,7 @@
     "image": "image113.png",
     "super_type": "Instant",
     "sub_type": "",
-    "rarity": "uncommon",
+    "rarity": "common",
     "rules": "Rebound (If you cast this spell from your hand, exile it as it resolves. At the beginning of your next upkeep, you may cast this card from exile without paying its mana cost.)\nPut target spell or nonland permanent on top of its owner’s library second from the top.",
     "flavor": "“Those who tangle with the Skywrath risk a fall from starry heights.” — Dragonus, the Skywrath Mage",
     "type": "Instant",
@@ -5213,17 +5149,17 @@
   },
   {
     "name": "Global Silence",
-    "cost": "2WW",
+    "cost": "3WW",
     "image": "image10.png",
     "super_type": "Legendary Sorcery",
     "sub_type": "",
-    "rarity": "rare",
+    "rarity": "mythic rare",
     "rules": "(You may cast a legendary sorcery only if you control a legendary creature.)\nYour opponents can’t cast spells until the end of their next turn.\nDraw a card.",
     "flavor": "Nortrom ensures that spells uttered by his opponents will be their last.",
     "type": "Legendary Sorcery",
-    "cmc": 4,
+    "cmc": 5,
     "mana_symbols": [
-      "2",
+      "3",
       "W",
       "W"
     ],
@@ -5257,17 +5193,18 @@
   },
   {
     "name": "Ignis Fatuus",
-    "cost": "2WW",
+    "cost": "2WWW",
     "image": "image389.png",
     "super_type": "Legendary Sorcery",
     "sub_type": "",
     "rarity": "mythic rare",
-    "rules": "(You may cast a legendary sorcery only if you control a legendary creature.)\nExile all creatures.",
+    "rules": "(You may cast a legendary sorcery only if you control a legendary permanent.)\nExile all creatures.",
     "flavor": "“I was the light at the end of your tunnel.” — Ezalor, Keeper of the Light",
     "type": "Legendary Sorcery",
-    "cmc": 4,
+    "cmc": 5,
     "mana_symbols": [
       "2",
+      "W",
       "W",
       "W"
     ],
@@ -5276,7 +5213,7 @@
     ],
     "color_label": "White",
     "is_token": false,
-    "img_ver": "f531c31e6d"
+    "img_ver": "b5a316675f"
   },
   {
     "name": "Overpower",
@@ -5330,7 +5267,7 @@
     "super_type": "Legendary Sorcery",
     "sub_type": "",
     "rarity": "mythic rare",
-    "rules": "(You may cast a legendary sorcery only if you control a legendary creature.)\nCreate X tokens that are copies of target creature you control, except they aren’t legendary if that creature is legendary.",
+    "rules": "(You may cast a legendary sorcery only if you control a legendary permanent.)\nCreate X tokens that are copies of target creature you control, except they aren’t legendary if that creature is legendary.",
     "flavor": "“Oh, look, it’s me.” — Slithice, the Naga Siren",
     "type": "Legendary Sorcery",
     "cmc": 2,
@@ -5391,8 +5328,7 @@
     "image": "image91.png",
     "super_type": "Enchantment",
     "sub_type": "Aura",
-    "rarity": "uncommon",
-    "rules": "Enchant creature\nWhen this aura enters, tap enchanted creature.\nEnchanted creature loses all abilities and can’t be untapped.",
+    "rules": "Enchant creature\nWhen this aura enters, tap enchanted creature.\nEnchanted creature can’t be untapped.",
     "flavor": "“You make a nice snow angel!”  — Rylai, the Crystal Maiden",
     "type": "Enchantment -- Aura",
     "cmc": 3,
@@ -5405,39 +5341,18 @@
     ],
     "color_label": "Blue",
     "is_token": false,
-    "img_ver": "df6945c685"
-  },
-  {
-    "name": "Clarity",
-    "cost": "U",
-    "image": "image178.png",
-    "super_type": "Artifact",
-    "sub_type": "",
-    "rules": "T, Sacrifice this artifact: Add UU. This mana can only be spent to cast instant and sorcery cards.\nWhen this artifact is put into a graveyard from the battlefield, draw a card.",
-    "flavor": "Clear water that enhances the ability to meditate.",
-    "rarity": "common",
-    "type": "Artifact",
-    "cmc": 1,
-    "mana_symbols": [
-      "U"
-    ],
-    "colors": [
-      "U"
-    ],
-    "color_label": "Blue",
-    "is_token": false,
-    "img_ver": "47ec37e159"
+    "img_ver": "df6945c685",
+    "rarity": "common"
   },
   {
     "name": "Salve of Healing",
     "cost": "W",
     "image": "image47.png",
-    "super_type": "Artifact",
+    "super_type": "Instant",
     "sub_type": "",
-    "rules": "T, Sacrifice this artifact: You gain 3 life and draw a card.",
+    "rules": "Choose one —\n• Target player gains 3 life.\n• Prevent the next 3 damage that would be dealt to any target this turn.",
     "flavor": "A magical salve that can quickly mend even the deepest of wounds.",
-    "rarity": "common",
-    "type": "Artifact",
+    "type": "Instant",
     "cmc": 1,
     "mana_symbols": [
       "W"
@@ -5447,7 +5362,8 @@
     ],
     "color_label": "White",
     "is_token": false,
-    "img_ver": "1784258efa"
+    "img_ver": "1784258efa",
+    "rarity": "common"
   },
   {
     "name": "Sunder",
@@ -5479,7 +5395,7 @@
     "image": "image42.png",
     "super_type": "Legendary Sorcery",
     "sub_type": "",
-    "rarity": "rare",
+    "rarity": "mythic rare",
     "rules": "(You may cast a legendary sorcery only if you control a legendary creature.)\nCreate five 1/1 white Spirit tokens with flying. Exile each opponent’s graveyard.",
     "flavor": "“Go, my sweet sisters, go!” — Krobelus, the Death Prophet",
     "type": "Legendary Sorcery",
@@ -5503,8 +5419,8 @@
     "image": "image265.png",
     "super_type": "Creature",
     "sub_type": "Human Wizard",
-    "rarity": "uncommon",
-    "rules": "Flash (You may cast this spell any time you could cast an instant.)\nWhen this creature enters, counter target creature spell.",
+    "rarity": "common",
+    "rules": "Flash (You may cast this spell any time you could cast an instant.)\nWhen this creature enters, counter target creature spell.\nBasic Landcycling 2 (2, Discard this card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.)",
     "flavor": "",
     "type": "Creature -- Human Wizard",
     "cmc": 5,
@@ -5563,7 +5479,7 @@
     ],
     "color_label": "Blue",
     "is_token": false,
-    "img_ver": "a8b541274e"
+    "img_ver": "f42765aebf"
   },
   {
     "name": "Kez",
@@ -5571,7 +5487,7 @@
     "image": "image152.png",
     "super_type": "Legendary Creature",
     "sub_type": "Bird Samurai",
-    "rarity": "rare",
+    "rarity": "uncommon",
     "rules": "Bushido 2 (When this creature blocks or becomes blocked, it gets +2/+2 until end of turn.)\nAs long as Kez is modified, it has first strike. (Equipment, Auras you control, and counters are modifications.)",
     "flavor": "“My sword, my beak, and myself! Three sharpest things in this forest.”",
     "type": "Legendary Creature -- Bird Samurai",
@@ -5585,7 +5501,7 @@
     ],
     "color_label": "White",
     "is_token": false,
-    "img_ver": "5c73a5c7d5"
+    "img_ver": "cafb2185a4"
   },
   {
     "name": "Reality Rift",
@@ -5608,7 +5524,7 @@
     ],
     "color_label": "Red",
     "is_token": false,
-    "img_ver": "ae6ceb2001"
+    "img_ver": "a1b78e186c"
   },
   {
     "name": "Double Edge",
@@ -5662,7 +5578,7 @@
     "super_type": "Legendary Artifact",
     "sub_type": "Equipment",
     "rarity": "uncommon",
-    "rules": "Equipped creature has indestructible.\nEquip legendary creature 1",
+    "rules": "Equipped creature has indestructible.\nEquip 3",
     "flavor": "Preserved heart of an extinct monster, it bolsters the bearer’s fortitude.",
     "type": "Legendary Artifact -- Equipment",
     "cmc": 4,
@@ -5675,7 +5591,7 @@
     ],
     "color_label": "Green",
     "is_token": false,
-    "img_ver": "3ab7a41c79"
+    "img_ver": "a837747bca"
   },
   {
     "name": "Nature’s Attendants",
@@ -5696,7 +5612,7 @@
     ],
     "color_label": "Green",
     "is_token": false,
-    "img_ver": "edb4330ab4"
+    "img_ver": "7484158a12"
   },
   {
     "name": "Nether Strike",
@@ -5743,7 +5659,7 @@
     ],
     "color_label": "Green",
     "is_token": false,
-    "img_ver": "86783cab8e"
+    "img_ver": "6a88b3cbe5"
   },
   {
     "name": "Firesnap Cookie",
@@ -5766,7 +5682,7 @@
     ],
     "color_label": "Gruul",
     "is_token": false,
-    "img_ver": "36ab00fdfa"
+    "img_ver": "b0189ecfea"
   },
   {
     "name": "Powershot",
@@ -5774,8 +5690,8 @@
     "image": "image48.png",
     "super_type": "Instant",
     "sub_type": "",
-    "rarity": "common",
-    "rules": "Destroy target tapped creature.",
+    "rarity": "uncommon",
+    "rules": "Destroy target attacking creature.",
     "flavor": "Lyralei enchants gusts of winds to flight incoming attacks.",
     "type": "Instant",
     "cmc": 3,
@@ -5797,7 +5713,7 @@
     "image": "image403.png",
     "super_type": "Enchantment",
     "sub_type": "Aura",
-    "rarity": "uncommon",
+    "rarity": "common",
     "rules": "Enchant creature\nWhen this Aura enters, target creature you control gets +2/+2 and gains vigilance until end of turn.\nEnchanted creature can’t attack or block.",
     "flavor": "“The recusant shall pay!” — Chen, the Holy Knight",
     "type": "Enchantment -- Aura",
@@ -5811,15 +5727,15 @@
     ],
     "color_label": "White",
     "is_token": false,
-    "img_ver": "5dd631b232"
+    "img_ver": "56ddc2c548"
   },
   {
-    "name": "Druidic Bond",
+    "name": "Spirit Link",
     "cost": "1G",
     "image": "image105.png",
     "super_type": "Enchantment",
     "sub_type": "Aura",
-    "rarity": "uncommon",
+    "rarity": "common",
     "rules": "Enchant creature\nEnchanted creature has soulbond and is paired with another target creature you control. (You may pair this creature with another unpaired creature when either enters. They remain paired for as long as you control both of them.)\nAs long as enchanted creature is paired with another creature, each creature gets +1/+1 and has lifelink.",
     "flavor": "",
     "type": "Enchantment -- Aura",
@@ -5863,7 +5779,7 @@
     "super_type": "Sorcery",
     "sub_type": "",
     "rarity": "common",
-    "rules": "Remove all -1/-1 counters from target creature you control.\nYou draw two cards and lose 2 life.",
+    "rules": "Proliferate (Choose any number of permanents and/or players, then give each another counter of each kind already there.)\nYou draw two cards and lose 2 life.",
     "flavor": "I call darkness from the deep!” — Slark, the Nightcrawler",
     "type": "Sorcery",
     "cmc": 3,
@@ -5931,7 +5847,6 @@
     "sub_type": "Ogre Warrior",
     "rules": "Trample\nEnrage — Whenever this creature is dealt damage, it deals 2 damage to each opponent.",
     "flavor": "",
-    "rarity": "common",
     "type": "Creature -- Ogre Warrior",
     "cmc": 3,
     "mana_symbols": [
@@ -5943,7 +5858,8 @@
     ],
     "color_label": "Red",
     "is_token": false,
-    "img_ver": "9f84620073"
+    "img_ver": "823eba1283",
+    "rarity": "common"
   },
   {
     "name": "Aphotic Shield",
@@ -6008,7 +5924,7 @@
     ],
     "color_label": "Red",
     "is_token": false,
-    "img_ver": "b2dd728a49"
+    "img_ver": "41bd14dd04"
   },
   {
     "name": "Gush",
@@ -6018,7 +5934,6 @@
     "sub_type": "",
     "rules": "You may return two Islands you control to their owner’s hand rather than pay Gush’s mana cost.\nDraw two cards.",
     "flavor": "“Look what the tide washed in.” — Leviathan, the Tidehunter",
-    "rarity": "common",
     "type": "Instant",
     "cmc": 5,
     "mana_symbols": [
@@ -6030,7 +5945,8 @@
     ],
     "color_label": "Blue",
     "is_token": false,
-    "img_ver": "05f6c3ea6c"
+    "img_ver": "5bc75cfeb0",
+    "rarity": "common"
   },
   {
     "name": "Toss",
@@ -6040,7 +5956,6 @@
     "sub_type": "",
     "rules": "As an additional cost to cast this spell, sacrifice a creature.\nToss deals damage equal to the sacrificed creature’s toughness to any target.",
     "flavor": "“Catch!” — Tiny, the Stone Giant",
-    "rarity": "common",
     "type": "Instant",
     "cmc": 2,
     "mana_symbols": [
@@ -6052,7 +5967,8 @@
     ],
     "color_label": "Green",
     "is_token": false,
-    "img_ver": "7467e4faa0"
+    "img_ver": "301fa1981b",
+    "rarity": "common"
   },
   {
     "name": "Ignite",
@@ -6078,13 +5994,36 @@
     "img_ver": "3260faadf5"
   },
   {
+    "name": "Take Aim",
+    "cost": "RW",
+    "image": "image229.png",
+    "super_type": "Instant",
+    "sub_type": "",
+    "rarity": "uncommon",
+    "rules": "The next time a source you control would deal damage to target creature or player, it deals double that amount instead.",
+    "flavor": "“Thanks for standing still, wanker!” — Kardel Sharpeye, the Sniper",
+    "type": "Instant",
+    "cmc": 2,
+    "mana_symbols": [
+      "R",
+      "W"
+    ],
+    "colors": [
+      "W",
+      "R"
+    ],
+    "color_label": "Boros",
+    "is_token": false,
+    "img_ver": "695edc9639"
+  },
+  {
     "name": "Shockwave",
     "cost": "1GG",
     "image": "image279.png",
     "super_type": "Instant",
     "sub_type": "",
-    "rarity": "common",
-    "rules": "Destroy all enchantments.",
+    "rarity": "uncommon",
+    "rules": "Shockwave deals damage equal to target creature’s power to target creature you don’t control. When the creature you don’t control dies this turn, draw a card.",
     "flavor": "Mt. Joerlak was a somewhat unstable mass, and Magnus has learned to channel its reverberations.",
     "type": "Instant",
     "cmc": 3,
@@ -6098,7 +6037,7 @@
     ],
     "color_label": "Green",
     "is_token": false,
-    "img_ver": "d2bbf77b09"
+    "img_ver": "eba8d60c98"
   },
   {
     "name": "Decay",
@@ -6122,7 +6061,7 @@
     ],
     "color_label": "Golgari",
     "is_token": false,
-    "img_ver": "78497df601"
+    "img_ver": "1e55701a85"
   },
   {
     "name": "Helm of the Dominator",
@@ -6145,7 +6084,7 @@
     ],
     "color_label": "Blue",
     "is_token": false,
-    "img_ver": "3640f579b9"
+    "img_ver": "491f3410c2"
   },
   {
     "name": "Ion Shell",
@@ -6167,7 +6106,7 @@
     ],
     "color_label": "Blue",
     "is_token": false,
-    "img_ver": "02d5ac2d3a"
+    "img_ver": "45e00d6dcf"
   },
   {
     "name": "Chain Frost",
@@ -6175,7 +6114,7 @@
     "image": "image396.png",
     "super_type": "Legendary Sorcery",
     "sub_type": "",
-    "rarity": "rare",
+    "rarity": "mythic rare",
     "rules": "(You may cast a legendary instant only if you control a legendary creature.)\nDestroy each tapped creature your opponents control.",
     "flavor": "",
     "type": "Legendary Sorcery",
@@ -6192,7 +6131,7 @@
     ],
     "color_label": "Azorius",
     "is_token": false,
-    "img_ver": "2b2d51b81c"
+    "img_ver": "59b9b531ef"
   },
   {
     "name": "Provoke",
@@ -6200,7 +6139,7 @@
     "image": "image416.png",
     "super_type": "Sorcery",
     "sub_type": "",
-    "rarity": "uncommon",
+    "rarity": "common",
     "rules": "Untap target creature you don’t control. That creature blocks this turn if able.\nDraw a card.",
     "flavor": "“You want some of this, son? You want it?” — Rigwarl, the Bristleback",
     "type": "Sorcery",
@@ -6214,7 +6153,7 @@
     ],
     "color_label": "Green",
     "is_token": false,
-    "img_ver": "27ee4a128b"
+    "img_ver": "79b5146091"
   },
   {
     "name": "Lightning Bolt",
@@ -6222,7 +6161,7 @@
     "image": "image417.png",
     "super_type": "Instant",
     "sub_type": "",
-    "rarity": "common",
+    "rarity": "uncommon",
     "rules": "Lightning Bolt deals 3 damage to any target.",
     "flavor": "“Your prayer, answered.” — Zeus, the Lord of Heaven",
     "type": "Instant",
@@ -6235,7 +6174,7 @@
     ],
     "color_label": "Red",
     "is_token": false,
-    "img_ver": "ccb2abde02"
+    "img_ver": "4bea6906b5"
   },
   {
     "name": "Smoke of Deceit",
@@ -6245,7 +6184,6 @@
     "sub_type": "",
     "rules": "T, Sacrifice this artifact: Target creature can’t be blocked this turn. Draw a card at the beginning of the next turn’s upkeep.",
     "flavor": "The charlatan wizard Myrddin’s only true contribution to the arcane arts.",
-    "rarity": "common",
     "type": "Artifact",
     "cmc": 0,
     "mana_symbols": [
@@ -6254,7 +6192,8 @@
     "colors": [],
     "color_label": "Colorless",
     "is_token": false,
-    "img_ver": "153036812f"
+    "img_ver": "153036812f",
+    "rarity": "common"
   },
   {
     "name": "Arc Lightning",
@@ -6277,6 +6216,27 @@
     "color_label": "Red",
     "is_token": false,
     "img_ver": "2b7d1c97bd"
+  },
+  {
+    "name": "Fleeting Distraction",
+    "cost": "U",
+    "image": "image122.png",
+    "super_type": "Instant",
+    "sub_type": "",
+    "rules": "Target creature gets -1/-0 until end of turn.\nDraw a card.",
+    "flavor": "Meepo’s proficiency for diversion is bested only by his clumsiness.",
+    "type": "Instant",
+    "cmc": 1,
+    "mana_symbols": [
+      "U"
+    ],
+    "colors": [
+      "U"
+    ],
+    "color_label": "Blue",
+    "is_token": false,
+    "img_ver": "61b3a5d210",
+    "rarity": "common"
   },
   {
     "name": "Living Armor",
@@ -6306,7 +6266,7 @@
     "image": "image252.png",
     "super_type": "Artifact",
     "sub_type": "",
-    "rarity": "uncommon",
+    "rarity": "common",
     "rules": "At the beginning of your upkeep, you gain 2 life.\nT: Put a +1/+1 counter on target creature. Activate only as a sorcery.",
     "flavor": "Basking in the Fountain is a short respite from the chaos of battle.",
     "type": "Artifact",
@@ -6344,7 +6304,7 @@
     ],
     "color_label": "Selesnya",
     "is_token": false,
-    "img_ver": "b4f460509b"
+    "img_ver": "9bdb590538"
   },
   {
     "name": "Bramble Maze",
@@ -6368,7 +6328,7 @@
     ],
     "color_label": "Black",
     "is_token": false,
-    "img_ver": "2063bd905c"
+    "img_ver": "cbb2329460"
   },
   {
     "name": "Shadow Walk",
@@ -6378,7 +6338,6 @@
     "sub_type": "",
     "rules": "Target creature you control gains shadow until end of turn. (They can block or be blocked by only creatures with shadow).\nDraw a card.",
     "flavor": "“You can’t fight what you can’t see.” — Gondar, the Bounty Hunter",
-    "rarity": "common",
     "type": "Instant",
     "cmc": 1,
     "mana_symbols": [
@@ -6389,7 +6348,31 @@
     ],
     "color_label": "Black",
     "is_token": false,
-    "img_ver": "fa501e596c"
+    "img_ver": "5cfdf59d74",
+    "rarity": "common"
+  },
+  {
+    "name": "Tandem Takedown",
+    "cost": "1GG",
+    "image": "image425.png",
+    "super_type": "Instant",
+    "sub_type": "",
+    "rarity": "uncommon",
+    "rules": "Up to two target creatures you control get +1/+0 until end of turn. They each deal damage equal to their power to another target creature, planeswalker, or battle.",
+    "flavor": "“Ready? One... Two... Three!” —  Nattea, Omexe Ranger",
+    "type": "Instant",
+    "cmc": 3,
+    "mana_symbols": [
+      "1",
+      "G",
+      "G"
+    ],
+    "colors": [
+      "G"
+    ],
+    "color_label": "Green",
+    "is_token": false,
+    "img_ver": "c7d7b2fd67"
   },
   {
     "name": "Light Strike Array",
@@ -6397,7 +6380,7 @@
     "image": "image426.png",
     "super_type": "Sorcery",
     "sub_type": "",
-    "rarity": "uncommon",
+    "rarity": "common",
     "rules": "Light Strike Array deals 1 damage to each opponent. Creatures those players control can’t block this turn.",
     "flavor": "“One little spark and before you know it, the whole world is burning.” — Lina, the Slayer",
     "type": "Sorcery",
@@ -6411,30 +6394,51 @@
     ],
     "color_label": "Red",
     "is_token": false,
-    "img_ver": "5149ff26f3"
+    "img_ver": "6c7937c9ee"
   },
   {
     "name": "Apotheosis Blade",
-    "cost": "2B/R",
+    "cost": "1R",
     "image": "image427.png",
-    "super_type": "Artifact",
+    "super_type": "Legendary Artifact",
     "sub_type": "Equipment",
     "rarity": "uncommon",
-    "rules": "When equipped creature attacks, it deals 1 damage to target creature defending player controls.\nEquipped creature gets +1/+1.\nEquip 1B/R",
+    "rules": "When equipped creature attacks, it deals 1 damage to target creature defending player controls.\nEquipped creature gets +1/+0.\nEquip 2R",
     "flavor": "“I stoke the furnace with your corpse.” — Lucifer, the Doom",
-    "type": "Artifact -- Equipment",
-    "cmc": 3,
+    "type": "Legendary Artifact -- Equipment",
+    "cmc": 2,
     "mana_symbols": [
-      "2",
-      "BR"
-    ],
-    "colors": [
-      "B",
+      "1",
       "R"
     ],
-    "color_label": "Rakdos",
+    "colors": [
+      "R"
+    ],
+    "color_label": "Red",
     "is_token": false,
-    "img_ver": "30aa8883ec"
+    "img_ver": "0cbfeee117"
+  },
+  {
+    "name": "Pounce",
+    "cost": "1G",
+    "image": "image38.png",
+    "super_type": "Sorcery",
+    "sub_type": "",
+    "rarity": "common",
+    "rules": "Target creature you control fights target creature you don’t control. (Each deals damage equal to its power to the other.)",
+    "flavor": "Time in the Dark Reef made Slark a dangerous assassin; aggressive and fearless.",
+    "type": "Sorcery",
+    "cmc": 2,
+    "mana_symbols": [
+      "1",
+      "G"
+    ],
+    "colors": [
+      "G"
+    ],
+    "color_label": "Green",
+    "is_token": false,
+    "img_ver": "936e51776d"
   },
   {
     "name": "Refraction",
@@ -6490,7 +6494,7 @@
     "image": "image7.png",
     "super_type": "Sorcery",
     "sub_type": "",
-    "rarity": "common",
+    "rarity": "uncommon",
     "rules": "It becomes night.\nTarget creature gets -2/-2 until end of turn.",
     "flavor": "The Goddess breaks the strata to empower her Princess in the time of need.",
     "type": "Sorcery",
@@ -6522,6 +6526,28 @@
     "img_ver": "1c507c7de4"
   },
   {
+    "name": "Omexe Ambushers",
+    "cost": "3G",
+    "image": "image53.png",
+    "super_type": "Creature",
+    "sub_type": "Centaur Archer",
+    "rules": "Vigilance, reach",
+    "flavor": "The Omexe archers are renowned for their ability to track targets through the Jungle with ease.",
+    "type": "Creature -- Centaur Archer",
+    "cmc": 4,
+    "mana_symbols": [
+      "3",
+      "G"
+    ],
+    "colors": [
+      "G"
+    ],
+    "color_label": "Green",
+    "is_token": false,
+    "img_ver": "ab21b12359",
+    "rarity": "common"
+  },
+  {
     "name": "Roseleaf Sproutling",
     "cost": "1G",
     "image": "image52.png",
@@ -6529,7 +6555,6 @@
     "sub_type": "Treefolk",
     "rules": "When this creature enters, you may return target land card from your graveyard to the battlefield tapped.",
     "flavor": "Verodicia bestowed the Prophet with the ability to summon the Treant Guard, a mythical sentient army of the wild.",
-    "rarity": "common",
     "type": "Creature -- Treefolk",
     "cmc": 2,
     "mana_symbols": [
@@ -6541,7 +6566,8 @@
     ],
     "color_label": "Green",
     "is_token": false,
-    "img_ver": "f41d43a993"
+    "img_ver": "f41d43a993",
+    "rarity": "common"
   },
   {
     "name": "Gust",
@@ -6551,7 +6577,6 @@
     "sub_type": "",
     "rules": "Put target noncreature spell on top of its owner’s library second from the top.",
     "flavor": "Traxex is rather fond of the tranquility of physical combat, calling on her Drow heritage to end the incantations of opposing magi.",
-    "rarity": "common",
     "type": "Instant",
     "cmc": 3,
     "mana_symbols": [
@@ -6563,7 +6588,8 @@
     ],
     "color_label": "White",
     "is_token": false,
-    "img_ver": "847165c6ca"
+    "img_ver": "847165c6ca",
+    "rarity": "common"
   },
   {
     "name": "Conscript",
@@ -6595,7 +6621,6 @@
     "image": "image57.png",
     "super_type": "Sorcery",
     "sub_type": "",
-    "rarity": "common",
     "rules": "Search your library for a basic land card and put it onto the battlefield tapped, then shuffle.\nIf you control a legendary creature, search for two basic land cards instead. Put one on the battlefield tapped and one in your hand, then shuffle.",
     "flavor": "To some, the Radiant Jungle is a battlefield. To the Roseleaf, it is home.",
     "type": "Sorcery",
@@ -6609,7 +6634,8 @@
     ],
     "color_label": "Green",
     "is_token": false,
-    "img_ver": "ffb283a459"
+    "img_ver": "ffb283a459",
+    "rarity": "common"
   },
   {
     "name": "Magebane Strike",
@@ -6635,12 +6661,34 @@
     "img_ver": "02f499866a"
   },
   {
+    "name": "Slack Off",
+    "cost": "2W",
+    "image": "image60.png",
+    "super_type": "Enchantment",
+    "sub_type": "",
+    "rarity": "uncommon",
+    "rules": "Exile target tapped creature an opponent controls until this enchantment leaves the battlefield.",
+    "flavor": "Oftentimes, thought Krang, the siege wagons seemed to load themselves.",
+    "type": "Enchantment",
+    "cmc": 3,
+    "mana_symbols": [
+      "2",
+      "W"
+    ],
+    "colors": [
+      "W"
+    ],
+    "color_label": "White",
+    "is_token": false,
+    "img_ver": "08d017a442"
+  },
+  {
     "name": "Ball of Creeps",
     "cost": "3WUBRG",
     "image": "image63.png",
     "super_type": "Legendary Creature",
     "sub_type": "Horror",
-    "rarity": "rare",
+    "rarity": "mythic rare",
     "rules": "Trample, haste\nConvoke\nWhen Ball of Creeps enters, exile any number of nontoken creatures you control until it leaves the battlefield. Put a +1/+1 counter on Ball of Creeps for each creature exiled this way.",
     "flavor": "Some say you can hear the sound of gold dropping as it rolls.",
     "type": "Legendary Creature -- Horror",
@@ -6672,7 +6720,6 @@
     "sub_type": "Human Soldier",
     "rules": "As long as this creature is equipped, it has first strike.",
     "flavor": "",
-    "rarity": "common",
     "type": "Creature -- Human Soldier",
     "cmc": 1,
     "mana_symbols": [
@@ -6683,7 +6730,8 @@
     ],
     "color_label": "White",
     "is_token": false,
-    "img_ver": "9b2e5ed6ad"
+    "img_ver": "9b2e5ed6ad",
+    "rarity": "common"
   },
   {
     "name": "Covet",
@@ -6760,7 +6808,7 @@
     "super_type": "Legendary Sorcery",
     "sub_type": "",
     "rarity": "mythic rare",
-    "rules": "(You may cast a legendary sorcery only if you control a legendary creature.)\nAffinity for Islands (This spell costs 1 less to cast for each Island you control.)\nReturn all tapped nonland permanents your opponents control to their owner’s hands.",
+    "rules": "(You may cast a legendary sorcery only if you control a legendary permanent.)\nAffinity for Islands (This spell costs 1 less to cast for each Island you control.)\nReturn all tapped nonland permanents your opponents control to their owner’s hands.",
     "flavor": "Calling to the abyssal god Maelrawn has resulted in entire armadas being lost at sea.",
     "type": "Legendary Sorcery",
     "cmc": 10,
@@ -6783,7 +6831,7 @@
     "image": "image84.png",
     "super_type": "Sorcery",
     "sub_type": "",
-    "rarity": "uncommon",
+    "rarity": "common",
     "rules": "Create a 4/4 red dragon elemental creature token with haste.\nFlashback 5RR (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
     "flavor": "In the scorched barren of Misrule, Lina learned to manipulate the fiery breath of the Desert Wyrm as a form of entertainment.",
     "type": "Sorcery",
@@ -6801,15 +6849,15 @@
     "img_ver": "5375ada3bf"
   },
   {
-    "name": "Black Grimoire",
+    "name": "The Black Grimoire",
     "cost": "1B",
     "image": "image85.png",
-    "super_type": "Artifact",
+    "super_type": "Legendary Artifact",
     "sub_type": "Book",
     "rarity": "uncommon",
-    "rules": "Whenever a creature an opponent controls dies, put a charge counter on this Book.\nT, Sacrifice this Book: You gain 1 life and draw a card for each charge counter on it.",
-    "flavor": "",
-    "type": "Artifact -- Book",
+    "rules": "Whenever a creature an opponent controls dies, put a charge counter on The Black Grimoire.\nT, Sacrifice The Black Grimoire: You gain 1 life and draw a card for each charge counter on it.",
+    "flavor": "The prized possession of Demnok, the Curator and Head of Acquisitions for the Arcane Archives of the Ultimyr Academy.",
+    "type": "Legendary Artifact -- Book",
     "cmc": 2,
     "mana_symbols": [
       "1",
@@ -6823,12 +6871,33 @@
     "img_ver": "a99f5daf90"
   },
   {
+    "name": "Solar Guardian",
+    "cost": "2W",
+    "image": "image86.png",
+    "super_type": "Instant",
+    "sub_type": "",
+    "rarity": "common",
+    "rules": "Target creature gets +2/+2 and gains first strike until end of turn.\nDraw a card.\nFlashback 4W (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+    "flavor": "Its much harder to hit someone with a sword with the sun in your eyes.",
+    "type": "Instant",
+    "cmc": 3,
+    "mana_symbols": [
+      "2",
+      "W"
+    ],
+    "colors": [
+      "W"
+    ],
+    "color_label": "White",
+    "is_token": false,
+    "img_ver": "68d08ddf2f"
+  },
+  {
     "name": "Roseleaf Briarbush",
     "cost": "2G",
     "image": "image88.png",
     "super_type": "Creature",
     "sub_type": "Elemental Wall",
-    "rarity": "common",
     "rules": "Defender (This creature can’t attack.)\nT: Add G.\nT, Sacrifice this creature: Return target land card or creature card with defender from your graveyard to your hand.",
     "flavor": "“Thoughts cross my mind as the sun crosses the sky.” — Rooftrellen, the Treant Protector",
     "type": "Creature -- Elemental Wall",
@@ -6842,7 +6911,8 @@
     ],
     "color_label": "Green",
     "is_token": false,
-    "img_ver": "fe72af8096"
+    "img_ver": "fe72af8096",
+    "rarity": "common"
   },
   {
     "name": "Bind to the Earth",
@@ -6850,7 +6920,6 @@
     "image": "image72.png",
     "super_type": "Enchantment",
     "sub_type": "Aura",
-    "rarity": "uncommon",
     "rules": "Enchant creature\nEnchanted creature loses flying. Prevent all combat damage enchanted creature deals.",
     "flavor": "",
     "type": "Enchantment -- Aura",
@@ -6864,7 +6933,8 @@
     ],
     "color_label": "Green",
     "is_token": false,
-    "img_ver": "fefca6b31f"
+    "img_ver": "fefca6b31f",
+    "rarity": "common"
   },
   {
     "name": "Rix, Rebellion Leader",
@@ -6891,12 +6961,33 @@
     "img_ver": "ae04bfc24b"
   },
   {
+    "name": "Finesse",
+    "cost": "2G",
+    "image": "image97.png",
+    "super_type": "Instant",
+    "sub_type": "",
+    "rules": "Exile target artifact. Draw a card.",
+    "flavor": "The vhoul are supplied by their enemies own weapons.",
+    "type": "Instant",
+    "cmc": 3,
+    "mana_symbols": [
+      "2",
+      "G"
+    ],
+    "colors": [
+      "G"
+    ],
+    "color_label": "Green",
+    "is_token": false,
+    "img_ver": "0699ab880d",
+    "rarity": "common"
+  },
+  {
     "name": "Animate Armory",
     "cost": "2U",
     "image": "image25.png",
     "super_type": "Enchantment",
     "sub_type": "Aura",
-    "rarity": "uncommon",
     "rules": "Enchant equipment\nWhen this Aura enters, draw a card.\nAs long as enchanted equipment isn’t a creature, it’s a 3/3 artifact creature. It has the abilities it grants equipped creatures.",
     "flavor": "",
     "type": "Enchantment -- Aura",
@@ -6910,7 +7001,8 @@
     ],
     "color_label": "Blue",
     "is_token": false,
-    "img_ver": "da368694ad"
+    "img_ver": "da368694ad",
+    "rarity": "common"
   },
   {
     "name": "Dawn Templar",
@@ -6920,7 +7012,6 @@
     "sub_type": "Elemental Soldier",
     "rules": "Equipped creatures you control have haste and first strike.\nT: Attach target equipment you control to target creature you control.",
     "flavor": "",
-    "rarity": "common",
     "type": "Creature -- Elemental Soldier",
     "cmc": 2,
     "mana_symbols": [
@@ -6933,16 +7024,17 @@
     ],
     "color_label": "Boros",
     "is_token": false,
-    "img_ver": "3ddd9ffec3"
+    "img_ver": "3ddd9ffec3",
+    "rarity": "common"
   },
   {
-    "name": "Rix’s Brand",
+    "name": "Oathbound’s Brand",
     "cost": "2R",
     "image": "image61.png",
     "super_type": "Sorcery",
     "sub_type": "",
     "rarity": "uncommon",
-    "rules": "Gain control of target creature until end of turn. If that creature is nonlegendary, gain control of that creature until the end of your next turn instead. Untap that creature. It gains haste until end of turn.",
+    "rules": "Untap target creature you don’t control. Gain control of it until end of turn. It becomes legendary and gains haste until end of turn.",
     "flavor": "“You have been without purpose for far too long.” — Rix, Oathbound",
     "type": "Sorcery",
     "cmc": 3,
@@ -6963,7 +7055,6 @@
     "image": "image70.png",
     "super_type": "Creature",
     "sub_type": "Demon",
-    "rarity": "uncommon",
     "rules": "Flying\nWhen this creature enters, each opponent sacrifices a creature.",
     "flavor": "Its shriek is heard across the horizon",
     "type": "Creature -- Demon",
@@ -6977,7 +7068,8 @@
     ],
     "color_label": "Black",
     "is_token": false,
-    "img_ver": "c20ffdf734"
+    "img_ver": "c20ffdf734",
+    "rarity": "common"
   },
   {
     "name": "Dire Mega Creep",
@@ -6987,7 +7079,6 @@
     "sub_type": "Elemental",
     "rules": "Trample\nWhen this creature enters, it deals 3 damage to each opponent.\nBasic landcycling 2 (2, Discard this card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.)",
     "flavor": "",
-    "rarity": "common",
     "type": "Creature -- Elemental",
     "cmc": 6,
     "mana_symbols": [
@@ -7000,7 +7091,8 @@
     ],
     "color_label": "Rakdos",
     "is_token": false,
-    "img_ver": "21e76e0558"
+    "img_ver": "21e76e0558",
+    "rarity": "common"
   },
   {
     "name": "Imperia’s Murder",
@@ -7010,7 +7102,6 @@
     "sub_type": "Bird",
     "rules": "Flying\nWhenever a creature an opponent controls dies for the first time each turn, create your choice of a food token or a treasure token.",
     "flavor": "Shendelzare’s wings were stripped from her when she was cast from Ghastly Eyrie by her sister, Imperia.\nLivia Prima",
-    "rarity": "common",
     "type": "Creature -- Bird",
     "cmc": 3,
     "mana_symbols": [
@@ -7022,7 +7113,8 @@
     ],
     "color_label": "Black",
     "is_token": false,
-    "img_ver": "b14ffce5de"
+    "img_ver": "b14ffce5de",
+    "rarity": "common"
   },
   {
     "name": "Loyal Sentry",
@@ -7032,7 +7124,6 @@
     "sub_type": "Beast Soldier",
     "rules": "Vigilance\nWhen this creature enters, put a shield counter on target creature you control.",
     "flavor": "“Me, you and a narrow hallway I’ve patrolled for the last twenty years of my life. Who do you think has a better chance?”",
-    "rarity": "common",
     "type": "Creature -- Beast Soldier",
     "cmc": 2,
     "mana_symbols": [
@@ -7044,7 +7135,8 @@
     ],
     "color_label": "White",
     "is_token": false,
-    "img_ver": "2b7d1c97bd"
+    "img_ver": "2b7d1c97bd",
+    "rarity": "common"
   },
   {
     "name": "Illusive Tormentor",
@@ -7054,7 +7146,6 @@
     "sub_type": "Spirit",
     "rules": "Flying\nWhen this creature enters or dies, put a -1/-1 counter on target creature.",
     "flavor": "",
-    "rarity": "common",
     "type": "Creature -- Spirit",
     "cmc": 2,
     "mana_symbols": [
@@ -7066,7 +7157,8 @@
     ],
     "color_label": "Black",
     "is_token": false,
-    "img_ver": "0f3403eb81"
+    "img_ver": "0f3403eb81",
+    "rarity": "common"
   },
   {
     "name": "Ristul Tresspasser",
@@ -7076,7 +7168,6 @@
     "sub_type": "Demon Rogue",
     "rules": "Skulk, deathtouch",
     "flavor": "",
-    "rarity": "common",
     "type": "Creature -- Demon Rogue",
     "cmc": 2,
     "mana_symbols": [
@@ -7089,7 +7180,8 @@
     ],
     "color_label": "Orzhov",
     "is_token": false,
-    "img_ver": "7d8f836e81"
+    "img_ver": "7d8f836e81",
+    "rarity": "common"
   },
   {
     "name": "Kanna’s Hound",
@@ -7099,7 +7191,6 @@
     "sub_type": "Elemental Dog",
     "rules": "Enrage — When this creature is dealt damage, put two +1/+1 counters on it.",
     "flavor": "As fiery as her master.",
-    "rarity": "common",
     "type": "Creature -- Elemental Dog",
     "cmc": 3,
     "mana_symbols": [
@@ -7112,7 +7203,54 @@
     ],
     "color_label": "Gruul",
     "is_token": false,
-    "img_ver": "df6945c685"
+    "img_ver": "df6945c685",
+    "rarity": "common"
+  },
+  {
+    "name": "Radiant Spark Mage",
+    "cost": "1RW",
+    "image": "image95.png",
+    "super_type": "Creature",
+    "sub_type": "Gnome Wizard",
+    "rules": "Lifelink\nWhen this creature enters, it deals 1 damage to target creature.",
+    "flavor": "",
+    "type": "Creature -- Gnome Wizard",
+    "cmc": 3,
+    "mana_symbols": [
+      "1",
+      "R",
+      "W"
+    ],
+    "colors": [
+      "W",
+      "R"
+    ],
+    "color_label": "Boros",
+    "is_token": false,
+    "img_ver": "517b430358",
+    "rarity": "common"
+  },
+  {
+    "name": "Sudden Epiphany",
+    "cost": "2U",
+    "image": "image100.png",
+    "super_type": "Sorcery",
+    "sub_type": "",
+    "rules": "Draw three cards, then discard two cards unless you discard a legendary card.",
+    "flavor": "",
+    "type": "Sorcery",
+    "cmc": 3,
+    "mana_symbols": [
+      "2",
+      "U"
+    ],
+    "colors": [
+      "U"
+    ],
+    "color_label": "Blue",
+    "is_token": false,
+    "img_ver": "bbeae47ff4",
+    "rarity": "common"
   },
   {
     "name": "Prellex, the Radiant",
@@ -7236,8 +7374,7 @@
     "image": "image104.png",
     "super_type": "Instant",
     "sub_type": "",
-    "rarity": "uncommon",
-    "rules": "Put target creature on top of its owner’s library.\nIf you control both a legendary and a nonlegendary creature as you cast this spell, put that creature on the bottom of its owner’s library instead.",
+    "rules": "Put target creature on its owner’s library second from the top.\nIf you control both a legendary and a nonlegendary creature as you cast this spell, put that creature on the bottom of its owner’s library instead.",
     "flavor": "",
     "type": "Instant",
     "cmc": 4,
@@ -7250,7 +7387,8 @@
     ],
     "color_label": "Blue",
     "is_token": false,
-    "img_ver": "fc993f4d3a"
+    "img_ver": "fc993f4d3a",
+    "rarity": "common"
   },
   {
     "name": "Aghanim’s Sanctum",
@@ -7276,7 +7414,6 @@
     "sub_type": "Smeevil Artificer",
     "rules": "T: Add one mana of any color. Spend this mana only on equipment spells or to activate equip abilities.",
     "flavor": "",
-    "rarity": "common",
     "type": "Creature -- Smeevil Artificer",
     "cmc": 3,
     "mana_symbols": [
@@ -7288,7 +7425,8 @@
     ],
     "color_label": "Red",
     "is_token": false,
-    "img_ver": "c22a5575a6"
+    "img_ver": "c22a5575a6",
+    "rarity": "common"
   },
   {
     "name": "Fog of War",
@@ -7296,7 +7434,6 @@
     "image": "image113.png",
     "super_type": "Instant",
     "sub_type": "",
-    "rarity": "common",
     "rules": "You gain 1 life for each creature on the battlefield. Prevent all combat damage that would be dealt this turn by creatures with power 3 or less.",
     "flavor": "When your towers fall and your vision disappears, the darkness can be suffocating.",
     "type": "Instant",
@@ -7310,7 +7447,8 @@
     ],
     "color_label": "Green",
     "is_token": false,
-    "img_ver": "9d1ac7b8e4"
+    "img_ver": "9d1ac7b8e4",
+    "rarity": "common"
   },
   {
     "name": "Rix, Oathbound",
@@ -7418,12 +7556,11 @@
     "name": "Pay Off",
     "cost": "U",
     "image": "image216.png",
-    "super_type": "Sorcery",
+    "super_type": "Instant",
     "sub_type": "",
     "rules": "Target creature can’t be blocked this turn.\nDraw a card.",
     "flavor": "“I get the best deals anywhere” — Mongo, Dock Enforcer",
-    "rarity": "common",
-    "type": "Sorcery",
+    "type": "Instant",
     "cmc": 1,
     "mana_symbols": [
       "U"
@@ -7433,16 +7570,17 @@
     ],
     "color_label": "Blue",
     "is_token": false,
-    "img_ver": "e6aa9641ed"
+    "img_ver": "e6aa9641ed",
+    "rarity": "common"
   },
   {
     "name": "Radiant Flagbearer",
     "cost": "2G/W",
-    "image": "image131.png",
+    "image": "image24.png",
     "super_type": "Creature",
     "sub_type": "Elemental",
-    "rarity": "common",
-    "rules": "Other Elemental creatures you control get +1/+1.\nWhenever another elemental you control enters, put a +1/+1 counter on this creature.",
+    "rarity": "uncommon",
+    "rules": "Whenever another elemental you control enters, put a +1/+1 counter on it and this creature.",
     "flavor": "",
     "type": "Creature -- Elemental",
     "cmc": 3,
@@ -7456,7 +7594,7 @@
     ],
     "color_label": "Selesnya",
     "is_token": false,
-    "img_ver": "088fbf3436"
+    "img_ver": "de15b2c00c"
   },
   {
     "name": "Roshan b",
@@ -7532,7 +7670,6 @@
     "sub_type": "Ogre Warrior",
     "rules": "When this creature enters, destroy target noncreature artifact an opponent controls.\n1R, Exile this creature from your graveyard: Discard a card, then draw a card.",
     "flavor": "",
-    "rarity": "common",
     "type": "Creature -- Ogre Warrior",
     "cmc": 2,
     "mana_symbols": [
@@ -7544,7 +7681,8 @@
     ],
     "color_label": "Red",
     "is_token": false,
-    "img_ver": "bd05353fb7"
+    "img_ver": "bd05353fb7",
+    "rarity": "common"
   },
   {
     "name": "Path of Might",
@@ -7552,7 +7690,7 @@
     "image": "image228.png",
     "super_type": "Enchantment",
     "sub_type": "Path",
-    "rarity": "common",
+    "rarity": "uncommon",
     "type": "Enchantment -- Path",
     "cmc": 1,
     "mana_symbols": [
@@ -7571,9 +7709,8 @@
     "image": "image232.png",
     "super_type": "Artifact",
     "sub_type": "Equipment",
-    "rules": "Equipped creature gets +2/+1 as long as its attacking.\nEquip R",
+    "rules": "Equipped creature gets +2/+0 as long as its attacking.\nEquip creature 1",
     "flavor": "",
-    "rarity": "common",
     "type": "Artifact -- Equipment",
     "cmc": 2,
     "mana_symbols": [
@@ -7585,7 +7722,8 @@
     ],
     "color_label": "Red",
     "is_token": false,
-    "img_ver": "6adda92a77"
+    "img_ver": "6adda92a77",
+    "rarity": "common"
   },
   {
     "name": "Smeevil Forgemaster",
@@ -7593,7 +7731,6 @@
     "image": "image234.png",
     "super_type": "Creature",
     "sub_type": "Smeevil",
-    "rarity": "uncommon",
     "rules": "Equipped creatures you control get +3/+3.\nT: Attach target equipment to target creature you control.",
     "flavor": "",
     "type": "Creature -- Smeevil",
@@ -7607,7 +7744,8 @@
     ],
     "color_label": "Red",
     "is_token": false,
-    "img_ver": "4f19a5c45b"
+    "img_ver": "4f19a5c45b",
+    "rarity": "common"
   },
   {
     "name": "Roseleaf Elder",
@@ -7617,7 +7755,6 @@
     "sub_type": "Treefolk",
     "rules": "The second spell you cast each turn costs 2 less to cast.",
     "flavor": "",
-    "rarity": "common",
     "type": "Creature -- Treefolk",
     "cmc": 2,
     "mana_symbols": [
@@ -7630,6 +7767,7 @@
     ],
     "color_label": "Simic",
     "is_token": false,
-    "img_ver": "087408744e"
+    "img_ver": "087408744e",
+    "rarity": "common"
   }
 ]
