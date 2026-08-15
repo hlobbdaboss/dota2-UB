@@ -25,7 +25,7 @@ At the beginning of each opponent’s end step, that player activates a mana abi
    <coloridentity>WUB</coloridentity>
    <pt>3/3</pt>
    </prop>
-   <set rarity="mythic" num="0001" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Anti-Mage.png">DUB</set>
+   <set rarity="rare" num="0001" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Anti-Mage.png">DUB</set>
    <tablerow>2</tablerow>
   </card>
   <card>
@@ -325,7 +325,7 @@ Finger of Death deals twice X damage to any target. If that target was a player,
    <colors>BR</colors>
    <coloridentity>BR</coloridentity>
    </prop>
-   <set rarity="mythic" num="0017" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Finger%20of%20Death.png">DUB</set>
+   <set rarity="rare" num="0017" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Finger%20of%20Death.png">DUB</set>
    <tablerow>3</tablerow>
   </card>
   <card>
@@ -602,7 +602,7 @@ If damage would be dealt to Bradwarden, prevent that damage. Bradwarden deals th
    <coloridentity>RG</coloridentity>
    <pt>6/6</pt>
    </prop>
-   <set rarity="mythic" num="0032" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Bradwarden%20the%20Centaur%20Warrunner.png">DUB</set>
+   <set rarity="rare" num="0032" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Bradwarden%20the%20Centaur%20Warrunner.png">DUB</set>
    <tablerow>2</tablerow>
   </card>
   <card>
@@ -1387,7 +1387,7 @@ Return target legendary creature card from your graveyard to the battlefield wit
    <colors>B</colors>
    <coloridentity>B</coloridentity>
    </prop>
-   <set rarity="mythic" num="0076" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Reincarnation.png">DUB</set>
+   <set rarity="rare" num="0076" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Reincarnation.png">DUB</set>
    <tablerow>3</tablerow>
   </card>
   <card>
@@ -1542,7 +1542,7 @@ When Meepo leaves the battlefield, exile all other cards named Meepo, the Geoman
    <coloridentity>U</coloridentity>
    <pt>3/3</pt>
    </prop>
-   <set rarity="mythic" num="0085" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Meepo%20the%20Geomancer.png">DUB</set>
+   <set rarity="rare" num="0085" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Meepo%20the%20Geomancer.png">DUB</set>
    <tablerow>2</tablerow>
   </card>
   <card>
@@ -2166,7 +2166,7 @@ Whenever Aggron attacks, exile an instant or sorcery card from your graveyard at
    <coloridentity>R</coloridentity>
    <pt>6/6</pt>
    </prop>
-   <set rarity="rare" num="0115" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Aggron%20Stonebreak%20the%20Ogre%20Magi.png">DUB</set>
+   <set rarity="mythic" num="0115" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Aggron%20Stonebreak%20the%20Ogre%20Magi.png">DUB</set>
    <tablerow>2</tablerow>
   </card>
   <card>
@@ -2474,7 +2474,7 @@ Whenever you sacrifice a permanent, each opponent sacrifices a permanent of that
    <coloridentity>BRG</coloridentity>
    <pt>2/4</pt>
    </prop>
-   <set rarity="mythic" num="0132" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Crixalis%20the%20Sand%20King.png">DUB</set>
+   <set rarity="rare" num="0132" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Crixalis%20the%20Sand%20King.png">DUB</set>
    <tablerow>2</tablerow>
   </card>
   <card>
@@ -3130,7 +3130,7 @@ Whenever you cast your second spell during an opponents turn, draw a card and ga
    <coloridentity>WUG</coloridentity>
    <pt>4/4</pt>
    </prop>
-   <set rarity="mythic" num="0166" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Lyralei%20the%20Windranger.png">DUB</set>
+   <set rarity="rare" num="0166" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Lyralei%20the%20Windranger.png">DUB</set>
    <tablerow>2</tablerow>
   </card>
   <card>
@@ -3185,7 +3185,7 @@ Draw a card.</text>
    <coloridentity>UBG</coloridentity>
    <pt>1/3</pt>
    </prop>
-   <set rarity="mythic" num="0169" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Zharvakko%20the%20Witch%20Doctor.png">DUB</set>
+   <set rarity="rare" num="0169" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Zharvakko%20the%20Witch%20Doctor.png">DUB</set>
    <tablerow>2</tablerow>
   </card>
   <card>
@@ -3765,7 +3765,7 @@ Equip {1}</text>
    <colors>WR</colors>
    <coloridentity>WR</coloridentity>
    </prop>
-   <set rarity="mythic" num="0202" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Radiance.png">DUB</set>
+   <set rarity="rare" num="0202" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Radiance.png">DUB</set>
    <tablerow>1</tablerow>
   </card>
   <card>
@@ -3817,7 +3817,7 @@ Distribute X -1/-1 counters among any number of target creatures, where X is the
    <colors>BG</colors>
    <coloridentity>BG</coloridentity>
    </prop>
-   <set rarity="mythic" num="0205" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Noxious%20Plague.png">DUB</set>
+   <set rarity="rare" num="0205" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Noxious%20Plague.png">DUB</set>
    <tablerow>3</tablerow>
   </card>
   <card>
@@ -3835,7 +3835,7 @@ After this main phase, there are X additional combat phases followed by an addit
    <colors>WR</colors>
    <coloridentity>WR</coloridentity>
    </prop>
-   <set rarity="mythic" num="0206" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Unleash.png">DUB</set>
+   <set rarity="uncommon" num="0206" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Unleash.png">DUB</set>
    <tablerow>3</tablerow>
   </card>
   <card>
@@ -3927,7 +3927,7 @@ Suspend 7— RR</text>
    <colors>R</colors>
    <coloridentity>R</coloridentity>
    </prop>
-   <set rarity="mythic" num="0211" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Chaos%20Meteor.png">DUB</set>
+   <set rarity="rare" num="0211" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Chaos%20Meteor.png">DUB</set>
    <tablerow>3</tablerow>
   </card>
   <card>
@@ -3944,7 +3944,7 @@ Exile the top ten cards of your library. You may cast any number of instant or s
    <colors>UR</colors>
    <coloridentity>UR</coloridentity>
    </prop>
-   <set rarity="mythic" num="0212" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Thundergods%20Wrath.png">DUB</set>
+   <set rarity="rare" num="0212" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Thundergods%20Wrath.png">DUB</set>
    <tablerow>3</tablerow>
   </card>
   <card>
@@ -3961,7 +3961,7 @@ Put three +1/+1 counters on each Forest you control. They become 0/0 Elemental c
    <colors>G</colors>
    <coloridentity>G</coloridentity>
    </prop>
-   <set rarity="mythic" num="0213" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Wrath%20of%20Nature.png">DUB</set>
+   <set rarity="rare" num="0213" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Wrath%20of%20Nature.png">DUB</set>
    <tablerow>3</tablerow>
   </card>
   <card>
@@ -4160,7 +4160,7 @@ Draw a card.</text>
    <colors>W</colors>
    <coloridentity>W</coloridentity>
    </prop>
-   <set rarity="mythic" num="0226" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Global%20Silence.png">DUB</set>
+   <set rarity="rare" num="0226" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Global%20Silence.png">DUB</set>
    <tablerow>3</tablerow>
   </card>
   <card>
@@ -4193,7 +4193,7 @@ Exile all creatures.</text>
    <colors>W</colors>
    <coloridentity>W</coloridentity>
    </prop>
-   <set rarity="mythic" num="0228" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Ignis%20Fatuus.png">DUB</set>
+   <set rarity="rare" num="0228" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Ignis%20Fatuus.png">DUB</set>
    <tablerow>3</tablerow>
   </card>
   <card>
@@ -4226,7 +4226,7 @@ Create X tokens that are copies of target creature you control, except they aren
    <colors>UG</colors>
    <coloridentity>UG</coloridentity>
    </prop>
-   <set rarity="mythic" num="0230" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Mirror%20Image.png">DUB</set>
+   <set rarity="rare" num="0230" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Mirror%20Image.png">DUB</set>
    <tablerow>3</tablerow>
   </card>
   <card>
@@ -4310,7 +4310,7 @@ Exchange your life total with target opponent.</text>
    <colors>B</colors>
    <coloridentity>B</coloridentity>
    </prop>
-   <set rarity="mythic" num="0235" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Sunder.png">DUB</set>
+   <set rarity="rare" num="0235" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Sunder.png">DUB</set>
    <tablerow>3</tablerow>
   </card>
   <card>
@@ -4327,7 +4327,7 @@ Create five 1/1 white Spirit tokens with flying. Exile each opponent’s graveya
    <colors>WB</colors>
    <coloridentity>WB</coloridentity>
    </prop>
-   <set rarity="mythic" num="0236" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Exorcism.png">DUB</set>
+   <set rarity="rare" num="0236" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Exorcism.png">DUB</set>
    <tablerow>3</tablerow>
   </card>
   <card>
@@ -4520,7 +4520,7 @@ Target creature you control deals damage equal to its power to each creature you
    <colors>G</colors>
    <coloridentity>G</coloridentity>
    </prop>
-   <set rarity="mythic" num="0247" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Primal%20Roar.png">DUB</set>
+   <set rarity="rare" num="0247" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Primal%20Roar.png">DUB</set>
    <tablerow>3</tablerow>
   </card>
   <card>
@@ -4868,7 +4868,7 @@ Destroy each tapped creature your opponents control.</text>
    <colors>WU</colors>
    <coloridentity>WU</coloridentity>
    </prop>
-   <set rarity="mythic" num="0267" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Chain%20Frost.png">DUB</set>
+   <set rarity="rare" num="0267" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Chain%20Frost.png">DUB</set>
    <tablerow>3</tablerow>
   </card>
   <card>
@@ -5134,7 +5134,7 @@ As long as the revealed card is green or a Forest, creatures you control get +2/
    <coloridentity>URG</coloridentity>
    <pt>4/6</pt>
    </prop>
-   <set rarity="mythic" num="0283" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Largo.png">DUB</set>
+   <set rarity="rare" num="0283" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Largo.png">DUB</set>
    <tablerow>2</tablerow>
   </card>
   <card>
@@ -5371,7 +5371,7 @@ When Ball of Creeps enters, exile any number of nontoken creatures you control u
    <name>Ravage</name>
    <text>(You may cast a legendary sorcery only if you control a legendary permanent.)
 Affinity for Islands (This spell costs {1} less to cast for each Island you control.)
-Return all tapped nonland permanents your opponents control to their owner’s hands.</text>
+Return all tapped nonland permanents your opponents control to their owners’ hands.</text>
    <prop>
    <layout>normal</layout>
    <side>front</side>
@@ -5848,7 +5848,7 @@ Cycling {UR} (Discard this card and pay {UR} to draw a card.</text>
    <coloridentity>WRG</coloridentity>
    <pt>1/2</pt>
    </prop>
-   <set rarity="mythic" num="0325" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Rix%20Oathbound.png">DUB</set>
+   <set rarity="rare" num="0325" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Rix%20Oathbound.png">DUB</set>
    <tablerow>2</tablerow>
   </card>
   <card>
@@ -6111,7 +6111,7 @@ Equip {W}</text>
    <cmc>0</cmc>
    <coloridentity>W</coloridentity>
    </prop>
-   <set rarity="basic land" num="0340" picurl="https://api.scryfall.com/cards/named?exact=Plains&amp;format=image">DUB</set>
+   <set rarity="basic land" num="0349" picurl="https://api.scryfall.com/cards/named?exact=Plains&amp;format=image">DUB</set>
    <tablerow>0</tablerow>
   </card>
   <card>
@@ -6125,7 +6125,7 @@ Equip {W}</text>
    <cmc>0</cmc>
    <coloridentity>U</coloridentity>
    </prop>
-   <set rarity="basic land" num="0341" picurl="https://api.scryfall.com/cards/named?exact=Island&amp;format=image">DUB</set>
+   <set rarity="basic land" num="0350" picurl="https://api.scryfall.com/cards/named?exact=Island&amp;format=image">DUB</set>
    <tablerow>0</tablerow>
   </card>
   <card>
@@ -6139,7 +6139,7 @@ Equip {W}</text>
    <cmc>0</cmc>
    <coloridentity>B</coloridentity>
    </prop>
-   <set rarity="basic land" num="0342" picurl="https://api.scryfall.com/cards/named?exact=Swamp&amp;format=image">DUB</set>
+   <set rarity="basic land" num="0351" picurl="https://api.scryfall.com/cards/named?exact=Swamp&amp;format=image">DUB</set>
    <tablerow>0</tablerow>
   </card>
   <card>
@@ -6153,7 +6153,7 @@ Equip {W}</text>
    <cmc>0</cmc>
    <coloridentity>R</coloridentity>
    </prop>
-   <set rarity="basic land" num="0343" picurl="https://api.scryfall.com/cards/named?exact=Mountain&amp;format=image">DUB</set>
+   <set rarity="basic land" num="0352" picurl="https://api.scryfall.com/cards/named?exact=Mountain&amp;format=image">DUB</set>
    <tablerow>0</tablerow>
   </card>
   <card>
@@ -6167,7 +6167,7 @@ Equip {W}</text>
    <cmc>0</cmc>
    <coloridentity>G</coloridentity>
    </prop>
-   <set rarity="basic land" num="0344" picurl="https://api.scryfall.com/cards/named?exact=Forest&amp;format=image">DUB</set>
+   <set rarity="basic land" num="0353" picurl="https://api.scryfall.com/cards/named?exact=Forest&amp;format=image">DUB</set>
    <tablerow>0</tablerow>
   </card>
  </cards>
