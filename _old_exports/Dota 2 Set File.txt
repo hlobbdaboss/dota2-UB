@@ -1,0 +1,2352 @@
+[b]Tormentor[/b] 1
+Battle — Raid  (r)
+When Tormentor enters, it deals 4 damage divided randomly among creatures you control.
+[i]Innocuous as first, the Divine Sentinel lashes out at anyone who dares draw near.[/i]
+
+
+[b]Animal Courier[/b] 1W
+Creature — Beast  (c)
+Flying
+Equipment spells you cast cost 1 less to cast.
+Whenever you cast an Equipment spell for the first time each turn, draw a card.
+[i]“Whaddya mean we should kill ‘im, lookit how cute he is! OH GOD HE’S GOT A DAGON!” — Aggron Stonebreak, the Ogre Magi[/i]
+0/2
+
+[b]Bronze Hoplite[/b] W
+Creature — Human Soldier  (c)
+As long as this creature is equipped, it has first strike.
+2/1
+
+[b]Bronze Provost[/b] 3WW
+Creature — Human Solider  (u)
+At the beginning of combat on each opponent’s turn, tap target creature that player controls.
+Plainscycling (1, Discard this card: Search your library for a Plains card, reveal it, put it into your hand, then shuffle.)
+4/4
+
+[b]Butterfly[/b] 2WW
+Legendary Artifact — Equipment  (m)
+Equipped creature gets +1/+1 and has protection from creatures.
+When Butterfly enters, attach it to target legendary creature you control.
+Equip 3
+[i]Only the mightiest and most experienced of warriors can wield the Butterfly, but it provides incredible dexterity in combat. [/i]
+
+
+[b]Dragon Tail[/b] 1W
+Instant (c)
+Tap target creature and put a stun counter on it.
+Draw a card.
+[i]Davion’s combination of dragon talents and knightly skills makes him a vicious opponent in melee combat.[/i]
+
+
+[b]Ezalor, the Keeper of the Light[/b] 4W
+Legendary Creature — Human Wizard  (r)
+Prowess
+Whenever you cast your second spell during an opponent’s turn, tap target creature an opponent controls. It doesn’t untap for as long as you control Ezalor.
+[i]“I’ll forego green girdles and questing beasts, for all such knightly trifles pale before the light.”[/i]
+4/4
+
+[b]Fortification[/b] 2W
+Instant (u)
+Permanents you control gain indestructible until end of turn. 
+Draw a card.
+[i]A powerful glyph, it makes allies impervious to all damage for some time.[/i]
+
+
+[b]Fountain of Rejuvenation[/b] 1WW
+Artifact (u)
+At the beginning of your upkeep, you gain 2 life.
+T: Put a +1/+1 counter on target creature. Activate only as a sorcery.
+[i]Basking in the Fountain is a short respite from the chaos of battle.[/i]
+
+
+[b]Global Silence[/b] 2WW
+Legendary Sorcery (r)
+(You may cast a legendary sorcery only if you control a legendary creature.)
+Your opponents can’t cast spells until the end of their next turn.
+Draw a card.
+[i]Nortrom ensures that spells uttered by his opponents will be their last.[/i]
+
+
+[b]Guardian Angel[/b] 1WW
+Enchantment — Aura  (m)
+Flash (You may cast this spell any time you could cast an instant.)
+Enchant creature
+Enchanted creature has flying, indestructible, and is an Angel in addition to its other types.
+[i]“The wings of omniscience enwrap us.” — Purist Thunderwrath, the Omniknight [/i]
+
+
+[b]Gust[/b] 2W
+Instant (c)
+Put target noncreature spell on top of its owner’s library second from the top.
+[i]Traxex is rather fond of the tranquility of physical combat, calling on her Drow heritage to end the incantations of opposing magi.[/i]
+
+
+[b]Hammer of Purity[/b] 2W
+Artifact — Equipment  (u)
+When this equipment enters, destroy up to one target artifact or enchantment.
+Equipped creature gets +1/+0 and has lifelink.
+Equip creature 2W
+[i]The knight is merely a means to move the hammer. [/i]
+
+
+[b]Ignis Fatuus[/b] 2WW
+Legendary Sorcery (m)
+(You may cast a legendary sorcery only if you control a legendary creature.)
+Exile all creatures.
+[i]“I was the light at the end of your tunnel.” — Ezalor, Keeper of the Light[/i]
+
+
+[b]Io, the Wisp[/b] W
+Legendary Creature — Spirit  (r)
+Flying
+Soulbond (You may pair this creature with another unpaired creature when either enters. They remain paired for as long as you control both of them.)
+As long as Io is paired with another creature, each of those creatures have “2W: Exile this creature, then return it to the battlefield under your control.”
+[i]The benevolent touch of Io brings strength from between the planes.[/i]
+1/2
+
+[b]Kez[/b] 2W
+Legendary Creature — Bird Samurai  (r)
+Bushido 2 (When this creature blocks or becomes blocked, it gets +2/+2 until end of turn.)
+As long as Kez is modified, it has first strike. (Equipment, Auras you control, and counters are modifications.)
+[i]“My sword, my beak, and myself! Three sharpest things in this forest.”[/i]
+3/1
+
+[b]Lanaya, the Templar Assassin[/b] 3W
+Legendary Creature — Human Assassin  (r)
+Whenever Lanaya attacks or is targeted by a spell an opponent controls, put a shield counter on it. (If it would be dealt damage or destroyed, remove a shield counter from it instead.
+Whenever a shield counter is removed from a creature, put a +1/+1 counter on it.
+[i]“Your death was a secret I can no longer hide.”[/i]
+2/2
+
+[b]Loyal Sentry[/b] 1W
+Creature — Beast Soldier  (c)
+Vigilance
+When this creature enters, put a shield counter on target creature you control.
+[i]“Me, you and a narrow hallway I’ve patrolled for the last twenty years of my life. Who do you think has a better chance?”[/i]
+2/2
+
+[b]Magebane Strike[/b] 1WW
+Instant (c)
+You may only cast this spell if an opponent has cast two or more spells this turn.
+Exile target creature.
+[i]“I cast Magic aside” — Anti-Mage[/i]
+
+
+[b]Mekansm[/b] 1W
+Artifact (r)
+Creatures you control get +0/+1.
+Each creature you control with defender can attack and assigns combat damage equal to its toughness rather than power.
+T: You gain 2 life.
+[i]A glowing jewel formed out of assorted parts that somehow fit together perfectly. [/i]
+
+
+[b]Mud Golem[/b] 2W
+Creature — Golem  (c)
+When this creature dies, create two 1/1 white Golem creature tokens.
+2/2
+
+[b]Overcharge[/b] 1W
+Instant (u)
+Target creature gets +1/+0 and gains first strike until end of turn.
+Draw a card.
+Flashback 4W (You may cast this card from your graveyard for its flashback cost. Then exile it.)
+[i]Drawing on the energy of matter from all worlds, Io begins the unravelling of time.[/i]
+
+
+[b]Path of Honor[/b] W
+Enchantment — Path  (u)
+​
+
+
+[b]Penitence[/b] 3W
+Enchantment — Aura  (u)
+Enchant creature
+When this Aura enters, target creature you control gets +2/+2 and gains vigilance until end of turn.
+Enchanted creature can’t attack or block.
+[i]“The recusant shall pay!” — Chen, the Holy Knight[/i]
+
+
+[b]Powershot[/b] 1WW
+Instant (c)
+Destroy target tapped creature.
+[i]Lyralei enchants gusts of winds to flight incoming attacks.[/i]
+
+
+[b]Purist Thunderwrath, the Omniknight[/b] 2WWW
+Legendary Creature — Human Knight  (r)
+Lifelink
+Whenever you gain life, put that many +1/+1 counters on another target creature you control.
+[i]“Let this be the last crusade. Let me find peace.”[/i]
+4/4
+
+[b]Quorum Cube[/b] 1W
+Artifact (u)
+When this artifact enters, you gain 2 life.
+Whenever you gain life for the first time each turn, put a charge counter on this artifact.
+W, T, Remove a charge counter from this artifact: Draw a card.
+
+
+[b]Refraction[/b] 1W
+Instant (c)
+Put a +1/+1 counter and a shield counter on target creature. (If it would be dealt damage or destroyed, remove a shield counter from it instead.)
+[i]“Another scale of ignorance shed.” — Lanaya, the Templar Assassin [/i]
+
+
+[b]Salve of Healing[/b] W
+Artifact (c)
+T, Sacrifice this artifact: You gain 3 life and draw a card.
+[i]A magical salve that can quickly mend even the deepest of wounds. [/i]
+
+
+[b]Shackleshot[/b] 1W
+Enchantment — Aura  (u)
+Flash (You may cast this spell any time you could cast an instant.)
+Enchant land
+When this Aura enters, exile target creature an opponent controls until this Aura leaves the battlefield. (That creature returns under its owner’s control.)
+[i]“I now pronounce you man and tree.” — Lyralei, the Windranger [/i]
+
+
+[b]Tranquil Boots[/b] 1W
+Artifact — Equipment  (u)
+At the beginning of your upkeep, if you weren’t attacked last turn, you gain 2 life.
+Equipped creature gets +0/+2 and has vigilance.
+Equip creature 1
+[i]While they increase the longevity of the wearer, this boot is not particularly reliable. [/i]
+
+
+[b]Valora, the Dawnbreaker[/b] 4WWW
+Legendary Creature — Elemental Warrior  (r)
+Flash
+Convoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for 1 or one mana of that creature’s color.)
+When Valora enters, prevent all damage that would be dealt to creatures you control this turn.
+[i]“My powers, like my life, were given to me. The will to wield them justly I found on my own.”[/i]
+5/5
+
+[b]Wildwing Dismantler[/b] 2W
+Creature — Bird  (c)
+Flying
+When this creature enters, destroy target artifact.
+[i]“GET AWAY FROM HER!” — Squee, one third of the Techies[/i]
+1/2
+
+[b]Yurnero, the Juggernaut[/b] 1W
+Legendary Creature — Human Warrior  (r)
+Hexproof (This creature can’t be the target of spells or abilities your opponents control.)
+Whenever you cast an equipment spell, put a +1/+1 counter on target creature you control.
+[i]“There’s a fine line between bravery and stupidity.”[/i]
+2/2
+
+[b]Admiral’s Call[/b] U
+Instant (c)
+Target creature you control gains flying and hexproof and becomes a blue Spirit in addition to its other colors and types until end of turn.
+[i]The final ship of the Claddish Navy is called upon by Kunkka to assist him in battle, its haunting hymn conscripting his allies into its phantom crew.[/i]
+
+
+[b]Animate Armory[/b] 2U
+Enchantment — Aura  (u)
+Enchant equipment
+When this Aura enters, draw a card.
+As long as enchanted equipment isn’t a creature, it’s a 3/3 artifact creature. It has the abilities it grants equipped creatures.
+
+
+[b]Astral Imprisonment[/b] U
+Enchantment — Aura  (u)
+Flash (You may cast this spell any time you could cast an instant.)
+Enchant creature
+0: Exile enchanted creature. Return that card to the battlefield under its owners control at the beginning of that players next end step.
+[i]“Their sanity I’ll shatter, their dreams of conquest I’ll destroy.” — Harbinger, the Outworld Destroyer[/i]
+
+
+[b]Blink Dagger[/b] 2U
+Legendary Artifact — Equipment  (u)
+Flash
+When Blink Dagger enters, exile target creature you control. Return that card to the battlefield under your control, then attach this equipment to it.
+Equipped creature can’t be blocked.
+Equip creature 2
+[i]The fabled dagger used by the fastest assassin ever to walk the lands. [/i]
+
+
+[b]Boush, the Tinker[/b] U
+Legendary Artifact Creature — Gnome Artificer  (u)
+T: Create a 1/1 colorless Robot artifact creature token.
+4: Untap Boush.
+[i]“You can keep your magic, I have laser beams!”[/i]
+1/2
+
+[b]Chilling Touch[/b] 4UU
+ Instant (u)
+Tap up to two target creatures you don’t control. You may put a stun counter on either of them. Then, draw a card for each tapped creature your opponents control.
+[i]The Ancient Apparition’s eternal knowledge brings a frigid enchantment to his attacks.[/i]
+
+
+[b]Clarity[/b] U
+Artifact (c)
+T, Sacrifice this artifact: Add UU. This mana can only be spent to cast instant and sorcery cards.
+When this artifact is put into a graveyard from the battlefield, draw a card.
+[i]Clear water that enhances the ability to meditate. [/i]
+
+
+[b]Cogliostro, the Ringmaster [/b] 1UU
+Legendary Artifact Creature — Wizard  (u)
+When Cogliostro enters, tap or untap target permanent.
+2UU: Exile target creature you control. Return it to the battlefield under your control at the beginning of the next end step.
+[i]“I am a showman. The rest of you are the circus.”[/i]
+2/2
+
+[b]Covet[/b] 2UU
+Sorcery (u)
+Gain control of target artifact an opponent controls.
+[i]“When do I get a turn with the shiny?” “You’ve already had a turn!”  — Aggron Stonebreak, the Ogre Magi[/i]
+
+
+[b]Doppelganger[/b] 2UU
+Instant (r)
+Exile target creature you control. Create a token that’s a copy of that creature. At the beginning of the next end step, exile that token, then return that card to the battlefield under its owner’s control.
+[i]Dread Magus Vorn’s death imbued the Phantom Lancer with the ability to blend with all spectrums of light.[/i]
+
+
+[b]Eul’s Scepter[/b] 1UU
+Artifact (u)
+T, 4: Exile target creature. Return that creature to the battlefield under its owner’s control at the beginning of the next end step.
+[i]Proof enough to some that unseen forces manipulate the happenings of the material plane. [/i]
+
+
+[b]Frostbite[/b] 2U
+Enchantment — Aura  (u)
+Enchant creature
+When this aura enters, tap enchanted creature. 
+Enchanted creature loses all abilities and can’t be untapped.
+[i]“You make a nice snow angel!”  — Rylai, the Crystal Maiden[/i]
+
+
+[b]Glimmer Cape[/b] 2U
+Artifact — Equipment  (u)
+Equipped creature can’t be blocked and has ward 4. 
+Equip creature 1U
+[i]The stolen cape of a master illusionist. [/i]
+
+
+[b]Gush[/b] 4U
+Instant (c)
+You may return two Islands you control to their owner’s hand rather than pay Gush’s mana cost.
+Draw two cards.
+[i]“Look what the tide washed in.” — Leviathan, the Tidehunter[/i]
+
+
+[b]Helm of the Dominator[/b] 3UU
+Legendary Artifact — Equipment  (r)
+When Helm of the Dominator enters the battlefield, attach it to target nonlegendary creature.
+You control equipped creature.
+Equipped creature gets +1/+2.
+Equip 2
+[i]The powerful headpiece of a dead necromancer.[/i]
+
+
+[b]Ion Shell[/b] 2U
+Enchantment — Aura  (c)
+Enchant creature
+Enchanted creature gets +1/+1 for each card in your hand.
+When this Aura enters the battlefield, draw a card.
+[i]“If your enemy is equal, prepare for him. If greater, elude him. If weaker, crush him.” — Ish’Kafel, the Dark Seer [/i]
+
+
+[b]Kunkka, the Admiral[/b] 4UU
+Legendary Creature — Spirit Pirate  (u)
+Vigilance
+Whenever a Spirit you control deals combat damage to a player, create a map token. (It’s an artifact with “1, T, Sacrifice this token: Target creature you control explores. Activate only as a sorcery.”)
+[i]“This’ll trim your sails!”[/i]
+6/6
+
+[b]Leshrac, the Tormented Soul[/b] 3UU
+Legendary Creature — Satyr  (u)
+Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)
+As long as you’ve cast two or more spells this turn, Leshrac gets +2/+0 and has vigilance. (Attacking doesn’t cause this creature to tap.)
+[i]“Your desolation and the world’s are one.”[/i]
+4/4
+
+[b]Meepo, the Geomancer[/b] 2UUU
+Legendary Creature — Kobold Scout  (r)
+When Meepo enters, if it isn’t a token, create three tokens that are copies of it.
+As long as Meepo is a token, it is not legendary.
+U: Meepo phases out.
+When Meepo leaves the battlefield, exile all other cards named Meepo, the Geomancer.
+[i]“I guess size ain’t everything, eh?”[/i]
+3/3
+
+[b]Morphling[/b] 1UU
+Legendary Creature — Shapeshifter  (r)
+When Morphling attacks, it becomes a copy of target creature you don’t control except it’s name is Morphling, it’s legendary in addition to its other types, and it has Morphling’s abilities.
+1: Morphling gets +1/-1 until end of turn.
+1: Morphling gets -1/+1 until end of turn.
+[i]“You’re washed up!”[/i]
+1/2
+
+[b]Morphling Whelp[/b] 3U
+Creature — Shapeshifter  (c)
+Flash (You may cast this spell any time you could cast an instant.)
+You may have this creature enter as a copy of any creature you control.
+0/0
+
+[b]Mystic Flare[/b] 5UU
+Instant (u)
+Rebound (If you cast this spell from your hand, exile it as it resolves. At the beginning of your next upkeep, you may cast this card from exile without paying its mana cost.)
+Put target spell or nonland permanent on top of its owner’s library second from the top.
+[i]“Those who tangle with the Skywrath risk a fall from starry heights.” — Dragonus, the Skywrath Mage[/i]
+
+
+[b]Path of Cognition[/b] U
+Enchantment — Path  (u)
+​
+
+
+[b]Pay Off[/b] U
+Sorcery (c)
+Target creature can’t be blocked this turn.
+Draw a card.
+[i]“I get the best deals anywhere” — Mongo, Dock Enforcer[/i]
+
+
+[b]Pollywog[/b] 1U
+Creature — Frog  (c)
+Flash (You may cast this spell any time you could cast an instant.)
+When this creature enters, return target creature you control from the battlefield to its owner’s hand.
+2/1
+
+[b]Quorum Censor[/b] 3UU
+Creature — Human Wizard  (u)
+Flash (You may cast this spell any time you could cast an instant.)
+When this creature enters, counter target creature spell.
+Islandcycling (1, Discard this card: Search your library for an Island card, reveal it, put it into your hand, then shuffle.)
+3/2
+
+[b]Ravage[/b] 7UUU
+Legendary Sorcery (m)
+(You may cast a legendary sorcery only if you control a legendary creature.)
+Affinity for Islands (This spell costs 1 less to cast for each Island you control.)
+Return all tapped nonland permanents your opponents control to their owner’s hands.
+[i]Calling to the abyssal god Maelrawn has resulted in entire armadas being lost at sea.[/i]
+
+
+[b]Refresher Orb[/b] 4UUU
+Legendary Artifact (m)
+T, Exile Refresher Orb: Take an extra turn after this one.
+[i]A powerful artifact created for an unknown wizard, it’s appearance is inert to the naked eye.[/i]
+
+
+[b]Rhasta, the Shadow Shaman[/b] 1UU
+Legendary Creature — Troll Shaman  (u)
+Flash (You may cast this spell any time you may cast an instant.)
+When Rhasta enters, target creature loses all abilities and becomes a 0/1 white Chicken creature for as long as you control Rhasta.
+[i]“A fine form for you!”[/i]
+1/1
+
+[b]Rubick, the Grand Magus[/b] 1UUU
+Legendary Creature — Vedalken Wizard  (m)
+The first time you cast an instant or sorcery spell each turn, copy that spell. You may choose new targets for the copy. 
+You may cast sorcery spells as though they had flash. (You may cast this spell any time you could cast an instant.)
+[i]“Such fascinating energies!”[/i]
+1/4
+
+[b]Satyr Banisher[/b] U
+Creature — Satyr Wizard  (u)
+Flash (You may cast this spell any time you could cast an instant.)
+When this creature enters, target creature phases out.
+1/2
+
+[b]Scythe of Vyse[/b] 4UU
+Legendary Artifact (r)
+T: Target creature an opponent controls becomes a 0/1 blue Boar creature token until end of turn.
+[i]The most guarded relic among the cult of Vyse, it is the most coveted weapon among magi. [/i]
+
+
+[b]Slardar, the Slithereen Guard[/b] 2UU
+Legendary Creature — Naga Warrior  (r)
+Vigilance
+Creatures your opponents control lose hexproof and shroud and can’t have hexproof and shroud. Ward abilities of those creatures don’t trigger.
+The first time you tap a creature an opponent controls each turn, draw a card.
+[i]“Can’t fathom why you thought you’d survive.”[/i]
+4/4
+
+[b]Slithice, the Naga Siren[/b] UU
+Legendary Creature — Naga Warrior  (u)
+When Slithice deals combat damage to a player, that player skips their next combat phase.
+T: Target creature an opponent controls attacks during its controller’s next turn if able.
+[i]“From this sleep you will not wake.”[/i]
+2/3
+
+[b]Smoke Screen[/b] 1U
+Enchantment (u)
+When this enchantment enters, draw a card.
+Opponents can only cast spells anytime they could cast a sorcery.
+[i]“Here’s smoke in your eyes!” — Riki, the Stealth Assassin[/i]
+
+
+[b]Spark Wraith[/b] U
+Creature — Elemental  (c)
+Flying, hexproof
+At the beginning of your end step, if this creature attacked this turn, sacrifice it.
+[i]“Let no foe come near” — Zet, the Arc Warden[/i]
+3/1
+
+[b]Spell Steal[/b] 1UUU
+Instant (r)
+(You may cast a legendary instant only if you control a legendary creature.)
+Gain control of target spell.
+[i]“Yoink.” — Rubick, the Grand Magus[/i]
+
+
+[b]Temporal Disruption[/b] 3U
+Instant (u)
+Put target creature on top of its owner’s library.
+If you control both a legendary and a nonlegendary creature as you cast this spell, put that creature on the bottom of its owner’s library instead.
+
+
+[b]Ancient Black Dragon[/b] 3BB
+Creature — Dragon  (u)
+Flying
+When this creature dies, each opponent loses 3 life.
+Swampcycling (1, Discard this card: Search your library for a Swamp card, reveal it, put it into your hand, then shuffle.)
+4/4
+
+[b]Balanar, the Night Stalker[/b] 2B
+Legendary Creature — Horror  (u)
+Daybound (If a player casts no spells during their own turn, it becomes night next turn. As it becomes night, transform this permanent.)
+When Balanar deals combat damage to a player, it becomes night.
+[i]“I’m the beast of bedtime tales.”[/i]
+2/2
+
+[b]Banehallow, the Lycan[/b] 4BB
+Legendary Creature — Human Werewolf  (r)
+Daybound (If a player casts no spells during their own turn, it becomes night next turn. As it becomes night, transform this permanent.)
+As long as its night, Banehollow costs 4 less to cast.
+When Banehollow transforms, create two 2/2 black Wolf creature token.
+[i]“I am the alpha wolf.”[/i]
+6/6
+
+[b]Black Arachnia, the Broodmother [/b] 1BB
+Legendary Creature — Spider  (r)
+Deathtouch
+If a creature an opponent controls would die, instead exile it and create a 1/1 black Spider creature token with deathtouch.
+4BB: Spiders you control get +X/+X and gain lifelink until end of turn, where X is the number of Spiders you control.
+[i]“You’re not afraid of spiders, are you?”[/i]
+2/2
+
+[b]Black Grimoire[/b] 1B
+Artifact — Book  (u)
+Whenever a creature an opponent controls dies, put a charge counter on this Book.
+T, Sacrifice this Book: You gain 1 life and draw a card for each charge counter on it.
+
+
+[b]Black Hole[/b] BBBBBB
+Legendary Sorcery (m)
+(You may cast a legendary sorcery only if you control a legendary creature.)
+Exile all nonland permanents your opponents control.
+[i]“Stare into the abyss.” — Enigma, the Consumer of Worlds[/i]
+
+
+[b]Bramble Maze[/b] 1BBB
+Enchantment (u)
+Whenever an opponent attacks you, put a -1/-1 counter on target attacking creature.
+[i]“You want me, come get me...” — Mireska, the Dark Willow[/i]
+
+
+[b]Coup de Grace[/b] 2B
+Instant (u)
+Choose target creature an opponent controls. It loses all abilities until end of turn. Destroy it.
+[i]“I’m a sight for sore eyes” — Mortred, the Phantom Assassin[/i]
+
+
+[b]Dark Ascension[/b] B
+Instant (c)
+It becomes night.
+Target creature you control gains fear until end of turn. (This creature can’t be blocked except by artifact creatures and/or black creatures.)
+Draw a card.
+[i]The hunting prowess of Balanar improves as the night beckons.[/i]
+
+
+[b]Dark Pact[/b] 2B
+Sorcery (c)
+Remove all -1/-1 counters from target creature you control.
+You draw two cards and lose 2 life.
+[i]I call darkness from the deep!” — Slark, the Nightcrawler[/i]
+
+
+[b]Dazzle, the Shadow Priest[/b] 2B
+Legendary Creature — Troll Cleric  (u)
+T: Target creature you control gains undying until end of turn. (When this creature dies, if it had no +1/+1 counters on it, return it to the battlefield under its owner’s control with a +1/+1 counter on it.)
+B, T: Put a -1/-1 counter on target creature.
+[i]“Where my shadow falls, there falls my foe.”[/i]
+1/2
+
+[b]Death Pact[/b] B
+Sorcery (c)
+As an additional cost to cast this spell, sacrifice a creature.
+Destroy target creature. If the sacrificed creature was nonlegendary, draw a card. 
+[i]“I’ve already paid my pound of flesh. Now it’s your turn.” — Clinkz, the Bone Fletcher[/i]
+
+
+[b]Dire Felbeast[/b] 4B
+Creature — Demon  (u)
+Flying
+When this creature enters, each opponent sacrifices a creature.
+[i]Its shriek is heard across the horizon[/i]
+4/4
+
+[b]Enigma, Consumer of Worlds[/b] 1BB
+Legendary Creature — Avatar  (r)
+Flying
+At the beginning of your end step, sacrifice another nontoken creature. When you do, create three 1/1 black Eidolon creature tokens with “Whenever this creature deals combat damage to a player, create a token that’s a copy of this creature.”
+[i]“That which is fundamental cannot be destroyed.”[/i]
+1/2
+
+[b]Illusive Tormentor[/b] 1B
+Creature — Spirit  (c)
+Flying
+When this creature enters or dies, put a -1/-1 counter on target creature.
+1/1
+
+[b]Imperia’s Murder[/b] 2B
+Creature — Bird   (c)
+Flying
+Whenever a creature an opponent controls dies for the first time each turn, create your choice of a food token or a treasure token.
+[i]Shendelzare’s wings were stripped from her when she was cast from Ghastly Eyrie by her sister, Imperia.[/i]
+2/1
+
+[b]Inai, the Void Spirit [/b] 3BB
+Legendary Creature — Spirit Warrior  (u)
+When Inai enters, distribute X -1/-1 counters among creatures your opponents control, where X is the number of creature cards in your graveyard.
+[i]“I abhor the blindness of the mortal plane.”[/i]
+4/4
+
+[b]Luna, the Moon Rider[/b] 3B
+Legendary Creature — Human Cleric  (u)
+Daybound (If a player casts no spells during their own turn, it becomes night next turn. As it becomes night, transform this permanent.)
+When Luna transforms, you gain 3 life.
+[i]“By Nightsilver!”[/i]
+3/2
+
+[b]Mercurial, the Spectre[/b] 1BB
+Legendary Creature — Spirit  (u)
+Whenever a source deals damage to Mercurial, that source’s controller loses 1 life.
+Mercurial gets +1/+0 and has menace as long as an opponent controls one or fewer creatures.
+[i]“Who cannot endure, is entombed.”[/i]
+2/3
+
+[b]Mireska, the Dark Willow [/b] 1B
+Legendary Creature — Faerie Rogue  (u)
+Flying
+Whenever a player draws a card except the first one they draw in each of their draw steps, they lose 1 life.
+[i]“A little mischief never killed anyone... well, you I guess.”[/i]
+2/2
+
+[b]Muerta[/b] 4B
+Legendary Creature — Spirit Assassin  (u)
+Whenever Muerta deals combat damage to a player, put target creature from a graveyard on to the battlefield under your control with a finality counter on it.
+4BB: Muerta gets +X/+X and gains flying until end of turn, where X is the number of creature cards in all graveyards.
+[i]“I promise you a quick death. The eternity of torment waiting for you in the afterlife might take a bit longer.”[/i]
+3/3
+
+[b]Naix, the Lifestealer[/b] 4BB
+Legendary Creature — Zombie Minion  (r)
+Lifelink (Damage dealt by this creature also causes you to gain that much life.)
+When Naix enters, destroy target creature.
+B: Naix gains indestructible until end of turn. 
+[i]“Your life, stolen right out from under you.”[/i]
+3/3
+
+[b]Nether Ward[/b] 3BB
+Artifact (u)
+Whenever an opponent casts a noncreature spell, they lose life equal to that spell’s mana value and you gain that much life.
+T: Add B.
+[i]While at the lamasery for the Arts of Oblivion, Pugna learned to dominate his classmates with a simple ward charged with Nether magic.[/i]
+
+
+[b]Open Wounds[/b] 1B
+Sorcery (c)
+Target creature an opponent controls gets -3/-3 until end of turn. 
+Creatures you control gain lifelink until end of turn.
+[i]Sometimes, it’s the first slash cuts the deepest.[/i]
+
+
+[b]Orb of Venom[/b] B
+Artifact (c)
+Sacrifice this artifact: Put a -1/-1 counter on target creature. Activate only as a sorcery.
+When this artifact is put into a graveyard from the battlefield, draw a card.
+[i]Seepage from the wounds of a warrior deity, sealed in an arcanist’s orb following a campaign of vicious slaughter. [/i]
+
+
+[b]Ostarion, the Wraith King[/b] 4BB
+Legendary Creature — Skeleton Noble  (r)
+First strike, lifelink
+Whenever Ostarion attacks, create three 1/1 black Skeleton creature tokens that are tapped and attacking.
+[i]“Was that some sort of misguided tribute?”[/i]
+5/3
+
+[b]Path of Brutality[/b] B
+Enchantment — Path  (u)
+​
+
+
+[b]Piercing Shot[/b] 2BB
+Instant (c)
+Destroy target creature. Surveil 1. (Look at the top card of your library. You may put it into your graveyard.)
+
+
+[b]Presence of the Dark Lord[/b] 2BB
+Enchantment (u)
+Creatures your opponents control get -1/-1.
+Whenever a creature dies, creatures you control get +1/+0 until end of turn.
+[i]Even being near Nevermore eats away at one’s soul.[/i]
+
+
+[b]Pudge, the Butcher[/b] 3BB
+Legendary Creature — Zombie  (r)
+Trample
+If a creature an opponent controls would die, exile it instead. Then, put a +1/+1 counter on Pudge.
+[i]“Have I got juice on me chins?”[/i]
+3/5
+
+[b]Pugna[/b] 1B
+Legendary Creature — Skeleton Wizard  (u)
+Lifelink
+Prevent all combat damage that would be dealt to and by Pugna.
+XB: Spend only black mana on X. Pugna deals X damage to target creature or player.
+[i]“I’ll take that life if you’re not using it, he he he.”[/i]
+1/3
+
+[b]Reincarnation[/b] BB
+Legendary Sorcery (r)
+(You may cast a legendary sorcery only if you control a legendary creature.)
+Return target legendary creature card from your graveyard to the battlefield with finality counter on it.
+[i]“Death has no grip on me.” — Ostarion, the Wraith King[/i]
+
+
+[b]Ristul Assassin[/b] B
+Creature — Human Rogue  (c)
+When this creature enters, each player discards a card.
+1B: This creature gains deathtouch until end of turn.
+1/1
+
+[b]Rot[/b] B
+Enchantment — Aura  (u)
+Enchant creature
+Enchanted creature gets +0/-1 and has deathtouch.
+When this Aura is put into a graveyard from the battlefield, return it to its owner’s hand.
+[i]“Fill your lungs up.” — Pudge, the Butcher[/i]
+
+
+[b]Satyr Cutthroat[/b] 3BB
+Creature — Satyr Rogue  (c)
+Deathtouch
+When this creature enters, it deals 1 damage to target creature an opponent controls.
+2/1
+
+[b]Shadow Walk[/b] B
+Instant (c)
+Target creature you control gains shadow until end of turn. (They can block or be blocked by only creatures with shadow).
+Draw a card.
+[i]“You can’t fight what you can’t see.” — Gondar, the Bounty Hunter[/i]
+
+
+[b]Shendelzare, Vengeful Spirit[/b] BB
+Legendary Creature — Angel Spirit  (u)
+Menace
+When Shendelzare dies, return it to the battlefield tapped with no abilities. 
+[i]“By the bloody pinions of Avilliva!”[/i]
+3/2
+
+[b]Sinister Gaze[/b] 1BB
+Sorcery (u)
+Target opponent exiles two cards from their hand. Choose a card from among the exiled cards. You may play that card until end of turn, and you may spend mana as though it were mana of any color to cast it.
+[i]“For the greater good—mine!” — Ethreain, the Lich[/i]
+
+
+[b]Soul Ring[/b] BB
+Legendary Artifact (u)
+Soul Ring enters tapped.
+T: Add BBB to your mana pool. Soul Ring deals 3 damage to you. 
+[i]A ring that feeds on the souls of those who wear it. [/i]
+
+
+[b]Starfall[/b] B
+Sorcery (c)
+It becomes night.
+Target creature gets -2/-2 until end of turn.
+[i]The Goddess breaks the strata to empower her Princess in the time of need.[/i]
+
+
+[b]Stifling Dagger[/b] 1B
+Enchantment — Aura  (u)
+Enchant creature
+Enchanted creature gets -1/-1.
+At the beginning of the upkeep of enchanted creature’s controller, that player loses 2 life.
+[i]“Where falls my shadow, fells my blade.”  — Mortred, the Phantom Assassin[/i]
+
+
+[b]Sunder[/b] 3BBB
+Legendary Sorcery (m)
+(You may cast a legendary sorcery only if you control a legendary creature.)
+Exchange your life total with target opponent.
+[i]“Stolen fruit is ever sweetest.” — Terrorblade, the Demon Marauder[/i]
+
+
+[b]Terrorblade, the Demon Marauder [/b] BB
+Legendary Creature — Demon Warrior  (m)
+At the beginning of your postcombat main phase, add B for each 1 life your opponents have lost this turn. Then, you lose that amount of life.
+4BBB: Transform Terrorblade.
+[i]“The self-righteous shall choke on their sanctimony.”[/i]
+2/2
+
+[b]Vrogros, the Underlord[/b] 1BB
+Legendary Creature — Demon Warrior  (r)
+Vrogros gets +2/+0 until end of turn for each creature that died this turn.
+Each creature your opponents control get -2/-0 until end of turn for each creature that died this turn.
+[i]“I will scorch this land and its people will come to fear a new master!”[/i]
+1/4
+
+[b]Akasha, the Queen of Pain[/b] 1RRR
+Legendary Creature — Demon Sorcerer  (r)
+Flying, haste
+Whenever a player casts an instant or sorcery spell, Akasha deals 1 damage to each opponent.
+[i]“Long live your Queen!”[/i]
+3/3
+
+[b]Ancient Thunderhide[/b] 3RR
+Creature — Dinosaur  (u)
+Ward—Pay 3 life.
+Trample
+Mountaincycling (1, Discard this card: Search your library for a Mountain card, reveal it, put it into your hand, then shuffle.)
+5/5
+
+[b]Arc Lightning[/b] 2R
+Sorcery (u)
+Arc Lightning deals 3 damage divided as you choose among one, two, or three targets.
+[i]“Ha ha ha ha ha. Well what did you expect?” — Zeus, the Lord of Heaven[/i]
+
+
+[b]Arena of Blood[/b] 1RR
+Enchantment (r)
+At the beginning of each player’s upkeep, this enchantment deals 2 damage to that player.
+Each creature attacks each combat if able.
+[i]“DADADA DA DA DA-DA-DA!” — Mars, the First Son of Heaven[/i]
+
+
+[b]Chaos Meteor[/b] 6RR
+Legendary Sorcery (m)
+(You may cast a legendary sorcery only if you control a legendary creature.)
+Chaos Meteor deals 13 damage divided among any number of targets.
+Whenever a time counter is removed from Chaos Meteor, it deals 1 damage to each opponent.
+Suspend 7— RR
+[i]“Exort, Wex, Exort!” — Carl, the Invoker[/i]
+
+
+[b]Donté Panlin, the Pangolier[/b] 1R
+Legendary Creature — Pangolin Rogue  (u)
+First strike
+Whenever Donté Panlin deals combat damage to an opponent, exile the top card of each player’s library. Until end of turn, you may cast any number of cards with the greatest mana value among the exiled cards this way.
+[i]“Where the finest warriors alive have gathered for battle, of course you can expect to find me.”[/i]
+2/1
+
+[b]Double Edge[/b] 2R
+Instant (c)
+Damage can’t be prevented this turn.
+Double Edge deals 4 damage to target creature you don’t control and 1 damage to target creature you control.
+[i]In the spurs of combat, Bradwarden’s vicious strikes sometimes cause self-inflicted collateral damage.[/i]
+
+
+[b]Dragon Slave[/b] 3RR
+ Sorcery (u)
+Create a 4/4 red dragon elemental creature token with haste.
+Flashback 5RR (You may cast this card from your graveyard for its flashback cost. Then exile it.)
+[i]In the scorched barren of Misrule, Lina learned to manipulate the fiery breath of the Desert Wyrm as a form of entertainment.[/i]
+
+
+[b]Echo Slam[/b] 5RRR
+Legendary Instant (m)
+(You may cast a legendary instant only if you control a legendary creature.)
+Convoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for 1 or one mana of that creature’s color.)
+Echo Slam deals X damage to each creature, where is X the number of creatures on the battlefield.
+[i]“No one sees an earthquake coming.” — Raigor, the Earthshaker [/i]
+
+
+[b]Grimstroke[/b] 5RR
+Legendary Creature — Demon Spirit  (u)
+Flying
+At the beginning of combat on your turn, create a token copy of target creature an opponent controls. It has haste and double strike. Exile it at the beginning of the next end step.
+[i]“The battlefield is merely a canvas, waiting for my brush.”[/i]
+2/4
+
+[b]Huskar, the Sacred Warrior[/b] 3RRR
+Legendary Creature — Troll Warrior  (r)
+Haste
+Huskar’s power and toughness are each equal to the difference between your starting life total and your current life total plus 1.
+T: Huskar deals damage to each player equal to half their life total, rounded down.
+[i]“Great honors await you in the Nothl Realm.”[/i]
+*/1+*
+
+[b]Ignite[/b] XRR
+Sorcery (r)
+Ignite deals X damage to target creature you don’t control. If X is 3 or more, copy this spell. The copy targets a creature you don’t control chosen at random. If X is 5 or more, copy this spell twice instead. The copies each target a creature you don’t control chosen at random.
+[i]“And another... and another!” — Aggron Stonebreak, the Ogre Magi[/i]
+
+
+[b]Jin'zakk, the Batrider[/b] 2R
+Legendary Creature — Troll Scout  (u)
+Flying, haste
+Whenever Jin’zakk deals combat damage, put a charge counter on it.
+T, Remove all charge counters from Jin’zakk: Jin’zakk deals damage equal to the number of charge counters remove this way to any target.
+[i]“Roasted, toasted and burned to a crisp.”[/i]
+2/2
+
+[b]Kobold Foreman[/b] 1R
+Creature — Kobold  (c)
+Whenever you sacrifice a nonland permanent, add one mana of any color to your mana pool.
+[i]“Work work and more work. When do we get to try on all of the jewels we’ve plundered?” — Debbi, the Cunning[/i]
+1/3
+
+[b]Kobold Thief[/b] R
+Creature — Kobold Rogue  (c)
+When this creature dies, create a Treasure token.
+1/2
+
+[b]Light Strike Array[/b] 3R
+Sorcery (u)
+Light Strike Array deals 1 damage to each opponent. Creatures those players control can’t block this turn.
+[i]“One little spark and before you know it, the whole world is burning.” — Lina, the Slayer[/i]
+
+
+[b]Lightning Bolt[/b] R
+Instant (c)
+Lightning Bolt deals 3 damage to any target.
+[i]“Your prayer, answered.” — Zeus, the Lord of Heaven[/i]
+
+
+[b]Lina, the Slayer[/b] 1R
+Legendary Creature — Human Wizard  (u)
+Flying, prowess, prowess (Each instance of prowess triggers separately)
+4R: Target instant or sorcery card in your graveyard gains flashback until end of turn. The flashback cost is equal to its mana cost. (You may cast that card from your graveyard for its flashback cost. Then exile it.)
+[i]“Burn, baby, burn.”[/i]
+1/1
+
+[b]Mars, the First Son of Heaven[/b] 4RR
+Legendary Creature — Demigod Warrior  (m)
+Menace, haste
+Creatures your opponents control can’t be the target of spells or abilities that player controls.
+[i]“Let the name Mars ring across the battlefield, and bear witness to my enemy’s flight.”[/i]
+6/6
+
+[b]Mogul Khan, the Axe[/b] 4RR
+Legendary Creature — Ogre Berserker  (u)
+As long as Mogul Khan is untapped during an opponent’s declare attackers step, that opponent must attack you with at least one creature if able.
+Enrage — Whenever Mogul Khan is dealt damage, each player sacrifices a permanent.
+[i]“You fought badly—died worse.”[/i]
+6/6
+
+[b]Ogoldi Siege Ladder[/b] 1R
+Artifact — Equipment  (c)
+Equipped creature can’t be blocked by creatures with reach or defender.
+Equip R
+T, Sacrifice this Equipment: It deals 1 damage to target creature you control and 2 damage to target creature you don’t control.
+
+
+[b]Ogoldi Vandal[/b] 1R
+Creature — Ogre Warrior  (c)
+When this creature enters, destroy target noncreature artifact an opponent controls.
+1R, Exile this creature from your graveyard: Discard a card, then draw a card. 
+2/2
+
+[b]Ogre Bruiser[/b] 2R
+Creature — Ogre Warrior  (c)
+Trample
+Enrage — Whenever this creature is dealt damage, it deals 2 damage to each opponent.
+4/2
+
+[b]Overclocking[/b] 3R
+Instant (c)
+Improvise (Your artifacts can help cast this spell. Each artifact you tap after you’re done activating mana abilities pays for 1.)
+Add RRRRR to your mana pool.
+[i]“I am a can of whoop-ass!” — Rattletrap, the Clockwerk[/i]
+
+
+[b]Path of Conquer[/b] R
+Enchantment — Path  (u)
+​
+
+
+[b]Phoenix[/b] 4RRR
+Legendary Creature — Phoenix  (u)
+Flying
+Whenever a creature attacks you, Phoenix deals 2 damage to it.
+When Phoenix dies, create a 0/1 red Elemental creature token named Phoenix Egg. It has “At the beginning of your upkeep, sacrifice this creature and return target card named Phoenix from your graveyard to the battlefield.”
+[i]The ever-collapsing core of Phoenix often emits short-lived bursts of conscious light.[/i]
+5/5
+
+[b]Quelling Blade[/b] 1R
+Artifact — Equipment  (c)
+Equipped creature gets +2/+1 as long as its attacking.
+Equip R
+
+
+[b]Reality Rift[/b] 2RR
+Sorcery (u)
+Reveal cards from the top of your library until you reveal a creature card. Put that card onto the battlefield. It gains haste. Sacrifice it at the beginning of the next end step. Put all other cards revealed this way on the bottom of your library in a random order.
+Flashback 4RR (You may cast this card from your graveyard for its flashback cost. Then exile it.)
+[i]Armageddon rides between the planes, bringing Chaos Knight to his victim wherever he may hide.[/i]
+
+
+[b]Rigwarl, the Bristleback[/b] 3R
+Legendary Creature — Beast Berserker  (u)
+T: Rigwarl deals 1 damage to target creature you control.
+Enrage — Whenever Rigwarl is dealt damage, put a +1/+1 counter on it. It deals 1 damage to each creature your opponents control.
+[i]“More where that came from, sunshine.”[/i]
+2/4
+
+[b]Rix’s Brand[/b] 2R
+Sorcery (u)
+Gain control of target creature until end of turn. If that creature is nonlegendary, gain control of that creature until the end of your next turn instead. Untap that creature. It gains haste until end of turn.
+[i]“You have been without purpose for far too long.” — Rix, Oathbound[/i]
+
+
+[b]Shadow Demon[/b] 3R
+Legendary Creature — Demon Wizard  (u)
+When Shadow Demon enters the battlefield, target creature loses all abilities and can’t block until Shadow Demon leaves play. 
+[i]“Your soul will make a fine minion!”[/i]
+4/3
+
+[b]Smeevil Blacksmith[/b] 2R
+Creature — Smeevil Artificer  (c)
+T: Add one mana of any color. Spend this mana only on equipment spells or to activate equip abilities.
+2/3
+
+[b]Smeevil Forgemaster[/b] 4R
+Creature — Smeevil  (u)
+Equipped creatures you control get +3/+3.
+T: Attach target equipment to target creature you control.
+4/4
+
+[b]Squee, Spleen, and Spoon, the Techies[/b] 2R
+Legendary Creature — Goblin  (u)
+T, Sacrifice an artifact: Choose one —
+•  Exile the top card of your library. You may play that card this turn.
+• The Techies deals 2 damage to any target.
+• Add RR to your mana pool.
+[i]“Techies Demolitions! We put the tech in tech-nically we meant to do that.”[/i]
+2/3
+
+[b]Strygwyr, the Bloodseeker[/b] 1RR
+Legendary Creature — Beast Berserker  (r)
+Bloodthirst 1 (If an opponent was dealt damage this turn, this creature enters with a +1/+1 counter on it.)
+As long as an opponent has less than half their starting life total, Strygwyr has double strike.
+[i]“For the Flayed Twins, I seek blood.”[/i]
+2/2
+
+[b]Sven, the Rogue Knight[/b] 2RR
+Legendary Creature — Human Rogue Knight  (r)
+Whenever Sven deals combat damage to an opponent’s creature, Sven deals that much damage to another target creature that player controls.
+[i]“Rogue Knight claims another.”[/i]
+4/4
+
+[b]Tresdin, the Legion Commander[/b] 2R
+Legendary Creature — Human Soldier  (r)
+Haste
+Whenever Tresdin attacks, you may have it fight up to one target creature an opponent controls.
+Whenever a creature an opponent controls dealt damage by Tresdin this turn dies, put a +1/+1 counter on Tresdin.
+[i]“I’ve come to put an end to hope.”[/i]
+3/3
+
+[b]Whirling Axes[/b] R
+Sorcery (u)
+Whirling Axes deals 1 damage to each creature.
+Draw a card.
+[i]“I peel back your uglies.” — Jah’rakal, the Troll Warlord[/i]
+
+
+[b]Xin, the Ember Spirit [/b] 2R
+Legendary Creature — Spirit Warrior  (u)
+First strike
+Prevent all noncombat damage that would be dealt to Xin.
+[i]“Balance in all things.”[/i]
+3/2
+
+[b]Aiushtha, the Enchantress[/b] 3GG
+Legendary Creature — Satyr  (r)
+Vigilance
+When Aiushtha enters, gain control of target non-legendary creature for as long as you control Aiushtha.
+T: You gain life equal to the number of nonlegendary creatures you control. 
+[i]“It’s a hop, skip and a jump!”[/i]
+4/3
+
+[b]Ancient Granite Golem[/b] 3GG
+Creature — Golem  (u)
+Vigilance
+T: Add GG. If you control a creature with a counter on it, add GGGG instead.
+Forestcycling 1 (1, Discard this card: Search your library for a Forest card, reveal it, put it into your hand, then shuffle.)
+4/4
+
+[b]Bind to the Earth[/b] 1G
+Enchantment — Aura  (u)
+Enchant creature
+Enchanted creature loses flying. Prevent all combat damage enchanted creature deals.
+
+
+[b]Bushwack[/b] G
+Sorcery (c)
+Choose one —
+•  Search your library for a basic land card, reveal it, put it into your hand, then shuffle.
+•  Target creature you control fights target creature you don’t control. (Each deals damage equal to its power to the other.)
+[i]“Caught ya in your stubbies did we?” — Hoodwink[/i]
+
+
+[b]Corrosive Skin[/b] G
+Enchantment — Aura  (u)
+Enchant creature
+Enchanted creature gets +0+1 and has ward 4.
+When this Aura is put into a graveyard from the battlefield, return it to its owner’s hand.
+[i]“You twitch like a snake-bitten mouse”. — Viper, the Nether Drake[/i]
+
+
+[b]Druidic Bond[/b] 1G
+Enchantment — Aura  (u)
+Enchant creature
+Enchanted creature has soulbond and is paired with another target creature you control. (You may pair this creature with another unpaired creature when either enters. They remain paired for as long as you control both of them.)
+As long as enchanted creature is paired with another creature, each creature gets +1/+1 and has lifelink.
+
+
+[b]Elder Titan, the Worldsmith[/b] 3G
+Legendary Creature — Elder Giant  (r)
+Ward—Sacrifice a land.
+At the beginning of your upkeep, you may return target land card from your graveyard to the battlefield tapped. 
+Each land card in your hand has “Basic landcycling 1”.
+[i]“What long ago I shattered must be rendered whole.[/i]
+4/4
+
+[b]Fog of War[/b] 2G
+Instant (c)
+You gain 1 life for each creature on the battlefield. Prevent all combat damage that would be dealt this turn by creatures with power 3 or less.
+[i]When your towers fall and your vision disappears, the darkness can be suffocating.[/i]
+
+
+[b]Kaolin, the Earth Spirit[/b] 4GG
+Legendary Creature — Spirit Warrior  (r)
+When Kaolin enters, create three artifact tokens called Stone Remnant (They have no abilities).
+Sacrifice an artifact: Put a +1/+1 counter on Kaolin. It gains trample until end of turn.
+Sacrifice an artifact: Kaolin deals 2 damage to each creature with flying.
+[i]“Through conflict, one’s nature is revealed.”[/i]
+6/6
+
+[b]Living Armor[/b] 2G
+Enchantment — Aura  (u)
+Enchant creature
+Enchanted creature gets +1/+1 for each land you control.
+[i]“Come into my shade.” — Rooftrellen, the Treant Protector[/i]
+
+
+[b]Magnus, the Magnoceros[/b] 2GG
+Legendary Creature — Rhino  (r)
+Trample
+When one or more creatures you control deals excess combat damage to an opponent, draw a card.
+[i]“You must have mistaken my purpose…to flatten you!”[/i]
+5/5
+
+[b]Nature’s Attendants[/b] G
+Creature — Spirit Insect  (c)
+Defender, flying
+At the beginning of your end step, you gain 2 life.
+[i]Whimsical spirits of the woods possess a healing power that is quite subtle, but gains strength in numbers.[/i]
+0/2
+
+[b]Nature’s Grasp[/b] 2G
+Instant (c)
+Prevent all damage that target creature would deal this turn. You may search your library for a basic land card and put it on to the battlefield tapped, then shuffle.
+[i]“I would like nothing more than to plant myself in the sunshine, next to a cool stream.” — Rooftrellen, the Treant Protector [/i]
+
+
+[b]Nature’s Prophet[/b] 1GGG
+Legendary Creature — Satyr Druid  (m)
+Vigilance, reach
+Whenever you tap a land for mana, add an additional G.
+Whenever Nature’s Prophet attacks, untap all lands you control.
+[i]“Ah, the sun in my leaves.”[/i]
+4/4
+
+[b]Omexe Overwatch[/b] G
+Creature — Centaur Archer  (u)
+Creatures you control have ward 1.
+[i]“I’ll fall them long before you even notice you’re in danger” — Nattea, Omexe Ranger[/i]
+1/2
+
+[b]Overpower[/b] 2G
+Sorcery (u)
+Double target creature you control’s power and toughness. That creature deals damage equal to its power to target creature an opponent controls.
+[i]“A loss so small, the world will hardly notice.” — Ulfsaar, the Ursa Warrior[/i]
+
+
+[b]Path of Might[/b] G
+Enchantment — Path  (c)
+​
+
+
+[b]Primal Roar[/b] 3GG
+Legendary Sorcery (m)
+(You may cast a legendary sorcery only if you control a legendary creature.)
+Target creature you control deals damage equal to its power to each creature your opponents control.
+[i]The Beastmaster has learned to channel his primal instincts into an animalistic roar, causing devastation in the ranks of enemies.[/i]
+
+
+[b]Provoke[/b] 1G
+Sorcery (u)
+Untap target creature you don’t control. That creature blocks this turn if able.
+Draw a card.
+[i]“You want some of this, son? You want it?” — Rigwarl, the Bristleback[/i]
+
+
+[b]Ring of Tarasque[/b] 3G
+Legendary Artifact — Equipment  (u)
+Equipped creature has indestructible.
+Equip legendary creature 1
+[i]Preserved heart of an extinct monster, it bolsters the bearer’s fortitude. [/i]
+
+
+[b]Roam the Jungle[/b] 1G
+Sorcery (c)
+Search your library for a basic land card and put it onto the battlefield tapped, then shuffle.
+If you control a legendary creature, search for two basic land cards instead. Put one on the battlefield tapped and one in your hand, then shuffle. 
+[i]To some, the Radiant Jungle is a battlefield. To the Roseleaf, it is home.[/i]
+
+
+[b]Rooftrellen, Treant Protector[/b] 1G
+Legendary Creature — Treefolk  (r)
+Forestwalk (This creature can’t be blocked as long as defending player controls a Forest.)
+T: Add G. 
+When Rooftrellen becomes tapped for the first time each turn, put a stun counter on it. (If a permanent with a stun counter would become untapped, remove one from it instead.)
+[i]“Where the path branched, you chose unwisely.”[/i]
+3/4
+
+[b]Roseleaf Briarbush[/b] 2G
+Creature — Elemental Wall  (c)
+Defender (This creature can’t attack.)
+T: Add G.
+T, Sacrifice this creature: Return target land card or creature card with defender from your graveyard to your hand.
+[i]“Thoughts cross my mind as the sun crosses the sky.” — Rooftrellen, the Treant Protector[/i]
+0/4
+
+[b]Roseleaf Sproutling[/b] 1G
+Creature — Treefolk  (c)
+When this creature enters, you may return target land card from your graveyard to the battlefield tapped.
+[i]Verodicia bestowed the Prophet with the ability to summon the Treant Guard, a mythical sentient army of the wild.[/i]
+2/1
+
+[b]Shockwave[/b] 1GG
+Instant (c)
+Destroy all enchantments.
+[i]Mt. Joerlak was a somewhat unstable mass, and Magnus has learned to channel its reverberations.[/i]
+
+
+[b]Swarming Greevils[/b] 2G
+Creature — Greevil  (c)
+Sacrifice this creature: Destroy target artifact or enchantment.
+[i]Greevils can detect the scent of gold from miles away.[/i]
+3/1
+
+[b]Sylla, the Lone Druid[/b] 3G
+Legendary Creature — Human Bear Druid  (r)
+When Sylla enters, create a 6/6 green bear creature token with trample.
+When Sylla attacks, it becomes a copy of target creature token you control except its name is Sylla, the Lone Druid, it’s legendary in addition to its other types, and it has this ability.
+[i]‘Nature chose her guardian well.”[/i]
+2/2
+
+[b]Tiny, the Stone Giant[/b] 1G
+Legendary Creature — Elemental  (m)
+Trample
+Whenever a permanent is put into the graveyard from the battlefield, put a +1/+1 counter on Tiny. If that permanent was a land, put two +1/+1 counters on Tiny instead.
+[i]“Sticks and stones will break their bones!”[/i]
+1/1
+
+[b]Toss[/b] 1G
+Instant (c)
+As an additional cost to cast this spell, sacrifice a creature.
+Toss deals damage equal to the sacrificed creature’s toughness to any target.
+[i]“Catch!” — Tiny, the Stone Giant[/i]
+
+
+[b]Ulfsaar, the Ursa Warrior[/b] 1G
+Legendary Creature — Bear Warrior  (r)
+Trample
+ G: Regenerate Ulfsaar. (The next time it would be destroyed, instead tap it, remove it from combat, and heal all damage on it)
+Whenever Ulfsaar deals combat damage, put a +1/+1 counter on it.
+[i]“Come not near the darkwoods where my kindred sleep.”[/i]
+2/2
+
+[b]Wrath of Nature[/b] 3GGG
+Legendary Sorcery (r)
+(You may cast a legendary sorcery only if you control a legendary creature.)
+Put three +1/+1 counters on each land you control. They become 0/0 Elemental creatures with vigilance and haste that are still lands. Untap them.
+[i]“New life will make its home amongst your bones.” — Nature’s Prophet[/i]
+
+
+[b]Abaddon, the Lord of Avernus[/b] WB
+Legendary Creature — Spirit Knight  (u)
+Undying (When this creature dies, if it had no +1/+1 counters on it, return it to the battlefield under its owner’s control with a +1/+1 counter on it.)
+When Abaddon enters, put a shield counter on target creature you control. (If it would be dealt damage or destroyed, remove a shield counter from it instead (If it would be dealt damage or destroyed, remove a shield counter from it instead.)
+[i]“You have called death upon yourself.”[/i]
+1/1
+
+[b]Aggron Stonebreak, the Ogre Magi[/b] 5UR
+Legendary Creature — Ogre Wizard  (r)
+Trample
+Whenever Aggron attacks, exile an instant or sorcery card from your graveyard at random. You may cast that card without paying its mana cost. If you do, roll a d4. Copy that spell X times, where X is the result. You may choose new targets for the copies.
+[i]“Running’s not as fun as hitting. Not one bit fun!”[/i]
+6/6
+
+[b]Alpha Wolf[/b] 2RG
+Creature — Wolf  (c)
+When this creature enters, create a 2/2 green Wolf creature token.
+Enrage — Whenever this creature is dealt damage, create a 2/2 green Wolf creature token
+2/2
+
+[b]Anti-Mage[/b] 1WUB
+Legendary Creature — Human Monk  (m)
+Hexproof (This creature can’t be the target of spells or abilities your opponents control.)
+An opponent losing unspent mana causes that player to lose that much life.
+At the beginning of each opponent’s end step, that player activates a mana ability of up to one land they control if able.
+[i]“Magic shall not prevail!”[/i]
+3/3
+
+[b]Aphotic Shield[/b] WB
+Enchantment — Aura  (c)
+Flash
+Enchant creature
+Enchanted creature gets +0/+4.
+When this enchantment is put into the graveyard from the battlefield, each opponent loses 3 life and you gain 3 life
+[i]The powers of the black mist rise to absorb attacks like the black mist absorbs light.[/i]
+
+
+[b]Atropos, the Bane[/b] 4UB
+Legendary Creature — Nightmare  (u)
+Flying
+When Atropos deals combat damage to an opponent, tap target creature that player controls. It doesn’t untap during its controller’s next untap step.
+Whenever a creature an opponent controls becomes tapped, that player mills one card. (To mill a card, a player puts the top card of their library into their graveyard.)
+[i]“The rebirth of my dream means the end of a myriad others.”[/i]
+4/4
+
+[b]Aurel, the Gyrocopter[/b] 3RW
+Legendary Creature — Gnome Pilot  (u)
+Flying, haste
+Whenever Aurel attacks, he deals 1 damage to up to X target creatures, where X is the number of equipment attached to him.
+[i]“You remind me of my old boss. Rot in Hell!”[/i]
+3/3
+
+[b]Auroth, the Winter Wyvern[/b] 1WU
+Legendary Creature — Dragon Wizard  (u)
+Flash (You may cast this spell any time you could cast an instant.)
+Flying
+When Auroth enters, prevent all damage that would be dealt to target creature you control until end of turn.
+[i]“Let them all fall still beneath my shadow!”[/i]
+3/3
+
+[b]Azwraith, the Phantom Lancer[/b] 4WU
+Legendary Creature — Cat Warrior  (u)
+Vigilance 
+Whenever Azwraith enters or attacks, create two 1/1 white and blue Illusion creature tokens with vigilance.
+[i]“We outnumbered you. We outnumber them all!”[/i]
+4/4
+
+[b]Ball of Creeps[/b] 3WUBRG
+Legendary Creature — Horror  (r)
+Trample, haste
+Convoke  
+When Ball of Creeps enters, exile any number of nontoken creatures you control until it leaves the battlefield. Put a +1/+1 counter on Ball of Creeps for each creature exiled this way.
+[i]Some say you can hear the sound of gold dropping as it rolls.[/i]
+0/0
+
+[b]Barathrum, the Spirit Breaker[/b] 3GU
+Legendary Creature — Beast Warrior  (r)
+Trample
+As long as Barathrum has attacked this turn, spells you cast from your hand this turn gain cascade. (When you cast this spell, exile cards from the top of your library until you exile a nonland card that costs less. You may cast it without paying its mana cost if the resulting spell’s mana value is less than this spell’s mana value. Put the exiled cards on the bottom in a random order.)
+[i]“Mine is the anvil on which your spirit broke.”[/i]
+4/5
+
+[b]Beatrix and Mortimer[/b] 1RG
+Legendary Creature — Lizard Gnome  (u)
+T: Beatrix and Mortimer deal 1 damage to target creature. It gains haste until end of turn.
+At the beginning of combat on your turn, untap target creature you control.
+[i]“I’m Beadie. N’ this here’s Mortimer. Nothing fancy. Just here to kill some time and if we can manage, some people.”[/i]
+2/3
+
+[b]Bradwarden, the Centaur Warrunner[/b] 6RG
+Legendary Creature — Centaur Warrior  (m)
+Creatures you control have haste and trample.
+If damage would be dealt to Bradwarden, prevent that damage. Bradwarden deals that much damage to any target instead.
+[i]“These proving grounds shall be littered with the dead.”[/i]
+6/6
+
+[b]Buyback[/b] 0
+Instant (m)
+Return target creature card from your graveyard to the battlefield. It gains haste until end of turn. 
+At the beginning of your next upkeep, pay 2BR. If you don’t, you lose the game.
+[i]“Wait, you don’t have buyback?” — Famous last words[/i]
+
+
+[b]Carl, the Invoker[/b] UBR
+Legendary Creature — Human Wizard  (r)
+Prowess
+Whenever you cast an instant or sorcery spell, if it had blue in its cost, draw a card. If it had red in its cost, Carl deals 2 damage to any target. If it had black in its cost, each opponent discards a card.
+[i]“Did I hear a squeak?”[/i]
+2/4
+
+[b]Chain Frost[/b] 1WWU
+Legendary Sorcery (r)
+(You may cast a legendary instant only if you control a legendary creature.)
+Destroy each tapped creature your opponents control.
+
+
+[b]Chaos Knight[/b] 5BBRR
+Legendary Creature — Avatar Knight  (m)
+Menace
+When Chaos Knight enters, roll a d6. Create X 6/6 black and red Illusion Knight creature tokens named Phantasm Illusion, where X is the result.
+[i]“Fall to your knees and lament.”[/i]
+6/6
+
+[b]Chen, the Holy Knight[/b] 2GW
+Legendary Creature — Human Knight  (r)
+When Chen enters, return target nonlegendary creature from your graveyard to your hand. 
+Nonlegendary creatures you control get +1/+1 and have vigilance.
+[i]“I have left the dark desert of my past to walk now in the light of Obelis.”[/i]
+3/4
+
+[b]Chronosphere[/b] 4UB
+Legendary Instant (r)
+(You may cast a legendary instant only if you control a legendary creature.)
+Split Second (As long as this spell is on the stack, players can’t cast spells or activate abilities that aren’t mana abilities.)
+End the turn.
+[i]“I have seen the future; you’re not in it.” — Darkterror, the Faceless Void[/i]
+
+
+[b]Clinkz, the Bone Fletcher[/b] RWB
+Legendary Creature — Skeleton Rogue Archer  (r)
+First strike, skulk, haste
+When Clinkz enters or attacks, amass Skeletons 1. (Put a +1/+1 counter on an Army you control. It’s also a Skeleton. If you don’t control an Army, create a 0/0 black Skeleton Army creature token first.)
+[i]“Fire grows hungrier the more it’s fed.”[/i]
+1/3
+
+[b]Conscript[/b] 4GW
+Sorcery (u)
+Exile target creature you don’t control. Create an X/X green and white Wolf Soldier creature token, where X is that creature’s toughness.
+[i]The Bronze Legion does not discriminate against any prisoners based on their race or kin, provided they know how to fight.[/i]
+
+
+[b]Crixalis, the Sand King[/b] 2BRG
+Legendary Creature — Scorpion Assassin  (m)
+Deathtouch
+Whenever you sacrifice a permanent, Crixalis deals 1 damage to any target.
+[i]“Oh Desert Djinn who forged my living carapace, eternally the sand will praise your name!”[/i]
+2/4
+
+[b]Dagon[/b] UR
+Legendary Artifact (u)
+Whenever you cast an instant or sorcery spell, put a charge counter on Dagon.
+T: Dagon deals damage to target creature equal to the number of charge counters on it, then remove all charge counters from it.
+[i]A lesser wand that grows in power the longer it is used, it brings magic to the fingertips of the user. [/i]
+
+
+[b]Dark Troll Summoner[/b] 2BG
+Creature — Troll Shaman  (c)
+Whenever a nontoken creature you control dies, create a 2/2 black Zombie creature token.
+2/4
+
+[b]Dawn Templar[/b] RW
+Creature — Elemental Soldier  (c)
+Equipped creatures you control have haste and first strike.
+T: Attach target equipment you control to target creature you control.
+2/2
+
+[b]Deafening Blast[/b] UBR
+Sorcery (c)
+Choose one —
+• Target creature gets -3/-3 until end of turn.
+• Deafening Blast deals 3 damage to target player.
+• Draw three cards, then put two cards on top of your library.
+[i]“I am a beacon of knowledge blazing out across a black sea of ignorance.” — Carl, the Invoker[/i]
+
+
+[b]Decay[/b] 3BG
+Instant (u)
+Put two -1/-1 counters on target creature you don’t control. Then, put two +1/+1 counters on target creature you control.
+[i]The strength of the living is simply borrowed from the strength of the dead.[/i]
+
+
+[b]Demnok Lannik, the Warlock[/b] 4BR
+Legendary Creature — Human Warlock  (u)
+When Demnok enters, you may sacrifice any number of other creatures you control. When you do, create an X/X red and black Demon Golem creature token with haste, where X is the total power of each creature sacrificed this way.
+[i]“You’re but a blot in my Black Grimoire.”[/i]
+2/2
+
+[b]Disruptor, the Stormcrafter[/b] 4UR
+Legendary Creature — Ogre Wizard  (u)
+When Disruptor enters, put target creature an opponent controls on top of its owner’s library.
+T, 2UR: Copy target instant or sorcery spell you control. You may choose new targets for the copy.
+[i]“Feeling under the weather?”[/i]
+4/4
+
+[b]Dragonus, the Skywrath Mage[/b] 1WU
+Legendary Creature — Angel Wizard  (u)
+Flash (You may cast this spell any time you could cast an instant.)
+Flying
+Whenever you cast your first spell during an opponent’s turn, put a stun counter on target tapped creature.
+[i]“I am a tool of the greater good. What does that make you?”[/i]
+2/1
+
+[b]Drums of Endurance[/b] RG
+Legendary Artifact (u)
+This artifact enters with three charge counters on it.
+T, Remove a charge counter from Drums of Endurance: The next creature spell you cast this turn has riot. (It enters the battlefield with your choice of a +1/+1 counter or haste.)
+[i]A relic that enchants the bodies of those around it for swifter movement in times of crisis. [/i]
+
+
+[b]Ethreain, the Lich[/b] 5WU
+Legendary Creature — Zombie Wizard  (u)
+Flying
+When Ethreain enters, tap target creature an opponent controls.
+Whenever a creature an opponent controls becomes tapped, put a stun counter on it.
+[i]“I number you among the dead.”[/i]
+2/5
+
+[b]Exorcism[/b] 3WB
+Legendary Sorcery (r)
+(You may cast a legendary sorcery only if you control a legendary creature.)
+Create five 1/1 white Spirit tokens with flying. Exile each opponent’s graveyard.
+[i]“Go, my sweet sisters, go!” — Krobelus, the Death Prophet[/i]
+
+
+[b]Fell Spirit[/b] WB
+Creature — Spirit  (c)
+Flying
+Whenever another creature enters under your control, you gain 1 life.
+When another creature you controls dies, each opponent loses 1 life. 
+2/2
+
+[b]Fiend’s Grip[/b] 2UB
+Enchantment — Aura  (r)
+Enchant creature
+Enchanted creature loses all abilities and can’t attack or block.
+At the beginning of the upkeep of enchanted creature’s controller, that player mills cards equal to that creature’s mana value. (To mill a card, a player puts the top card of their library into their graveyard.)
+[i]Victims of Atropos are frequently torn apart by vivid conjurations of their own nightmares.[/i]
+
+
+[b]Finger of Death[/b] XXBR
+Legendary Sorcery (m)
+(You may cast a legendary sorcery only if you control a legendary creature.)
+Finger of Death deals twice X damage to any target. If that target was a player, that player discards X cards.
+[i]“When you get to Hell, tell them I sent you.” — Lion, the Demon Witch[/i]
+
+
+[b]Firesnap Cookie[/b] RG
+Artifact — Food  (c)
+2, T, Sacrifice this artifact: You gain 3 life.
+When this artifact enters, it deals 1 damage to target creature you control.
+When this artifact is put into the graveyard from the battlefield, draw a card.
+[i]These battle biscuits pack a punch.[/i]
+
+
+[b]Gondar, the Bounty Hunter[/b] 2BG
+Legendary Creature — Beast Scout  (u)
+Menace (This creature can’t be blocked except by two or more creatures.)
+At the beginning of your upkeep, put a bounty counter on target creature you don’t control.
+Whenever a creature an opponent controls dies, create a treasure token for each counter that was on that creature. (It’s an artifact with “T, Sacrifice this token: Add one mana of any color.”)
+[i]“It was just business before. Now it’s personal.”[/i]
+3/4
+
+[b]Harbinger, the Outworld Destroyer [/b] 5UB
+Legendary Creature — Archon  (u)
+Delve (Each card you exile from your graveyard while casting this spell pays for 1.)
+Flying
+Whenever Harbinger deals combat damage to an opponent, return a noncreature, nonland card exiled with this creature to its owner’s hand.
+[i]“My wings beat with the rhythms of eternity.”[/i]
+5/4
+
+[b]Harpy Antiquarian[/b] UR
+Creature — Bird Artificer  (c)
+Whenever this creature attacks, look at the top card of your library. If it’s an artifact card, you may reveal it, then put it into your hand.
+[i]“Hmm, no smell of mold. I doubt this is as old as you say it is...”[/i]
+2/2
+
+[b]Heat Seeking Missiles[/b] 1UR
+Sorcery (u)
+Buyback 4 (You may pay an additional 2 as you cast this spell. If you do, put this card into your hand as it resolves.)
+Heat Seeking Missiles deals 2 damage divided as you choose among up to two targets.
+Draw a card.
+[i]“Initializing in… 3..2..1!” — Boush, the Tinker[/i]
+
+
+[b]Hill Troll Priest[/b] 1GW
+Creature — Troll Cleric  (c)
+Lifelink
+When this creature enters, you gain 3 life.
+1/4
+
+[b]Hoodwink[/b] 1GW
+Legendary Creature — Squirrel Ranger  (u)
+Vigilance, reach
+Whenever Hoodwink deals combat damage to an opponent, you may search your library for a basic land card, reveal it, put it into your hand, then shuffle.
+[i]“You ever hear the one about the tortoise and the hare and the squirrel that shot ‘em both?”[/i]
+3/3
+
+[b]Ice Golem[/b] 1WU
+Creature — Golem  (c)
+When this creature enters, tap target creature an opponent controls. You may put a stun counter on it.
+2/4
+
+[b]Ish'Kafel, the Dark Seer[/b] 3UB
+Legendary Creature — Elder Elemental  (u)
+When Ish’Kafel deals combat damage to an opponent, create a token copy of target creature that player controls.
+[i]“Your life, much like your head, lacked a point.”[/i]
+1/5
+
+[b]Jah'rakal, the Troll Warlord[/b] RG
+Legendary Creature — Troll Warrior  (r)
+Haste
+Whenever Jah’rakal attacks, put a +1/+1 counter on it. 
+When Jah’raka’s power is 5 or greater, transform it.
+[i]“All hail the Lord of Trolls.”[/i]
+2/2
+
+[b]Jakiro, the Twin Head Dragon[/b] 3UR
+Legendary Creature — Dragon  (r)
+Flying, haste
+Whenever Jakiro attacks, it deals 2 damage divided as you choose among up to two targets.
+Whenever Jakiro attacks, tap up to one target permanent. 
+[i]“Tis an honor to die by dragons.”[/i]
+3/3
+
+[b]Kaldr, the Ancient Apparition[/b] WU
+Legendary Creature — Elder Elemental  (u)
+Flying
+At the beginning of each opponent’s end step, you may put a stun counter on up to one target tapped creature they control.
+[i]“One day, ice will cover these lands, and it will be as if this war never happened.”[/i]
+1/2
+
+[b]Kanna, the Mistblade[/b] BR
+Legendary Creature — Elemental Priest  (u)
+Menace
+When Kanna deals combat damage to a player, create a 1/1 red and black Elemental creature token named Dire Creep.
+B/R, Discard a card: Populate (Create a token that’s a copy of a creature token you control.)
+3/2
+
+[b]Kardel Sharpeye, the Sniper[/b] RW
+Legendary Creature — Gnome Scout  (u)
+First strike, vigilance
+T: Kardel deals 1 damage to target creature.
+[i]“As long as there are two heroes left on the battlefield, someone is gonna want someone dead.”[/i]
+3/1
+
+[b]Karroch, the Beastmaster[/b] 4GW
+Legendary Creature — Human Warrior  (u)
+When Karroch enters, create a 2/2 green Boar creature token with wither and a 1/1 white Hawk creature token with flying.
+Creature tokens you control have first strike.
+[i]“Welcome to the food chain.”[/i]
+4/4
+
+[b]Keenfolk Golem[/b] 5UR
+Artifact Creature — Golem  (c)
+Affinity for artifacts (This spell costs 1 less to cast for each artifact you control)
+When Keenfolk Golem enters, you may return target noncreature card from your graveyard to hand.
+5/5
+
+[b]Kraken Shell[/b] 1GU
+Enchantment — Aura  (r)
+Enchant creature
+Enchanted creature has hexproof. (This creature can’t be the target of spells of abilities your opponents control.)
+Prevent all combat damage that would be dealt to enchanted creature. 
+[i]Claddish navymen tell tales of a mighty sea-faring beast that suffered spear and sword but continued to lay waste to the fleet.[/i]
+
+
+[b]Krobelus, the Death Prophet[/b] 3WB
+Legendary Creature — Spirit Cleric  (r)
+Flying
+Whenever a nontoken creature you control dies, create a 1/1 white Spirit creature token with flying.
+Whenever a token creature you control dies, each opponent loses 1 life and you gain 1 life.
+[i]“What I’ve seen goes far beyond death.”[/i]
+4/4
+
+[b]Largo[/b] 2GUR
+Legendary Creature — Frog Bard  (m)
+Play with the top card of your library revealed.
+As long as the revealed card is blue or an Island, creatures you control have hexproof and flying.
+As long as the revealed card is red or a Mountain, creatures you control have first strike and haste.
+As long as the revealed card is green or a Forest, creatures you control get +2/+2 and have trample.
+[i]“Hoo easy, mate. I’m gonna write a killer song about this.”[/i]
+4/6
+
+[b]Leviathan, the Tidehunter[/b] 5GU
+Legendary Creature — Leviathan Warrior  (r)
+Trample
+When Leviathan enters or attacks, put a flood counter on target land. That land is an Island in addition to its other types for as long as it has a flood counter on it.
+Whenever Leviathan deals combat damage to an opponent, untap all lands you control with flood counters on them.
+[i]“I’m hungry enough to eat a manta ray.”[/i]
+8/8
+
+[b]Lion, the Demon Witch[/b] 1BR
+Legendary Creature — Demon Wizard  (u)
+T: Exile the top card of your library. You may play that card for as long as Lion remains tapped.
+When Lion dies, add BR.
+[i]“I’ve been to Hell and back, and back to Hell…and back.”[/i]
+2/2
+
+[b]Lucifer, the Doom[/b] 4BR
+Legendary Creature — Avatar Demon  (r)
+Devour 1 (As this enters, you may sacrifice any number of creatures. This creature enters with that many +1/+1 counters on it.)
+If a nonlegendary creature would die, exile it with a void counter on it instead.
+Lucifer has all abilities of creatures exiled with void counters on them.
+[i]“I am the midnight of your soul.”[/i]
+6/6
+
+[b]Lyralei, the Windranger[/b] 2GWU
+Legendary Creature — Human Ranger  (m)
+Flash (You may cast this spell any time you may cast an instant.)
+Vigilance, reach
+Whenever you cast your second spell during an opponents turn, draw a card and gain 1 life.
+[i]“If you weren’t so damned dead, I’d shoot you again.”[/i]
+4/4
+
+[b]Magebane Mirror[/b] WU
+Instant (c)
+Counter target spell or ability that targets a creature you control. If a spell or ability is countered this way, copy it. You may choose new targets for the copy.
+Draw a card.
+[i]With the proper focus, Anti-Mage turns innate resistance into calculated retaliation.[/i]
+
+
+[b]Mangix, the Brewmaster[/b] 2GU
+Legendary Creature — Bear Monk  (u)
+Trample
+Whenever you cast your second spell in a turn, transform this creature.
+[i]“Drink and be bleary, for tomorrow we die!”[/i]
+4/4
+
+[b]Marci[/b] 1RW
+Legendary Creature — Human Warrior  (u)
+Soulbond (You may pair this creature with another unpaired creature when either enters. They remain paired for as long as you control both of them.)
+As long as Marci is paired with another creature, both creatures get +1/+1 and have lifelink.
+[i]Marci learned at a young age that the best asset in a scrap is a steady companion.[/i]
+3/3
+
+[b]Medusa, the Gorgon[/b] 4BG
+Legendary Creature — Gorgon  (u)
+Vigilance, reach
+Whenever a creature deals combat damage to Medusa, put a defender counter on it. 
+[i]“Never come between a Gorgon and her sisters”[/i]
+4/8
+
+[b]Mirana of Nightsilver[/b] UB
+Legendary Creature — Human Ranger  (u)
+Daybound (If a player casts no spells during their own turn, it becomes night next turn. As it becomes night, transform this permanent.)
+When Mirana enters or transforms, draw a card, then discard a card.
+[i]“The stars are in alignment, and our victory is certain.”[/i]
+2/3
+
+[b]Mirror Image[/b] XGU
+Legendary Sorcery (m)
+(You may cast a legendary sorcery only if you control a legendary creature.)
+Create X tokens that are copies of target creature you control, except they aren’t legendary if that creature is legendary.
+[i]“Oh, look, it’s me.” — Slithice, the Naga Siren[/i]
+
+
+[b]Mistblade’s Intervention[/b] 1BR
+Instant (u)
+Target creature you control gets +2/+0 until end of turn.
+Target creature you don’t control gets -2/-2 until end of turn.
+
+
+[b]Moon Shard[/b] 1UB
+Legendary Artifact — Equipment  (u)
+Equipped creature gets +1/+1 and has “At the beginning of your combat step, it becomes night”.
+Equip 1U/B
+[i]Said to be a tear from the lunar goddess Selemene. [/i]
+
+
+[b]Mortred, the Phantom Assassin[/b] 1WB
+Legendary Creature — Spirit Assassin  (u)
+Hexproof, menace
+Whenever you attack, target legendary creature you control gains first strike and deathtouch until end of turn.
+[i]“Even in death, you’ll not see beyond the Phantom Veil.”[/i]
+2/1
+
+[b]Nerif, the Oracle[/b] UB
+Legendary Creature — Vedalken Cleric  (u)
+Flying
+At the beginning of your upkeep, surveil 2. (Look at the top two cards of your library. Put any number of them into your graveyard and the rest on top in any order.)
+Whenever you surveil, each opponent mills that many cards.”
+[i]“Like a promise, you were made to be broken.”[/i]
+2/2
+
+[b]Nether Strike[/b] 4GU
+Instant (r)
+Cascade, cascade (When you cast this spell, exile cards from the top of your library until you exile a nonland card that costs less. You may cast it without paying its mana cost if the resulting spell’s mana value is less than this spell’s mana value. Put the exiled cards on the bottom in a random order.)
+Target creature you control fights target creature you don’t control.
+[i]Barathrum’s unyielding focus forms a pocket of planar convergence from which not even the most powerful arcane energies can escape.[/i]
+
+
+[b]Nevermore, the Shadow Fiend[/b] BR
+Legendary Creature — Demon Archon  (u)
+Whenever a creature dies, put a +1/+1 counter on Nevermore.
+When Nevermore dies, it deals damage equal to its power to each opponent.
+[i]“I’ll leave you a couple pennies for your eyes.”[/i]
+1/1
+
+[b]Nortrom, the Silencer[/b] 4WB
+Legendary Creature — Human Advisor  (u)
+Vigilance 
+Whenever an opponent casts their first noncreature spell each turn, that player loses 3 life and you gain 3 life.
+[i]“Shhh!”[/i]
+5/4
+
+[b]Noxious Plague[/b] 2BG
+Legendary Sorcery (r)
+(You may cast a legendary sorcery only if you control a legendary creature.)
+Distribute X -1/-1 counters among any number of target creatures, where X is the number of creatures on the battlefield.
+[i]“Keep your enemies close, and your antidotes closer.” — Lesale Deathbringer, the Venomancer[/i]
+
+
+[b]Nyx Assassin[/b] 2UB
+Legendary Creature — Insect Assassin  (u)
+Skulk (This creature can’t be blocked by creatures with greater power.)
+Whenever Nyx Assassin deals damage to a player, they mill a card and lose 1 life for each card in their hand. (To mill a card, a player puts the top card of their library into their graveyard.)
+[i]“Your thoughts betray you.”[/i]
+1/4
+
+[b]Prellex, the Radiant[/b] GW
+Legendary Creature — Elemental Cleric  (u)
+Lifelink
+When Prellex enters, create a 1/1 white and green Elemental creature token named Radiant Creep.
+G/W, T: Populate. (Create a token that’s a copy of a creature token you control.)
+2/3
+
+[b]Primal Beast[/b] 4RG
+Legendary Creature — Dinosaur Beast  (u)
+Trample, haste
+Enrage — Whenever Primal Beast is dealt damage, it fights target creature you don’t control.
+[i]The Beast’s single-minded focus on chosen prey leaves all other considerations scattered in his ruinous wake.[/i]
+5/5
+
+[b]Puck, the Faerie Dragon[/b] 1WU
+Legendary Creature — Faerie Dragon  (u)
+Flying
+W/U: Puck phases out. (While it’s phased out, it’s treated as though it doesn’t exist. It phases in before its controller untaps during their next untap step.)
+[i]“Stay and amuse me!”[/i]
+3/2
+
+[b]Radiance[/b] 1RWW
+Legendary Artifact (r)
+Whenever a creature enters the battlefield under an opponent’s control, equipped creature deals 1 damage to that creature and that creature becomes tapped.
+[i]A divine weapon that causes damage and a bright burning effect that lays waste to nearby enemies. [/i]
+
+
+[b]Raigor Stonehoof, the Earthshaker [/b] 3RG
+Legendary Creature — Beast Warrior  (r)
+Trample
+Whenever Raigor Stonehoof attacks, it gets +X/+0 until end of turn, where X is its power.
+If a creature you control would deal excess combat damage to a player, it deals twice that much damage instead.
+[i]“There may be many earths, but there’s only one Earthshaker.”[/i]
+3/3
+
+[b]Raijin, the Storm Spirit [/b] 4UR
+Legendary Creature — Spirit Wizard  (r)
+Haste
+When Raijin enters, create a 2/2 blue and red Elemental Spirit creature token with haste named Static Remnant for each spell you’ve cast this turn.
+[i]“Told you a storm was coming!”[/i]
+2/2
+
+[b]Rally the Radiant[/b] 3GW
+Sorcery (r)
+Put a +1/+1 counter on each creature you control. Draw a card for each nonlegendary creature you control.
+
+
+[b]Rattletrap, the Clockwerk[/b] 2RW
+Legendary Creature — Gnome Artificer  (u)
+Vigilance
+If a modified creature you control would deal damage to an opponent or a permanent an opponent controls, it deals that much damage plus 2 instead. (Equipment, Auras you control, and counters are modifications.)
+[i]“I’ve a mind like a steel trap, and the physique to go with it!”[/i]
+2/4
+
+[b]Razzil Darkbrew, the Alchemist[/b] UR
+Legendary Creature — Gnome Ogre Warlock  (u)
+When Razzil enters, create a Treasure token.
+2UR: Monstrosity 2. (f this creature isn’t monstrous, put 2 +1/+1 counters on it and it becomes monstrous.)
+When Razzil becomes monstrous, it gains double strike until end of turn.
+[i]“Easy now, this stuff is explosive!”[/i]
+2/2
+
+[b]Riki, the Stealth Assassin[/b] 1UB
+Legendary Creature — Satyr Rogue  (u)
+Hexproof (This creature can’t be the target of spells of abilities your opponents control.)
+Riki can’t be blocked.
+Whenever Riki deals combat damage to a player, they may mill three cards. If they don’t, you draw a card.
+[i]“I speak softly, but carry a sharp knife.”[/i]
+3/1
+
+[b]Rix, Oathbound[/b] 2RGW
+Legendary Creature — Vhoul Warrior  (m)
+Whenever you attack with a legendary creature, you may put a nonlegendary creature from your hand on to the battlefield tapped and attacking.
+3: Rix gains +1/+1 for each creature you control.
+1/2
+
+[b]Rix, Rebellion Leader[/b] 1GW
+Legendary Creature — Racooon Warrior  (u)
+When this creature enters, put a +1/+1 counter on each other nonlegendary creature you control.
+[i]Under fire, outnumbered, and surrounded, Rix never gave up hope.[/i]
+2/2
+
+[b]Rizzrack, the Timbersaw[/b] 1RG
+Legendary Creature — Gnome Pilot  (u)
+Rizzrack gets +1/+1 for each land card in your graveyard.
+T, Sacrifice a land: Add three mana in any combination of R and/or G.
+[i]“I cut you, and I split you, and I killed you! Ha ha ha ha ha ha!”[/i]
+3/3
+
+[b]Roshan b[/b] BRG
+Battle — Raid   (m)
+When Roshan, the Immortal enters, any number of target creatures you control each deal damage equal to their power to target creature you don’t control.
+[i]Roshan’s punishment for killing a shopkeeper is to be slain and reborn for an eternity by the Radiant and Dire alike.[/i]
+
+
+[b]Roshan, the Immortal[/b] BRG
+Battle — Raid   (m)
+When Roshan, the Immortal enters, any number of target creatures you control each deal damage equal to their power to target creature you don’t control.
+[i]Roshan’s punishment for killing a shopkeeper is to be slain and reborn for an eternity by the Radiant and Dire alike.[/i]
+
+
+[b]Roshefort Cheese[/b] GW
+ Legendary Artifact — Food  (u)
+2, T, Sacrifice this artifact: You gain 3 life.
+6, T, Sacrifice this artifact: Your life total becomes equal to your starting life total.
+[i]Made from the milk of a long lost Furbolg vendor, it’s anyone’s guess how Roshan acquired it.[/i]
+
+
+[b]Rotund'jere, Necrophos[/b] 3WBG
+Legendary Creature — Zombie Warlock  (r)
+Opponents can’t gain life. 
+Whenever another creature dies, each opponent loses 1 life and you gain 1 life.
+At the beginning of your end step, put a -1/-1 counter on each creature you don’t control.
+[i]“You become feast for the flesh flies.”[/i]
+3/5
+
+[b]Rylai, the Crystal Maiden[/b] WU
+Legendary Creature — Human Wizard  (u)
+When Rylai enters, tap up to one target creature an opponent controls. You may put a stun counter on it.  (If a permanent with a stun counter would become untapped, remove one from it instead.)
+Instant and sorcery spells you cast cost 1 less to cast.
+[i]“Guess you didn’t know a little game of freeze tag could turn lethal.”[/i]
+1/3
+
+[b]Satyr Mindstealer[/b] 1UB
+Creature — Satyr Wizard  (c)
+T: Each player mills two cards. (To mill two cards, a player puts the top two cards of their library into their graveyard.)
+5 U/B, Exile this creature: Exile target instant or sorcery card from a graveyard. You may cast that card without paying its mana cost. Activate only as a sorcery.
+1/3
+
+[b]Skitskurr, the Weaver[/b] 3WU
+Legendary Creature — Insect  (r)
+Skulk (This creature can’t be blocked by creatures with greater power.)
+Whenever Skitskurr deals combat damage to a player, take an extra turn after this one.
+Skitskurr can’t attack during extra turns.
+[i]“To the loom with you, to be rewoven.”[/i]
+1/3
+
+[b]Thundergod’s Wrath[/b] 5UR
+Legendary Sorcery (r)
+(You may cast a legendary sorcery only if you control a legendary creature.)
+Exile the top ten cards of your library. You may cast any number of instant or sorcery cards from among the exiled cards without paying their mana costs.
+[i]“You can’t run from heaven.” — Zeus, the Lord of Heaven[/i]
+
+
+[b]Timber Chain[/b] RG
+Sorcery (u)
+As an additional cost to cast this spell, sacrifice a Forest. 
+Add three mana in any combination of R and/or G. Timber Chain deals 3 damage divided as you choose among any number of targets.
+[i]“I’m not a lumberjack. This. This is personal. — Rizzrack, the Timbersaw[/i]
+
+
+[b]Traxex, the Drow Ranger[/b] 2WB
+Legendary Creature — Elf Ranger  (u)
+Vigilance
+Whenever Traxex deals damage to an opponent, spells that player casts cost 1 more to cast during that player’s next turn.
+[i]“I’ll cut a notch with your name on it!”[/i]
+4/4
+
+[b]Undying, the Almighty Dirge[/b] 3BG
+Legendary Creature — Zombie Warrior  (m)
+Undying (When this creature dies, if it had no +1/+1 counters on it, return it to the battlefield under its owner’s control with a +1/+1 counter on it.)
+At the beginning of each player’s upkeep, that player discards a card.
+Whenever a creature card is put into a graveyard from anywhere, create a 2/2 black Zombie creature token.
+[i]“I bring the song of death.”[/i]
+3/3
+
+[b]Unleash[/b] XXRW
+Legendary Sorcery (m)
+(You may cast a legendary sorcery only if you control a legendary creature.)
+Target legendary creature you control gains vigilance and double strike until end of turn.
+After this main phase, there are X additional combat phases followed by an additional main phase.
+[i]Not many understand Marci’s whistles, but everyone knows which whistle means its time to turn and run.[/i]
+
+
+[b]Urn of Shadows[/b] BG
+Artifact (u)
+When a creature an opponent controls dies, put a charge counter on this artifact.
+Remove a charge counter from this artifact: Put your choice of a -1/-1 counter or a +1/+1 counter on target creature.
+[i]Contains the ashes of powerful demons—invigorating to some, and deadly to most.[/i]
+
+
+[b]Viper, the Netherdrake[/b] 2BG
+Legendary Creature — Dragon  (u)
+Flying
+Infect (This creature deals damage to creatures in the form of -1/-1 counters and to players in the form of poison counters.)
+Whenever Viper deals combat damage to a player, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)
+[i]“Burns…doesn’t it?”[/i]
+2/4
+
+[b]Visage, the Form of Necro'lic[/b] 2WBG
+Legendary Creature — Spirit Gargoyle  (r)
+Flying, vigilance
+Visage enters with six +1/+1 counters on it.
+If damage would be dealt to Visage while it has a +1/+1 counter on it, prevent that damage and remove a +1/+1 counter from it.
+Whenever one or more +1/+1 counters are removed from Visage, create that many 1/1 white Spirit creature tokens with flying.
+[i]“I perceive beyond this realm.”[/i]
+0/0
+
+[b]Walrus PUNCH![/b] GW
+Instant (u)
+Exile target blocking creature. Creatures that were blocked by that creature this combat gain trample until end of turn.
+[i]It never matters who throws the first punch, only who throws the last.[/i]
+
+
+[b]Warpine Raider[/b] GU
+Creature — Elemental  (c)
+When this creature enters, search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.
+1/1
+
+[b]Wildwing Ripper[/b] 2RW
+Creature — Bird  (c)
+Flying, haste
+When this creature enters, another target creature you control gets +1/+0 and gains flying until end of turn.
+3/3
+
+[b]Wukong, the Monkey King[/b] 2GU
+Legendary Creature — Ape Warrior  (u)
+Vigilance
+Whenever you cast your second spell in a turn, create a 3/3 green Ape creature token with vigilance. 
+[i]“My next great challenge will be your last.”[/i]
+3/3
+
+[b]Ymir, the Tusk[/b] 2WU
+Legendary Creature — Beast Warrior  (u)
+Flash (You may cast this spell any time you could cast an instant.)
+When Ymir, the Tusk enters, exile up to one other target creature. Return that card to the battlefield under its owner’s control at the beginning of that player’s next end step.
+[i]“I say we should trade blows!”[/i]
+4/4
+
+[b]Zharvakko, the Witch Doctor[/b] BGU
+Legendary Creature — Troll Cleric  (m)
+At the beginning of your upkeep, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)
+T, Remove any number of counters from target permanent or player: Draw that many cards and gain that much life.
+[i]“Malpractice makes perfect.”[/i]
+1/3
+
+[b]Apotheosis Blade[/b] 2B/R
+Artifact — Equipment  (u)
+When equipped creature attacks, it deals 1 damage to target creature defending player controls.
+Equipped creature gets +1/+1.
+Equip 1B/R
+[i]“I stoke the furnace with your corpse.” — Lucifer, the Doom[/i]
+
+
+[b]Darkterror, the Faceless Void[/b] U/BU/B
+Legendary Creature — Avatar Warrior  (r)
+U/B: Exile Darkterror with a time counter on it. If it doesn’t have suspend, it gains suspend.
+Whenever Darkterror enters, draw a card. Then, exile a nonland card from your hand with X time counters on it, where X is that card’s mana value. If that card doesn’t have suspend, it gains suspend.
+[i]“Time is a river with many eddies. I have seen its head waters, and I have seen its currents reach the sea.”[/i]
+3/2
+
+[b]Davion, the Dragon Knight[/b] R/W
+Legendary Creature — Human  (r)
+R/W: Davion becomes a Human Knight with base power and toughness 2/2.
+R/WR/WR/W: If Davion is a Knight, it becomes a Human Dragon Knight with base power and toughness 4/4 and first strike.
+R/WR/WR/WR/WR/WR/W: If Davion is a Dragon, it becomes an Elder Dragon Knight with base power and toughness 8/8, flying, and first strike.
+[i]“The dragon Slyrak sleeps within this armor, and the knight within the Dragon waits. Beware you do not wake them both.”[/i]
+1/1
+
+[b]Dire Creep[/b] B/R
+Creature — Elemental  (c)
+Evolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)
+1/2
+
+[b]Dire Mega Creep[/b] 5B/R
+Creature — Elemental  (c)
+Trample
+When this creature enters, it deals 3 damage to each opponent.
+Basic landcycling 2 (2, Discard this card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.)
+5/5
+
+[b]Dire Siege Wagon[/b] 1B/RB/R
+Artifact Creature — Construct  (c)
+Defender (This creature can’t attack.)
+Evolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)
+T, Sacrifice this creature: Destroy target artifact.
+[i]A lone Dire siege engine has been known to single-handedly topple an unguarded Radiant Tower.[/i]
+1/4
+
+[b]Dire Super Creep[/b] 3B/R
+Creature — Elemental  (c)
+Menace
+Evolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)
+3/3
+
+[b]Dire Tower[/b] 3B/RB/R
+Artifact Creature — Wall  (u)
+Defender (This creature can’t attack.)
+Creatures can’t attack you unless their controller pays 2 for each creature they control that’s attacking you.
+Whenever a creature attacks you, its controller loses 1 life.
+[i]If the mere appearance of the Dire Tower isn’t dissuading enough on its own, there are always the cannons.[/i]
+1/6
+
+[b]Kanna’s Hound[/b] 2R/G
+Creature — Elemental Dog  (c)
+Enrage — When this creature is dealt damage, put two +1/+1 counters on it.
+[i]As fiery as her master.[/i]
+2/3
+
+[b]Lesale Deathbringer, the Venomancer [/b] B/GB/G
+Legendary Creature — Snake  (u)
+Infect (This creature deals damage to creatures in the form of -1/-1 counters and to players in the form of poison counters.)
+Whenever a creature an opponent controls dies, if its toughness was less than 1, create a 1/1 green and black Insect creature token with Infect.
+[i]“Have I tainted the well of our discourse?”[/i]
+2/2
+
+[b]Phase Boots[/b] W/UW/U
+Artifact — Equipment  (c)
+Equipped creature gets +1/+0 and has haste.
+W/U: Equipped creature phases out. (While it’s phased out, it’s treated as though it doesn’t exist. It phases in before its controller untaps during their next untap step.)
+Equip 1
+[i]Boots that allow the wearer to travel between the ether. [/i]
+
+
+[b]Radiant Creep[/b] G/W
+Creature — Elemental Warrior  (c)
+Evolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)
+1/2
+
+[b]Radiant Flagbearer[/b] 2G/W
+Creature — Elemental  (c)
+Other Elemental creatures you control get +1/+1.
+Whenever another elemental you control enters, put a +1/+1 counter on this creature.
+2/2
+
+[b]Radiant Mega Creep[/b] 5G/W
+Creature — Elemental Warrior  (c)
+Trample
+When this creature enters, put a +1/+1 counter on it for each creature you control.
+Basic landcycling 2 (2, Discard this card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.)
+5/5
+
+[b]Radiant Siege Wagon[/b] 1G/WG/W
+Artifact Creature — Construct  (c)
+Defender (This creature can’t attack.)
+Evolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)
+T, Sacrifice this creature: Destroy target artifact.
+[i]A Radiant Siege Engine has been known to singlehandedly topple an unguarded Dire Tower.[/i]
+1/4
+
+[b]Radiant Super Creep[/b] 3G/W
+Creature — Elemental Warrior  (c)
+Vigilance
+Evolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)
+3/3
+
+[b]Radiant Tower[/b] 3G/WG/W
+Artifact Creature — Wall  (u)
+Defender (This creature can’t attack.)
+Creatures can’t attack you unless their controller pays 2 for each creature they control that’s attacking you.
+Whenever a creature attacks you, you gain 1 life.
+[i]The light emitting from the Radiant Tower draws its creeps ever forward.[/i]
+1/6
+
+[b]Razor, the Lightning Revenant[/b] 1U/RU/R
+Legendary Creature — Elemental Warrior  (u)
+Flying, haste
+Whenever Razor attacks, exchange its power with target creature’s power until end of turn.
+[i]“I bring my lightning whip not to punish souls, but only to hasten them toward the inevitable exit.”[/i]
+0/4
+
+[b]Ristul Tresspasser[/b] 1W/B
+Creature — Demon Rogue  (c)
+Skulk, deathtouch 
+1/3
+
+[b]Roseleaf Elder[/b] 1G/U
+Creature — Treefolk  (c)
+The second spell you cast each turn costs 2 less to cast.
+1/1
+
+[b]Slark, the Nightcrawler[/b] 1B/GB/G
+Legendary Creature — Naga Rogue  (r)
+Wither (This deals damage to creatures in the form of -1/-1 counters.)
+Whenever Slark deals combat damage, put that many +1/+1 counters on it.
+B/G: Regenerate Slark.  (The next time this creature would be destroyed this turn, it isn’t. Instead tap it, remove all damage from it, and remove it from combat.)
+[i]“If I’d known I’d end up here, I’d have stayed in Dark Reef Prison.”[/i]
+1/2
+
+[b]Zet, the Arc Warden[/b] 3W/U
+Legendary Creature — Avatar Soldier  (r)
+When Zet enters, create a 2/2 blue Illusion creature token named Tempest Double.
+At the beginning of your end step, modify target Illusion you control. (To modify a creature, attach an Aura you control to it, attach an Equipment you control to it, or move any number of counters from another permanent you control onto it.)
+[i]“Matter has been split from its intended form. These must be made to unite.”[/i]
+4/4
+
+[b]Zeus, the Lord of Heaven[/b] 3U/RU/R
+Legendary Creature — God Wizard  (r)
+Prowess
+Whenever you cast your an instant or sorcery spell for the first time each turn, add UR.
+XXUR: Zeus deals X damage to any target. Draw X cards.
+[i]“For this I gave up immortality?”[/i]
+3/3
+
+[b]Aghanim’s Sceptre[/b] 7
+Legendary Artifact (m)
+T: Add WUBRG. Spend this mana only to cast legendary spells.
+Whenever you cast a legendary spell, you may draw a card.
+[i]The scepter of a wizard with demigod-like powers. [/i]
+
+
+[b]Blade Mail[/b] 3
+Artifact — Equipment  (c)
+Whenever equipped creature is dealt damage by a source an opponent controls, this Equipment deals that much damage to that source. 
+Equip creature 1
+[i]A razor-sharp coat of mail, it is the choice of selfless martyrs in combat. [/i]
+
+
+[b]Boots of Speed[/b] 1
+Artifact — Equipment  (c)
+Equipped creature has haste.
+Equip 0
+[i]Fleet footwear, increasing movement. [/i]
+
+
+[b]Dust of Appearance[/b] 0
+Artifact (c)
+T, Sacrifice this artifact: Until end of turn, creatures your opponents control lose hexproof and shroud and can’t have hexproof and shroud. Ward abilities of those creatures don’t trigger. Draw a card at the beginning of the next turn’s upkeep.
+[i]One may hide visage, but never volume. [/i]
+
+
+[b]Hand of Midas[/b] 2
+Legendary Artifact (c)
+T, Sacrifice Hand of Midas: Sacrifice a nonlegendary creature. Create X Treasure tokens, where X is the sacrificed creature’s mana value.
+[i]Preserved through unknown magical means, the Hand of Midas is a weapon of greed, sacrificing animals to line the owner’s pockets. [/i]
+
+
+[b]Observer Ward[/b] 2
+Artifact (c)
+T: Surveil 1. (Look at the top card of your library. You may put it into your graveyard.)
+T: Add C.
+[i]A form of half-sentient plant, often cultivated by apprentice wizards. [/i]
+
+
+[b]Sentry Ward[/b] 2
+Artifact (c)
+Creatures your opponents control lose hexproof and shroud and can’t have hexproof and shroud. Ward abilities of those creatures don’t trigger.
+T: Add C.
+[i]A form of plant originally grown in the garden of a fearful king. [/i]
+
+
+[b]Smoke of Deceit[/b] 0
+Artifact (c)
+T, Sacrifice this artifact: Target creature can’t be blocked this turn. Draw a card at the beginning of the next turn’s upkeep.
+[i]The charlatan wizard Myrddin’s only true contribution to the arcane arts. [/i]
+
+
+[b]Tormentor b[/b] 1
+Battle — Raid  (r)
+When Tormentor enters, it deals 4 damage divided randomly among creatures you control.
+[i]Innocuous as first, the Divine Sentinel lashes out at anyone who dares draw near.[/i]
+
+
+[b]Town Portal Scroll[/b] 1
+Artifact (c)
+T, 2, Sacrifice this artifact: Search your library for a basic land card. Put it on to the battlefield tapped.
+T, 4, Sacrifice Town Portal Scroll: Return target creature you control to its owner’s hand.
+[i]What a hero truly needs. [/i]
+
+
+[b]Aghanim’s Sanctum[/b] 
+Legendary Land (c)
+T, Sacrifice this land: Search your library for a basic Island or basic Mountain card, put it onto the battlefield, then shuffle.
+Cycling UR (Discard this card and pay UR to draw a card.
+
+
+[b]Cathedral of Rumusque[/b] 
+Legendary Land (c)
+T, Sacrifice this land: Search your library for a basic Swamp or basic Plains card, put it onto the battlefield, then shuffle.
+Cycling WB (Discard this card and pay WB to draw a card.
+[i]Within its marble, Grand Priestess Crella forged the Chains of Abscession to bind the servants of the Dead God.[/i]
+
+
+[b]Dire Fountain[/b] 
+Legendary Land (c)
+T, Sacrifice this land: Search your library for a basic Swamp or basic Mountain card, put it onto the battlefield, then shuffle.
+Cycling BR (Discard this card and pay BG to draw a card.
+[i]A fiery smoke spews from its Ancient, choking the air .[/i]
+
+
+[b]Icewrack[/b] 
+Legendary Land (c)
+T, Sacrifice this land: Search your library for a basic Plains or basic Island card, put it onto the battlefield, then shuffle.
+Cycling WU (Discard this card and pay WU to draw a card.
+[i]“You move like a Blueheart Glacier!” — Rylai, the Crystal Maiden.[/i]
+
+
+[b]Radiant Fountain[/b] 
+Legendary Land (c)
+T, Sacrifice this land: Search your library for a basic Forest or basic Plains card, put it onto the battlefield, then shuffle.
+Cycling GW (Discard this card and pay GW to draw a card.
+[i]Any encroaching darkness is quickly is purified with a brilliant, bright light.[/i]
+
+
+[b]Reef’s Edge[/b] 
+Legendary Land (c)
+T, Sacrifice this land: Search your library for a basic Forest or basic Island card, put it onto the battlefield, then shuffle.
+Cycling GU (Discard this card and pay GU to draw a card.
+[i]“And they said Dark Reef prison was inescapable. Well, it was.” — Slark, the Nightcrawler[/i]
+
+
+[b]Roshan’s Pit[/b] 
+Legendary Land (r)
+T: Add C.
+T: Add one mana of any color to your mana pool. Spend this mana only on legendary creatures.
+T, 5, Sacrifice this land: Target legendary creature you control fights target creature you don’t control. Activate only as a sorcery.
+[i]The depths of Roshan’s lair are unable to dampen the resounding quake of his emergence.[/i]
+
+
+[b]Shrine of Elune[/b] 
+Legendary Land (c)
+T, Sacrifice this land: Search your library for a basic Swamp or basic Island card, put it onto the battlefield, then shuffle.
+Cycling UB (Discard this card and pay UB to draw a card.
+[i]The Moon Goddess is said to reveal herself at her shrine during a full moon.[/i]
+
+
+[b]Stonehall[/b] 
+Legendary Land (c)
+T, Sacrifice this land: Search your library for a basic Plains or basic Mountain card, put it onto the battlefield, then shuffle.
+Cycling RW (Discard this card and pay RW to draw a card.
+[i]Vrogos’ forces wreaked unfathomed destruction on Stonehall, its scars now testament to its enduring courage.[/i]
+
+
+[b]Thorny Wastes[/b] 
+Legendary Land (c)
+T, Sacrifice this land: Search your library for a basic Swamp or basic Forest card, put it onto the battlefield, then shuffle.
+Cycling BG (Discard this card and pay BG to draw a card.
+[i]The home of Black Arachnia, few dare enter her domain.[/i]
+
+
+[b]Vale of Augury[/b] 
+Legendary Land (c)
+T, Sacrifice this land: Search your library for a basic Forest or basic Mountain card, put it onto the battlefield, then shuffle.
+Cycling RG (Discard this card and pay RG to draw a card.
+[i]Rooftrellen and the Entish live in the mountains beyond the Vale, where the eldritch soil keeps them nourished.[/i]
+
+
