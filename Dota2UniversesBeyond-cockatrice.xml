@@ -6100,5 +6100,75 @@ Equip {W}</text>
    <set rarity="common" num="0339" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Rebel%20Shortsword.png">DUB</set>
    <tablerow>1</tablerow>
   </card>
+   <card>
+   <name>Plains</name>
+   <text>({T}: Add {W}.)</text>
+   <prop>
+   <layout>normal</layout>
+   <side>front</side>
+   <type>Basic Land — Plains</type>
+   <maintype>Land</maintype>
+   <cmc>0</cmc>
+   <coloridentity>W</coloridentity>
+   </prop>
+   <set rarity="basic land" num="0340" picurl="https://api.scryfall.com/cards/named?exact=Plains&amp;format=image">DUB</set>
+   <tablerow>0</tablerow>
+  </card>
+  <card>
+   <name>Island</name>
+   <text>({T}: Add {U}.)</text>
+   <prop>
+   <layout>normal</layout>
+   <side>front</side>
+   <type>Basic Land — Island</type>
+   <maintype>Land</maintype>
+   <cmc>0</cmc>
+   <coloridentity>U</coloridentity>
+   </prop>
+   <set rarity="basic land" num="0341" picurl="https://api.scryfall.com/cards/named?exact=Island&amp;format=image">DUB</set>
+   <tablerow>0</tablerow>
+  </card>
+  <card>
+   <name>Swamp</name>
+   <text>({T}: Add {B}.)</text>
+   <prop>
+   <layout>normal</layout>
+   <side>front</side>
+   <type>Basic Land — Swamp</type>
+   <maintype>Land</maintype>
+   <cmc>0</cmc>
+   <coloridentity>B</coloridentity>
+   </prop>
+   <set rarity="basic land" num="0342" picurl="https://api.scryfall.com/cards/named?exact=Swamp&amp;format=image">DUB</set>
+   <tablerow>0</tablerow>
+  </card>
+  <card>
+   <name>Mountain</name>
+   <text>({T}: Add {R}.)</text>
+   <prop>
+   <layout>normal</layout>
+   <side>front</side>
+   <type>Basic Land — Mountain</type>
+   <maintype>Land</maintype>
+   <cmc>0</cmc>
+   <coloridentity>R</coloridentity>
+   </prop>
+   <set rarity="basic land" num="0343" picurl="https://api.scryfall.com/cards/named?exact=Mountain&amp;format=image">DUB</set>
+   <tablerow>0</tablerow>
+  </card>
+  <card>
+   <name>Forest</name>
+   <text>({T}: Add {G}.)</text>
+   <prop>
+   <layout>normal</layout>
+   <side>front</side>
+   <type>Basic Land — Forest</type>
+   <maintype>Land</maintype>
+   <cmc>0</cmc>
+   <coloridentity>G</coloridentity>
+   </prop>
+   <set rarity="basic land" num="0344" picurl="https://api.scryfall.com/cards/named?exact=Forest&amp;format=image">DUB</set>
+   <tablerow>0</tablerow>
+  </card>
  </cards>
 </cockatrice_carddatabase>
