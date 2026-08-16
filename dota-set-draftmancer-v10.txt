@@ -1,0 +1,5421 @@
+# Dota 2 custom set - Draftmancer custom card list
+# v10 - full regen after your latest editing pass (330 cards now, down from 339). Also fixes a
+# real dedup bug: when two cards had identical rules/type/rarity/cost (your "make a throwaway ' b' copy
+# to test different art/crop without redoing the whole card" workflow), the parser used to keep whichever
+# copy had the "nicer" name -- which could silently discard the NEWER art choice if the newer save
+# happened to be the " b"-suffixed copy. It now keeps whichever copy was modified most recently and just
+# relabels it with the canonical (non-" b") name. Confirmed this changed Roshan, the Immortal's art to
+# the newer crop. Also patched the image map for Brand of the Oathbound (you renamed it back from
+# "Oathbound's Brand" -- same art file, just needed the lookup key updated).
+# Sheet structure carried over unchanged from v9 (unified Hero slot: heroes drawn from their own
+# HeroUncommon/HeroRare/HeroMythic sheets by one dedicated "Hero" slot, weighted by tier size --
+# 82/40/10 -- so the plain RareOrMythic slot stays non-hero:
+# 31 rares / 9 mythics, spells/artifacts/mono-color threats only).
+# rebuilt using the fresh {card.name}.png bulk export into Card Arts Full (name-based, replaces the old
+# opaque sequential-number scheme). Art URLs point at raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card Arts Full/...
+# 330 unique cards after dedupe (dropped 11 leftover duplicate save entries -- see dedupe_report.json).
+# 5 cards still have no art match after the new export: Little Friend, Refill the Barracks, Nether Swap, Mana Drain, Visage, the Bound Form of Necro'lic
+# Two of those were inferred as renames and auto-linked to the closest unused exported file -- please double check:
+#   Conscript -> "Unwilling Conscription.png", Oathbound's Brand -> "Brand of the Oathbound.png"
+# 9 double-faced/Battle cards carry full back-face data (name/type/oracle_text/power/toughness) via the
+# "back" field -- but the bulk export only covers front faces, so all 9 back faces are STILL missing art
+# (Aegis of the Immortal, Mangix Primal Split, Luna Eclipsed by the Moon, Banehollow Shapeshifted, Mirana Princess of
+# the Moon, Aghanim's Shard, Balanar Ascended Stalker, Terrorblade Metamorphosis, Jah'rakal Battle Tranced).
+# NOTE: RareOrMythic weight (71/30, ~30% mythic rate) is unchanged from v4/v8 -- about 2.4x a normal
+# Magic set's ~12.5% mythic rate. Flagged, not touched -- wasn't part of this pass's ask.
+# DATA QUALITY FLAG: 28 cards had a blank rarity field in the current mse-set (likely an
+# editing regression -- these previously had a valid rarity in v4). Their v4 rarity was reused as a fallback so they
+# don't silently fall out of every booster sheet: Radiant Creep, Dire Creep, Kobold Thief, Ristul Assassin, Satyr Banisher, Frostbite, Ogre Bruiser, Gush, Toss, Smoke of Deceit, Shadow Walk, Roseleaf Sproutling, Gust, Bronze Hoplite, Roseleaf Briarbush, Animate Armory, Imperia’s Murder, Loyal Sentry, Illusive Tormentor, Kanna’s Hound, Temporal Disruption, Smeevil Blacksmith, Fog of War, Ogoldi Vandal, Quelling Blade, Smeevil Forgemaster, Roseleaf Elder, Bind to the Earth
+# 4 cards have NO rarity anywhere (blank now and absent from v4 -- brand new, need rarity set): Fleeting Distraction, Omexe Ambushers, Krimwohl Kukri, Rebel Shortsword
+
+[CustomCards]
+[
+ {
+  "name": "Anti-Mage",
+  "type": "Legendary Creature — Human Monk",
+  "mana_cost": "{1}{W}{U}{B}",
+  "subtypes": [
+   "Human",
+   "Monk"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "W",
+   "U",
+   "B"
+  ],
+  "oracle_text": "Hexproof (This creature can’t be the target of spells or abilities your opponents control.)\nAn opponent losing unspent mana causes that player to lose that much life.\nAt the beginning of each opponent’s end step, that player activates a mana ability of up to one land they control if able.",
+  "power": "3",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Anti-Mage.png"
+ },
+ {
+  "name": "Abaddon, the Lord of Avernus",
+  "type": "Legendary Creature — Spirit Knight",
+  "mana_cost": "{W}{B}",
+  "subtypes": [
+   "Spirit",
+   "Knight"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "W",
+   "B"
+  ],
+  "oracle_text": "Undying (When this creature dies, if it had no +1/+1 counters on it, return it to the battlefield under its owner’s control with a +1/+1 counter on it.)\nWhen Abaddon enters, put a shield counter on target creature you control. (If it would be dealt damage or destroyed, remove a shield counter from it instead (If it would be dealt damage or destroyed, remove a shield counter from it instead.)",
+  "power": "1",
+  "toughness": "1",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Abaddon%20the%20Lord%20of%20Avernus.png"
+ },
+ {
+  "name": "Razzil Darkbrew, the Alchemist",
+  "type": "Legendary Creature — Gnome Ogre Warlock",
+  "mana_cost": "{U}{R}",
+  "subtypes": [
+   "Gnome",
+   "Ogre",
+   "Warlock"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "U",
+   "R"
+  ],
+  "oracle_text": "When Razzil enters, create a Treasure token.\n2UR: Monstrosity 2. (f this creature isn’t monstrous, put 2 +1/+1 counters on it and it becomes monstrous.)\nWhen Razzil becomes monstrous, it gains double strike until end of turn.",
+  "power": "2",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Razzil%20Darkbrew%20the%20Alchemist.png"
+ },
+ {
+  "name": "Kaldr, the Ancient Apparition",
+  "type": "Legendary Creature — Elder Elemental",
+  "mana_cost": "{W}{U}",
+  "subtypes": [
+   "Elder",
+   "Elemental"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "W",
+   "U"
+  ],
+  "oracle_text": "Flying\nAt the beginning of each opponent’s end step, you may put a stun counter on up to one target tapped creature they control.",
+  "power": "1",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Kaldr%20the%20Ancient%20Apparition.png"
+ },
+ {
+  "name": "Zet, the Arc Warden",
+  "type": "Legendary Creature — Avatar Soldier",
+  "mana_cost": "{3}{W/U}",
+  "subtypes": [
+   "Avatar",
+   "Soldier"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "W",
+   "U"
+  ],
+  "oracle_text": "When Zet enters, create a 2/2 blue Illusion creature token named Tempest Double.\nAt the beginning of your end step, modify target Illusion you control. (To modify a creature, attach an Aura you control to it, attach an Equipment you control to it, or move any number of counters from another permanent you control onto it.)",
+  "power": "4",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Zet%20the%20Arc%20Warden.png"
+ },
+ {
+  "name": "Roshan, the Immortal",
+  "type": "Battle — Raid",
+  "mana_cost": "{B}{R}{G}",
+  "subtypes": [
+   "Raid"
+  ],
+  "rarity": "mythic",
+  "colors": [
+   "B",
+   "R",
+   "G"
+  ],
+  "oracle_text": "When Roshan, the Immortal enters, any number of target creatures you control each deal damage equal to their power to target creature you don’t control.",
+  "loyalty": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Roshan%20the%20Immortal.png",
+  "back": {
+   "name": "Aegis of the Immortal",
+   "type": "Legendary Enchantment — Aura",
+   "subtypes": [
+    "Aura"
+   ],
+   "oracle_text": "Enchant creature\nWhen enchanted creature dies or is put into exile, return that card to the battlefield under its owner’s control."
+  }
+ },
+ {
+  "name": "Mogul Khan, the Axe",
+  "type": "Legendary Creature — Ogre Berserker",
+  "mana_cost": "{4}{R}{R}",
+  "subtypes": [
+   "Ogre",
+   "Berserker"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "As long as Mogul Khan is untapped during an opponent’s declare attackers step, that opponent must attack you with at least one creature if able.\nEnrage — Whenever Mogul Khan is dealt damage, each player sacrifices a permanent.",
+  "power": "6",
+  "toughness": "6",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Mogul%20Khan%20the%20Axe.png"
+ },
+ {
+  "name": "Atropos, the Bane",
+  "type": "Legendary Creature — Nightmare",
+  "mana_cost": "{3}{U}{B}",
+  "subtypes": [
+   "Nightmare"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "U",
+   "B"
+  ],
+  "oracle_text": "Flying\nWhen Atropos enters, tap target opponent an controls.That creature doesn’t untap for as long as you control Atropos.\nWhenever a creature an opponent controls becomes tapped, that player mills one card. (To mill a card, a player puts the top card of their library into their graveyard.)",
+  "power": "3",
+  "toughness": "3",
+  "loyalty": "5",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Atropos%20the%20Bane.png"
+ },
+ {
+  "name": "Radiant Creep",
+  "type": "Creature — Elemental Warrior",
+  "mana_cost": "{G/W}",
+  "subtypes": [
+   "Elemental",
+   "Warrior"
+  ],
+  "rarity": "common",
+  "colors": [
+   "W",
+   "G"
+  ],
+  "oracle_text": "Evolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)",
+  "power": "1",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Radiant%20Creep.png"
+ },
+ {
+  "name": "Radiant Mega Creep",
+  "type": "Creature — Elemental Warrior",
+  "mana_cost": "{5}{G/W}",
+  "subtypes": [
+   "Elemental",
+   "Warrior"
+  ],
+  "rarity": "common",
+  "colors": [
+   "W",
+   "G"
+  ],
+  "oracle_text": "Trample\nWhen this creature enters, put a +1/+1 counter on it for each creature you control.\nBasic landcycling {2} ({2}, Discard this card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.)",
+  "power": "5",
+  "toughness": "5",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Radiant%20Mega%20Creep.png"
+ },
+ {
+  "name": "Radiant Super Creep",
+  "type": "Creature — Elemental Warrior",
+  "mana_cost": "{3}{G/W}",
+  "subtypes": [
+   "Elemental",
+   "Warrior"
+  ],
+  "rarity": "common",
+  "colors": [
+   "W",
+   "G"
+  ],
+  "oracle_text": "Vigilance\nEvolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)",
+  "power": "3",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Radiant%20Super%20Creep.png"
+ },
+ {
+  "name": "Black Hole",
+  "type": "Legendary Sorcery",
+  "mana_cost": "{B}{B}{B}{B}{B}{B}",
+  "rarity": "mythic",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "(You may cast a legendary sorcery only if you control a legendary permanent.)\nExile all nonland permanents your opponents control.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Black%20Hole.png"
+ },
+ {
+  "name": "Dire Creep",
+  "type": "Creature — Elemental",
+  "mana_cost": "{B/R}",
+  "subtypes": [
+   "Elemental"
+  ],
+  "rarity": "common",
+  "colors": [
+   "B",
+   "R"
+  ],
+  "oracle_text": "Evolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)",
+  "power": "1",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Dire%20Creep.png"
+ },
+ {
+  "name": "Dire Super Creep",
+  "type": "Creature — Elemental",
+  "mana_cost": "{3}{B/R}",
+  "subtypes": [
+   "Elemental"
+  ],
+  "rarity": "common",
+  "colors": [
+   "B",
+   "R"
+  ],
+  "oracle_text": "Menace\nEvolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)",
+  "power": "3",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Dire%20Super%20Creep.png"
+ },
+ {
+  "name": "Boots of Speed",
+  "type": "Artifact — Equipment",
+  "mana_cost": "{1}",
+  "subtypes": [
+   "Equipment"
+  ],
+  "rarity": "common",
+  "oracle_text": "Equipped creature has haste.\nEquip {0}",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Boots%20of%20Speed.png"
+ },
+ {
+  "name": "Finger of Death",
+  "type": "Legendary Sorcery",
+  "mana_cost": "{X}{X}{B}{R}",
+  "rarity": "rare",
+  "colors": [
+   "B",
+   "R"
+  ],
+  "oracle_text": "(You may cast a legendary sorcery only if you control a legendary creature.)\nFinger of Death deals twice X damage to any target. If that target was a player, that player discards X cards.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Finger%20of%20Death.png"
+ },
+ {
+  "name": "Stifling Dagger",
+  "type": "Enchantment — Aura",
+  "mana_cost": "{B}",
+  "subtypes": [
+   "Aura"
+  ],
+  "rarity": "common",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "Enchant creature\nEnchanted creature gets -1/-1.\nAt the beginning of the upkeep of enchanted creature’s controller, that player loses 2 life.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Stifling%20Dagger.png"
+ },
+ {
+  "name": "Roshan’s Pit",
+  "type": "Legendary Land",
+  "mana_cost": "",
+  "rarity": "rare",
+  "oracle_text": "Roshan’s Pit enters the battlefield tapped.\n{T}: Add one mana of any color to your mana pool. Spend this mana only on legendary creatures.\n{T}, {4}, Sacrifice this land: Target legendary creature you control fights target creature you don’t control. Activate only as a sorcery.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Roshans%20Pit.png"
+ },
+ {
+  "name": "Kobold Thief",
+  "type": "Creature — Kobold Rogue",
+  "mana_cost": "{R}",
+  "subtypes": [
+   "Kobold",
+   "Rogue"
+  ],
+  "rarity": "common",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "When this creature dies, create a Treasure token.",
+  "power": "1",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Kobold%20Thief.png"
+ },
+ {
+  "name": "Fortification",
+  "type": "Instant",
+  "mana_cost": "{2}{W}",
+  "rarity": "uncommon",
+  "colors": [
+   "W"
+  ],
+  "oracle_text": "Permanents you control gain indestructible until end of turn. \nDraw a card.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Fortification.png"
+ },
+ {
+  "name": "Observer Ward",
+  "type": "Artifact",
+  "mana_cost": "{2}",
+  "rarity": "uncommon",
+  "oracle_text": "Vanishing 4 (This permanent enters with 4 time counters on it. At the beginning of your upkeep, remove a time counter from it. When the last is removed, sacrifice it.)\nAt the beginning of your upkeep, surveil 1. (Look at the top card of your library. You may put that card into your graveyard.)\n{T}: Add {C}.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Observer%20Ward.png"
+ },
+ {
+  "name": "Blink Dagger",
+  "type": "Legendary Artifact — Equipment",
+  "mana_cost": "{2}{U}",
+  "subtypes": [
+   "Equipment"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "Flash\nWhen Blink Dagger enters, exile target creature you control. Return that card to the battlefield under your control, then attach this equipment to it.\nEquipped creature can’t be blocked.\nEquip creature {2}",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Blink%20Dagger.png"
+ },
+ {
+  "name": "Sentry Ward",
+  "type": "Artifact",
+  "mana_cost": "{2}",
+  "rarity": "uncommon",
+  "oracle_text": "Vanishing 4 (This permanent enters with 4 time counters on it. At the beginning of your upkeep, remove a time counter from it. When the last is removed, sacrifice it.)\nCreatures your opponents control lose hexproof and shroud and can’t have hexproof and shroud. Ward abilities of those creatures don’t trigger.\n{T}: Add {C}.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Sentry%20Ward.png"
+ },
+ {
+  "name": "Karroch, the Beastmaster",
+  "type": "Legendary Creature — Human Warrior",
+  "mana_cost": "{4}{G}{W}",
+  "subtypes": [
+   "Human",
+   "Warrior"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "W",
+   "G"
+  ],
+  "oracle_text": "When Karroch enters, create a 2/2 green Boar creature token with wither and a 1/1 white Hawk creature token with flying.\nCreature tokens you control have first strike.",
+  "power": "4",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Karroch%20the%20Beastmaster.png"
+ },
+ {
+  "name": "Strygwyr, the Bloodseeker",
+  "type": "Legendary Creature — Human Berserker",
+  "mana_cost": "{1}{R}{R}",
+  "subtypes": [
+   "Human",
+   "Berserker"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "Bloodthirst 1 (If an opponent was dealt damage this turn, this creature enters with a +1/+1 counter on it.)\nAs long as an opponent has less than half their starting life total, Strygwyr has double strike.",
+  "power": "2",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Strygwyr%20the%20Bloodseeker.png"
+ },
+ {
+  "name": "Gondar, the Bounty Hunter",
+  "type": "Legendary Creature — Beast Scout",
+  "mana_cost": "{2}{B}{G}",
+  "subtypes": [
+   "Beast",
+   "Scout"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "B",
+   "G"
+  ],
+  "oracle_text": "Menace (This creature can’t be blocked except by two or more creatures.)\nAt the beginning of your upkeep, put a bounty counter on target creature you don’t control.\nWhenever a creature an opponent controls dies, create a treasure token for each counter that was on that creature. (It’s an artifact with “{T}, Sacrifice this token: Add one mana of any color.”)",
+  "power": "3",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Gondar%20the%20Bounty%20Hunter.png"
+ },
+ {
+  "name": "Mangix, the Brewmaster",
+  "type": "Legendary Creature — Bear Monk",
+  "mana_cost": "{2}{G}{U}",
+  "subtypes": [
+   "Bear",
+   "Monk"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "U",
+   "G"
+  ],
+  "oracle_text": "Trample\nWhenever you cast your second spell in a turn, transform this creature.",
+  "power": "4",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Mangix%20the%20Brewmaster.png",
+  "back": {
+   "name": "Mangix, Primal Split",
+   "type": "Legendary Creature — Bear Avatar",
+   "subtypes": [
+    "Bear",
+    "Avatar"
+   ],
+   "oracle_text": "Trample, hexproof\nWhen Mangix transforms, draw a card.\nAt the beginning of your end step, transform Mangix.",
+   "power": "5",
+   "toughness": "5"
+  }
+ },
+ {
+  "name": "Rigwarl, the Bristleback",
+  "type": "Legendary Creature — Beast Berserker",
+  "mana_cost": "{3}{R}",
+  "subtypes": [
+   "Beast",
+   "Berserker"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "{T}: Rigwarl deals 1 damage to target creature you control.\nEnrage — Whenever Rigwarl is dealt damage, put a +1/+1 counter on it. It deals 1 damage to each creature your opponents control.",
+  "power": "2",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Rigwarl%20the%20Bristleback.png"
+ },
+ {
+  "name": "Black Arachnia, the Broodmother",
+  "type": "Legendary Creature — Spider",
+  "mana_cost": "{1}{B}{B}",
+  "subtypes": [
+   "Spider"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "Deathtouch\nIf a creature an opponent controls would die, instead exile it and create a 1/1 black Spider creature token with deathtouch.\n{4BB}: Spiders you control get +X/+X and gain lifelink until end of turn, where X is the number of Spiders you control.",
+  "power": "2",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Black%20Arachnia%20the%20Broodmother%20.png"
+ },
+ {
+  "name": "Bradwarden, the Centaur Warrunner",
+  "type": "Legendary Creature — Centaur Warrior",
+  "mana_cost": "{6}{R}{G}",
+  "subtypes": [
+   "Centaur",
+   "Warrior"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "R",
+   "G"
+  ],
+  "oracle_text": "Creatures you control have haste and trample.\nIf damage would be dealt to Bradwarden, prevent that damage. Bradwarden deals that much damage to any target instead.",
+  "power": "6",
+  "toughness": "6",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Bradwarden%20the%20Centaur%20Warrunner.png"
+ },
+ {
+  "name": "Chaos Knight",
+  "type": "Legendary Creature — Avatar Knight",
+  "mana_cost": "{5}{B}{B}{R}{R}",
+  "subtypes": [
+   "Avatar",
+   "Knight"
+  ],
+  "rarity": "mythic",
+  "colors": [
+   "B",
+   "R"
+  ],
+  "oracle_text": "Menace\nWhen Chaos Knight enters, roll a d6. Create X 6/6 black and red Illusion Knight creature tokens named Phantasm Illusion, where X is the result.",
+  "power": "6",
+  "toughness": "6",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Chaos%20Knight.png"
+ },
+ {
+  "name": "Chen, the Holy Knight",
+  "type": "Legendary Creature — Human Knight",
+  "mana_cost": "{2}{G}{W}",
+  "subtypes": [
+   "Human",
+   "Knight"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "W",
+   "G"
+  ],
+  "oracle_text": "When Chen enters, return target nonlegendary creature from your graveyard to your hand. \nNonlegendary creatures you control get +1/+1 and have vigilance.",
+  "power": "3",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Chen%20the%20Holy%20Knight.png"
+ },
+ {
+  "name": "Magebane Mirror",
+  "type": "Instant",
+  "mana_cost": "{W}{U}",
+  "rarity": "common",
+  "colors": [
+   "W",
+   "U"
+  ],
+  "oracle_text": "Counter target spell or ability that targets a creature you control. If a spell or ability is countered this way, copy it. You may choose new targets for the copy.\nDraw a card.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Magebane%20Mirror.png"
+ },
+ {
+  "name": "Clinkz, the Bone Fletcher",
+  "type": "Legendary Creature — Skeleton Rogue Archer",
+  "mana_cost": "{R}{W}{B}",
+  "subtypes": [
+   "Skeleton",
+   "Rogue",
+   "Archer"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "W",
+   "B",
+   "R"
+  ],
+  "oracle_text": "First strike, skulk, haste\nWhen Clinkz enters or attacks, amass Skeletons 1. (Put a +1/+1 counter on an Army you control. It’s also a Skeleton. If you don’t control an Army, create a 0/0 black Skeleton Army creature token first.)",
+  "power": "1",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Clinkz%20the%20Bone%20Fletcher.png"
+ },
+ {
+  "name": "Rylai, the Crystal Maiden",
+  "type": "Legendary Creature — Human Wizard",
+  "mana_cost": "{W}{U}",
+  "subtypes": [
+   "Human",
+   "Wizard"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "W",
+   "U"
+  ],
+  "oracle_text": "When Rylai enters, tap up to one target creature an opponent controls. You may put a stun counter on it.  (If a permanent with a stun counter would become untapped, remove one from it instead.)\nInstant and sorcery spells you cast cost {1} less to cast.",
+  "power": "1",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Rylai%20the%20Crystal%20Maiden.png"
+ },
+ {
+  "name": "Ish'Kafel, the Dark Seer",
+  "type": "Legendary Creature — Elder Elemental",
+  "mana_cost": "{4}{U}",
+  "subtypes": [
+   "Elder",
+   "Elemental"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "Vigilance\nWhen Ish’Kafel enters, create a token copy of target legendary creature an opponent controls.",
+  "power": "3",
+  "toughness": "5",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/IshKafel%20the%20Dark%20Seer.png"
+ },
+ {
+  "name": "Mireska, the Dark Willow",
+  "type": "Legendary Creature — Faerie Rogue",
+  "mana_cost": "{1}{B}",
+  "subtypes": [
+   "Faerie",
+   "Rogue"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "Flying\nWhenever a player draws a card except the first one they draw in each of their draw steps, they lose 1 life.",
+  "power": "2",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Mireska%20the%20Dark%20Willow%20.png"
+ },
+ {
+  "name": "Valora, the Dawnbreaker",
+  "type": "Legendary Creature — Elemental Warrior",
+  "mana_cost": "{4}{W}{W}{W}",
+  "subtypes": [
+   "Elemental",
+   "Warrior"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "W"
+  ],
+  "oracle_text": "Flash\nConvoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for 1 or one mana of that creature’s color.)\nWhen Valora enters, prevent all damage that would be dealt to creatures you control this turn.",
+  "power": "5",
+  "toughness": "5",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Valora%20the%20Dawnbreaker.png"
+ },
+ {
+  "name": "Aghanim’s Sceptre",
+  "type": "Legendary Artifact",
+  "mana_cost": "{7}",
+  "rarity": "mythic",
+  "oracle_text": "{T}: Add {WUBRG}. Spend this mana only to cast legendary spells.\nWhenever you cast a legendary spell, you may draw a card.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Aghanims%20Sceptre.png"
+ },
+ {
+  "name": "Dazzle, the Shadow Priest",
+  "type": "Legendary Creature — Troll Cleric",
+  "mana_cost": "{2}{B/G}",
+  "subtypes": [
+   "Troll",
+   "Cleric"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "B",
+   "G"
+  ],
+  "oracle_text": "{T}: Target creature you control gains undying until end of turn. (When this creature dies, if it had no +1/+1 counters on it, return it to the battlefield under its owner’s control with a +1/+1 counter on it.)\n{B/G}, {T}: Put a -1/-1 counter on target creature.",
+  "power": "1",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Dazzle%20the%20Shadow%20Priest.png"
+ },
+ {
+  "name": "Deafening Blast",
+  "type": "Sorcery",
+  "mana_cost": "{U}",
+  "rarity": "common",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "Return target creature to its owner’s hand. Its controller mills two cards. (To mill two cards, a player puts the top two cards of their library into their graveyard.)",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Deafening%20Blast.png"
+ },
+ {
+  "name": "Grimstroke",
+  "type": "Legendary Creature — Demon Spirit",
+  "mana_cost": "{5}{R}{R}",
+  "subtypes": [
+   "Demon",
+   "Spirit"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "Flying\nAt the beginning of combat on your turn, create a token copy of target creature an opponent controls. It has haste and double strike. Exile it at the beginning of the next end step.",
+  "power": "3",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Grimstroke.png"
+ },
+ {
+  "name": "Krobelus, the Death Prophet",
+  "type": "Legendary Creature — Spirit Cleric",
+  "mana_cost": "{3}{W}{B}",
+  "subtypes": [
+   "Spirit",
+   "Cleric"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "W",
+   "B"
+  ],
+  "oracle_text": "Flying\nWhenever a nontoken creature you control dies, create a 1/1 white Spirit creature token with flying.\nWhenever a token creature you control dies, each opponent loses 1 life and you gain 1 life.",
+  "power": "4",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Krobelus%20the%20Death%20Prophet.png"
+ },
+ {
+  "name": "Disruptor, the Stormcrafter",
+  "type": "Legendary Creature — Ogre Wizard",
+  "mana_cost": "{2}{U}{R}",
+  "subtypes": [
+   "Ogre",
+   "Wizard"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "U",
+   "R"
+  ],
+  "oracle_text": "When Disruptor enters, put target creature an opponent controls on top of its owner’s library.\n{T}, {4UR}: Copy target instant or sorcery spell you control. You may choose new targets for the copy.",
+  "power": "2",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Disruptor%20the%20Stormcrafter.png"
+ },
+ {
+  "name": "Lucifer, the Doom",
+  "type": "Legendary Creature — Avatar Demon",
+  "mana_cost": "{4}{B}{R}",
+  "subtypes": [
+   "Avatar",
+   "Demon"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "B",
+   "R"
+  ],
+  "oracle_text": "Devour 1 (As this enters, you may sacrifice any number of creatures. This creature enters with that many +1/+1 counters on it.)\nIf a nonlegendary creature would die, exile it with a void counter on it instead.\nLucifer has all abilities of creatures exiled with void counters on them.",
+  "power": "6",
+  "toughness": "6",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Lucifer%20the%20Doom.png"
+ },
+ {
+  "name": "Piercing Shot",
+  "type": "Instant",
+  "mana_cost": "{3}{B}",
+  "rarity": "common",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "Destroy target creature. Surveil 1.  (Look at the top card of your library. You may put that card into your graveyard.)",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Piercing%20Shot.png"
+ },
+ {
+  "name": "Kaolin, the Earth Spirit",
+  "type": "Legendary Creature — Spirit Warrior",
+  "mana_cost": "{4}{G}{G}",
+  "subtypes": [
+   "Spirit",
+   "Warrior"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "G"
+  ],
+  "oracle_text": "When Kaolin enters, an artifact token called Stone Remnant for each Spirit you control. (They have no abilities).\nSacrifice an artifact: Put a +1/+1 counter on target Spirit you control. That creature gains trample until end of turn.\nSacrifice an artifact: Kaolin deals 2 damage to each creature with flying.",
+  "power": "6",
+  "toughness": "6",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Kaolin%20the%20Earth%20Spirit.png"
+ },
+ {
+  "name": "Echo Slam",
+  "type": "Instant",
+  "mana_cost": "{5}{R}{R}{R}",
+  "rarity": "rare",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "Convoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for 1 or one mana of that creature’s color.)\nEcho Slam deals X damage to each creature, where is X the number of creatures on the battlefield.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Echo%20Slam.png"
+ },
+ {
+  "name": "Raigor Stonehoof, the Earthshaker",
+  "type": "Legendary Creature — Beast Warrior",
+  "mana_cost": "{3}{R}{G}",
+  "subtypes": [
+   "Beast",
+   "Warrior"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "R",
+   "G"
+  ],
+  "oracle_text": "Trample\nWhenever Raigor attacks, double its power until end of turn. \nIf a creature you control would deal excess combat damage to a player, it deals twice that much damage instead.",
+  "power": "4",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Raigor%20Stonehoof%20the%20Earthshaker%20.png"
+ },
+ {
+  "name": "Elder Titan, the Worldsmith",
+  "type": "Legendary Creature — Elder Giant",
+  "mana_cost": "{3}{G}",
+  "subtypes": [
+   "Elder",
+   "Giant"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "G"
+  ],
+  "oracle_text": "Ward—Sacrifice a land.\nAt the beginning of your upkeep, you may return target land card from your graveyard to the battlefield tapped. \nEach land card in your hand has “Basic landcycling 1”.",
+  "power": "4",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Elder%20Titan%20the%20Worldsmith.png"
+ },
+ {
+  "name": "Xin, the Ember Spirit",
+  "type": "Legendary Creature — Spirit Warrior",
+  "mana_cost": "{2}{R}",
+  "subtypes": [
+   "Spirit",
+   "Warrior"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "First strike\nWhen Xin enters, it deals damage to target creature equal to the number of Spirits you control.",
+  "power": "3",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Xin%20the%20Ember%20Spirit%20.png"
+ },
+ {
+  "name": "Aiushtha, the Enchantress",
+  "type": "Legendary Creature — Satyr",
+  "mana_cost": "{3}{G}{G}",
+  "subtypes": [
+   "Satyr"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "G"
+  ],
+  "oracle_text": "Vigilance\nWhen Aiushtha enters, gain control of target non-legendary creature for as long as you control Aiushtha.\nT: You gain life equal to the number of nonlegendary creatures you control.",
+  "power": "4",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Aiushtha%20the%20Enchantress.png"
+ },
+ {
+  "name": "Enigma, Consumer of Worlds",
+  "type": "Legendary Creature — Avatar",
+  "mana_cost": "{1}{B}{B}",
+  "subtypes": [
+   "Avatar"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "Flying\nAt the beginning of your end step, sacrifice another nontoken creature you control. When you do, create three 1/1 black Eidolon creature tokens with “Whenever this creature deals combat damage to a player, create a token that’s a copy of this creature.”",
+  "power": "1",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Enigma%20Consumer%20of%20Worlds.png"
+ },
+ {
+  "name": "Darkterror, the Faceless Void",
+  "type": "Legendary Creature — Avatar Warrior",
+  "mana_cost": "{U/B}{U/B}",
+  "subtypes": [
+   "Avatar",
+   "Warrior"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "U",
+   "B"
+  ],
+  "oracle_text": "{U/B}: Exile Darkterror with a time counter on it. If it doesn’t have suspend, it gains suspend.\nWhenever Darkterror enters, draw a card. Then, exile a nonland card from your hand with X time counters on it, where X is that card’s mana value. If that card doesn’t have suspend, it gains suspend.",
+  "power": "3",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Darkterror%20the%20Faceless%20Void.png"
+ },
+ {
+  "name": "Chronosphere",
+  "type": "Legendary Instant",
+  "mana_cost": "{4}{U}{B}",
+  "rarity": "mythic",
+  "colors": [
+   "U",
+   "B"
+  ],
+  "oracle_text": "(You may cast a legendary instant only if you control a legendary creature.)\nSplit Second (As long as this spell is on the stack, players can’t cast spells or activate abilities that aren’t mana abilities.)\nEnd the turn.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Chronosphere.png"
+ },
+ {
+  "name": "Hoodwink",
+  "type": "Legendary Creature — Squirrel Ranger",
+  "mana_cost": "{1}{G}{W}",
+  "subtypes": [
+   "Squirrel",
+   "Ranger"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "W",
+   "G"
+  ],
+  "oracle_text": "Vigilance, reach\nWhenever Hoodwink deals combat damage to an opponent, you may search your library for a basic land card, reveal it, put it into your hand, then shuffle.",
+  "power": "3",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Hoodwink.png"
+ },
+ {
+  "name": "Ice Vortex",
+  "type": "Instant",
+  "mana_cost": "{4}{W}{U}",
+  "rarity": "uncommon",
+  "colors": [
+   "W",
+   "U"
+  ],
+  "oracle_text": "Tap up to two target creatures you don’t control. You may put a stun counter on either of them. Then, draw a card for each tapped creature your opponents control.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Ice%20Vortex.png"
+ },
+ {
+  "name": "Huskar, the Sacred Warrior",
+  "type": "Legendary Creature — Troll Warrior",
+  "mana_cost": "{3}{R}{R}{R}",
+  "subtypes": [
+   "Troll",
+   "Warrior"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "Haste\nHuskar’s power and toughness are each equal to the difference between your starting life total and your current life total plus 1.\n{T}: Huskar deals damage to each player equal to half their life total, rounded down.",
+  "power": "*",
+  "toughness": "1+*",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Huskar%20the%20Sacred%20Warrior.png"
+ },
+ {
+  "name": "Carl, the Invoker",
+  "type": "Legendary Creature — Human Wizard",
+  "mana_cost": "{U}{B}{R}",
+  "subtypes": [
+   "Human",
+   "Wizard"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "U",
+   "B",
+   "R"
+  ],
+  "oracle_text": "Prowess\nWhenever you cast an instant or sorcery spell, if it had blue in its cost, draw a card. If it had red in its cost, Carl deals 2 damage to any target. If it had black in its cost, each opponent discards a card.",
+  "power": "2",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Carl%20the%20Invoker.png"
+ },
+ {
+  "name": "Dragon Tail",
+  "type": "Instant",
+  "mana_cost": "{1}{W}",
+  "rarity": "common",
+  "colors": [
+   "W"
+  ],
+  "oracle_text": "Tap target creature and put a stun counter on it.\nDraw a card.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Dragon%20Tail.png"
+ },
+ {
+  "name": "Timber Chain",
+  "type": "Sorcery",
+  "mana_cost": "{R}{G}",
+  "rarity": "uncommon",
+  "colors": [
+   "R",
+   "G"
+  ],
+  "oracle_text": "As an additional cost to cast this spell, sacrifice a Forest. \nAdd three mana in any combination of R and/or G. Timber Chain deals 3 damage divided as you choose among any number of targets.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Timber%20Chain.png"
+ },
+ {
+  "name": "Kraken Shell",
+  "type": "Enchantment — Aura",
+  "mana_cost": "{1}{G}{U}",
+  "subtypes": [
+   "Aura"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "U",
+   "G"
+  ],
+  "oracle_text": "Enchant creature\nEnchanted creature has hexproof. (This creature can’t be the target of spells of abilities your opponents control.)\nPrevent all combat damage that would be dealt to enchanted creature.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Kraken%20Shell.png"
+ },
+ {
+  "name": "Io, the Wisp",
+  "type": "Legendary Creature — Spirit",
+  "mana_cost": "{W}",
+  "subtypes": [
+   "Spirit"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "W"
+  ],
+  "oracle_text": "Flying\nSoulbond (You may pair this creature with another unpaired creature when either enters. They remain paired for as long as you control both of them.)\nAs long as Io is paired with another creature, each of those creatures have “2W: Exile this creature, then return it to the battlefield under your control.”",
+  "power": "1",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Io%20the%20Wisp.png"
+ },
+ {
+  "name": "Overcharge",
+  "type": "Instant",
+  "mana_cost": "{1}{W}{W}",
+  "rarity": "common",
+  "colors": [
+   "W"
+  ],
+  "oracle_text": "Target creature gets +1/+0 for each creature you control and gains double strike until end of turn.\nDraw a card.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Overcharge.png"
+ },
+ {
+  "name": "Arena of Blood",
+  "type": "Enchantment",
+  "mana_cost": "{1}{R}{R}",
+  "rarity": "rare",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "At the beginning of each player’s upkeep, this enchantment deals 2 damage to that player.\nEach creature attacks each combat if able.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Arena%20of%20Blood.png"
+ },
+ {
+  "name": "Shackleshot",
+  "type": "Enchantment — Aura",
+  "mana_cost": "{1}{W}",
+  "subtypes": [
+   "Aura"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "W"
+  ],
+  "oracle_text": "Flash (You may cast this spell any time you could cast an instant.)\nEnchant land\nWhen this Aura enters, exile target creature an opponent controls until this Aura leaves the battlefield. (That creature returns under its owner’s control.)",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Shackleshot.png"
+ },
+ {
+  "name": "Rot",
+  "type": "Enchantment — Aura",
+  "mana_cost": "{B}",
+  "subtypes": [
+   "Aura"
+  ],
+  "rarity": "common",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "Enchant creature\nEnchanted creature gets +0/-1 and has deathtouch.\nWhen this Aura is put into a graveyard from the battlefield, draw a card.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Rot.png"
+ },
+ {
+  "name": "Open Wounds",
+  "type": "Sorcery",
+  "mana_cost": "{1}{B}",
+  "rarity": "uncommon",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "Target creature an opponent controls gets -3/-3 until end of turn. \nCreatures you control gain lifelink until end of turn.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Open%20Wounds.png"
+ },
+ {
+  "name": "Naix, the Lifestealer",
+  "type": "Legendary Creature — Zombie Minion",
+  "mana_cost": "{4}{B}{B}",
+  "subtypes": [
+   "Zombie",
+   "Minion"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "Lifelink (Damage dealt by this creature also causes you to gain that much life.)\nWhen Naix enters, destroy target creature.\n{1B}: Naix gains indestructible until end of turn.",
+  "power": "3",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Naix%20the%20Lifestealer.png"
+ },
+ {
+  "name": "Town Portal Scroll",
+  "type": "Artifact",
+  "mana_cost": "{1}",
+  "rarity": "common",
+  "oracle_text": "{T}, {2}, Sacrifice this artifact: Search your library for a basic land card. Put it on to the battlefield tapped.\n{T}, {4}, Sacrifice Town Portal Scroll: Return target creature you control to its owner’s hand.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Town%20Portal%20Scroll.png"
+ },
+ {
+  "name": "Reincarnation",
+  "type": "Legendary Sorcery",
+  "mana_cost": "{B}{B}",
+  "rarity": "rare",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "(You may cast a legendary sorcery only if you control a legendary creature.)\nReturn target legendary creature card from your graveyard to the battlefield with finality counter on it.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Reincarnation.png"
+ },
+ {
+  "name": "Ostarion, the Wraith King",
+  "type": "Legendary Creature — Skeleton Noble",
+  "mana_cost": "{4}{B}{B}",
+  "subtypes": [
+   "Skeleton",
+   "Noble"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "First strike, lifelink\nWhenever Ostarion attacks, create three 1/1 black Skeleton creature tokens that are tapped and attacking.",
+  "power": "5",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Ostarion%20the%20Wraith%20King.png"
+ },
+ {
+  "name": "Presence of the Dark Lord",
+  "type": "Enchantment",
+  "mana_cost": "{2}{B}{B}",
+  "rarity": "uncommon",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "Creatures your opponents control get -1/-1.\nWhenever a creature dies, creatures you control get +1/+0 until end of turn.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Presence%20of%20the%20Dark%20Lord.png"
+ },
+ {
+  "name": "Soul Ring",
+  "type": "Legendary Artifact",
+  "mana_cost": "{B}{R}",
+  "rarity": "uncommon",
+  "colors": [
+   "B",
+   "R"
+  ],
+  "oracle_text": "Soul Ring enters tapped.\n{T}: Add {BR} to your mana pool. Soul Ring deals 3 damage to you.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Soul%20Ring.png"
+ },
+ {
+  "name": "Hand of Midas",
+  "type": "Legendary Artifact",
+  "mana_cost": "{2}",
+  "rarity": "uncommon",
+  "oracle_text": "{T}, Sacrifice Hand of Midas: Destroy target nonlegendary creature. You create X treasure tokens, where X is that creature’s mana value.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Hand%20of%20Midas.png"
+ },
+ {
+  "name": "Moon Shard",
+  "type": "Legendary Artifact — Equipment",
+  "mana_cost": "{1}{U}{B}",
+  "subtypes": [
+   "Equipment"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "U",
+   "B"
+  ],
+  "oracle_text": "Equipped creature gets +1/+1 and has “At the beginning of your combat step, it becomes night”.\nEquip {1U/B}",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Moon%20Shard.png"
+ },
+ {
+  "name": "Urn of Shadows",
+  "type": "Legendary Artifact",
+  "mana_cost": "{B}{G}",
+  "rarity": "uncommon",
+  "colors": [
+   "B",
+   "G"
+  ],
+  "oracle_text": "When a creature an opponent controls dies, put a charge counter on this artifact.\n{T}, Remove a charge counter from this artifact: Put your choice of a -1/-1 counter or a +1/+1 counter on target creature.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Urn%20of%20Shadows.png"
+ },
+ {
+  "name": "Mekansm",
+  "type": "Legendary Artifact",
+  "mana_cost": "{1}{W}",
+  "rarity": "rare",
+  "colors": [
+   "W"
+  ],
+  "oracle_text": "Creatures you control get +0/+1.\nEach creature you control with defender can attack and assigns combat damage equal to its toughness rather than power.\n{T}: You gain 1 life for each creature you control.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Mekansm.png"
+ },
+ {
+  "name": "Drums of Endurance",
+  "type": "Legendary Artifact",
+  "mana_cost": "{R}{G}",
+  "rarity": "uncommon",
+  "colors": [
+   "R",
+   "G"
+  ],
+  "oracle_text": "This artifact enters with three charge counters on it.\n{T}, Remove a charge counter from Drums of Endurance: The next creature spell you cast this turn has riot. (It enters the battlefield with your choice of a +1/+1 counter or haste.)",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Drums%20of%20Endurance.png"
+ },
+ {
+  "name": "Meepo, the Geomancer",
+  "type": "Legendary Creature — Kobold Scout",
+  "mana_cost": "{2}{U}{U}{U}",
+  "subtypes": [
+   "Kobold",
+   "Scout"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "When Meepo enters, if it isn’t a token, create three tokens that are copies of it.\nAs long as Meepo is a token, it is not legendary.\n{U}: Meepo phases out.\nWhen Meepo leaves the battlefield, exile all other cards named Meepo, the Geomancer.",
+  "power": "3",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Meepo%20the%20Geomancer.png"
+ },
+ {
+  "name": "Jakiro, the Twin Head Dragon",
+  "type": "Legendary Creature — Dragon",
+  "mana_cost": "{3}{U}{R}",
+  "subtypes": [
+   "Dragon"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "U",
+   "R"
+  ],
+  "oracle_text": "Flying, haste\nWhenever Jakiro attacks, it deals 2 damage divided as you choose among up to two targets.\nWhenever Jakiro attacks, tap up to one target permanent.",
+  "power": "3",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Jakiro%20the%20Twin%20Head%20Dragon.png"
+ },
+ {
+  "name": "Yurnero, the Juggernaut",
+  "type": "Legendary Creature — Human Warrior",
+  "mana_cost": "{1}{W}",
+  "subtypes": [
+   "Human",
+   "Warrior"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "W"
+  ],
+  "oracle_text": "Hexproof (This creature can’t be the target of spells or abilities your opponents control.)\nWhenever you cast an equipment spell, put a +1/+1 counter on target creature you control.",
+  "power": "2",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Yurnero%20the%20Juggernaut.png"
+ },
+ {
+  "name": "Ezalor, the Keeper of the Light",
+  "type": "Legendary Creature — Human Wizard",
+  "mana_cost": "{4}{W}",
+  "subtypes": [
+   "Human",
+   "Wizard"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "W"
+  ],
+  "oracle_text": "Prowess\nWhenever you cast your second spell during an opponent’s turn, tap target creature an opponent controls. It doesn’t untap for as long as you control Ezalor.",
+  "power": "4",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Ezalor%20the%20Keeper%20of%20the%20Light.png"
+ },
+ {
+  "name": "Kunkka, the Admiral",
+  "type": "Legendary Creature — Spirit Pirate",
+  "mana_cost": "{4}{U}{U}",
+  "subtypes": [
+   "Spirit",
+   "Pirate"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "Vigilance\nWhenever a Spirit you control deals combat damage to a player, create a map token. (It’s an artifact with “1, T, Sacrifice this token: Target creature you control explores. Activate only as a sorcery.”)",
+  "power": "6",
+  "toughness": "6",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Kunkka%20the%20Admiral.png"
+ },
+ {
+  "name": "Fiend’s Grip",
+  "type": "Enchantment — Aura",
+  "mana_cost": "{2}{U}{B}",
+  "subtypes": [
+   "Aura"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "U",
+   "B"
+  ],
+  "oracle_text": "Enchant creature\nEnchanted creature loses all abilities and can’t attack or block.\nAt the beginning of the upkeep of enchanted creature’s controller, that player mills cards equal to that creature’s mana value. (To mill a card, a player puts the top card of their library into their graveyard.)",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Fiends%20Grip.png"
+ },
+ {
+  "name": "Tresdin, the Legion Commander",
+  "type": "Legendary Creature — Human Soldier",
+  "mana_cost": "{2}{R}",
+  "subtypes": [
+   "Human",
+   "Soldier"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "Haste\nWhenever Tresdin attacks, you may have it fight up to one target creature an opponent controls.\nWhenever a creature an opponent controls dealt damage by Tresdin this turn dies, put a +1/+1 counter on Tresdin.",
+  "power": "3",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Tresdin%20the%20Legion%20Commander.png"
+ },
+ {
+  "name": "Leshrac, the Tormented Soul",
+  "type": "Legendary Creature — Satyr",
+  "mana_cost": "{3}{U}{U}",
+  "subtypes": [
+   "Satyr"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\nAs long as you’ve cast two or more spells this turn, Leshrac gets +2/+0 and has vigilance. (Attacking doesn’t cause this creature to tap.)",
+  "power": "4",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Leshrac%20the%20Tormented%20Soul.png"
+ },
+ {
+  "name": "Lina, the Slayer",
+  "type": "Legendary Creature — Human Wizard",
+  "mana_cost": "{1}{R}",
+  "subtypes": [
+   "Human",
+   "Wizard"
+  ],
+  "rarity": "mythic",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "Flying, prowess, prowess (Each instance of prowess triggers separately)\nWhenever Lina attacks, exile target instant or sorcery card in your graveyard. Lina gets +1/+1 for each card exiled with it.\nWhenever you cast your third instant or sorcery spell each turn, sacrifice Lina. When you do, return all cards exiled with it to their owners’ hand.",
+  "power": "1",
+  "toughness": "1",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Lina%20the%20Slayer.png"
+ },
+ {
+  "name": "Lion, the Demon Witch",
+  "type": "Legendary Creature — Demon Wizard",
+  "mana_cost": "{1}{B}{R}",
+  "subtypes": [
+   "Demon",
+   "Wizard"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "B",
+   "R"
+  ],
+  "oracle_text": "At the beginning of your end step, you may sacrifice a creature you control. If you do, return target creature from your graveyard to your hand.\nWhen Lion dies, add {BR}.",
+  "power": "2",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Lion%20the%20Demon%20Witch.png"
+ },
+ {
+  "name": "Luna, the Moon Rider",
+  "type": "Legendary Creature — Human Cleric",
+  "mana_cost": "{3}{B}",
+  "subtypes": [
+   "Human",
+   "Cleric"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "Daybound (If a player casts no spells during their own turn, it becomes night next turn. As it becomes night, transform this permanent.)\nWhen Luna transforms, you gain 3 life.",
+  "power": "3",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Luna%20the%20Moon%20Rider.png",
+  "back": {
+   "name": "Luna, Eclipsed by the Moon",
+   "type": "Legendary Creature — Human Cleric",
+   "subtypes": [
+    "Human",
+    "Cleric"
+   ],
+   "oracle_text": "Nightbound (If a player cast at least two spells during their own turn, it becomes day next turn.)\nWhen Luna enters or transforms, target creature your opponent controls gets -X/-X until end of turn, where X is Luna’s power.",
+   "power": "4",
+   "toughness": "4"
+  }
+ },
+ {
+  "name": "Banehallow, the Lycan",
+  "type": "Legendary Creature — Human Werewolf",
+  "mana_cost": "{4}{B}{B}",
+  "subtypes": [
+   "Human",
+   "Werewolf"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "Daybound (If a player casts no spells during their own turn, it becomes night next turn. As it becomes night, transform this permanent.)\nAs long as its night, Banehollow costs {4} less to cast.\nWhen Banehollow transforms, create two 2/2 black Wolf creature token.",
+  "power": "6",
+  "toughness": "6",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Banehallow%20the%20Lycan.png",
+  "back": {
+   "name": "Banehollow, Shapeshifted",
+   "type": "Legendary Creature — Werewolf",
+   "subtypes": [
+    "Werewolf"
+   ],
+   "oracle_text": "Nightbound (If a player cast at least two spells during their own turn, it becomes day next turn.)\nWolves and Werewolves you control get +2/+2 and have menace.\nWhenever Banehollow, Shapeshifted enters or transforms, create two 2/2 black Wolf creature tokens.\nNightbound",
+   "power": "6",
+   "toughness": "6"
+  }
+ },
+ {
+  "name": "Puck, the Faerie Dragon",
+  "type": "Legendary Creature — Faerie Dragon",
+  "mana_cost": "{1}{W}{U}",
+  "subtypes": [
+   "Faerie",
+   "Dragon"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "W",
+   "U"
+  ],
+  "oracle_text": "Flying\n{W/U}: Puck phases out. (While it’s phased out, it’s treated as though it doesn’t exist. It phases in before its controller untaps during their next untap step.)",
+  "power": "3",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Puck%20the%20Faerie%20Dragon.png"
+ },
+ {
+  "name": "Magnus, the Magnoceros",
+  "type": "Legendary Creature — Rhino",
+  "mana_cost": "{2}{G}{G}",
+  "subtypes": [
+   "Rhino"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "G"
+  ],
+  "oracle_text": "Trample\nWhen one or more creatures you control deals excess combat damage to an opponent, draw a card.",
+  "power": "5",
+  "toughness": "5",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Magnus%20the%20Magnoceros.png"
+ },
+ {
+  "name": "Marci",
+  "type": "Legendary Creature — Human Warrior",
+  "mana_cost": "{1}{R}{W}",
+  "subtypes": [
+   "Human",
+   "Warrior"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "W",
+   "R"
+  ],
+  "oracle_text": "Soulbond (You may pair this creature with another unpaired creature when either enters. They remain paired for as long as you control both of them.)\nAs long as Marci is paired with another creature, both creatures get +1/+1 and have lifelink.",
+  "power": "3",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Marci.png"
+ },
+ {
+  "name": "Mars, the First Son of Heaven",
+  "type": "Legendary Creature — Demigod Warrior",
+  "mana_cost": "{4}{R}{R}",
+  "subtypes": [
+   "Demigod",
+   "Warrior"
+  ],
+  "rarity": "mythic",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "Menace, haste\nCreatures your opponents control can’t be the target of spells or abilities that player controls.",
+  "power": "6",
+  "toughness": "6",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Mars%20the%20First%20Son%20of%20Heaven.png"
+ },
+ {
+  "name": "Medusa, the Gorgon",
+  "type": "Legendary Creature — Gorgon",
+  "mana_cost": "{4}{B}{G}",
+  "subtypes": [
+   "Gorgon"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "B",
+   "G"
+  ],
+  "oracle_text": "Vigilance, reach\nWhenever a creature deals combat damage to Medusa, put a defender counter on it.",
+  "power": "4",
+  "toughness": "8",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Medusa%20the%20Gorgon.png"
+ },
+ {
+  "name": "Mirana of Nightsilver",
+  "type": "Legendary Creature — Human Ranger",
+  "mana_cost": "{U}{B}",
+  "subtypes": [
+   "Human",
+   "Ranger"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "U",
+   "B"
+  ],
+  "oracle_text": "Daybound (If a player casts no spells during their own turn, it becomes night next turn. As it becomes night, transform this permanent.)\nWhen Mirana enters or transforms, draw a card, then discard a card.",
+  "power": "2",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Mirana%20of%20Nightsilver.png",
+  "back": {
+   "name": "Mirana, Princess of the Moon",
+   "type": "Legendary Creature — Human Noble",
+   "subtypes": [
+    "Human",
+    "Noble"
+   ],
+   "oracle_text": "Nightbound (If a player cast at least two spells during their own turn, it becomes day next turn.)\nWhen Mirana enters or transforms, creatures you control gain hexproof and can’t be blocked until the end of turn your next turn. (This creature can’t be the target of spells of abilities your opponents control.)",
+   "power": "3",
+   "toughness": "3"
+  }
+ },
+ {
+  "name": "Wukong, the Monkey King",
+  "type": "Legendary Creature — Ape Warrior",
+  "mana_cost": "{2}{G}{U}",
+  "subtypes": [
+   "Ape",
+   "Warrior"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "U",
+   "G"
+  ],
+  "oracle_text": "Vigilance\nWhenever you cast your second spell in a turn, create a 3/3 green Ape creature token with vigilance.",
+  "power": "3",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Wukong%20the%20Monkey%20King.png"
+ },
+ {
+  "name": "Morphling, the Waveform",
+  "type": "Legendary Creature — Elemental Shapeshifter",
+  "mana_cost": "{1}{G}{U}",
+  "subtypes": [
+   "Elemental",
+   "Shapeshifter"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "U",
+   "G"
+  ],
+  "oracle_text": "When Morphling attacks, it becomes a copy of target creature you don’t control except its name is Morphling, it is legendary in addition to its other types, and it has Morphling’s abilities.\n1: Morphling gets +1/-1 until end of turn.\n1: Morphling gets -1/+1 until end of turn.",
+  "power": "1",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Morphling%20the%20Waveform.png"
+ },
+ {
+  "name": "Slithice, the Naga Siren",
+  "type": "Legendary Creature — Naga Warrior",
+  "mana_cost": "{U}{U}",
+  "subtypes": [
+   "Naga",
+   "Warrior"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "When Slithice deals combat damage to a player, that player skips their next combat phase.\n{T}: Target creature an opponent controls attacks during its controller’s next turn if able.",
+  "power": "2",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Slithice%20the%20Naga%20Siren.png"
+ },
+ {
+  "name": "Tormentor",
+  "type": "Battle — Raid",
+  "mana_cost": "{1}",
+  "subtypes": [
+   "Raid"
+  ],
+  "rarity": "rare",
+  "oracle_text": "When Tormentor enters, it deals 4 damage divided randomly among creatures you control.",
+  "loyalty": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Tormentor.png",
+  "back": {
+   "name": "Aghanim’s Shard",
+   "type": "Artifact",
+   "oracle_text": "Legendary spells you control cost {1} less to cast.\nWhenever you cast a legendary spell, draw a card then discard a card."
+  }
+ },
+ {
+  "name": "Little Friend",
+  "type": "Instant",
+  "mana_cost": "{2}{G}",
+  "rarity": "common",
+  "colors": [
+   "G"
+  ],
+  "oracle_text": "Target creature you control gets +3/+3 and gains hexproof until end of turn."
+ },
+ {
+  "name": "Nature’s Prophet",
+  "type": "Legendary Creature — Satyr Druid",
+  "mana_cost": "{1}{G}{G}{G}",
+  "subtypes": [
+   "Satyr",
+   "Druid"
+  ],
+  "rarity": "mythic",
+  "colors": [
+   "G"
+  ],
+  "oracle_text": "Vigilance, reach\nWhenever you tap a land for mana, add an additional G.\nWhenever Nature’s Prophet attacks, untap all lands you control.",
+  "power": "4",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Natures%20Prophet.png"
+ },
+ {
+  "name": "Rotund'jere, Necrophos",
+  "type": "Legendary Creature — Zombie Warlock",
+  "mana_cost": "{3}{W}{B}{G}",
+  "subtypes": [
+   "Zombie",
+   "Warlock"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "W",
+   "B",
+   "G"
+  ],
+  "oracle_text": "Opponents can’t gain life. \nWhenever another creature dies, each opponent loses 1 life and you gain 1 life.\nAt the beginning of your end step, put a -1/-1 counter on each creature you don’t control.",
+  "power": "3",
+  "toughness": "5",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Rotundjere%20Necrophos.png"
+ },
+ {
+  "name": "Balanar, the Night Stalker",
+  "type": "Legendary Creature — Horror",
+  "mana_cost": "{2}{B}",
+  "subtypes": [
+   "Horror"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "Daybound (If a player casts no spells during their own turn, it becomes night next turn. As it becomes night, transform this permanent.)\nWhen Balanar deals combat damage to a player, it becomes night.",
+  "power": "2",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Balanar%20the%20Night%20Stalker.png",
+  "back": {
+   "name": "Balanar, Ascended Stalker",
+   "type": "Legendary Creature — Horror",
+   "subtypes": [
+    "Horror"
+   ],
+   "oracle_text": "Nightbound (If a player cast at least two spells during their own turn, it becomes day next turn.)\nFirst strike, flying\nWhen Balanar deals combat damage to a player, that player discards a card.",
+   "power": "2",
+   "toughness": "2"
+  }
+ },
+ {
+  "name": "Dark Ascension",
+  "type": "Instant",
+  "mana_cost": "{B}",
+  "rarity": "common",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "It becomes night.\nTarget creature you control gains fear until end of turn. (This creature can’t be blocked except by artifact creatures and/or black creatures.)\nDraw a card.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Dark%20Ascension.png"
+ },
+ {
+  "name": "Nyx Assassin",
+  "type": "Legendary Creature — Insect Assassin",
+  "mana_cost": "{2}{U}{B}",
+  "subtypes": [
+   "Insect",
+   "Assassin"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "U",
+   "B"
+  ],
+  "oracle_text": "Skulk (This creature can’t be blocked by creatures with greater power.)\nWhenever Nyx Assassin deals damage to a player, they mill a card and lose 1 life for each card in their hand. (To mill a card, a player puts the top card of their library into their graveyard.)",
+  "power": "1",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Nyx%20Assassin.png"
+ },
+ {
+  "name": "Aggron Stonebreak, the Ogre Magi",
+  "type": "Legendary Creature — Ogre Wizard",
+  "mana_cost": "{5}{R}{R}",
+  "subtypes": [
+   "Ogre",
+   "Wizard"
+  ],
+  "rarity": "mythic",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "Trample\nWhenever Aggron attacks, exile an instant or sorcery card from your graveyard at random. You may cast that card without paying its mana cost. If you do, roll a d4. Copy that spell X times, where X is the result. You may choose new targets for the copies.",
+  "power": "6",
+  "toughness": "6",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Aggron%20Stonebreak%20the%20Ogre%20Magi.png"
+ },
+ {
+  "name": "Purist Thunderwrath, the Omniknight",
+  "type": "Legendary Creature — Human Knight",
+  "mana_cost": "{2}{W}{W}{W}",
+  "subtypes": [
+   "Human",
+   "Knight"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "W"
+  ],
+  "oracle_text": "Lifelink\nWhenever you gain life, put that many +1/+1 counters on another target creature you control.",
+  "power": "4",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Purist%20Thunderwrath%20the%20Omniknight.png"
+ },
+ {
+  "name": "Nerif, the Oracle",
+  "type": "Legendary Creature — Vedalken Cleric",
+  "mana_cost": "{U}{B}",
+  "subtypes": [
+   "Vedalken",
+   "Cleric"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "U",
+   "B"
+  ],
+  "oracle_text": "Flying\nAt the beginning of your upkeep, surveil 2. (Look at the top two cards of your library. Put any number of them into your graveyard and the rest on top in any order.)\nWhenever you surveil, each opponent mills that many cards.”",
+  "power": "2",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Nerif%20the%20Oracle.png"
+ },
+ {
+  "name": "Buyback",
+  "type": "Instant",
+  "mana_cost": "{0}",
+  "rarity": "mythic",
+  "oracle_text": "Return target creature card from your graveyard to the battlefield. It gains haste until end of turn. \nAt the beginning of your next upkeep, pay {2BR}. If you don’t, you lose the game.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Buyback.png"
+ },
+ {
+  "name": "Harbinger, the Outworld Destroyer",
+  "type": "Legendary Creature — Archon",
+  "mana_cost": "{5}{U}{B}",
+  "subtypes": [
+   "Archon"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "U",
+   "B"
+  ],
+  "oracle_text": "Delve (Each card you exile from your graveyard while casting this spell pays for 1.)\nFlying\nWhenever Harbinger attacks, return a noncreature, nonland card exiled with this creature to its owner’s hand.",
+  "power": "4",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Harbinger%20the%20Outworld%20Destroyer%20.png"
+ },
+ {
+  "name": "Astral Imprisonment",
+  "type": "Enchantment — Aura",
+  "mana_cost": "{U}",
+  "subtypes": [
+   "Aura"
+  ],
+  "rarity": "common",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "Flash (You may cast this spell any time you could cast an instant.)\nEnchant creature\n{0}: Exile enchanted creature. Return that card to the battlefield under its owners control at the beginning of that players next end step.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Astral%20Imprisonment.png"
+ },
+ {
+  "name": "Donté Panlin, the Pangolier",
+  "type": "Legendary Creature — Pangolin Rogue",
+  "mana_cost": "{1}{R}",
+  "subtypes": [
+   "Pangolin",
+   "Rogue"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "First strike\nWhenever Donté Panlin deals combat damage to an opponent, exile the top card of each player’s library. Until end of turn, you may cast any number of cards with the greatest mana value among the exiled cards this way.",
+  "power": "2",
+  "toughness": "1",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Dont%C3%A9%20Panlin%20the%20Pangolier.png"
+ },
+ {
+  "name": "Mortred, the Phantom Assassin",
+  "type": "Legendary Creature — Spirit Assassin",
+  "mana_cost": "{1}{W}{B}",
+  "subtypes": [
+   "Spirit",
+   "Assassin"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "W",
+   "B"
+  ],
+  "oracle_text": "Hexproof, menace\nWhenever you attack, target legendary creature you control gains first strike and deathtouch until end of turn.",
+  "power": "2",
+  "toughness": "1",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Mortred%20the%20Phantom%20Assassin.png"
+ },
+ {
+  "name": "Azwraith, the Phantom Lancer",
+  "type": "Legendary Creature — Cat Warrior",
+  "mana_cost": "{4}{W}{U}",
+  "subtypes": [
+   "Cat",
+   "Warrior"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "W",
+   "U"
+  ],
+  "oracle_text": "Vigilance \nWhenever Azwraith enters or attacks, create two 1/1 white and blue Illusion creature tokens with vigilance.",
+  "power": "4",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Azwraith%20the%20Phantom%20Lancer.png"
+ },
+ {
+  "name": "Primal Beast",
+  "type": "Legendary Creature — Dinosaur Beast",
+  "mana_cost": "{4}{R}{G}",
+  "subtypes": [
+   "Dinosaur",
+   "Beast"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "R",
+   "G"
+  ],
+  "oracle_text": "Trample, haste\nEnrage — Whenever Primal Beast is dealt damage, it fights target creature you don’t control.",
+  "power": "5",
+  "toughness": "5",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Primal%20Beast.png"
+ },
+ {
+  "name": "Pudge, the Butcher",
+  "type": "Legendary Creature — Zombie",
+  "mana_cost": "{3}{B}{B}",
+  "subtypes": [
+   "Zombie"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "Trample\nIf a creature an opponent controls would die, exile it instead. Then, put a +1/+1 counter on Pudge.",
+  "power": "3",
+  "toughness": "5",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Pudge%20the%20Butcher.png"
+ },
+ {
+  "name": "Pugna",
+  "type": "Legendary Creature — Skeleton Wizard",
+  "mana_cost": "{1}{B}",
+  "subtypes": [
+   "Skeleton",
+   "Wizard"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "Lifelink\nPrevent all combat damage that would be dealt to and by Pugna.\n{XB}: Spend only black mana on X. Pugna deals X damage to target creature or player.",
+  "power": "1",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Pugna.png"
+ },
+ {
+  "name": "Akasha, the Queen of Pain",
+  "type": "Legendary Creature — Demon Sorcerer",
+  "mana_cost": "{1}{R}{R}{R}",
+  "subtypes": [
+   "Demon",
+   "Sorcerer"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "Flying, haste\nWhenever a player casts an instant or sorcery spell, Akasha deals 1 damage to each opponent.",
+  "power": "3",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Akasha%20the%20Queen%20of%20Pain.png"
+ },
+ {
+  "name": "Razor, the Lightning Revenant",
+  "type": "Legendary Creature — Elemental Warrior",
+  "mana_cost": "{1}{U}{R}",
+  "subtypes": [
+   "Elemental",
+   "Warrior"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "U",
+   "R"
+  ],
+  "oracle_text": "Flying, haste\nWhenever Razor attacks, exchange its power with target creature’s power until end of turn.",
+  "power": "0",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Razor%20the%20Lightning%20Revenant.png"
+ },
+ {
+  "name": "Riki, the Stealth Assassin",
+  "type": "Legendary Creature — Satyr Rogue",
+  "mana_cost": "{1}{U}{B}",
+  "subtypes": [
+   "Satyr",
+   "Rogue"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "U",
+   "B"
+  ],
+  "oracle_text": "Hexproof (This creature can’t be the target of spells of abilities your opponents control.)\nRiki can’t be blocked.\nWhenever Riki deals combat damage to a player, they may lose 2 life. If they don’t, you draw a card.",
+  "power": "1",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Riki%20the%20Stealth%20Assassin.png"
+ },
+ {
+  "name": "Rubick, the Grand Magus",
+  "type": "Legendary Creature — Vedalken Wizard",
+  "mana_cost": "{1}{U}{U}{U}",
+  "subtypes": [
+   "Vedalken",
+   "Wizard"
+  ],
+  "rarity": "mythic",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "The first time you cast an instant or sorcery spell each turn, copy that spell. You may choose new targets for the copy. \nYou may cast sorcery spells as though they had flash. (You may cast this spell any time you could cast an instant.)",
+  "power": "1",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Rubick%20the%20Grand%20Magus.png"
+ },
+ {
+  "name": "Crixalis, the Sand King",
+  "type": "Legendary Creature — Scorpion Assassin",
+  "mana_cost": "{2}{B}{R}{G}",
+  "subtypes": [
+   "Scorpion",
+   "Assassin"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "B",
+   "R",
+   "G"
+  ],
+  "oracle_text": "Deathtouch\nWhenever you sacrifice a permanent, each opponent sacrifices a permanent of that type if able.",
+  "power": "2",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Crixalis%20the%20Sand%20King.png"
+ },
+ {
+  "name": "Shadow Demon",
+  "type": "Legendary Creature — Demon Wizard",
+  "mana_cost": "{3}{R}",
+  "subtypes": [
+   "Demon",
+   "Wizard"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "When Shadow Demon enters, create a token copy of target creature you don’t control. It can’t attack or block until Shadow Demon leaves play.",
+  "power": "4",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Shadow%20Demon.png"
+ },
+ {
+  "name": "Nevermore, the Shadow Fiend",
+  "type": "Legendary Creature — Demon Archon",
+  "mana_cost": "{B}{R}",
+  "subtypes": [
+   "Demon",
+   "Archon"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "B",
+   "R"
+  ],
+  "oracle_text": "Whenever a creature dies, put a +1/+1 counter on Nevermore.\nWhen Nevermore dies, it deals damage equal to its power to each opponent.",
+  "power": "1",
+  "toughness": "1",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Nevermore%20the%20Shadow%20Fiend.png"
+ },
+ {
+  "name": "Rhasta, the Shadow Shaman",
+  "type": "Legendary Creature — Troll Shaman",
+  "mana_cost": "{1}{U}{U}",
+  "subtypes": [
+   "Troll",
+   "Shaman"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "Flash (You may cast this spell any time you may cast an instant.)\nWhen Rhasta enters, target creature loses all abilities and becomes a 0/1 white Chicken creature for as long as you control Rhasta.",
+  "power": "2",
+  "toughness": "1",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Rhasta%20the%20Shadow%20Shaman.png"
+ },
+ {
+  "name": "Nortrom, the Silencer",
+  "type": "Legendary Creature — Human Advisor",
+  "mana_cost": "{4}{W}{B}",
+  "subtypes": [
+   "Human",
+   "Advisor"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "W",
+   "B"
+  ],
+  "oracle_text": "Vigilance \nWhenever an opponent casts their first noncreature spell each turn, that player loses 3 life and you gain 3 life.",
+  "power": "5",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Nortrom%20the%20Silencer.png"
+ },
+ {
+  "name": "Slardar, the Slithereen Guard",
+  "type": "Legendary Creature — Naga Warrior",
+  "mana_cost": "{2}{U}{U}",
+  "subtypes": [
+   "Naga",
+   "Warrior"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "Vigilance\nCreatures your opponents control lose hexproof and shroud and can’t have hexproof and shroud. Ward abilities of those creatures don’t trigger.\nThe first time you tap a creature an opponent controls each turn, draw a card.",
+  "power": "4",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Slardar%20the%20Slithereen%20Guard.png"
+ },
+ {
+  "name": "Slark, the Nightcrawler",
+  "type": "Legendary Creature — Naga Rogue",
+  "mana_cost": "{1}{B/G}{B/G}",
+  "subtypes": [
+   "Naga",
+   "Rogue"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "B",
+   "G"
+  ],
+  "oracle_text": "Wither (This deals damage to creatures in the form of -1/-1 counters.)\nWhenever Slark deals combat damage, put that many +1/+1 counters on it.\n{B/G}: Regenerate Slark.  (The next time this creature would be destroyed this turn, it isn’t. Instead tap it, remove all damage from it, and remove it from combat.)",
+  "power": "1",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Slark%20the%20Nightcrawler.png"
+ },
+ {
+  "name": "Beatrix and Mortimer",
+  "type": "Legendary Creature — Lizard Gnome",
+  "mana_cost": "{1}{R}{G}",
+  "subtypes": [
+   "Lizard",
+   "Gnome"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "R",
+   "G"
+  ],
+  "oracle_text": "{T}: Beatrix and Mortimer deal 1 damage to target creature. It gains haste until end of turn.\nAt the beginning of combat on your turn, untap target creature you control.",
+  "power": "2",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Beatrix%20and%20Mortimer.png"
+ },
+ {
+  "name": "Kardel Sharpeye, the Sniper",
+  "type": "Legendary Creature — Gnome Scout",
+  "mana_cost": "{R}{W}",
+  "subtypes": [
+   "Gnome",
+   "Scout"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "W",
+   "R"
+  ],
+  "oracle_text": "First strike, vigilance\n{T}: Kardel deals 1 damage to target tapped creature.",
+  "power": "3",
+  "toughness": "1",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Kardel%20Sharpeye%20the%20Sniper.png"
+ },
+ {
+  "name": "Mercurial, the Spectre",
+  "type": "Legendary Creature — Spirit",
+  "mana_cost": "{1}{B}{B}",
+  "subtypes": [
+   "Spirit"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "Whenever a source deals damage to Mercurial, that source’s controller loses 1 life.\nMercurial gets +2/+0 and has menace as long as an opponent controls one or fewer creatures.",
+  "power": "2",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Mercurial%20the%20Spectre.png"
+ },
+ {
+  "name": "Barathrum, the Spirit Breaker",
+  "type": "Legendary Creature — Beast Warrior",
+  "mana_cost": "{3}{G}{U}",
+  "subtypes": [
+   "Beast",
+   "Warrior"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "U",
+   "G"
+  ],
+  "oracle_text": "Trample\nAs long as Barathrum has attacked this turn, spells you cast from your hand this turn gain cascade. (When you cast this spell, exile cards from the top of your library until you exile a nonland card that costs less. You may cast it without paying its mana cost if the resulting spell’s mana value is less than this spell’s mana value. Put the exiled cards on the bottom in a random order.)",
+  "power": "4",
+  "toughness": "5",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Barathrum%20the%20Spirit%20Breaker.png"
+ },
+ {
+  "name": "Raijin, the Storm Spirit",
+  "type": "Legendary Creature — Spirit Wizard",
+  "mana_cost": "{4}{U}{R}",
+  "subtypes": [
+   "Spirit",
+   "Wizard"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "U",
+   "R"
+  ],
+  "oracle_text": "Haste\nWhen Raijin enters, create a 2/2 blue and red Elemental Spirit creature token with haste named Static Remnant for each spell you’ve cast this turn.",
+  "power": "2",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Raijin%20the%20Storm%20Spirit%20.png"
+ },
+ {
+  "name": "Sven, the Rogue Knight",
+  "type": "Legendary Creature — Human Rogue Knight",
+  "mana_cost": "{1}{R}{R}{R}",
+  "subtypes": [
+   "Human",
+   "Rogue",
+   "Knight"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "Whenever Sven deals combat damage to an opponent’s creature, Sven deals that much damage to another target creature that player controls.",
+  "power": "4",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Sven%20the%20Rogue%20Knight.png"
+ },
+ {
+  "name": "Inai, the Void Spirit",
+  "type": "Legendary Creature — Spirit Warrior",
+  "mana_cost": "{3}{B}{B}",
+  "subtypes": [
+   "Spirit",
+   "Warrior"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "When Inai enters, distribute X -1/-1 counters among creatures your opponents control, where X is the number of Spirits you control.",
+  "power": "4",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Inai%20the%20Void%20Spirit%20.png"
+ },
+ {
+  "name": "Squee, Spleen, and Spoon, the Techies",
+  "type": "Legendary Creature — Goblin",
+  "mana_cost": "{2}{R}",
+  "subtypes": [
+   "Goblin"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "{T}, Sacrifice an artifact or creature: Choose one —\n•  Exile the top card of your library. You may play that card this turn.\n• The Techies deals 2 damage to any target.\n• Add {RR} to your mana pool.",
+  "power": "2",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Squee%20Spleen%20and%20Spoon%20the%20Techies.png"
+ },
+ {
+  "name": "Lanaya, the Templar Assassin",
+  "type": "Legendary Creature — Human Assassin",
+  "mana_cost": "{3}{W}",
+  "subtypes": [
+   "Human",
+   "Assassin"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "W"
+  ],
+  "oracle_text": "Whenever Lanaya enters or attacks, put a shield counter on it. (If it would be dealt damage or destroyed, remove a shield counter from it instead.\nWhenever a shield counter is removed from a creature you control, put a +1/+1 counter on that creature.",
+  "power": "2",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Lanaya%20the%20Templar%20Assassin.png"
+ },
+ {
+  "name": "Terrorblade, the Demon Marauder",
+  "type": "Legendary Creature — Demon Warrior",
+  "mana_cost": "{B}{B}",
+  "subtypes": [
+   "Demon",
+   "Warrior"
+  ],
+  "rarity": "mythic",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "At the beginning of your postcombat main phase, add B for each 1 life your opponents have lost this turn. Then, you lose that amount of life.\n{4BBB}: Transform Terrorblade.",
+  "power": "2",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Terrorblade%20the%20Demon%20Marauder%20.png",
+  "back": {
+   "name": "Terrorblade, Metamorphosis",
+   "type": "Legendary Creature — Demon Warrior",
+   "subtypes": [
+    "Demon",
+    "Warrior"
+   ],
+   "oracle_text": "Lifelink\nMetamorphosis — When this creature transforms, create two 4/4 black Demon Illusion creature tokens with lifelink named Conjured Image.",
+   "power": "8",
+   "toughness": "8"
+  }
+ },
+ {
+  "name": "Leviathan, the Tidehunter",
+  "type": "Legendary Creature — Leviathan Warrior",
+  "mana_cost": "{5}{G}{U}",
+  "subtypes": [
+   "Leviathan",
+   "Warrior"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "U",
+   "G"
+  ],
+  "oracle_text": "Trample\nWhen Leviathan enters or attacks, put a flood counter on target land. That land is an Island in addition to its other types for as long as it has a flood counter on it.\nWhenever Leviathan deals combat damage to an opponent, untap all lands you control with flood counters on them.",
+  "power": "8",
+  "toughness": "8",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Leviathan%20the%20Tidehunter.png"
+ },
+ {
+  "name": "Rizzrack, the Timbersaw",
+  "type": "Legendary Creature — Gnome Pilot",
+  "mana_cost": "{1}{R}{G}",
+  "subtypes": [
+   "Gnome",
+   "Pilot"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "R",
+   "G"
+  ],
+  "oracle_text": "Rizzrack gets +1/+1 for each land card in your graveyard.\n{T}, Sacrifice a land: Add three mana in any combination of R and/or G.",
+  "power": "3",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Rizzrack%20the%20Timbersaw.png"
+ },
+ {
+  "name": "Boush, the Tinker",
+  "type": "Legendary Artifact Creature — Gnome Artificer",
+  "mana_cost": "{U}",
+  "subtypes": [
+   "Gnome",
+   "Artificer"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "{T}: Create a 1/1 colorless Robot artifact creature token.\n{4}: Untap Boush.",
+  "power": "1",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Boush%20the%20Tinker.png"
+ },
+ {
+  "name": "Tiny, the Stone Giant",
+  "type": "Legendary Creature — Elemental",
+  "mana_cost": "{1}{G}",
+  "subtypes": [
+   "Elemental"
+  ],
+  "rarity": "mythic",
+  "colors": [
+   "G"
+  ],
+  "oracle_text": "Trample\nWhenever a permanent is put into the graveyard from the battlefield, put a +1/+1 counter on Tiny. If that permanent was a land, put two +1/+1 counters on Tiny instead.",
+  "power": "2",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Tiny%20the%20Stone%20Giant.png"
+ },
+ {
+  "name": "Rooftrellen, Treant Protector",
+  "type": "Legendary Creature — Treefolk",
+  "mana_cost": "{1}{G}",
+  "subtypes": [
+   "Treefolk"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "G"
+  ],
+  "oracle_text": "Forestwalk (This creature can’t be blocked as long as defending player controls a Forest.)\n{T}: Add {G}. \nWhen Rooftrellen becomes tapped for the first time each turn, put a stun counter on it. (If a permanent with a stun counter would become untapped, remove one from it instead.)",
+  "power": "3",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Rooftrellen%20Treant%20Protector.png"
+ },
+ {
+  "name": "Jah'rakal, the Troll Warlord",
+  "type": "Legendary Creature — Troll Warrior",
+  "mana_cost": "{R}{G}",
+  "subtypes": [
+   "Troll",
+   "Warrior"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "R",
+   "G"
+  ],
+  "oracle_text": "Haste\nWhenever Jah’rakal attacks, put a +1/+1 counter on it. \nWhen Jah’raka’s power is 5 or greater, transform it.",
+  "power": "2",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Jahrakal%20the%20Troll%20Warlord.png",
+  "back": {
+   "name": "Jah'rakal, Battle Tranced",
+   "type": "Legendary Creature — Troll Warrior",
+   "subtypes": [
+    "Troll",
+    "Warrior"
+   ],
+   "oracle_text": "Indestructible (Damage and effects that say “destroy” don’t destroy this creature.)\nWhen Jah’rakal transforms, remove all +1/+1 counters from it. For each counter removed this way, add one mana of any combination of R and/or G. Until end of turn, you don’t lose this mana as steps and phases end.\nAt the beginning of your end step, transform Jah’rakal.",
+   "power": "5",
+   "toughness": "5"
+  }
+ },
+ {
+  "name": "Ymir, the Tusk",
+  "type": "Legendary Creature — Beast Warrior",
+  "mana_cost": "{2}{W}{W}",
+  "subtypes": [
+   "Beast",
+   "Warrior"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "W"
+  ],
+  "oracle_text": "Flash (You may cast this spell any time you could cast an instant.)\nWhen Ymir, the Tusk enters, exile up to one other target creature. Return that card to the battlefield under its owner’s control at the beginning of that player’s next end step.",
+  "power": "4",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Ymir%20the%20Tusk.png"
+ },
+ {
+  "name": "Vrogros, the Underlord",
+  "type": "Legendary Creature — Demon Warrior",
+  "mana_cost": "{1}{B}{B}",
+  "subtypes": [
+   "Demon",
+   "Warrior"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "Vrogros gets +2/+0 until end of turn for each creature that died this turn.\nEach creature your opponents control get -2/-0 until end of turn for each creature that died this turn.",
+  "power": "1",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Vrogros%20the%20Underlord.png"
+ },
+ {
+  "name": "Undying, the Almighty Dirge",
+  "type": "Legendary Creature — Zombie Warrior",
+  "mana_cost": "{3}{B}{G}",
+  "subtypes": [
+   "Zombie",
+   "Warrior"
+  ],
+  "rarity": "mythic",
+  "colors": [
+   "B",
+   "G"
+  ],
+  "oracle_text": "Undying (When this creature dies, if it had no +1/+1 counters on it, return it to the battlefield under its owner’s control with a +1/+1 counter on it.)\nAt the beginning of each player’s upkeep, that player discards a card.\nWhenever a creature card is put into a graveyard from anywhere, create a 2/2 black Zombie creature token.",
+  "power": "3",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Undying%20the%20Almighty%20Dirge.png"
+ },
+ {
+  "name": "Ulfsaar, the Ursa Warrior",
+  "type": "Legendary Creature — Bear Warrior",
+  "mana_cost": "{1}{G}",
+  "subtypes": [
+   "Bear",
+   "Warrior"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "G"
+  ],
+  "oracle_text": "Trample\n {G}: Regenerate Ulfsaar. (The next time it would be destroyed, instead tap it, remove it from combat, and heal all damage on it)\nWhenever Ulfsaar deals combat damage, put a +1/+1 counter on it.",
+  "power": "2",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Ulfsaar%20the%20Ursa%20Warrior.png"
+ },
+ {
+  "name": "Shendelzare, Vengeful Spirit",
+  "type": "Legendary Creature — Angel Spirit",
+  "mana_cost": "{B}{B}",
+  "subtypes": [
+   "Angel",
+   "Spirit"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "Menace\nWhen Shendelzare dies, return it to the battlefield tapped with no abilities.",
+  "power": "3",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Shendelzare%20Vengeful%20Spirit.png"
+ },
+ {
+  "name": "Lesale Deathbringer, the Venomancer",
+  "type": "Legendary Creature — Snake",
+  "mana_cost": "{B/G}{B/G}",
+  "subtypes": [
+   "Snake"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "B",
+   "G"
+  ],
+  "oracle_text": "Infect (This creature deals damage to creatures in the form of -1/-1 counters and to players in the form of poison counters.)\nWhenever a creature an opponent controls dies, if its toughness was less than 1, create a 1/1 green and black Insect creature token with Infect.",
+  "power": "2",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Lesale%20Deathbringer%20the%20Venomancer%20.png"
+ },
+ {
+  "name": "Viper, the Netherdrake",
+  "type": "Legendary Creature — Dragon",
+  "mana_cost": "{2}{B}{G}",
+  "subtypes": [
+   "Dragon"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "B",
+   "G"
+  ],
+  "oracle_text": "Flying\nInfect (This creature deals damage to creatures in the form of -1/-1 counters and to players in the form of poison counters.)\nWhenever Viper deals combat damage to a player, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+  "power": "2",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Viper%20the%20Netherdrake.png"
+ },
+ {
+  "name": "Demnok Lannik, the Warlock",
+  "type": "Legendary Creature — Human Warlock",
+  "mana_cost": "{4}{B}{R}",
+  "subtypes": [
+   "Human",
+   "Warlock"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "B",
+   "R"
+  ],
+  "oracle_text": "When Demnok enters, you may sacrifice any number of other creatures you control. When you do, create an X/X red and black Demon Golem creature token with haste, where X is the total power of each creature sacrificed this way.",
+  "power": "2",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Demnok%20Lannik%20the%20Warlock.png"
+ },
+ {
+  "name": "Skitskurr, the Weaver",
+  "type": "Legendary Creature — Insect",
+  "mana_cost": "{3}{W}{U}",
+  "subtypes": [
+   "Insect"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "W",
+   "U"
+  ],
+  "oracle_text": "Skulk (This creature can’t be blocked by creatures with greater power.)\nWhenever Skitskurr deals combat damage to a player, take an extra turn after this one.\nSkitskurr can’t attack during extra turns.",
+  "power": "1",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Skitskurr%20the%20Weaver.png"
+ },
+ {
+  "name": "Lyralei, the Windranger",
+  "type": "Legendary Creature — Human Ranger",
+  "mana_cost": "{1}{G}{W}",
+  "subtypes": [
+   "Human",
+   "Ranger"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "W",
+   "G"
+  ],
+  "oracle_text": "Flash (You may cast this spell any time you may cast an instant.)\nVigilance, reach\nWhenever you cast your second spell during an opponents turn, draw a card and gain 1 life.",
+  "power": "3",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Lyralei%20the%20Windranger.png"
+ },
+ {
+  "name": "Auroth, the Winter Wyvern",
+  "type": "Legendary Creature — Dragon Wizard",
+  "mana_cost": "{1}{W}{W}",
+  "subtypes": [
+   "Dragon",
+   "Wizard"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "W"
+  ],
+  "oracle_text": "Flash (You may cast this spell any time you could cast an instant.)\nFlying\nWhen Auroth enters, prevent all damage that would be dealt to target creature you control until end of turn.",
+  "power": "3",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Auroth%20the%20Winter%20Wyvern.png"
+ },
+ {
+  "name": "Heat Seeking Missiles",
+  "type": "Sorcery",
+  "mana_cost": "{U}{R}",
+  "rarity": "uncommon",
+  "colors": [
+   "U",
+   "R"
+  ],
+  "oracle_text": "Buyback {5} (You may pay an additional 2 as you cast this spell. If you do, put this card into your hand as it resolves.)\nHeat Seeking Missiles deals 2 damage divided as you choose among up to two targets.\nDraw a card.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Heat%20Seeking%20Missiles.png"
+ },
+ {
+  "name": "Zharvakko, the Witch Doctor",
+  "type": "Legendary Creature — Troll Cleric",
+  "mana_cost": "{B}{G}{U}",
+  "subtypes": [
+   "Troll",
+   "Cleric"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "U",
+   "B",
+   "G"
+  ],
+  "oracle_text": "At the beginning of your upkeep, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)\n{T}, Remove any number of counters from target permanent or player: Draw that many cards and gain that much life.",
+  "power": "1",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Zharvakko%20the%20Witch%20Doctor.png"
+ },
+ {
+  "name": "Zeus, the Lord of Heaven",
+  "type": "Legendary Creature — God Wizard",
+  "mana_cost": "{3}{U}{R}",
+  "subtypes": [
+   "God",
+   "Wizard"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "U",
+   "R"
+  ],
+  "oracle_text": "Whenever you cast your third spell in a turn, untap Zeus.\n{T}: Zeus deals 3 damage to any target.",
+  "power": "1",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Zeus%20the%20Lord%20of%20Heaven.png"
+ },
+ {
+  "name": "Keenfolk Golem",
+  "type": "Artifact Creature — Golem",
+  "mana_cost": "{5}{U}{R}",
+  "subtypes": [
+   "Golem"
+  ],
+  "rarity": "common",
+  "colors": [
+   "U",
+   "R"
+  ],
+  "oracle_text": "Affinity for artifacts (This spell costs {1} less to cast for each artifact you control)\nWhen this creature enters, you may return target noncreature card from your graveyard to your hand.",
+  "power": "5",
+  "toughness": "5",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Keenfolk%20Golem.png"
+ },
+ {
+  "name": "Ristul Assassin",
+  "type": "Creature — Human Rogue",
+  "mana_cost": "{B}",
+  "subtypes": [
+   "Human",
+   "Rogue"
+  ],
+  "rarity": "common",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "When this creature enters, each player discards a card.\n{1B}: This creature gains deathtouch until end of turn.",
+  "power": "1",
+  "toughness": "1",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Ristul%20Assassin.png"
+ },
+ {
+  "name": "Alpha Wolf",
+  "type": "Creature — Wolf",
+  "mana_cost": "{2}{R}{G}",
+  "subtypes": [
+   "Wolf"
+  ],
+  "rarity": "common",
+  "colors": [
+   "R",
+   "G"
+  ],
+  "oracle_text": "When this creature enters, create a 2/2 green Wolf creature token.\nEnrage — Whenever this creature is dealt damage, create a 2/2 green Wolf creature token",
+  "power": "2",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Alpha%20Wolf.png"
+ },
+ {
+  "name": "Satyr Mindstealer",
+  "type": "Creature — Satyr Wizard",
+  "mana_cost": "{1}{U}{B}",
+  "subtypes": [
+   "Satyr",
+   "Wizard"
+  ],
+  "rarity": "common",
+  "colors": [
+   "U",
+   "B"
+  ],
+  "oracle_text": "{T}: Each player mills two cards. (To mill two cards, a player puts the top two cards of their library into their graveyard.)\n{5U/B}, Exile this creature: Exile target instant or sorcery card from a graveyard. You may cast that card without paying its mana cost. Activate only as a sorcery.",
+  "power": "1",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Satyr%20Mindstealer.png"
+ },
+ {
+  "name": "Satyr Banisher",
+  "type": "Creature — Satyr Wizard",
+  "mana_cost": "{U}",
+  "subtypes": [
+   "Satyr",
+   "Wizard"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "Flash (You may cast this spell any time you could cast an instant.)\nWhen this creature enters, target creature phases out.",
+  "power": "1",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Satyr%20Banisher.png"
+ },
+ {
+  "name": "Hill Troll Priest",
+  "type": "Creature — Troll Cleric",
+  "mana_cost": "{1}{G}{W}",
+  "subtypes": [
+   "Troll",
+   "Cleric"
+  ],
+  "rarity": "common",
+  "colors": [
+   "W",
+   "G"
+  ],
+  "oracle_text": "Lifelink\nWhen this creature enters, you gain 3 life.",
+  "power": "1",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Hill%20Troll%20Priest.png"
+ },
+ {
+  "name": "Kobold Foreman",
+  "type": "Creature — Kobold",
+  "mana_cost": "{1}{R}",
+  "subtypes": [
+   "Kobold"
+  ],
+  "rarity": "common",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "Whenever you sacrifice a nonland permanent, add one mana of any color to your mana pool.",
+  "power": "1",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Kobold%20Foreman.png"
+ },
+ {
+  "name": "Fell Spirit",
+  "type": "Creature — Spirit",
+  "mana_cost": "{W}{B}",
+  "subtypes": [
+   "Spirit"
+  ],
+  "rarity": "common",
+  "colors": [
+   "W",
+   "B"
+  ],
+  "oracle_text": "Flying\nWhenever another creature enters under your control, you gain 1 life.\nWhen another creature you controls dies, each opponent loses 1 life.",
+  "power": "2",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Fell%20Spirit.png"
+ },
+ {
+  "name": "Mud Golem",
+  "type": "Creature — Elemental Golem",
+  "mana_cost": "{2}{W}",
+  "subtypes": [
+   "Elemental",
+   "Golem"
+  ],
+  "rarity": "common",
+  "colors": [
+   "W"
+  ],
+  "oracle_text": "When this creature dies, create two 1/1 white Golem creature tokens.",
+  "power": "2",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Mud%20Golem.png"
+ },
+ {
+  "name": "Omexe Overwatch",
+  "type": "Creature — Centaur Archer",
+  "mana_cost": "{G}",
+  "subtypes": [
+   "Centaur",
+   "Archer"
+  ],
+  "rarity": "common",
+  "colors": [
+   "G"
+  ],
+  "oracle_text": "Creatures you control have ward 1.",
+  "power": "1",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Omexe%20Overwatch.png"
+ },
+ {
+  "name": "Satyr Cutthroat",
+  "type": "Creature — Satyr Rogue",
+  "mana_cost": "{4}{B}{B}",
+  "subtypes": [
+   "Satyr",
+   "Rogue"
+  ],
+  "rarity": "common",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "Deathtouch\nWhen this creature enters, it deals 1 damage to target creature an opponent controls.",
+  "power": "1",
+  "toughness": "1",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Satyr%20Cutthroat.png"
+ },
+ {
+  "name": "Aerie Antiquarian",
+  "type": "Creature — Bird Artificer",
+  "mana_cost": "{2}{U/R}",
+  "subtypes": [
+   "Bird",
+   "Artificer"
+  ],
+  "rarity": "common",
+  "colors": [
+   "U",
+   "R"
+  ],
+  "oracle_text": "Whenever this creature enters or attacks, look at the top two cards of your library. You may reveal an artifact card from among them and put it into your hand. Put the rest into your graveyard.",
+  "power": "2",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Aerie%20Antiquarian.png"
+ },
+ {
+  "name": "Wildwing Ripper",
+  "type": "Creature — Bird",
+  "mana_cost": "{2}{R}{W}",
+  "subtypes": [
+   "Bird"
+  ],
+  "rarity": "common",
+  "colors": [
+   "W",
+   "R"
+  ],
+  "oracle_text": "Flying, haste\nWhen this creature attacks, another target creature you control gets +1/+0 and gains flying until end of turn.",
+  "power": "3",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Wildwing%20Ripper.png"
+ },
+ {
+  "name": "Dark Troll Summoner",
+  "type": "Creature — Troll Shaman",
+  "mana_cost": "{2}{B}{G}",
+  "subtypes": [
+   "Troll",
+   "Shaman"
+  ],
+  "rarity": "common",
+  "colors": [
+   "B",
+   "G"
+  ],
+  "oracle_text": "Whenever a nontoken creature you control dies, create a 2/2 black Zombie creature token.",
+  "power": "2",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Dark%20Troll%20Summoner.png"
+ },
+ {
+  "name": "Warpine Raider",
+  "type": "Creature — Elemental",
+  "mana_cost": "{G}{U}",
+  "subtypes": [
+   "Elemental"
+  ],
+  "rarity": "common",
+  "colors": [
+   "U",
+   "G"
+  ],
+  "oracle_text": "When this creature enters, search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+  "power": "1",
+  "toughness": "1",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Warpine%20Raider.png"
+ },
+ {
+  "name": "Ancient Black Dragon",
+  "type": "Creature — Dragon",
+  "mana_cost": "{3}{B}{B}",
+  "subtypes": [
+   "Dragon"
+  ],
+  "rarity": "common",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "Flying\nWhen this creature dies, each opponent loses 3 life.\nSwampcycling {1} ({1}, Discard this card: Search your library for a Swamp card, reveal it, put it into your hand, then shuffle.)",
+  "power": "4",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Ancient%20Black%20Dragon.png"
+ },
+ {
+  "name": "Ancient Granite Golem",
+  "type": "Creature — Elemental Golem",
+  "mana_cost": "{3}{G}{G}",
+  "subtypes": [
+   "Elemental",
+   "Golem"
+  ],
+  "rarity": "common",
+  "colors": [
+   "G"
+  ],
+  "oracle_text": "Vigilance\n{T}: Add {GG}. If you control a creature with trample, add {GGG} instead.\nForestcycling {1} ({1}, Discard this card: Search your library for a Forest card, reveal it, put it into your hand, then shuffle.)",
+  "power": "5",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Ancient%20Granite%20Golem.png"
+ },
+ {
+  "name": "Ancient Thunderhide",
+  "type": "Creature — Dinosaur",
+  "mana_cost": "{3}{R}{R}",
+  "subtypes": [
+   "Dinosaur"
+  ],
+  "rarity": "common",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "Ward—Pay 3 life.\nTrample\nMountaincycling {1} (1, Discard this card: Search your library for a Mountain card, reveal it, put it into your hand, then shuffle.)",
+  "power": "5",
+  "toughness": "5",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Ancient%20Thunderhide.png"
+ },
+ {
+  "name": "Bronze Provost",
+  "type": "Creature — Human Solider",
+  "mana_cost": "{3}{W}{W}",
+  "subtypes": [
+   "Human",
+   "Solider"
+  ],
+  "rarity": "common",
+  "colors": [
+   "W"
+  ],
+  "oracle_text": "At the beginning of combat on each opponent’s turn, tap target creature that player controls.\nPlainscycling {1} ({1}, Discard this card: Search your library for a Plains card, reveal it, put it into your hand, then shuffle.)",
+  "power": "4",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Bronze%20Provost.png"
+ },
+ {
+  "name": "Ice Golem",
+  "type": "Creature — Elemental Golem",
+  "mana_cost": "{1}{W}{U}",
+  "subtypes": [
+   "Elemental",
+   "Golem"
+  ],
+  "rarity": "common",
+  "colors": [
+   "W",
+   "U"
+  ],
+  "oracle_text": "When this creature enters, tap target creature an opponent controls. You may put a stun counter on it.",
+  "power": "2",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Ice%20Golem.png"
+ },
+ {
+  "name": "Phase Boots",
+  "type": "Artifact — Equipment",
+  "mana_cost": "{W/U}{W/U}",
+  "subtypes": [
+   "Equipment"
+  ],
+  "rarity": "common",
+  "colors": [
+   "W",
+   "U"
+  ],
+  "oracle_text": "When this Equipment enters, draw a card.\n{W/U}: Equipped creature phases out. (While it’s phased out, it’s treated as though it doesn’t exist. It phases in before its controller untaps during their next untap step.)\nEquip {1}",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Phase%20Boots.png"
+ },
+ {
+  "name": "Refresher Orb",
+  "type": "Legendary Artifact",
+  "mana_cost": "{5}{G}{U}",
+  "rarity": "rare",
+  "colors": [
+   "U",
+   "G"
+  ],
+  "oracle_text": "{T}, Exile Refresher Orb: Take an extra turn after this one.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Refresher%20Orb.png"
+ },
+ {
+  "name": "Blade Mail",
+  "type": "Artifact — Equipment",
+  "mana_cost": "{2}",
+  "subtypes": [
+   "Equipment"
+  ],
+  "rarity": "common",
+  "oracle_text": "Whenever equipped creature is dealt damage by a source an opponent controls, this Equipment deals that much damage to that source. \nEquip {1}",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Blade%20Mail.png"
+ },
+ {
+  "name": "Quorum Priest",
+  "type": "Creature — Human Priest",
+  "mana_cost": "{1}{G/W}",
+  "subtypes": [
+   "Human",
+   "Priest"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "W",
+   "G"
+  ],
+  "oracle_text": "Whenever you gain life for the first time each turn, put a +1/+1 counter on this creature.\n{T}, Remove a counter from this creature: Draw a card.",
+  "power": "2",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Quorum%20Priest.png"
+ },
+ {
+  "name": "Orb of Venom",
+  "type": "Artifact",
+  "mana_cost": "{B}",
+  "rarity": "common",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "{T}, Sacrifice this artifact: Put a -1/-1 counter on target creature. Activate only as a sorcery.\nWhen this artifact is put into a graveyard from the battlefield, draw a card.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Orb%20of%20Venom.png"
+ },
+ {
+  "name": "Dagon",
+  "type": "Legendary Artifact",
+  "mana_cost": "{U}{R}",
+  "rarity": "uncommon",
+  "colors": [
+   "U",
+   "R"
+  ],
+  "oracle_text": "Level 2: {T}, Dagon deals 2 damage to any target.\nLevel 3: {T}, Dagon deals 5 damage to any target.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Dagon.png"
+ },
+ {
+  "name": "Glimmer Cape",
+  "type": "Artifact — Equipment",
+  "mana_cost": "{2}{U}",
+  "subtypes": [
+   "Equipment"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "Equipped creature can’t be blocked and has ward 4. \nEquip {1U}",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Glimmer%20Cape.png"
+ },
+ {
+  "name": "Scythe of Vyse",
+  "type": "Legendary Artifact",
+  "mana_cost": "{4}{U}{U}",
+  "rarity": "rare",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "{T}: Target creature an opponent controls becomes a 0/1 blue Boar creature token until end of turn.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Scythe%20of%20Vyse.png"
+ },
+ {
+  "name": "Overclocking",
+  "type": "Instant",
+  "mana_cost": "{3}{R}",
+  "rarity": "common",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "Improvise (Your artifacts can help cast this spell. Each artifact you tap after you’re done activating mana abilities pays for 1.)\nAdd {RRRRR} to your mana pool.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Overclocking.png"
+ },
+ {
+  "name": "Hammer of Purity",
+  "type": "Artifact — Equipment",
+  "mana_cost": "{2}{W}",
+  "subtypes": [
+   "Equipment"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "W"
+  ],
+  "oracle_text": "When this equipment enters, destroy up to one target artifact or enchantment.\nEquipped creature gets +1/+0 and has lifelink.\nEquip {2W}",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Hammer%20of%20Purity.png"
+ },
+ {
+  "name": "Butterfly",
+  "type": "Legendary Artifact — Equipment",
+  "mana_cost": "{2}{W}{W}",
+  "subtypes": [
+   "Equipment"
+  ],
+  "rarity": "mythic",
+  "colors": [
+   "W"
+  ],
+  "oracle_text": "Equipped creature gets +1/+1 and has protection from creatures.\nWhen Butterfly enters, attach it to target legendary creature you control.\nEquip {3}",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Butterfly.png"
+ },
+ {
+  "name": "Radiance",
+  "type": "Legendary Artifact",
+  "mana_cost": "{3}{R}{W}",
+  "rarity": "rare",
+  "colors": [
+   "W",
+   "R"
+  ],
+  "oracle_text": "At the beginning of your end step, equipped creature deals 1 damage to each creature your opponents control.\nEquip {1}",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Radiance.png"
+ },
+ {
+  "name": "Roshefort Cheese",
+  "type": "Legendary Artifact — Food",
+  "mana_cost": "{2}{G}",
+  "subtypes": [
+   "Food"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "G"
+  ],
+  "oracle_text": "{2}, {T}, Sacrifice this artifact: You gain 3 life.\n{7}, {T}, Sacrifice this artifact: Your life total becomes equal to your starting life total.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Roshefort%20Cheese.png"
+ },
+ {
+  "name": "Bushwack",
+  "type": "Sorcery",
+  "mana_cost": "{G}",
+  "rarity": "common",
+  "colors": [
+   "G"
+  ],
+  "oracle_text": "Choose one —\n•  Search your library for a basic land card, reveal it, put it into your hand, then shuffle.\n•  Target creature you control fights target creature you don’t control. (Each deals damage equal to its power to the other.)",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Bushwack.png"
+ },
+ {
+  "name": "Noxious Plague",
+  "type": "Legendary Sorcery",
+  "mana_cost": "{2}{B}{G}",
+  "rarity": "rare",
+  "colors": [
+   "B",
+   "G"
+  ],
+  "oracle_text": "(You may cast a legendary sorcery only if you control a legendary creature.)\nDistribute X -1/-1 counters among any number of target creatures, where X is the number of creatures on the battlefield.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Noxious%20Plague.png"
+ },
+ {
+  "name": "Unleash",
+  "type": "Legendary Sorcery",
+  "mana_cost": "{X}{X}{R}{W}",
+  "rarity": "rare",
+  "colors": [
+   "W",
+   "R"
+  ],
+  "oracle_text": "(You may cast a legendary sorcery only if you control a legendary creature.)\nTarget legendary creature you control gains vigilance and double strike until end of turn.\nAfter this main phase, there are X additional combat phases followed by an additional main phase.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Unleash.png"
+ },
+ {
+  "name": "Animal Courier",
+  "type": "Creature — Beast",
+  "mana_cost": "{1}{W}",
+  "subtypes": [
+   "Beast"
+  ],
+  "rarity": "common",
+  "colors": [
+   "W"
+  ],
+  "oracle_text": "Flying\nEquipment spells you cast cost 1 less to cast.\nWhenever you cast an Equipment spell for the first time each turn, draw a card.",
+  "power": "0",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Animal%20Courier.png"
+ },
+ {
+  "name": "Spell Steal",
+  "type": "Instant",
+  "mana_cost": "{1}{U}{U}{U}",
+  "rarity": "rare",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "Gain control of target spell.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Spell%20Steal.png"
+ },
+ {
+  "name": "Chaos Meteor",
+  "type": "Legendary Sorcery",
+  "mana_cost": "{6}{R}{R}",
+  "rarity": "rare",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "(You may cast a legendary sorcery only if you control a legendary creature.)\nChaos Meteor deals 13 damage divided among any number of targets.\nWhenever a time counter is removed from Chaos Meteor, it deals 1 damage to each opponent.\nSuspend 7— RR",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Chaos%20Meteor.png"
+ },
+ {
+  "name": "Thundergod’s Wrath",
+  "type": "Legendary Sorcery",
+  "mana_cost": "{5}{U}{R}",
+  "rarity": "rare",
+  "colors": [
+   "U",
+   "R"
+  ],
+  "oracle_text": "(You may cast a legendary sorcery only if you control a legendary permanent.)\nExile the top ten cards of your library. You may cast any number of instant or sorcery cards from among the exiled cards without paying their mana costs.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Thundergods%20Wrath.png"
+ },
+ {
+  "name": "Wrath of Nature",
+  "type": "Legendary Sorcery",
+  "mana_cost": "{3}{G}{G}{G}",
+  "rarity": "rare",
+  "colors": [
+   "G"
+  ],
+  "oracle_text": "(You may cast a legendary sorcery only if you control a legendary permanent.)\nPut three +1/+1 counters on each Forest you control. They become 0/0 Elemental creatures with vigilance and haste that are still lands. Untap them.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Wrath%20of%20Nature.png"
+ },
+ {
+  "name": "Reef’s Edge",
+  "type": "Legendary Land",
+  "mana_cost": "",
+  "rarity": "common",
+  "oracle_text": "{T}, Sacrifice this land: Search your library for a basic Forest or basic Island card, put it onto the battlefield, then shuffle.\nCycling {GU} (Discard this card and pay {GU} to draw a card.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Reefs%20Edge.png"
+ },
+ {
+  "name": "Shrine of Elune",
+  "type": "Legendary Land",
+  "mana_cost": "",
+  "rarity": "common",
+  "oracle_text": "{T}, Sacrifice this land: Search your library for a basic Swamp or basic Island card, put it onto the battlefield, then shuffle.\nCycling {UB} (Discard this card and pay {UB} to draw a card.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Shrine%20of%20Elune.png"
+ },
+ {
+  "name": "Icewrack",
+  "type": "Legendary Land",
+  "mana_cost": "",
+  "rarity": "common",
+  "oracle_text": "{T}, Sacrifice this land: Search your library for a basic Plains or basic Island card, put it onto the battlefield, then shuffle.\nCycling {WU} (Discard this card and pay {WU} to draw a card.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Icewrack.png"
+ },
+ {
+  "name": "Stonehall",
+  "type": "Legendary Land",
+  "mana_cost": "",
+  "rarity": "common",
+  "oracle_text": "{T}, Sacrifice this land: Search your library for a basic Plains or basic Mountain card, put it onto the battlefield, then shuffle.\nCycling {RW} (Discard this card and pay {RW} to draw a card.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Stonehall.png"
+ },
+ {
+  "name": "Thorny Wastes",
+  "type": "Legendary Land",
+  "mana_cost": "",
+  "rarity": "common",
+  "oracle_text": "{T}, Sacrifice this land: Search your library for a basic Swamp or basic Forest card, put it onto the battlefield, then shuffle.\nCycling {BG} (Discard this card and pay {BG} to draw a card.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Thorny%20Wastes.png"
+ },
+ {
+  "name": "Wildwing Dismantler",
+  "type": "Creature — Bird",
+  "mana_cost": "{2}{W}",
+  "subtypes": [
+   "Bird"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "W"
+  ],
+  "oracle_text": "Flying\nWhen this creature enters, destroy target artifact.",
+  "power": "2",
+  "toughness": "1",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Wildwing%20Dismantler.png"
+ },
+ {
+  "name": "Radiant Siege Wagon",
+  "type": "Artifact Creature — Construct",
+  "mana_cost": "{1}{G/W}{G/W}",
+  "subtypes": [
+   "Construct"
+  ],
+  "rarity": "common",
+  "colors": [
+   "W",
+   "G"
+  ],
+  "oracle_text": "Defender (This creature can’t attack.)\nEvolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)\n{T}, Sacrifice this creature: Destroy target artifact.",
+  "power": "1",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Radiant%20Siege%20Wagon.png"
+ },
+ {
+  "name": "Dire Siege Wagon",
+  "type": "Artifact Creature — Construct",
+  "mana_cost": "{1}{B/R}{B/R}",
+  "subtypes": [
+   "Construct"
+  ],
+  "rarity": "common",
+  "colors": [
+   "B",
+   "R"
+  ],
+  "oracle_text": "Defender (This creature can’t attack.)\nEvolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)\n{T}, Sacrifice this creature: Destroy target artifact.",
+  "power": "1",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Dire%20Siege%20Wagon.png"
+ },
+ {
+  "name": "Smoke Screen",
+  "type": "Enchantment",
+  "mana_cost": "{1}{U}",
+  "rarity": "uncommon",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "When this enchantment enters, draw a card.\nOpponents can only cast spells anytime they could cast a sorcery.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Smoke%20Screen.png"
+ },
+ {
+  "name": "Mystic Flare",
+  "type": "Instant",
+  "mana_cost": "{5}{U}{U}",
+  "rarity": "common",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "Rebound (If you cast this spell from your hand, exile it as it resolves. At the beginning of your next upkeep, you may cast this card from exile without paying its mana cost.)\nPut target spell or nonland permanent on top of its owner’s library second from the top.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Mystic%20Flare.png"
+ },
+ {
+  "name": "Global Silence",
+  "type": "Legendary Sorcery",
+  "mana_cost": "{3}{W}{W}",
+  "rarity": "rare",
+  "colors": [
+   "W"
+  ],
+  "oracle_text": "(You may cast a legendary sorcery only if you control a legendary creature.)\nYour opponents can’t cast spells until the end of their next turn.\nDraw a card.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Global%20Silence.png"
+ },
+ {
+  "name": "Admiral’s Call",
+  "type": "Instant",
+  "mana_cost": "{U}",
+  "rarity": "common",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "Target creature you control gains flying and hexproof and becomes a blue Spirit in addition to its other colors and types until end of turn.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Admirals%20Call.png"
+ },
+ {
+  "name": "Ignis Fatuus",
+  "type": "Legendary Sorcery",
+  "mana_cost": "{2}{W}{W}{W}",
+  "rarity": "rare",
+  "colors": [
+   "W"
+  ],
+  "oracle_text": "(You may cast a legendary sorcery only if you control a legendary permanent.)\nExile all creatures.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Ignis%20Fatuus.png"
+ },
+ {
+  "name": "Overpower",
+  "type": "Sorcery",
+  "mana_cost": "{2}{G}",
+  "rarity": "uncommon",
+  "colors": [
+   "G"
+  ],
+  "oracle_text": "Double target creature you control’s power and toughness. That creature deals damage equal to its power to target creature an opponent controls.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Overpower.png"
+ },
+ {
+  "name": "Mirror Image",
+  "type": "Legendary Sorcery",
+  "mana_cost": "{X}{G}{U}",
+  "rarity": "rare",
+  "colors": [
+   "U",
+   "G"
+  ],
+  "oracle_text": "(You may cast a legendary sorcery only if you control a legendary permanent.)\nCreate X tokens that are copies of target creature you control, except they aren’t legendary if that creature is legendary.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Mirror%20Image.png"
+ },
+ {
+  "name": "Ogoldi Siege Ladder",
+  "type": "Artifact — Equipment",
+  "mana_cost": "{1}{R}",
+  "subtypes": [
+   "Equipment"
+  ],
+  "rarity": "common",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "Equipped creature can’t be blocked by creatures with reach or defender.\nEquip {R}\n{T}, Sacrifice this Equipment: It deals 1 damage to target creature you control and 2 damage to target creature you don’t control.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Ogoldi%20Siege%20Ladder.png"
+ },
+ {
+  "name": "Cathedral of Rumusque",
+  "type": "Legendary Land",
+  "mana_cost": "",
+  "rarity": "common",
+  "oracle_text": "{T}, Sacrifice this land: Search your library for a basic Swamp or basic Plains card, put it onto the battlefield, then shuffle.\nCycling {WB} (Discard this card and pay {WB} to draw a card.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Cathedral%20of%20Rumusque.png"
+ },
+ {
+  "name": "Frostbite",
+  "type": "Enchantment — Aura",
+  "mana_cost": "{2}{U}",
+  "subtypes": [
+   "Aura"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "Enchant creature\nWhen this aura enters, tap enchanted creature. \nEnchanted creature can’t be untapped.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Frostbite.png"
+ },
+ {
+  "name": "Sunder",
+  "type": "Legendary Sorcery",
+  "mana_cost": "{3}{B}{B}{B}",
+  "rarity": "rare",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "(You may cast a legendary sorcery only if you control a legendary creature.)\nExchange your life total with target opponent.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Sunder.png"
+ },
+ {
+  "name": "Exorcism",
+  "type": "Legendary Sorcery",
+  "mana_cost": "{3}{W}{B}",
+  "rarity": "rare",
+  "colors": [
+   "W",
+   "B"
+  ],
+  "oracle_text": "(You may cast a legendary sorcery only if you control a legendary creature.)\nCreate five 1/1 white Spirit tokens with flying. Exile each opponent’s graveyard.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Exorcism.png"
+ },
+ {
+  "name": "Quorum Censor",
+  "type": "Creature — Human Wizard",
+  "mana_cost": "{3}{U}{U}",
+  "subtypes": [
+   "Human",
+   "Wizard"
+  ],
+  "rarity": "common",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "Flash (You may cast this spell any time you could cast an instant.)\nWhen this creature enters, counter target creature spell.\nIslandcycling {1} ({1}, Discard this card: Search your library for an Island card, reveal it, put it into your hand, then shuffle.)",
+  "power": "3",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Quorum%20Censor.png"
+ },
+ {
+  "name": "Morphling Whelp",
+  "type": "Creature — Shapeshifter",
+  "mana_cost": "{3}{U}",
+  "subtypes": [
+   "Shapeshifter"
+  ],
+  "rarity": "common",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "Flash (You may cast this spell any time you could cast an instant.)\nYou may have this creature enter as a copy of any creature you control.\nCycling {2} (Discard this card and pay {2} to draw a card.",
+  "power": "0",
+  "toughness": "0",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Morphling%20Whelp.png"
+ },
+ {
+  "name": "Reality Rift",
+  "type": "Sorcery",
+  "mana_cost": "{2}{R}{R}",
+  "rarity": "uncommon",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "Reveal cards from the top of your library until you reveal a creature card. Put that card onto the battlefield. It gains haste. Sacrifice it at the beginning of the next end step. Put all other cards revealed this way on the bottom of your library in a random order.\nFlashback {4RR} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Reality%20Rift.png"
+ },
+ {
+  "name": "Double Edge",
+  "type": "Instant",
+  "mana_cost": "{2}{R}",
+  "rarity": "common",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "Damage can’t be prevented this turn.\nDouble Edge deals 4 damage to target creature you don’t control and 1 damage to target creature you control.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Double%20Edge.png"
+ },
+ {
+  "name": "Sinister Gaze",
+  "type": "Sorcery",
+  "mana_cost": "{1}{B}{B}",
+  "rarity": "uncommon",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "Target opponent exiles two cards from their hand. Choose a card from among the exiled cards. You may play that card until end of turn, and you may spend mana as though it were mana of any color to cast it.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Sinister%20Gaze.png"
+ },
+ {
+  "name": "Ring of Tarasque",
+  "type": "Legendary Artifact — Equipment",
+  "mana_cost": "{3}{G}",
+  "subtypes": [
+   "Equipment"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "G"
+  ],
+  "oracle_text": "Equipped creature has indestructible.\nEquip {3}",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Ring%20of%20Tarasque.png"
+ },
+ {
+  "name": "Nature’s Attendants",
+  "type": "Creature — Spirit Insect",
+  "mana_cost": "{G}",
+  "subtypes": [
+   "Spirit",
+   "Insect"
+  ],
+  "rarity": "common",
+  "colors": [
+   "G"
+  ],
+  "oracle_text": "Defender, flying\nAt the beginning of your end step, you gain 2 life.",
+  "power": "0",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Natures%20Attendants.png"
+ },
+ {
+  "name": "Nether Strike",
+  "type": "Instant",
+  "mana_cost": "{4}{G}{U}",
+  "rarity": "rare",
+  "colors": [
+   "U",
+   "G"
+  ],
+  "oracle_text": "Cascade, cascade (When you cast this spell, exile cards from the top of your library until you exile a nonland card that costs less. You may cast it without paying its mana cost if the resulting spell’s mana value is less than this spell’s mana value. Put the exiled cards on the bottom in a random order.)\nTarget creature you control fights target creature you don’t control.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Nether%20Strike.png"
+ },
+ {
+  "name": "Primal Roar",
+  "type": "Legendary Sorcery",
+  "mana_cost": "{3}{G}{G}",
+  "rarity": "rare",
+  "colors": [
+   "G"
+  ],
+  "oracle_text": "(You may cast a legendary sorcery only if you control a legendary creature.)\nTarget creature you control deals damage equal to its power to each creature your opponents control.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Primal%20Roar.png"
+ },
+ {
+  "name": "Firesnap Cookie",
+  "type": "Artifact — Food",
+  "mana_cost": "{R}{G}",
+  "subtypes": [
+   "Food"
+  ],
+  "rarity": "common",
+  "colors": [
+   "R",
+   "G"
+  ],
+  "oracle_text": "{2}, {T}, Sacrifice this artifact: You gain 3 life.\nWhen this artifact enters, it deals 1 damage to target creature you control.\nWhen this artifact is put into the graveyard from the battlefield, draw a card.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Firesnap%20Cookie.png"
+ },
+ {
+  "name": "Powershot",
+  "type": "Instant",
+  "mana_cost": "{1}{W}{W}",
+  "rarity": "uncommon",
+  "colors": [
+   "W"
+  ],
+  "oracle_text": "Destroy target attacking creature.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Powershot.png"
+ },
+ {
+  "name": "Penitence",
+  "type": "Enchantment — Aura",
+  "mana_cost": "{3}{W}",
+  "subtypes": [
+   "Aura"
+  ],
+  "rarity": "common",
+  "colors": [
+   "W"
+  ],
+  "oracle_text": "Enchant creature\nWhen this Aura enters, target creature you control gets +2/+2 and gains vigilance until end of turn.\nEnchanted creature can’t attack or block.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Penitence.png"
+ },
+ {
+  "name": "Dark Pact",
+  "type": "Sorcery",
+  "mana_cost": "{2}{B}",
+  "rarity": "common",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "Proliferate (Choose any number of permanents and/or players, then give each another counter of each kind already there.)\nYou draw two cards and lose 2 life.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Dark%20Pact.png"
+ },
+ {
+  "name": "Death Pact",
+  "type": "Sorcery",
+  "mana_cost": "{B}",
+  "rarity": "common",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "As an additional cost to cast this spell, sacrifice a creature.\nDestroy target creature. If the sacrificed creature was nonlegendary, draw a card.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Death%20Pact.png"
+ },
+ {
+  "name": "Traxex, the Drow Ranger",
+  "type": "Legendary Creature — Elf Ranger",
+  "mana_cost": "{2}{W}{B}",
+  "subtypes": [
+   "Elf",
+   "Ranger"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "W",
+   "B"
+  ],
+  "oracle_text": "Vigilance\nWhenever Traxex deals damage to an opponent, spells that player casts cost {1} more to cast during that player’s next turn.",
+  "power": "4",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Traxex%20the%20Drow%20Ranger.png"
+ },
+ {
+  "name": "Ogre Bruiser",
+  "type": "Creature — Ogre Warrior",
+  "mana_cost": "{2}{R}",
+  "subtypes": [
+   "Ogre",
+   "Warrior"
+  ],
+  "rarity": "common",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "Trample\nEnrage — Whenever this creature is dealt damage, it deals 2 damage to each opponent.",
+  "power": "4",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Ogre%20Bruiser.png"
+ },
+ {
+  "name": "Aphotic Shield",
+  "type": "Enchantment — Aura",
+  "mana_cost": "{W}{B}",
+  "subtypes": [
+   "Aura"
+  ],
+  "rarity": "common",
+  "colors": [
+   "W",
+   "B"
+  ],
+  "oracle_text": "Flash\nEnchant creature\nEnchanted creature gets +0/+4.\nWhen this enchantment is put into the graveyard from the battlefield, each opponent sacrifices a creature.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Aphotic%20Shield.png"
+ },
+ {
+  "name": "Spark Wraith",
+  "type": "Creature — Elemental",
+  "mana_cost": "{U}",
+  "subtypes": [
+   "Elemental"
+  ],
+  "rarity": "common",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "Flying, hexproof\nAt the beginning of your end step, if this creature attacked this turn, sacrifice it.",
+  "power": "3",
+  "toughness": "1",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Spark%20Wraith.png"
+ },
+ {
+  "name": "Whirling Axes",
+  "type": "Sorcery",
+  "mana_cost": "{R}",
+  "rarity": "uncommon",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "Whirling Axes deals 1 damage to each creature.\nDraw a card.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Whirling%20Axes.png"
+ },
+ {
+  "name": "Gush",
+  "type": "Instant",
+  "mana_cost": "{4}{U}",
+  "rarity": "common",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "You may return two Islands you control to their owner’s hand rather than pay Gush’s mana cost.\nDraw two cards.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Gush.png"
+ },
+ {
+  "name": "Toss",
+  "type": "Instant",
+  "mana_cost": "{1}{G}",
+  "rarity": "common",
+  "colors": [
+   "G"
+  ],
+  "oracle_text": "As an additional cost to cast this spell, sacrifice a creature.\nToss deals damage equal to the sacrificed creature’s toughness to any target.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Toss.png"
+ },
+ {
+  "name": "Ignite",
+  "type": "Sorcery",
+  "mana_cost": "{X}{R}{R}",
+  "rarity": "rare",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "Ignite deals X damage to target creature you don’t control. If X is 3 or more, copy this spell. The copy targets a creature you don’t control chosen at random. If X is 5 or more, copy this spell twice instead. The copies each target a creature you don’t control chosen at random.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Ignite.png"
+ },
+ {
+  "name": "Decay",
+  "type": "Instant",
+  "mana_cost": "{3}{B}{G}",
+  "rarity": "uncommon",
+  "colors": [
+   "B",
+   "G"
+  ],
+  "oracle_text": "Put two -1/-1 counters on target creature you don’t control. Then, put two +1/+1 counters on target creature you control.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Decay.png"
+ },
+ {
+  "name": "Helm of the Dominator",
+  "type": "Legendary Artifact — Equipment",
+  "mana_cost": "{3}{U}{U}",
+  "subtypes": [
+   "Equipment"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "When Helm of the Dominator enters the battlefield, attach it to target nonlegendary creature.\nYou control equipped creature.\nEquipped creature gets +1/+2.\nEquip {2}",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Helm%20of%20the%20Dominator.png"
+ },
+ {
+  "name": "Ion Shell",
+  "type": "Enchantment — Aura",
+  "mana_cost": "{2}{U}",
+  "subtypes": [
+   "Aura"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "Enchant creature\nEnchanted creature gets +1/+1 for each card in your hand.\nWhen this Aura enters the battlefield, draw a card.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Ion%20Shell.png"
+ },
+ {
+  "name": "Chain Frost",
+  "type": "Legendary Sorcery",
+  "mana_cost": "{1}{W}{W}{U}",
+  "rarity": "rare",
+  "colors": [
+   "W",
+   "U"
+  ],
+  "oracle_text": "(You may cast a legendary instant only if you control a legendary creature.)\nDestroy each tapped creature your opponents control.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Chain%20Frost.png"
+ },
+ {
+  "name": "Provoke",
+  "type": "Sorcery",
+  "mana_cost": "{1}{G}",
+  "rarity": "common",
+  "colors": [
+   "G"
+  ],
+  "oracle_text": "Untap target creature you don’t control. That creature blocks this turn if able.\nDraw a card.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Provoke.png"
+ },
+ {
+  "name": "Lightning Bolt",
+  "type": "Instant",
+  "mana_cost": "{R}",
+  "rarity": "uncommon",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "Lightning Bolt deals 3 damage to any target.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Lightning%20Bolt.png"
+ },
+ {
+  "name": "Smoke of Deceit",
+  "type": "Artifact",
+  "mana_cost": "{0}",
+  "rarity": "common",
+  "oracle_text": "{T}, Sacrifice this artifact: Target creature can’t be blocked this turn. Draw a card at the beginning of the next turn’s upkeep.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Smoke%20of%20Deceit.png"
+ },
+ {
+  "name": "Arc Lightning",
+  "type": "Sorcery",
+  "mana_cost": "{2}{R}",
+  "rarity": "uncommon",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "Arc Lightning deals 3 damage divided as you choose among one, two, or three targets.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Arc%20Lightning.png"
+ },
+ {
+  "name": "Fleeting Distraction",
+  "type": "Instant",
+  "mana_cost": "{U}",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "Target creature gets -1/-0 until end of turn.\nDraw a card.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Fleeting%20Distraction.png"
+ },
+ {
+  "name": "Living Armor",
+  "type": "Enchantment — Aura",
+  "mana_cost": "{3}{G}",
+  "subtypes": [
+   "Aura"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "G"
+  ],
+  "oracle_text": "Enchant creature\nEnchanted creature gets +1/+1 for each land you control.\nWhen this Aura enters the battlefield, search your library for a basic land card. Put it on to the battlefield tapped, then shuffle.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Living%20Armor.png"
+ },
+ {
+  "name": "Fountain of Rejuvenation",
+  "type": "Artifact",
+  "mana_cost": "{1}{G}{W}",
+  "rarity": "uncommon",
+  "colors": [
+   "W",
+   "G"
+  ],
+  "oracle_text": "At the beginning of your upkeep, you gain 2 life.\n{T}: Put a +1/+1 counter on target creature. Activate only as a sorcery.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Fountain%20of%20Rejuvenation.png"
+ },
+ {
+  "name": "Walrus PUNCH!",
+  "type": "Instant",
+  "mana_cost": "{G}{W}",
+  "rarity": "uncommon",
+  "colors": [
+   "W",
+   "G"
+  ],
+  "oracle_text": "Exile target blocking creature. Creatures that were blocked by that creature this combat gain trample until end of turn.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Walrus%20PUNCH.png"
+ },
+ {
+  "name": "Bramble Maze",
+  "type": "Enchantment",
+  "mana_cost": "{1}{B}{B}{B}",
+  "rarity": "uncommon",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "Whenever an opponent attacks you, put a -1/-1 counter on target attacking creature.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Bramble%20Maze.png"
+ },
+ {
+  "name": "Shadow Walk",
+  "type": "Instant",
+  "mana_cost": "{B}",
+  "rarity": "common",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "Target creature you control gains shadow until end of turn. (They can block or be blocked by only creatures with shadow).\nDraw a card.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Shadow%20Walk.png"
+ },
+ {
+  "name": "Light Strike Array",
+  "type": "Sorcery",
+  "mana_cost": "{3}{R}",
+  "rarity": "common",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "Light Strike Array deals 1 damage to each opponent. Creatures those players control can’t block this turn.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Light%20Strike%20Array.png"
+ },
+ {
+  "name": "Apotheosis Blade",
+  "type": "Legendary Artifact — Equipment",
+  "mana_cost": "{1}{R}",
+  "subtypes": [
+   "Equipment"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "When equipped creature attacks, it deals 1 damage to target creature defending player controls.\nEquipped creature gets +1/+0.\nEquip {2R}",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Apotheosis%20Blade.png"
+ },
+ {
+  "name": "Refraction",
+  "type": "Instant",
+  "mana_cost": "{1}{W}",
+  "rarity": "common",
+  "colors": [
+   "W"
+  ],
+  "oracle_text": "Put a +1/+1 counter and a shield counter on target creature. (If it would be dealt damage or destroyed, remove a shield counter from it instead.)",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Refraction.png"
+ },
+ {
+  "name": "Largo",
+  "type": "Legendary Creature — Frog Bard",
+  "mana_cost": "{2}{G}{U}{R}",
+  "subtypes": [
+   "Frog",
+   "Bard"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "U",
+   "R",
+   "G"
+  ],
+  "oracle_text": "Play with the top card of your library revealed.\nAs long as the revealed card is blue or an Island, creatures you control have hexproof and flying.\nAs long as the revealed card is red or a Mountain, creatures you control have first strike and haste.\nAs long as the revealed card is green or a Forest, creatures you control get +2/+2 and have trample.",
+  "power": "4",
+  "toughness": "6",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Largo.png"
+ },
+ {
+  "name": "Starfall",
+  "type": "Sorcery",
+  "mana_cost": "{B}",
+  "rarity": "uncommon",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "It becomes night.\nTarget creature gets -2/-2 until end of turn.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Starfall.png"
+ },
+ {
+  "name": "Vale of Augury",
+  "type": "Legendary Land",
+  "mana_cost": "",
+  "rarity": "common",
+  "oracle_text": "{T}, Sacrifice this land: Search your library for a basic Forest or basic Mountain card, put it onto the battlefield, then shuffle.\nCycling {RG} (Discard this card and pay {RG} to draw a card.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Vale%20of%20Augury.png"
+ },
+ {
+  "name": "Omexe Ambushers",
+  "type": "Creature — Centaur Archer",
+  "mana_cost": "{3}{G}",
+  "subtypes": [
+   "Centaur",
+   "Archer"
+  ],
+  "colors": [
+   "G"
+  ],
+  "oracle_text": "Vigilance, reach",
+  "power": "5",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Omexe%20Ambushers.png"
+ },
+ {
+  "name": "Roseleaf Sproutling",
+  "type": "Creature — Treefolk",
+  "mana_cost": "{1}{G}",
+  "subtypes": [
+   "Treefolk"
+  ],
+  "rarity": "common",
+  "colors": [
+   "G"
+  ],
+  "oracle_text": "When this creature enters, you may return target land card from your graveyard to the battlefield tapped.",
+  "power": "2",
+  "toughness": "1",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Roseleaf%20Sproutling.png"
+ },
+ {
+  "name": "Gust",
+  "type": "Instant",
+  "mana_cost": "{2}{W}",
+  "rarity": "common",
+  "colors": [
+   "W"
+  ],
+  "oracle_text": "Put target noncreature spell on top of its owner’s library second from the top.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Gust.png"
+ },
+ {
+  "name": "Conscript",
+  "type": "Sorcery",
+  "mana_cost": "{4}{G}{W}",
+  "rarity": "rare",
+  "colors": [
+   "W",
+   "G"
+  ],
+  "oracle_text": "Exile target creature you don’t control. Create X 1/1 green and white Vhoul Soldier creature tokens, where X is that creature’s toughness.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Unwilling%20Conscription.png"
+ },
+ {
+  "name": "Roam the Jungle",
+  "type": "Sorcery",
+  "mana_cost": "{1}{G}",
+  "rarity": "common",
+  "colors": [
+   "G"
+  ],
+  "oracle_text": "Search your library for a basic land card and put it onto the battlefield tapped, then shuffle.\nIf you control a legendary creature, search for two basic land cards instead. Put one on the battlefield tapped and one in your hand, then shuffle.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Roam%20the%20Jungle.png"
+ },
+ {
+  "name": "Magebane Strike",
+  "type": "Instant",
+  "mana_cost": "{1}{W}{W}",
+  "rarity": "common",
+  "colors": [
+   "W"
+  ],
+  "oracle_text": "You may only cast this spell if an opponent has cast two or more noncreature spells this turn.\nExile target creature.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Magebane%20Strike.png"
+ },
+ {
+  "name": "Ball of Creeps",
+  "type": "Legendary Creature — Horror",
+  "mana_cost": "{3}{W}{U}{B}{R}{G}",
+  "subtypes": [
+   "Horror"
+  ],
+  "rarity": "mythic",
+  "colors": [
+   "W",
+   "U",
+   "B",
+   "R",
+   "G"
+  ],
+  "oracle_text": "Trample, haste\nConvoke  \nWhen Ball of Creeps enters, exile any number of nontoken creatures you control until it leaves the battlefield. Put a +1/+1 counter on Ball of Creeps for each creature exiled this way.",
+  "power": "0",
+  "toughness": "0",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Ball%20of%20Creeps.png"
+ },
+ {
+  "name": "Bronze Hoplite",
+  "type": "Creature — Human Soldier",
+  "mana_cost": "{W}",
+  "subtypes": [
+   "Human",
+   "Soldier"
+  ],
+  "rarity": "common",
+  "colors": [
+   "W"
+  ],
+  "oracle_text": "As long as this creature is equipped, it has double strike.",
+  "power": "2",
+  "toughness": "1",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Bronze%20Hoplite.png"
+ },
+ {
+  "name": "Coup de Grace",
+  "type": "Instant",
+  "mana_cost": "{2}{B}",
+  "rarity": "uncommon",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "Choose target creature an opponent controls. It loses all abilities until end of turn. Destroy it.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Coup%20de%20Grace.png"
+ },
+ {
+  "name": "Doppelganger",
+  "type": "Instant",
+  "mana_cost": "{2}{U}{U}",
+  "rarity": "rare",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "Exile target creature you control. Create a token that’s a copy of that creature. At the beginning of the next end step, exile that token, then return that card to the battlefield under its owner’s control.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Doppelganger.png"
+ },
+ {
+  "name": "Ravage",
+  "type": "Legendary Sorcery",
+  "mana_cost": "{7}{U}{U}{U}",
+  "rarity": "mythic",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "(You may cast a legendary sorcery only if you control a legendary permanent.)\nAffinity for Islands (This spell costs {1} less to cast for each Island you control.)\nReturn all tapped nonland permanents your opponents control to their owners’ hands.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Ravage.png"
+ },
+ {
+  "name": "Dragon Slave",
+  "type": "Sorcery",
+  "mana_cost": "{3}{R}{R}",
+  "rarity": "uncommon",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "Create a 4/4 red dragon elemental creature token with haste.\nFlashback {5RR} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Dragon%20Slave.png"
+ },
+ {
+  "name": "The Black Grimoire",
+  "type": "Legendary Artifact — Book",
+  "mana_cost": "{1}{B}",
+  "subtypes": [
+   "Book"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "Whenever a creature an opponent controls dies, put a charge counter on The Black Grimoire.\n{T}, Sacrifice The Black Grimoire: You gain 1 life and draw a card for each charge counter on it.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/The%20Black%20Grimoire.png"
+ },
+ {
+  "name": "Roseleaf Briarbush",
+  "type": "Creature — Elemental Wall",
+  "mana_cost": "{2}{G}",
+  "subtypes": [
+   "Elemental",
+   "Wall"
+  ],
+  "rarity": "common",
+  "colors": [
+   "G"
+  ],
+  "oracle_text": "Defender (This creature can’t attack.)\n{T}: Add {G}.\n{T}, Sacrifice this creature: Return target land card or creature card with defender from your graveyard to your hand.",
+  "power": "0",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Roseleaf%20Briarbush.png"
+ },
+ {
+  "name": "Rix, Rebellion Leader",
+  "type": "Legendary Creature — Racooon Warrior",
+  "mana_cost": "{1}{G}{W}",
+  "subtypes": [
+   "Racooon",
+   "Warrior"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "W",
+   "G"
+  ],
+  "oracle_text": "Whenever a nonlegendary creature you control enters, put a +1/+1 counter on it.",
+  "power": "2",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Rix%20Rebellion%20Leader.png"
+ },
+ {
+  "name": "Animate Armory",
+  "type": "Enchantment — Aura",
+  "mana_cost": "{2}{U}",
+  "subtypes": [
+   "Aura"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "Enchant artifact\nWhen this Aura enters, draw a card.\nAs long as enchanted equipment isn’t a creature, it’s a 3/3 artifact creature. It has the abilities it grants equipped creatures.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Animate%20Armory.png"
+ },
+ {
+  "name": "Dawn Templar",
+  "type": "Creature — Elemental Soldier",
+  "mana_cost": "{R}{W}",
+  "subtypes": [
+   "Elemental",
+   "Soldier"
+  ],
+  "rarity": "common",
+  "colors": [
+   "W",
+   "R"
+  ],
+  "oracle_text": "Equipped creatures you control have haste and first strike.",
+  "power": "3",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Dawn%20Templar.png"
+ },
+ {
+  "name": "Brand of the Oathbound",
+  "type": "Sorcery",
+  "mana_cost": "{2}{R}",
+  "rarity": "uncommon",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "Untap target creature you don’t control. Gain control of it until end of turn. It becomes legendary and gains haste until end of turn.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Brand%20of%20the%20Oathbound.png"
+ },
+ {
+  "name": "Dire Felbeast",
+  "type": "Creature — Demon",
+  "mana_cost": "{4}{B/G}",
+  "subtypes": [
+   "Demon"
+  ],
+  "rarity": "common",
+  "colors": [
+   "B",
+   "G"
+  ],
+  "oracle_text": "Flying\nWhen this creature enters, distribute three -1/-1 counters among any number of target creatures your opponents’ control.",
+  "power": "2",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Dire%20Felbeast.png"
+ },
+ {
+  "name": "Dire Mega Creep",
+  "type": "Creature — Elemental",
+  "mana_cost": "{5}{B/R}",
+  "subtypes": [
+   "Elemental"
+  ],
+  "rarity": "common",
+  "colors": [
+   "B",
+   "R"
+  ],
+  "oracle_text": "Trample\nWhen this creature enters, it deals 3 damage to each opponent.\nBasic landcycling {2} ({2}, Discard this card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.)",
+  "power": "5",
+  "toughness": "5",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Dire%20Mega%20Creep.png"
+ },
+ {
+  "name": "Imperia’s Murder",
+  "type": "Creature — Bird",
+  "mana_cost": "{2}{B}",
+  "subtypes": [
+   "Bird"
+  ],
+  "rarity": "common",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "Flying\nWhenever a creature an opponent controls dies for the first time each turn, create your choice of a food token or a treasure token.",
+  "power": "2",
+  "toughness": "1",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Imperias%20Murder.png"
+ },
+ {
+  "name": "Loyal Sentry",
+  "type": "Creature — Beast Soldier",
+  "mana_cost": "{1}{W}",
+  "subtypes": [
+   "Beast",
+   "Soldier"
+  ],
+  "rarity": "common",
+  "colors": [
+   "W"
+  ],
+  "oracle_text": "Vigilance\nWhen this creature enters, put a shield counter on target creature you control.",
+  "power": "2",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Loyal%20Sentry.png"
+ },
+ {
+  "name": "Illusive Tormentor",
+  "type": "Creature — Spirit",
+  "mana_cost": "{1}{B}",
+  "subtypes": [
+   "Spirit"
+  ],
+  "rarity": "common",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "Flying\nWhen this creature enters or dies, put a -1/-1 counter on target creature.",
+  "power": "1",
+  "toughness": "1",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Illusive%20Tormentor.png"
+ },
+ {
+  "name": "Kanna’s Hound",
+  "type": "Creature — Elemental Dog",
+  "mana_cost": "{2}{R/G}",
+  "subtypes": [
+   "Elemental",
+   "Dog"
+  ],
+  "rarity": "common",
+  "colors": [
+   "R",
+   "G"
+  ],
+  "oracle_text": "Menace\nEnrage — When this creature is dealt damage, put a +1/+1 counter on it.",
+  "power": "2",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Kannas%20Hound.png"
+ },
+ {
+  "name": "Tome of Knowledge",
+  "type": "Sorcery",
+  "mana_cost": "{2}{U}",
+  "rarity": "uncommon",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "Draw three cards, then discard two cards unless you discard a legendary card.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Tome%20of%20Knowledge.png"
+ },
+ {
+  "name": "Prellex, the Radiant",
+  "type": "Legendary Creature — Elemental Cleric",
+  "mana_cost": "{G}{W}",
+  "subtypes": [
+   "Elemental",
+   "Cleric"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "W",
+   "G"
+  ],
+  "oracle_text": "Lifelink\nWhen Prellex enters, create a 1/1 white and green Elemental creature token named Radiant Creep.\n{G/W}, {T}: Populate. (Create a token that’s a copy of a creature token you control.)",
+  "power": "2",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Prellex%20the%20Radiant.png"
+ },
+ {
+  "name": "Mistblade’s Intervention",
+  "type": "Instant",
+  "mana_cost": "{1}{B}{R}",
+  "rarity": "uncommon",
+  "colors": [
+   "B",
+   "R"
+  ],
+  "oracle_text": "Target creature you control gets +2/+0 until end of turn.\nTarget creature you don’t control gets -2/-2 until end of turn.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Mistblades%20Intervention.png"
+ },
+ {
+  "name": "Refill the Barracks",
+  "type": "Sorcery",
+  "mana_cost": "{4}{G}{W}{U}",
+  "rarity": "rare",
+  "colors": [
+   "W",
+   "U",
+   "G"
+  ],
+  "oracle_text": "Create three 1/1 white and green Elemental creature tokens named Radiant Creep. Then, draw a card and gain 1 life for each nonlegendary creature you control."
+ },
+ {
+  "name": "Kanna, the Mistblade",
+  "type": "Legendary Creature — Elemental Priest",
+  "mana_cost": "{B}{R}",
+  "subtypes": [
+   "Elemental",
+   "Priest"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "B",
+   "R"
+  ],
+  "oracle_text": "Menace\nWhen Kanna deals combat damage to a player, create a 1/1 red and black Elemental creature token named Dire Creep.\n{B/R}, Discard a card: Populate (Create a token that’s a copy of a creature token you control.)",
+  "power": "3",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Kanna%20the%20Mistblade.png"
+ },
+ {
+  "name": "Swarming Greevils",
+  "type": "Creature — Greevil",
+  "mana_cost": "{2}{G}",
+  "subtypes": [
+   "Greevil"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "G"
+  ],
+  "oracle_text": "Sacrifice this creature: Destroy target artifact or enchantment.",
+  "power": "3",
+  "toughness": "1",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Swarming%20Greevils.png"
+ },
+ {
+  "name": "Temporal Disruption",
+  "type": "Instant",
+  "mana_cost": "{3}{U}",
+  "rarity": "uncommon",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "Put target creature on its owner’s library second from the top.\nIf you control both a legendary and a nonlegendary creature as you cast this spell, put that creature on the bottom of its owner’s library instead.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Temporal%20Disruption.png"
+ },
+ {
+  "name": "Aghanim’s Sanctum",
+  "type": "Legendary Land",
+  "mana_cost": "",
+  "rarity": "common",
+  "oracle_text": "{T}, Sacrifice this land: Search your library for a basic Island or basic Mountain card, put it onto the battlefield, then shuffle.\nCycling {UR} (Discard this card and pay {UR} to draw a card.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Aghanims%20Sanctum.png"
+ },
+ {
+  "name": "Smeevil Blacksmith",
+  "type": "Creature — Smeevil Artificer",
+  "mana_cost": "{2}{R/W}",
+  "subtypes": [
+   "Smeevil",
+   "Artificer"
+  ],
+  "rarity": "common",
+  "colors": [
+   "W",
+   "R"
+  ],
+  "oracle_text": "{T}: Add one mana of any color. Spend this mana only on equipment spells or to activate equip abilities.",
+  "power": "2",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Smeevil%20Blacksmith.png"
+ },
+ {
+  "name": "Fog of War",
+  "type": "Instant",
+  "mana_cost": "{2}{G}",
+  "rarity": "common",
+  "colors": [
+   "G"
+  ],
+  "oracle_text": "You gain 1 life for each creature on the battlefield. Prevent all combat damage that would be dealt this turn by creatures with power 3 or less.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Fog%20of%20War.png"
+ },
+ {
+  "name": "Rix, Oathbound",
+  "type": "Legendary Creature — Vhoul Warrior",
+  "mana_cost": "{2}{R}{G}{W}",
+  "subtypes": [
+   "Vhoul",
+   "Warrior"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "W",
+   "R",
+   "G"
+  ],
+  "oracle_text": "Whenever you attack with a legendary creature, you may put a nonlegendary creature from your hand on to the battlefield tapped and attacking.\n{3}: Rix gains +1/+1 for each creature you control.",
+  "power": "1",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Rix%20Oathbound.png"
+ },
+ {
+  "name": "Path of Cognition",
+  "type": "Enchantment — Path",
+  "mana_cost": "{U}",
+  "subtypes": [
+   "Path"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "Whenever you cast your second spell each turn, put a depth counter on this enchantment.\n3+ — Preprocessing: Whenever a creature you control attacks alone, untap target permanent you control.\n5+ — Analysis Complete: At the beginning of your upkeep, draw a card.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Path%20of%20Cognition.png"
+ },
+ {
+  "name": "Path of Brutality",
+  "type": "Enchantment — Path",
+  "mana_cost": "{B}",
+  "subtypes": [
+   "Path"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "B"
+  ],
+  "oracle_text": "Whenever a creature you control dies for the first time each turn, put a depth counter on this enchantment.\n3+ — Morally Corrupt: Whenever a creature you control attacks alone, you may sacrifice another creature you control. If you do, draw a card.\n5+ — Embrace Darkness: At the beginning of your upkeep, put a -1/-1 counter on target creature.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Path%20of%20Brutality.png"
+ },
+ {
+  "name": "Path of Honor",
+  "type": "Enchantment — Path",
+  "mana_cost": "{W}",
+  "subtypes": [
+   "Path"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "W"
+  ],
+  "oracle_text": "Whenever you gain life for the first time each turn, put a depth counter on this enchantment.\n3+ — Assemble the Pure: Whenever a creature you control attacks alone, you may have it gain +1+1 and lifelink until end of turn.\n5+ — Rally at Dawn: At the beginning of your upkeep, put a +1/+1 counter on each creature you control.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Path%20of%20Honor.png"
+ },
+ {
+  "name": "Path of Conquer",
+  "type": "Enchantment — Path",
+  "mana_cost": "{R}",
+  "subtypes": [
+   "Path"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "Whenever an opponent is dealt damage by a source you control for the first time each turn, put a depth counter on this enchantment.\n3+ — Intimidation: Whenever a creature you control attacks alone, you may make target creature unable to block this turn.\n5+ — Isolated Target: At the beginning of your upkeep, target creature you control fights target creature you don’t control.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Path%20of%20Conquer.png"
+ },
+ {
+  "name": "Radiant Flagbearer",
+  "type": "Creature — Elemental",
+  "mana_cost": "{2}{G/W}",
+  "subtypes": [
+   "Elemental"
+  ],
+  "rarity": "common",
+  "colors": [
+   "W",
+   "G"
+  ],
+  "oracle_text": "Whenever another elemental you control enters, put a +1/+1 counter on it and surveil 1. (Look at the top card of your library. You may put that card into your graveyard.)",
+  "power": "2",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Radiant%20Flagbearer.png"
+ },
+ {
+  "name": "Sylla, the Lone Druid",
+  "type": "Legendary Creature — Human Bear Druid",
+  "mana_cost": "{3}{G}",
+  "subtypes": [
+   "Human",
+   "Bear",
+   "Druid"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "G"
+  ],
+  "oracle_text": "When Sylla enters, create a 6/6 green bear creature token with trample.\nWhen Sylla attacks, it becomes a copy of target creature token you control except its name is Sylla, the Lone Druid, it’s legendary in addition to its other types, and it has this ability.",
+  "power": "2",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Sylla%20the%20Lone%20Druid.png"
+ },
+ {
+  "name": "Ogoldi Vandal",
+  "type": "Creature — Ogre Warrior",
+  "mana_cost": "{1}{R}",
+  "subtypes": [
+   "Ogre",
+   "Warrior"
+  ],
+  "rarity": "common",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "When this creature enters, destroy target noncreature artifact an opponent controls.\n{1R}, Exile this creature from your graveyard: Discard a card, then draw a card.",
+  "power": "2",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Ogoldi%20Vandal.png"
+ },
+ {
+  "name": "Path of Might",
+  "type": "Enchantment — Path",
+  "mana_cost": "{G}",
+  "subtypes": [
+   "Path"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "G"
+  ],
+  "oracle_text": "Whenever a creature you control enters for the first time each turn, put a depth counter on this enchantment.\n3+ — Sizing Up: Whenever a creature you control attacks alone, you may have it get +2/+2 until end of turn.\n5+ — Gargantuan Spawn: At the beginning of your upkeep, create a 3/3 green Beast creature token.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Path%20of%20Might.png"
+ },
+ {
+  "name": "Quelling Blade",
+  "type": "Artifact — Equipment",
+  "mana_cost": "{1}{R}",
+  "subtypes": [
+   "Equipment"
+  ],
+  "rarity": "common",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "Equipped creature gets +2/+0 as long as its attacking.\nEquip {1}",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Quelling%20Blade.png"
+ },
+ {
+  "name": "Smeevil Forgemaster",
+  "type": "Creature — Smeevil",
+  "mana_cost": "{4}{R/W}",
+  "subtypes": [
+   "Smeevil"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "W",
+   "R"
+  ],
+  "oracle_text": "Equipped creatures you control get +3/+3.\n{T}: Attach target equipment you control to target creature you control.",
+  "power": "2",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Smeevil%20Forgemaster.png"
+ },
+ {
+  "name": "Roseleaf Elder",
+  "type": "Creature — Treefolk",
+  "mana_cost": "{1}{G/U}",
+  "subtypes": [
+   "Treefolk"
+  ],
+  "rarity": "common",
+  "colors": [
+   "U",
+   "G"
+  ],
+  "oracle_text": "The second spell you cast each turn costs {2} less to cast.",
+  "power": "1",
+  "toughness": "1",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Roseleaf%20Elder.png"
+ },
+ {
+  "name": "Guardian Angel",
+  "type": "Enchantment — Aura",
+  "mana_cost": "{3}{W}{W}",
+  "subtypes": [
+   "Aura"
+  ],
+  "rarity": "mythic",
+  "colors": [
+   "W"
+  ],
+  "oracle_text": "Enchant creature\nEnchanted creature gets +1/+1 for each creature you control.\nWhen this Aura enters the battlefield, create a 4/4 white Angel creature token with flying.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Guardian%20Angel.png"
+ },
+ {
+  "name": "Krimwohl Kukri",
+  "type": "Artifact — Equipment",
+  "mana_cost": "{G}",
+  "subtypes": [
+   "Equipment"
+  ],
+  "colors": [
+   "G"
+  ],
+  "oracle_text": "Equipped creature gets +1/+1.\nWhen equipped creature attacks, sacrifice a land. Search your library for up to two basic land cards, put them onto the battlefield, then shuffle.\nEquip {2G}",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Krimwohl%20Kukri.png"
+ },
+ {
+  "name": "Rebel Shortsword",
+  "type": "Equipment — Artifact",
+  "mana_cost": "{1}{W}",
+  "subtypes": [
+   "Artifact"
+  ],
+  "colors": [
+   "W"
+  ],
+  "oracle_text": "When this Equipment enters, create a 1/1 white Vhoul creature token, then attach this Equipment to it.\nEquipped creature gets +1/+1.\nEquip {W}",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Rebel%20Shortsword.png"
+ },
+ {
+  "name": "Nether Swap",
+  "type": "Legendary Instant",
+  "mana_cost": "{U}{U}",
+  "rarity": "rare",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "(You may cast a legendary instant only if you control a legendary creature.)\nExchange control of two target creatures."
+ },
+ {
+  "name": "Mana Drain",
+  "type": "Instant",
+  "mana_cost": "{U}{U}",
+  "rarity": "mythic",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "Counter target spell. At the beginning of your next main phase, add an amount of C equal to that spell’s mana value."
+ },
+ {
+  "name": "Ethreain, the Lich",
+  "type": "Legendary Creature — Zombie Wizard",
+  "mana_cost": "{5}{W}{U}",
+  "subtypes": [
+   "Zombie",
+   "Wizard"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "W",
+   "U"
+  ],
+  "oracle_text": "Flying\nWhen Ethreain enters, tap target creature an opponent controls.\nWhenever a creature an opponent controls becomes tapped, put a stun counter on it.",
+  "power": "2",
+  "toughness": "5",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Ethreain%20the%20Lich.png"
+ },
+ {
+  "name": "Dire Tower",
+  "type": "Artifact Creature — Wall",
+  "mana_cost": "{2}{B/R}{B/R}",
+  "subtypes": [
+   "Wall"
+  ],
+  "rarity": "common",
+  "colors": [
+   "B",
+   "R"
+  ],
+  "oracle_text": "Defender (This creature can’t attack.)\nCreatures can’t attack you unless their controller pays 2.\nWhenever a creature attacks you, its controller loses 1 life.",
+  "power": "1",
+  "toughness": "5",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Dire%20Tower.png"
+ },
+ {
+  "name": "Radiant Tower",
+  "type": "Artifact Creature — Wall",
+  "mana_cost": "{2}{G/W}{G/W}",
+  "subtypes": [
+   "Wall"
+  ],
+  "rarity": "common",
+  "colors": [
+   "W",
+   "G"
+  ],
+  "oracle_text": "Defender (This creature can’t attack.)\nCreatures can’t attack you unless their controller pays 2.\nWhenever a creature attacks you, you gain 1 life.",
+  "power": "1",
+  "toughness": "5",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Radiant%20Tower.png"
+ },
+ {
+  "name": "Aurel, the Gyrocopter",
+  "type": "Legendary Creature — Gnome Pilot",
+  "mana_cost": "{3}{R}{W}",
+  "subtypes": [
+   "Gnome",
+   "Pilot"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "W",
+   "R"
+  ],
+  "oracle_text": "Flying, haste\nWhenever Aurel attacks, he deals X damage to up to X target creatures, where X is the number of modifications on him. (Equipment, Auras you control, and counters are modifications.)",
+  "power": "3",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Aurel%20the%20Gyrocopter.png"
+ },
+ {
+  "name": "Bind to the Earth",
+  "type": "Enchantment — Aura",
+  "mana_cost": "{1}{G}",
+  "subtypes": [
+   "Aura"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "G"
+  ],
+  "oracle_text": "Enchant creature\nEnchanted creature loses flying. Prevent all combat damage enchanted creature deals.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Bind%20to%20the%20Earth.png"
+ },
+ {
+  "name": "Phoenix",
+  "type": "Legendary Creature — Phoenix",
+  "mana_cost": "{4}{R}{R}{R}",
+  "subtypes": [
+   "Phoenix"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "Flying\nWhenever a creature attacks you, Phoenix deals 2 damage to it.\nWhen Phoenix dies, create a 0/1 red Elemental creature token named Phoenix Egg. It has “At the beginning of your upkeep, sacrifice this creature and return target card named Phoenix from your graveyard to the battlefield.”",
+  "power": "5",
+  "toughness": "5",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Phoenix.png"
+ },
+ {
+  "name": "Visage, the Bound Form of Necro'lic",
+  "type": "Legendary Creature — Spirit Gargoyle",
+  "mana_cost": "{4}{W}{B}",
+  "subtypes": [
+   "Spirit",
+   "Gargoyle"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "W",
+   "B"
+  ],
+  "oracle_text": "Flying, vigilance\nVisage enters with five +1/+1 counters on it.\nIf damage would be dealt to Visage while it has a +1/+1 counter on it, prevent that damage and remove that many +1/+1 counters from it.\nWhenever one or more +1/+1 counters are removed from Visage, create that many 1/1 white Spirit creature tokens with flying.",
+  "power": "0",
+  "toughness": "0"
+ },
+ {
+  "name": "Muerta",
+  "type": "Legendary Creature — Spirit Assassin",
+  "mana_cost": "{2}{W}{B}",
+  "subtypes": [
+   "Spirit",
+   "Assassin"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "W",
+   "B"
+  ],
+  "oracle_text": "Whenever Muerta deals combat damage to a player, put target creature card from a graveyard on to the battlefield under your control. If it’s not a Spirit, put a finality counter on it.\n{3WB}: Muerta gets +1/+1 for each Spirit you control and gains flying until end of turn.",
+  "power": "3",
+  "toughness": "3",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Muerta.png"
+ },
+ {
+  "name": "Dire Ancient",
+  "type": "Legendary Land",
+  "mana_cost": "",
+  "rarity": "common",
+  "oracle_text": "{T}, Sacrifice this land: Search your library for a basic Swamp or basic Mountain card, put it onto the battlefield, then shuffle.\nCycling {BR} (Discard this card and pay {BG} to draw a card.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Dire%20Ancient.png"
+ },
+ {
+  "name": "Radiant Ancient",
+  "type": "Legendary Land",
+  "mana_cost": "",
+  "rarity": "common",
+  "oracle_text": "{T}, Sacrifice this land: Search your library for a basic Forest or basic Plains card, put it onto the battlefield, then shuffle.\nCycling {GW} (Discard this card and pay {GW} to draw a card.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Radiant%20Ancient.png"
+ },
+ {
+  "name": "Cogliostro, the Ringmaster",
+  "type": "Legendary Artifact Creature — Construct Wizard",
+  "mana_cost": "{1}{U}{U}",
+  "subtypes": [
+   "Construct",
+   "Wizard"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "U"
+  ],
+  "oracle_text": "When Cogliostro enters, tap or untap target permanent.\nMetalcraft — At the beginning of your end step, if you control three or more artifacts, exile target creature you control. Return it to the battlefield under your control at the beginning of your next upkeep.",
+  "power": "2",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Cogliostro%20the%20Ringmaster%20.png"
+ },
+ {
+  "name": "Rattletrap, the Clockwerk",
+  "type": "Legendary Artifact Creature — Gnome Artificer",
+  "mana_cost": "{2}{R}{W}",
+  "subtypes": [
+   "Gnome",
+   "Artificer"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "W",
+   "R"
+  ],
+  "oracle_text": "Vigilance\nMetalcraft — As long as you control three or more artifacts, if a modified creature you control would deal damage to an opponent or a permanent an opponent controls, it deals that much damage plus 2 instead. (A creature is modified if it has a counter on it, is enchanted, and/or is equipped.)",
+  "power": "2",
+  "toughness": "4",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Rattletrap%20the%20Clockwerk.png"
+ },
+ {
+  "name": "Kez",
+  "type": "Legendary Creature — Bird Samurai",
+  "mana_cost": "{2}{W}",
+  "subtypes": [
+   "Bird",
+   "Samurai"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "W"
+  ],
+  "oracle_text": "Bushido 2 (When this creature blocks or becomes blocked, it gets +2/+2 until end of turn.)\nAs long as Kez is modified, it has first strike. (A creature is modified if it has a counter on it, is enchanted, and/or is equipped.)",
+  "power": "3",
+  "toughness": "1",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Kez.png"
+ },
+ {
+  "name": "Davion, the Dragon Knight",
+  "type": "Legendary Creature — Human Dragon Knight",
+  "mana_cost": "{R/W}",
+  "subtypes": [
+   "Human",
+   "Dragon",
+   "Knight"
+  ],
+  "rarity": "rare",
+  "colors": [
+   "W",
+   "R"
+  ],
+  "oracle_text": "Whenever another creature you control becomes modified, put a +1/+1 counter on Davion. (A creature is modified if it has a counter on it, is enchanted, and/or is equipped.\nAs long as Davion has five or more +1/+1 counters on him, it has flying.",
+  "power": "2",
+  "toughness": "1",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Davion%20the%20Dragon%20Knight.png"
+ },
+ {
+  "name": "Jin'zakk, the Batrider",
+  "type": "Legendary Creature — Troll Scout",
+  "mana_cost": "{2}{R}",
+  "subtypes": [
+   "Troll",
+   "Scout"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "R"
+  ],
+  "oracle_text": "Flying, haste\nWhenever Jin’zakk deals combat damage, put a charge counter on it.\n{T}, Remove all charge counters from Jin’zakk: Jin’zakk deals damage equal to the number of charge counters remove this way to any target.",
+  "power": "2",
+  "toughness": "2",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Jinzakk%20the%20Batrider.png"
+ },
+ {
+  "name": "Dragonus, the Skywrath Mage",
+  "type": "Legendary Creature — Angel Wizard",
+  "mana_cost": "{1}{W}{U}",
+  "subtypes": [
+   "Angel",
+   "Wizard"
+  ],
+  "rarity": "uncommon",
+  "colors": [
+   "W",
+   "U"
+  ],
+  "oracle_text": "Flash (You may cast this spell any time you could cast an instant.)\nFlying\nWhenever you cast your first spell during an opponent’s turn, put a stun counter on target tapped creature.",
+  "power": "2",
+  "toughness": "1",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Dragonus%20the%20Skywrath%20Mage.png"
+ }
+]
+[Settings]
+{
+ "name": "Dota 2 Custom Set (v9, unified Hero slot)",
+ "withReplacement": true,
+ "layouts": {
+  "Default": {
+   "weight": 1,
+   "slots": [
+    {
+     "name": "RareOrMythic",
+     "count": 1,
+     "sheets": [
+      {
+       "name": "Rare",
+       "weight": 71
+      },
+      {
+       "name": "Mythic",
+       "weight": 30
+      }
+     ]
+    },
+    {
+     "name": "Hero",
+     "count": 1,
+     "sheets": [
+      {
+       "name": "HeroUncommon",
+       "weight": 82
+      },
+      {
+       "name": "HeroRare",
+       "weight": 40
+      },
+      {
+       "name": "HeroMythic",
+       "weight": 10
+      }
+     ]
+    },
+    {
+     "name": "Land",
+     "count": 1
+    },
+    {
+     "name": "Uncommon",
+     "count": 3
+    },
+    {
+     "name": "Common",
+     "count": 10
+    }
+   ]
+  }
+ }
+}
+
+[Common]
+Radiant Creep
+Radiant Mega Creep
+Radiant Super Creep
+Dire Creep
+Dire Super Creep
+Boots of Speed
+Stifling Dagger
+Kobold Thief
+Magebane Mirror
+Deafening Blast
+Piercing Shot
+Dragon Tail
+Overcharge
+Rot
+Town Portal Scroll
+Little Friend
+Dark Ascension
+Astral Imprisonment
+Keenfolk Golem
+Ristul Assassin
+Alpha Wolf
+Satyr Mindstealer
+Hill Troll Priest
+Kobold Foreman
+Fell Spirit
+Mud Golem
+Omexe Overwatch
+Satyr Cutthroat
+Aerie Antiquarian
+Wildwing Ripper
+Dark Troll Summoner
+Warpine Raider
+Ancient Black Dragon
+Ancient Granite Golem
+Ancient Thunderhide
+Bronze Provost
+Ice Golem
+Phase Boots
+Blade Mail
+Orb of Venom
+Overclocking
+Bushwack
+Animal Courier
+Radiant Siege Wagon
+Dire Siege Wagon
+Mystic Flare
+Admiral’s Call
+Ogoldi Siege Ladder
+Quorum Censor
+Morphling Whelp
+Double Edge
+Nature’s Attendants
+Firesnap Cookie
+Penitence
+Dark Pact
+Death Pact
+Ogre Bruiser
+Aphotic Shield
+Spark Wraith
+Gush
+Toss
+Provoke
+Smoke of Deceit
+Shadow Walk
+Light Strike Array
+Refraction
+Roseleaf Sproutling
+Gust
+Roam the Jungle
+Magebane Strike
+Bronze Hoplite
+Roseleaf Briarbush
+Dawn Templar
+Dire Felbeast
+Dire Mega Creep
+Imperia’s Murder
+Loyal Sentry
+Illusive Tormentor
+Kanna’s Hound
+Smeevil Blacksmith
+Fog of War
+Radiant Flagbearer
+Ogoldi Vandal
+Quelling Blade
+Roseleaf Elder
+Dire Tower
+Radiant Tower
+
+[Uncommon]
+Fortification
+Observer Ward
+Blink Dagger
+Sentry Ward
+Ice Vortex
+Timber Chain
+Shackleshot
+Open Wounds
+Presence of the Dark Lord
+Soul Ring
+Hand of Midas
+Moon Shard
+Urn of Shadows
+Drums of Endurance
+Heat Seeking Missiles
+Satyr Banisher
+Quorum Priest
+Dagon
+Glimmer Cape
+Hammer of Purity
+Roshefort Cheese
+Wildwing Dismantler
+Smoke Screen
+Overpower
+Frostbite
+Reality Rift
+Sinister Gaze
+Ring of Tarasque
+Powershot
+Whirling Axes
+Decay
+Ion Shell
+Lightning Bolt
+Arc Lightning
+Living Armor
+Fountain of Rejuvenation
+Walrus PUNCH!
+Bramble Maze
+Apotheosis Blade
+Starfall
+Coup de Grace
+Dragon Slave
+The Black Grimoire
+Animate Armory
+Brand of the Oathbound
+Tome of Knowledge
+Mistblade’s Intervention
+Swarming Greevils
+Temporal Disruption
+Path of Cognition
+Path of Brutality
+Path of Honor
+Path of Conquer
+Path of Might
+Smeevil Forgemaster
+Bind to the Earth
+
+[Rare]
+Finger of Death
+Echo Slam
+Kraken Shell
+Arena of Blood
+Reincarnation
+Mekansm
+Fiend’s Grip
+Tormentor
+Refresher Orb
+Scythe of Vyse
+Radiance
+Noxious Plague
+Unleash
+Spell Steal
+Chaos Meteor
+Thundergod’s Wrath
+Wrath of Nature
+Global Silence
+Ignis Fatuus
+Mirror Image
+Sunder
+Exorcism
+Nether Strike
+Primal Roar
+Ignite
+Helm of the Dominator
+Chain Frost
+Conscript
+Doppelganger
+Refill the Barracks
+Nether Swap
+
+[Mythic]
+Roshan, the Immortal
+Black Hole
+Aghanim’s Sceptre
+Chronosphere
+Buyback
+Butterfly
+Ravage
+Guardian Angel
+Mana Drain
+
+[Land]
+Roshan’s Pit
+Reef’s Edge
+Shrine of Elune
+Icewrack
+Stonehall
+Thorny Wastes
+Cathedral of Rumusque
+Vale of Augury
+Aghanim’s Sanctum
+Dire Ancient
+Radiant Ancient
+
+[HeroUncommon]
+Abaddon, the Lord of Avernus
+Razzil Darkbrew, the Alchemist
+Kaldr, the Ancient Apparition
+Mogul Khan, the Axe
+Atropos, the Bane
+Strygwyr, the Bloodseeker
+Gondar, the Bounty Hunter
+Mangix, the Brewmaster
+Rigwarl, the Bristleback
+Black Arachnia, the Broodmother
+Rylai, the Crystal Maiden
+Ish'Kafel, the Dark Seer
+Mireska, the Dark Willow
+Dazzle, the Shadow Priest
+Disruptor, the Stormcrafter
+Xin, the Ember Spirit
+Hoodwink
+Huskar, the Sacred Warrior
+Io, the Wisp
+Naix, the Lifestealer
+Ezalor, the Keeper of the Light
+Kunkka, the Admiral
+Leshrac, the Tormented Soul
+Lion, the Demon Witch
+Luna, the Moon Rider
+Puck, the Faerie Dragon
+Magnus, the Magnoceros
+Marci
+Medusa, the Gorgon
+Mirana of Nightsilver
+Wukong, the Monkey King
+Morphling, the Waveform
+Slithice, the Naga Siren
+Balanar, the Night Stalker
+Nyx Assassin
+Nerif, the Oracle
+Harbinger, the Outworld Destroyer
+Donté Panlin, the Pangolier
+Azwraith, the Phantom Lancer
+Primal Beast
+Pudge, the Butcher
+Pugna
+Akasha, the Queen of Pain
+Razor, the Lightning Revenant
+Riki, the Stealth Assassin
+Shadow Demon
+Nevermore, the Shadow Fiend
+Rhasta, the Shadow Shaman
+Nortrom, the Silencer
+Slardar, the Slithereen Guard
+Beatrix and Mortimer
+Kardel Sharpeye, the Sniper
+Mercurial, the Spectre
+Sven, the Rogue Knight
+Inai, the Void Spirit
+Squee, Spleen, and Spoon, the Techies
+Rizzrack, the Timbersaw
+Boush, the Tinker
+Rooftrellen, Treant Protector
+Ymir, the Tusk
+Vrogros, the Underlord
+Ulfsaar, the Ursa Warrior
+Shendelzare, Vengeful Spirit
+Lesale Deathbringer, the Venomancer
+Viper, the Netherdrake
+Demnok Lannik, the Warlock
+Lyralei, the Windranger
+Auroth, the Winter Wyvern
+Traxex, the Drow Ranger
+Rix, Rebellion Leader
+Prellex, the Radiant
+Kanna, the Mistblade
+Ethreain, the Lich
+Aurel, the Gyrocopter
+Phoenix
+Visage, the Bound Form of Necro'lic
+Muerta
+Cogliostro, the Ringmaster
+Rattletrap, the Clockwerk
+Kez
+Jin'zakk, the Batrider
+Dragonus, the Skywrath Mage
+
+[HeroRare]
+Anti-Mage
+Zet, the Arc Warden
+Karroch, the Beastmaster
+Bradwarden, the Centaur Warrunner
+Chen, the Holy Knight
+Clinkz, the Bone Fletcher
+Valora, the Dawnbreaker
+Grimstroke
+Krobelus, the Death Prophet
+Lucifer, the Doom
+Kaolin, the Earth Spirit
+Raigor Stonehoof, the Earthshaker
+Elder Titan, the Worldsmith
+Aiushtha, the Enchantress
+Enigma, Consumer of Worlds
+Darkterror, the Faceless Void
+Carl, the Invoker
+Ostarion, the Wraith King
+Meepo, the Geomancer
+Jakiro, the Twin Head Dragon
+Yurnero, the Juggernaut
+Tresdin, the Legion Commander
+Banehallow, the Lycan
+Rotund'jere, Necrophos
+Purist Thunderwrath, the Omniknight
+Mortred, the Phantom Assassin
+Crixalis, the Sand King
+Slark, the Nightcrawler
+Barathrum, the Spirit Breaker
+Raijin, the Storm Spirit
+Lanaya, the Templar Assassin
+Leviathan, the Tidehunter
+Jah'rakal, the Troll Warlord
+Skitskurr, the Weaver
+Zharvakko, the Witch Doctor
+Zeus, the Lord of Heaven
+Largo
+Rix, Oathbound
+Sylla, the Lone Druid
+Davion, the Dragon Knight
+
+[HeroMythic]
+Chaos Knight
+Lina, the Slayer
+Mars, the First Son of Heaven
+Nature’s Prophet
+Aggron Stonebreak, the Ogre Magi
+Rubick, the Grand Magus
+Terrorblade, the Demon Marauder
+Tiny, the Stone Giant
+Undying, the Almighty Dirge
+Ball of Creeps
