@@ -115,7 +115,7 @@ At the beginning of your end step, modify target Illusion you control. (To modif
    <coloridentity>BRG</coloridentity>
    <loyalty>4</loyalty>
    </prop>
-   <set rarity="mythic" num="0006" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Roshan%20the%20Immortal.png">DUB</set>
+   <set rarity="mythic" num="0006" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Roshan%20b.png">DUB</set>
    <related>Aegis of the Immortal</related>
    <tablerow>1</tablerow>
   </card>
@@ -1881,7 +1881,7 @@ Whenever you cast your second spell in a turn, create a 3/3 green Ape creature t
    <cmc>1</cmc>
    <loyalty>3</loyalty>
    </prop>
-   <set rarity="rare" num="0101" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Tormentor.png">DUB</set>
+   <set rarity="rare" num="0101" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Tormentor%20b.png">DUB</set>
    <related>Aghanim’s Shard</related>
    <tablerow>1</tablerow>
   </card>
@@ -1912,7 +1912,7 @@ Whenever you cast a legendary spell, draw a card then discard a card.</text>
    <colors>G</colors>
    <coloridentity>G</coloridentity>
    </prop>
-   <set rarity="common" num="0102">DUB</set>
+   <set rarity="common" num="0102" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Little%20Friend.png">DUB</set>
    <tablerow>3</tablerow>
   </card>
   <card>
@@ -4842,7 +4842,7 @@ Cycling {RG} (Discard this card and pay {RG} to draw a card.</text>
    <colors>WG</colors>
    <coloridentity>WG</coloridentity>
    </prop>
-   <set rarity="rare" num="0267" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Unwilling%20Conscription.png">DUB</set>
+   <set rarity="rare" num="0267" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Conscript.png">DUB</set>
    <tablerow>3</tablerow>
   </card>
   <card>
@@ -5260,7 +5260,7 @@ Target creature you don’t control gets -2/-2 until end of turn.</text>
    <colors>WUG</colors>
    <coloridentity>WUG</coloridentity>
    </prop>
-   <set rarity="rare" num="0291">DUB</set>
+   <set rarity="rare" num="0291" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Refill%20the%20Barracks.png">DUB</set>
    <tablerow>3</tablerow>
   </card>
   <card>
@@ -5643,7 +5643,7 @@ Exchange control of two target creatures.</text>
    <colors>U</colors>
    <coloridentity>U</coloridentity>
    </prop>
-   <set rarity="rare" num="0313">DUB</set>
+   <set rarity="rare" num="0313" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Nether%20Swap.png">DUB</set>
    <tablerow>3</tablerow>
   </card>
   <card>
@@ -5659,7 +5659,7 @@ Exchange control of two target creatures.</text>
    <colors>U</colors>
    <coloridentity>U</coloridentity>
    </prop>
-   <set rarity="mythic" num="0314">DUB</set>
+   <set rarity="mythic" num="0314" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Mana%20Drain.png">DUB</set>
    <tablerow>3</tablerow>
   </card>
   <card>
@@ -5790,7 +5790,7 @@ Whenever one or more +1/+1 counters are removed from Visage, create that many 1/
    <coloridentity>WB</coloridentity>
    <pt>0/0</pt>
    </prop>
-   <set rarity="uncommon" num="0321">DUB</set>
+   <set rarity="uncommon" num="0321" picurl="https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Visage%20the%20Bound%20Form%20of%20Necrolic.png">DUB</set>
    <tablerow>2</tablerow>
   </card>
   <card>

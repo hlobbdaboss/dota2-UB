@@ -10,14 +10,19 @@
 # (you renamed it back from "Oathbound's Brand" -- same art file, just needed the lookup key updated), and
 # picked up your Blink Dagger equip-cost wording fix ("Equip creature {2}" -> "Equip {2}") that an earlier,
 # stale extraction had missed.
+# ART: rebuilt against your freshest "Card Arts Full" bulk re-export (the earlier export was from Aug 15 and had
+# gone stale relative to ~130 cards touched since). Every one of the 330 front faces now has a matched
+# image -- 0 missing, down from 5 last pass (Little Friend, Refill the Barracks, Nether Swap, Mana Drain, and
+# Visage all got picked up this time). Roshan, the Immortal and Tormentor are special-cased to pull art from
+# their newer "b" test-copy export (Roshan b.png / Tormentor b.png) rather than the stale original-name file,
+# matching which copy the text dedup above actually kept.
 # Sheet structure: unified Hero slot (introduced in v9, unchanged in v10) -- heroes drawn from their own
 # HeroUncommon/HeroRare/HeroMythic sheets by one dedicated "Hero" slot, weighted by tier size --
 # 82/40/10 -- so the plain RareOrMythic slot stays non-hero:
 # 31 rares / 9 mythics, spells/artifacts/mono-color threats only).
-# rebuilt using the fresh {card.name}.png bulk export into Card Arts Full (name-based, replaces the old
-# opaque sequential-number scheme). Art URLs point at raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card Arts Full/...
+# Art URLs point at raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card Arts Full/...
 # 330 unique cards after dedupe (merged 2 leftover duplicate/draft-copy save entries).
-# 5 cards still have no art match after the new export: Little Friend, Refill the Barracks, Nether Swap, Mana Drain, Visage, the Bound Form of Necro'lic
+# All front faces have a matched image.
 # 9 double-faced/Battle cards carry full back-face data (name/type/oracle_text/power/toughness) via the
 # "back" field -- but the bulk export only covers front faces, so all 9 back faces are STILL missing art
 # (Aegis of the Immortal, Mangix Primal Split, Luna Eclipsed by the Moon, Banehollow Shapeshifted, Mirana Princess of
@@ -138,7 +143,7 @@
   ],
   "oracle_text": "When Roshan, the Immortal enters, any number of target creatures you control each deal damage equal to their power to target creature you don’t control.",
   "loyalty": "4",
-  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Roshan%20the%20Immortal.png",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Roshan%20b.png",
   "back": {
    "name": "Aegis of the Immortal",
    "type": "Legendary Enchantment — Aura",
@@ -1632,7 +1637,7 @@
   "rarity": "rare",
   "oracle_text": "When Tormentor enters, it deals 4 damage divided randomly among creatures you control.",
   "loyalty": "3",
-  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Tormentor.png",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Tormentor%20b.png",
   "back": {
    "name": "Aghanim’s Shard",
    "type": "Artifact",
@@ -1647,7 +1652,8 @@
   "colors": [
    "G"
   ],
-  "oracle_text": "Target creature you control gets +3/+3 and gains hexproof until end of turn."
+  "oracle_text": "Target creature you control gets +3/+3 and gains hexproof until end of turn.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Little%20Friend.png"
  },
  {
   "name": "Nature’s Prophet",
@@ -4082,7 +4088,7 @@
    "G"
   ],
   "oracle_text": "Exile target creature you don’t control. Create X 1/1 green and white Vhoul Soldier creature tokens, where X is that creature’s toughness.",
-  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Unwilling%20Conscription.png"
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Conscript.png"
  },
  {
   "name": "Roam the Jungle",
@@ -4431,7 +4437,8 @@
    "U",
    "G"
   ],
-  "oracle_text": "Create three 1/1 white and green Elemental creature tokens named Radiant Creep. Then, draw a card and gain 1 life for each nonlegendary creature you control."
+  "oracle_text": "Create three 1/1 white and green Elemental creature tokens named Radiant Creep. Then, draw a card and gain 1 life for each nonlegendary creature you control.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Refill%20the%20Barracks.png"
  },
  {
   "name": "Kanna, the Mistblade",
@@ -4752,7 +4759,8 @@
   "colors": [
    "U"
   ],
-  "oracle_text": "(You may cast a legendary instant only if you control a legendary creature.)\nExchange control of two target creatures."
+  "oracle_text": "(You may cast a legendary instant only if you control a legendary creature.)\nExchange control of two target creatures.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Nether%20Swap.png"
  },
  {
   "name": "Mana Drain",
@@ -4762,7 +4770,8 @@
   "colors": [
    "U"
   ],
-  "oracle_text": "Counter target spell. At the beginning of your next main phase, add an amount of C equal to that spell’s mana value."
+  "oracle_text": "Counter target spell. At the beginning of your next main phase, add an amount of C equal to that spell’s mana value.",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Mana%20Drain.png"
  },
  {
   "name": "Ethreain, the Lich",
@@ -4879,7 +4888,8 @@
   ],
   "oracle_text": "Flying, vigilance\nVisage enters with five +1/+1 counters on it.\nIf damage would be dealt to Visage while it has a +1/+1 counter on it, prevent that damage and remove that many +1/+1 counters from it.\nWhenever one or more +1/+1 counters are removed from Visage, create that many 1/1 white Spirit creature tokens with flying.",
   "power": "0",
-  "toughness": "0"
+  "toughness": "0",
+  "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Visage%20the%20Bound%20Form%20of%20Necrolic.png"
  },
  {
   "name": "Muerta",
