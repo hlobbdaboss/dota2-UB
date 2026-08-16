@@ -1,22 +1,23 @@
 # Dota 2 custom set - Draftmancer custom card list
-# v10 - full regen after your latest editing pass (330 cards now, down from 339). Also fixes a
-# real dedup bug: when two cards had identical rules/type/rarity/cost (your "make a throwaway ' b' copy
-# to test different art/crop without redoing the whole card" workflow), the parser used to keep whichever
-# copy had the "nicer" name -- which could silently discard the NEWER art choice if the newer save
-# happened to be the " b"-suffixed copy. It now keeps whichever copy was modified most recently and just
-# relabels it with the canonical (non-" b") name. Confirmed this changed Roshan, the Immortal's art to
-# the newer crop. Also patched the image map for Brand of the Oathbound (you renamed it back from
-# "Oathbound's Brand" -- same art file, just needed the lookup key updated).
-# Sheet structure carried over unchanged from v9 (unified Hero slot: heroes drawn from their own
+# v10 - full regen after your latest editing pass (330 cards now). Freshly re-extracted from the live
+# .mse-set (raw parse: 332 card blocks -> 331 after name/" b"-suffix dedupe ->
+# 330 after content-signature dedupe). Also fixes a real dedup bug: when two cards had identical
+# rules/type/rarity/cost (your "make a throwaway ' b' copy to test different art/crop without redoing the
+# whole card" workflow), the parser used to keep whichever copy had the "nicer" name -- which could silently
+# discard the NEWER art choice if the newer save happened to be the " b"-suffixed copy. It now keeps whichever
+# copy was modified most recently and just relabels it with the canonical (non-" b") name. Confirmed this
+# changed Roshan, the Immortal's art to the newer crop. Also patched the image map for Brand of the Oathbound
+# (you renamed it back from "Oathbound's Brand" -- same art file, just needed the lookup key updated), and
+# picked up your Blink Dagger equip-cost wording fix ("Equip creature {2}" -> "Equip {2}") that an earlier,
+# stale extraction had missed.
+# Sheet structure: unified Hero slot (introduced in v9, unchanged in v10) -- heroes drawn from their own
 # HeroUncommon/HeroRare/HeroMythic sheets by one dedicated "Hero" slot, weighted by tier size --
 # 82/40/10 -- so the plain RareOrMythic slot stays non-hero:
 # 31 rares / 9 mythics, spells/artifacts/mono-color threats only).
 # rebuilt using the fresh {card.name}.png bulk export into Card Arts Full (name-based, replaces the old
 # opaque sequential-number scheme). Art URLs point at raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card Arts Full/...
-# 330 unique cards after dedupe (dropped 11 leftover duplicate save entries -- see dedupe_report.json).
+# 330 unique cards after dedupe (merged 2 leftover duplicate/draft-copy save entries).
 # 5 cards still have no art match after the new export: Little Friend, Refill the Barracks, Nether Swap, Mana Drain, Visage, the Bound Form of Necro'lic
-# Two of those were inferred as renames and auto-linked to the closest unused exported file -- please double check:
-#   Conscript -> "Unwilling Conscription.png", Oathbound's Brand -> "Brand of the Oathbound.png"
 # 9 double-faced/Battle cards carry full back-face data (name/type/oracle_text/power/toughness) via the
 # "back" field -- but the bulk export only covers front faces, so all 9 back faces are STILL missing art
 # (Aegis of the Immortal, Mangix Primal Split, Luna Eclipsed by the Moon, Banehollow Shapeshifted, Mirana Princess of
@@ -373,7 +374,7 @@
   "colors": [
    "U"
   ],
-  "oracle_text": "Flash\nWhen Blink Dagger enters, exile target creature you control. Return that card to the battlefield under your control, then attach this equipment to it.\nEquipped creature can’t be blocked.\nEquip creature {2}",
+  "oracle_text": "Flash\nWhen Blink Dagger enters, exile target creature you control. Return that card to the battlefield under your control, then attach this equipment to it.\nEquipped creature can’t be blocked.\nEquip {2}",
   "image": "https://raw.githubusercontent.com/hlobbdaboss/dota2-UB/main/Card%20Arts%20Full/Blink%20Dagger.png"
  },
  {
@@ -5023,7 +5024,7 @@
 ]
 [Settings]
 {
- "name": "Dota 2 Custom Set (v9, unified Hero slot)",
+ "name": "Dota 2 Custom Set (v10, unified Hero slot)",
  "withReplacement": true,
  "layouts": {
   "Default": {

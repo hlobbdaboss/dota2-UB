@@ -396,7 +396,7 @@ At the beginning of your upkeep, surveil 1. (Look at the top card of your librar
    <text>Flash
 When Blink Dagger enters, exile target creature you control. Return that card to the battlefield under your control, then attach this equipment to it.
 Equipped creature can’t be blocked.
-Equip creature {2}</text>
+Equip {2}</text>
    <prop>
    <layout>normal</layout>
    <side>front</side>
