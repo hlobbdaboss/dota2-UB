@@ -36,7 +36,8 @@
   "back": {
    "name": "Aghanim’s Shard",
    "type": "Artifact",
-   "oracle_text": "Legendary spells you control cost {1} less to cast.\nWhenever you cast a legendary spell, draw a card then discard a card."
+   "oracle_text": "Legendary spells you control cost {1} less to cast.\nWhenever you cast a legendary spell, draw a card then discard a card.",
+   "mana_cost": ""
   }
  },
  {
@@ -1122,7 +1123,8 @@
    ],
    "oracle_text": "Nightbound (If a player cast at least two spells during their own turn, it becomes day next turn.)\nFirst strike, flying\nWhen Balanar deals combat damage to a player, that player discards a card.",
    "power": "2",
-   "toughness": "2"
+   "toughness": "2",
+   "mana_cost": ""
   }
  },
  {
@@ -1150,7 +1152,8 @@
    ],
    "oracle_text": "Nightbound (If a player cast at least two spells during their own turn, it becomes day next turn.)\nWolves and Werewolves you control get +2/+2 and have menace.\nWhenever Banehollow, Shapeshifted enters or transforms, create two 2/2 black Wolf creature tokens.\nNightbound",
    "power": "6",
-   "toughness": "6"
+   "toughness": "6",
+   "mana_cost": ""
   }
  },
  {
@@ -1344,7 +1347,8 @@
    ],
    "oracle_text": "Nightbound (If a player cast at least two spells during their own turn, it becomes day next turn.)\nWhen Luna enters or transforms, target creature your opponent controls gets -X/-X until end of turn, where X is Luna’s power.",
    "power": "4",
-   "toughness": "4"
+   "toughness": "4",
+   "mana_cost": ""
   }
  },
  {
@@ -1705,7 +1709,8 @@
    ],
    "oracle_text": "Lifelink\nMetamorphosis — When this creature transforms, create two 4/4 black Demon Illusion creature tokens with lifelink named Conjured Image.",
    "power": "8",
-   "toughness": "8"
+   "toughness": "8",
+   "mana_cost": ""
   }
  },
  {
@@ -3608,7 +3613,8 @@
    ],
    "oracle_text": "Indestructible (Damage and effects that say “destroy” don’t destroy this creature.)\nWhen Jah’rakal transforms, remove all +1/+1 counters from it. For each counter removed this way, add one mana of any combination of R and/or G. Until end of turn, you don’t lose this mana as steps and phases end.\nAt the beginning of your end step, transform Jah’rakal.",
    "power": "5",
-   "toughness": "5"
+   "toughness": "5",
+   "mana_cost": ""
   }
  },
  {
@@ -3893,7 +3899,8 @@
    ],
    "oracle_text": "Trample, hexproof\nWhen Mangix transforms, draw a card.\nAt the beginning of your end step, transform Mangix.",
    "power": "5",
-   "toughness": "5"
+   "toughness": "5",
+   "mana_cost": ""
   }
  },
  {
@@ -3960,7 +3967,8 @@
    ],
    "oracle_text": "Nightbound (If a player cast at least two spells during their own turn, it becomes day next turn.)\nWhen Mirana enters or transforms, creatures you control gain hexproof and can’t be blocked until the end of turn your next turn. (This creature can’t be the target of spells of abilities your opponents control.)",
    "power": "3",
-   "toughness": "3"
+   "toughness": "3",
+   "mana_cost": ""
   }
  },
  {
@@ -4461,7 +4469,8 @@
    "subtypes": [
     "Aura"
    ],
-   "oracle_text": "Enchant creature\nWhen enchanted creature dies or is put into exile, return that card to the battlefield under its owner’s control."
+   "oracle_text": "Enchant creature\nWhen enchanted creature dies or is put into exile, return that card to the battlefield under its owner’s control.",
+   "mana_cost": ""
   }
  },
  {
@@ -5312,6 +5321,7 @@
  {
   "name": "Aghanim’s Sanctum",
   "type": "Legendary Land",
+  "mana_cost": "",
   "subtypes": [],
   "rarity": "common",
   "oracle_text": "{T}, Sacrifice this land: Search your library for a basic Island or basic Mountain card, put it onto the battlefield, then shuffle.\nCycling UR (Discard this card and pay {U}{R} to draw a card.",
@@ -5320,6 +5330,7 @@
  {
   "name": "Cathedral of Rumusque",
   "type": "Legendary Land",
+  "mana_cost": "",
   "subtypes": [],
   "rarity": "common",
   "oracle_text": "{T}, Sacrifice this land: Search your library for a basic Swamp or basic Plains card, put it onto the battlefield, then shuffle.\nCycling WB (Discard this card and pay {W}{B} to draw a card.",
@@ -5329,6 +5340,7 @@
  {
   "name": "Dire Ancient",
   "type": "Legendary Land",
+  "mana_cost": "",
   "subtypes": [],
   "rarity": "common",
   "oracle_text": "{T}, Sacrifice this land: Search your library for a basic Swamp or basic Mountain card, put it onto the battlefield, then shuffle.\nCycling BR (Discard this card and pay {B}{G} to draw a card.",
@@ -5338,6 +5350,7 @@
  {
   "name": "Icewrack",
   "type": "Legendary Land",
+  "mana_cost": "",
   "subtypes": [],
   "rarity": "common",
   "oracle_text": "{T}, Sacrifice this land: Search your library for a basic Plains or basic Island card, put it onto the battlefield, then shuffle.\nCycling WU (Discard this card and pay {W}{U} to draw a card.",
@@ -5347,6 +5360,7 @@
  {
   "name": "Radiant Ancient",
   "type": "Legendary Land",
+  "mana_cost": "",
   "subtypes": [],
   "rarity": "common",
   "oracle_text": "{T}, Sacrifice this land: Search your library for a basic Forest or basic Plains card, put it onto the battlefield, then shuffle.\nCycling GW (Discard this card and pay {G}{W} to draw a card.",
@@ -5356,6 +5370,7 @@
  {
   "name": "Reef’s Edge",
   "type": "Legendary Land",
+  "mana_cost": "",
   "subtypes": [],
   "rarity": "common",
   "oracle_text": "{T}, Sacrifice this land: Search your library for a basic Forest or basic Island card, put it onto the battlefield, then shuffle.\nCycling GU (Discard this card and pay {G}{U} to draw a card.",
@@ -5365,6 +5380,7 @@
  {
   "name": "Roshan’s Pit",
   "type": "Legendary Land",
+  "mana_cost": "",
   "subtypes": [],
   "rarity": "rare",
   "oracle_text": "Roshan’s Pit enters the battlefield tapped.\n{T}: Add {C}\n{T}: Add one mana of any color to your mana pool. Spend this mana only on legendary creatures.\n{4}, {T}, Sacrifice this land: Target legendary creature you control fights target creature you don’t control. Activate only as a sorcery.",
@@ -5374,6 +5390,7 @@
  {
   "name": "Shrine of Elune",
   "type": "Legendary Land",
+  "mana_cost": "",
   "subtypes": [],
   "rarity": "common",
   "oracle_text": "{T}, Sacrifice this land: Search your library for a basic Swamp or basic Island card, put it onto the battlefield, then shuffle.\nCycling UB (Discard this card and pay {U}{B} to draw a card.",
@@ -5383,6 +5400,7 @@
  {
   "name": "Stonehall",
   "type": "Legendary Land",
+  "mana_cost": "",
   "subtypes": [],
   "rarity": "common",
   "oracle_text": "{T}, Sacrifice this land: Search your library for a basic Plains or basic Mountain card, put it onto the battlefield, then shuffle.\nCycling RW (Discard this card and pay {R}{W} to draw a card.",
@@ -5392,6 +5410,7 @@
  {
   "name": "Thorny Wastes",
   "type": "Legendary Land",
+  "mana_cost": "",
   "subtypes": [],
   "rarity": "common",
   "oracle_text": "{T}, Sacrifice this land: Search your library for a basic Swamp or basic Forest card, put it onto the battlefield, then shuffle.\nCycling BG (Discard this card and pay {B}{G} to draw a card.",
@@ -5401,6 +5420,7 @@
  {
   "name": "Vale of Augury",
   "type": "Legendary Land",
+  "mana_cost": "",
   "subtypes": [],
   "rarity": "common",
   "oracle_text": "{T}, Sacrifice this land: Search your library for a basic Forest or basic Mountain card, put it onto the battlefield, then shuffle.\nCycling RG (Discard this card and pay {R}{G} to draw a card.",
