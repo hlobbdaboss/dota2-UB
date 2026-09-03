@@ -199,7 +199,9 @@ for c in cards:
         entry["image"] = f"{GITHUB_RAW_BASE}/docs/renders/{quote(c['render'])}"
     dm_entries.append(entry)
 
-dm_path = os.path.join(DRAFTMANCER_DIR, f"dota-set-draftmancer-{date.today().isoformat()}.txt")
+# Fixed filename (no date) -- this is a stable link people post/share,
+# mirroring the Cockatrice XML's stable name so it doesn't break on rebuild.
+dm_path = os.path.join(DRAFTMANCER_DIR, "dota-set-draftmancer.txt")
 with open(dm_path, "w", encoding="utf-8") as f:
     f.write(f"# Dota 2 Universes Beyond -- Draftmancer custom card list\n")
     f.write(f"# Regenerated {date.today().isoformat()} from the Set Spoiler HTML export.\n")
