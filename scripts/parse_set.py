@@ -5,7 +5,8 @@ import subprocess
 from datetime import datetime
 import re
 import hashlib
-import zipfile
+import unicodedata
+from PIL import Image
 
 # Paths -- computed relative to this script's own location, so the same
 # file works unmodified on any machine as long as it stays in <repo>/scripts/
@@ -21,7 +22,10 @@ if not _mse_candidates:
 MSE_FILE = _mse_candidates[0]
 
 OUTPUT_JSON = os.path.join(REPO_DIR, "docs", "cards.json")
-IMAGES_DIR = os.path.join(REPO_DIR, "docs", "cards")# --- Mana parsing -----------------------------------------------------------
+IMAGES_DIR = os.path.join(REPO_DIR, "docs", "cards")
+RENDERS_DIR = os.path.join(REPO_DIR, "docs", "renders")
+CARD_ARTS_DIR = os.path.join(REPO_DIR, "Card Arts Full")
+# --- Mana parsing -----------------------------------------------------------
 
 def parse_mana_cost(cost_str):
     """Parse MSE casting_cost string into list of pip tokens."""
@@ -163,23 +167,11 @@ def fix_hanging_ability_costs(text):
 
 def parse_mse(filepath):
     with zipfile.ZipFile(filepath, 'r') as z:
-        print("Extracting card images...")
-        # Wipe the images dir first. Without this, a PNG left over from a
-        # previous export (under a filename MSE has since reassigned to a
-        # different card) sticks around and gets served as if it were current --
-        # this is how a card can end up showing another card's art.
-        if os.path.isdir(IMAGES_DIR):
-            for fn in os.listdir(IMAGES_DIR):
-                fp = os.path.join(IMAGES_DIR, fn)
-                if os.path.isfile(fp):
-                    os.remove(fp)
-        os.makedirs(IMAGES_DIR, exist_ok=True)
-        for name in z.namelist():
-            if name.endswith('.png'):
-                with z.open(name) as img_file:
-                    out_path = os.path.join(IMAGES_DIR, name)
-                    with open(out_path, 'wb') as f:
-                        f.write(img_file.read())
+        # NOTE: we no longer extract per-card PNGs from the MSE zip for display --
+        # the gallery and the art-collision check both use the maintained
+        # "Card Arts Full" folder now (matched by card name), not MSE's
+        # embedded images, which routinely share a stock placeholder across
+        # multiple in-progress cards and produced false collision warnings.
         with z.open('set') as f:
             content = f.read().decode('utf-8', errors='ignore')
 
@@ -200,12 +192,6 @@ def parse_mse(filepath):
                 card['name'] = field_val('name:'); current_field = None
             elif s.startswith('casting_cost:'):
                 card['cost'] = field_val('casting_cost:'); current_field = None
-            elif s.startswith('image:') and 'image_2' not in s and 'image_3' not in s:
-                val = field_val('image:')
-                # MSE stores filename with or without .png -- normalise
-                if val:
-                    card['image'] = val if val.endswith('.png') else val + '.png'
-                current_field = None
             elif s.startswith('super_type:'):
                 card['super_type'] = clean_mse_text(field_val('super_type:')); current_field = None
             elif s.startswith('sub_type:'):
@@ -253,38 +239,58 @@ def parse_mse(filepath):
             card['is_token'] = 'Token' in card.get('type', '') or 'token' in card.get('name', '').lower()
             cards.append(card)
 
-    # Hash every referenced image file's actual bytes. Two things ride on this:
-    # 1) Flag cards whose art is genuinely identical (not just same filename) --
-    #    MSE gives duplicated cards their own filename even if the art on the
-    #    copy was never replaced, so a filename check alone misses this.
-    # 2) Stamp each card with a content hash to use as a cache-busting query
-    #    param on the image URL. Filenames don't change between exports, so a
-    #    browser that already cached "cards/12.png" under old (wrong) bytes
-    #    will keep showing that old art after a normal reload -- this is
-    #    almost certainly why "old art keeps sticking around" persisted even
-    #    after the server-side files were fixed.
+    # Build each card's render from the maintained "Card Arts Full" folder,
+    # matched by (punctuation-insensitive) card name. This is now the single
+    # source of truth for both the gallery image and the art-collision check --
+    # cards.json itself stays purely a filter/analytics payload.
+    def render_key(name):
+        s = unicodedata.normalize('NFC', name)
+        s = s.replace('\u2019', "'").replace('\u2018', "'")
+        s = re.sub(r"[,'.!]", '', s)
+        s = re.sub(r'\s+', ' ', s).strip()
+        return s.lower()
+
+    art_files = []
+    if os.path.isdir(CARD_ARTS_DIR):
+        art_files = [f for f in os.listdir(CARD_ARTS_DIR) if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
+    art_map = {render_key(os.path.splitext(f)[0]): f for f in art_files}
+
+    os.makedirs(RENDERS_DIR, exist_ok=True)
     hash_cache = {}
     hash_to_names = {}
+    missing_art = []
     for c in cards:
-        img = c.get('image')
-        if not img:
+        if c.get('is_token'):
             continue
-        path = os.path.join(IMAGES_DIR, img)
-        if path not in hash_cache:
+        src_name = art_map.get(render_key(c['name']))
+        if not src_name:
+            missing_art.append(c['name'])
+            continue
+        base = os.path.splitext(src_name)[0]
+        render_name = base + '.jpg'
+        src_path = os.path.join(CARD_ARTS_DIR, src_name)
+        out_path = os.path.join(RENDERS_DIR, render_name)
+        if src_path not in hash_cache:
             try:
-                with open(path, 'rb') as f:
-                    hash_cache[path] = hashlib.md5(f.read()).hexdigest()
+                with Image.open(src_path) as im:
+                    im.convert('RGB').save(out_path, 'JPEG', quality=90)
+                with open(out_path, 'rb') as f:
+                    hash_cache[src_path] = hashlib.md5(f.read()).hexdigest()
             except OSError:
-                hash_cache[path] = None
-        h = hash_cache[path]
+                hash_cache[src_path] = None
+        h = hash_cache[src_path]
+        c['render'] = render_name
         if h:
             c['img_ver'] = h[:10]
             hash_to_names.setdefault(h, []).append(c['name'])
 
     for img_hash, names in hash_to_names.items():
         if len(set(names)) > 1:
-            print(f"WARNING: {sorted(set(names))} share identical artwork (hash {img_hash[:8]}) -- "
-                  f"reassign art for these in MSE, the parser can't fix this from data alone.")
+            print(f"WARNING: {sorted(set(names))} share identical artwork in Card Arts Full (hash {img_hash[:8]}) -- "
+                  f"reassign art for these, the parser can't fix this from data alone.")
+
+    if missing_art:
+        print(f"WARNING: {len(missing_art)} card(s) have no matching file in Card Arts Full: {missing_art}")
 
     return cards
 
@@ -525,12 +531,12 @@ def build_html(cards, analytics):
         'function cardImgSrc(c) {\n'
         '  // Cache-bust with the art\'s content hash so a browser that already\n'
         '  // cached this filename under old/wrong bytes is forced to refetch.\n'
-        '  return "cards/" + c.image + (c.img_ver ? ("?v=" + c.img_ver) : "");\n'
+        '  return "renders/" + encodeURIComponent(c.render) + (c.img_ver ? ("?v=" + c.img_ver) : "");\n'
         '}\n'
         '\n'
         'function renderGrid(cards) {\n'
         '  document.getElementById("grid").innerHTML = cards.map((c,i) => {\n'
-        '    const img = c.image\n'
+        '    const img = c.render\n'
         '      ? "<img src=\\"" + cardImgSrc(c) + "\\" alt=\\"" + c.name + "\\" loading=\\"lazy\\" onerror=\\"this.style.display=\'none\'\\">"\n'
         '      : "<div class=\\"no-img\\">&#127820;</div>";\n'
         '    return "<div class=\\"card\\" onclick=\\"showModal(" + i + ")\\">" + img + "<div class=\\"card-footer\\"><span class=\\"card-name\\">" + c.name + "</span><span class=\\"rarity-dot " + rarityClass(c.rarity) + "\\"></span></div></div>";\n'
@@ -565,7 +571,7 @@ def build_html(cards, analytics):
         '  if (!c) return;\n'
         '  const rules = renderRulesSymbols((c.rules||"").replace(/\\n/g,"<br>"));\n'
         '  document.getElementById("modal-body").innerHTML =\n'
-        '    (c.image ? `<img src="${cardImgSrc(c)}">` : "") +\n'
+        '    (c.render ? `<img src="${cardImgSrc(c)}">` : "") +\n'
         '    `<div class="modal-name">${c.name}</div>` +\n'
         '    `<div class="modal-cost">${formatCost(c.mana_symbols)}</div>` +\n'
         '    `<div class="modal-type">${c.type||""}</div>` +\n'
