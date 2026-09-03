@@ -266,7 +266,9 @@ for c in cards:
 lines.append(" </cards>")
 lines.append("</cockatrice_carddatabase>")
 
-ck_path = os.path.join(COCKATRICE_DIR, f"Dota2UniversesBeyond-cockatrice-{date.today().isoformat()}.xml")
+# Fixed filename (no date) -- this is a stable download URL people configure
+# once in Cockatrice, so it must not change between runs.
+ck_path = os.path.join(COCKATRICE_DIR, "Dota2UniversesBeyond-cockatrice.xml")
 with open(ck_path, "w", encoding="utf-8") as f:
     f.write("\n".join(lines) + "\n")
 print(f"Wrote {ck_path} ({ck_count} cards)")
